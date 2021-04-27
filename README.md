@@ -38,7 +38,7 @@ By the end of this course you should be able to demonstrate the following skills
 - Building Applications
     - HTML/CSS
         - Build HTML forms with labels attached to inputs
-        - Link CSS files
+        - [Link CSS files](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
     - JavaScript
         - Solve basic algorithms with loops, variables, data types, conditional statements
         - Write code with functions, including ES6 functions
