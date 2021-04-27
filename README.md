@@ -40,10 +40,10 @@ By the end of this course you should be able to demonstrate the following skills
         - Build HTML forms with labels attached to inputs
         - [Link CSS files](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
     - JavaScript
-        - Solve basic algorithms with loops, variables, data types, conditional statements
         - Write code with functions, including ES6 functions
-        - Parse and generate JSON
-        - Use browser APIs such as localStorage
+        - [Solve basic algorithms with loops, variables, data types, conditional statements](https://education.launchcode.org/intro-to-professional-web-dev/chapters/loops/accumulator-pattern.html)
+        - [Parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) and [generate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) JSON
+        - Use browser APIs such as [localStorage](https://www.htmldog.com/guides/javascript/advanced/localstorage/)
     - React
         - Build components with correct casing of files / component names / import / export syntax
         - Write valid JSX including className, htmlFor, expressions in interpolation
