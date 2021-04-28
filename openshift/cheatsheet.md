@@ -8,6 +8,8 @@
     1. If there's an error - refresh the page, try again
 1. Click on your name
 1. Click "Copy Login Command"
+   
+   ![](../img/openshift-copy-login-command.png)
 1. Click "Display Token"
 1. Copy the entire `oc login...` command and paste it into your terminal
 

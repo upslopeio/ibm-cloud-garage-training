@@ -76,7 +76,7 @@ By the end of this course you should be able to demonstrate the following skills
         - Create a basic Helm chart
         - Modify a default helm chart to work on the class's OpenShift cluster
     - CI
-        - Write a sequence diagram of CI
+        - [Write a sequence diagram of CI](./ci-cd/continuous-integration.md)
         - Setup a Tekton pipeline and make it pass for a React application
     - CD
         - Sequence diagram CD with Gitops
