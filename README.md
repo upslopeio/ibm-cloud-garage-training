@@ -8,7 +8,7 @@ By the end of this course you should be able to demonstrate the following skills
         - Recover from making windows full-screen
         - Split windows left and right (half screen)
         - Installing applications
-        - For Windows users: Install ELS
+        - [For Windows users: Install ELS](./computer-setup/windows-wsl.md)
         - Switch between windows and applications with keyboard
     - VSCode
         - [Install with command line tools](./computer-setup/visual-studio-code.md)
