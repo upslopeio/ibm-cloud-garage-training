@@ -1,8 +1,6 @@
-# Computer Setup
+# Computer Setup > Visual Studio Code
 
-## VSCode
-
-### Install (Mac)
+## Install (Mac)
 
 Follow [these instructions](https://code.visualstudio.com/docs/setup/mac) on Mac.
 
@@ -23,7 +21,7 @@ Contents
 If you don't see the word `Contents`, that means it's not installed correctly. Drag it to your `Applications` folder.
 
 
-### Install the `code` command line tool
+## Install the `code` command line tool
 
 Follow [these instructions](https://code.visualstudio.com/docs/setup/mac) on Mac.
 
@@ -44,7 +42,7 @@ It's not installed correctly if you see something like:
 code not found
 ```
 
-### Enable Autosave
+## Enable Autosave
 
 [Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
 
