@@ -14,7 +14,9 @@ By the end of this course you should be able to demonstrate the following skills
         - [Install with command line tools](./computer-setup/visual-studio-code.md)
         - LiveShare - both host and guest
         - Create files in the correct directory / move files
-    - Command Line (zsh and bash)
+    - Command Line
+        - [Install ZSH](./computer-setup/zsh.md)
+        - [Install Homebrew](./computer-setup/homebrew.md)
         - Change directories (up, down)
         - Describe how PATH works
         - Change PATH in .zshrc
@@ -23,7 +25,7 @@ By the end of this course you should be able to demonstrate the following skills
         - List the contents of a directory
         - Move and copy files
         - Navigate history using arrow keys and history command
-        - Clear the screen using both clear and CMD+K
+        - Clear the screen using both `clear` and `CMD+K`
         - Create and edit a file at the command line using touch and vim
     - Git
         - Create a repo locally and push it to a remote
