@@ -11,7 +11,7 @@ By the end of this course you should be able to demonstrate the following skills
         - For Windows users: Install ELS
         - Switch between windows and applications with keyboard
     - VSCode
-        - Install command line tools
+        - [Install with command line tools](./computer-setup/visual-studio-code.md)
         - LiveShare - both host and guest
         - Create files in the correct directory / move files
     - Command Line (zsh and bash)
