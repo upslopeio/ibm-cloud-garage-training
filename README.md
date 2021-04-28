@@ -56,6 +56,14 @@ By the end of this course you should be able to demonstrate the following skills
         - Use an efficient developer workflow (run and watch tests, run the app)
         - Create new React applications
         - Describe how single-page applications work
+    - Testing in JavaScript
+        - Describe the 3 parts of a test (SEA / PRE)
+        - Write valid test / describe / it (at least "test") blocks
+        - Use expect along with Jest matchers to write assertions
+        - Describe what to test (using ZOMBIES?)
+    - Testing in React
+        - [Use testing library methods to fill in fields, click buttons, assert](./react/testing.md)
+        - Run and watch tests with npm test
 - Devops
     - Docker
         - Explain images and containers
@@ -81,15 +89,6 @@ By the end of this course you should be able to demonstrate the following skills
     - CD
         - Sequence diagram CD with Gitops
         - Setup an Argo project manually in the UI
-- Building Applications
-    - Testing in JavaScript
-        - Describe the 3 parts of a test (SEA / PRE)
-        - Write valid test / describe / it (at least "test") blocks
-        - Use expect along with Jest matchers to write assertions
-        - Describe what to test (using ZOMBIES?)
-    - Testing in React
-        - Use testing library methods to fill in fields, click buttons, assert
-        - Run and watch tests with npm test
 - Process
     - Design Thinking
         - Explain what design thinking is and how it fits into the flow
