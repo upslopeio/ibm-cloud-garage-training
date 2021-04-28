@@ -6,7 +6,7 @@
 
 Follow [these instructions](https://code.visualstudio.com/docs/setup/mac) on Mac.
 
-**✅✅ How do I know if I completed this step? ✅✅**
+**✅ ✅  How do I know if I completed this step? ✅ ✅**
 
 Open Terminal and run the following command:
 
@@ -27,7 +27,7 @@ If you don't see the word `Contents`, that means it's not installed correctly. D
 
 Follow [these instructions](https://code.visualstudio.com/docs/setup/mac) on Mac.
 
-**✅✅ How do I know if I completed this step? ✅✅**
+**✅ ✅  How do I know if I completed this step? ✅ ✅**
 
 1. Open a new Terminal window or tab
 1. Type `which code`
@@ -48,7 +48,7 @@ code not found
 
 [Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
 
-**✅✅ How do I know if I completed this step? ✅✅**
+**✅ ✅  How do I know if I completed this step? ✅ ✅**
 
 When you open the File menu, you should see that Autosave is checked.
 
