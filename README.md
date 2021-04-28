@@ -15,6 +15,7 @@ By the end of this course you should be able to demonstrate the following skills
         - LiveShare - both host and guest
         - Create files in the correct directory / move files
     - Command Line
+        - [Install the Cloud Native Toolkit](./computer-setup/cloudnative-toolkit.md)
         - [Install ZSH](./computer-setup/zsh.md)
         - [Install Homebrew](./computer-setup/homebrew.md)
         - Change directories (up, down)
