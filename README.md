@@ -70,7 +70,7 @@ By the end of this course you should be able to demonstrate the following skills
         - Use the command line to debug an application using get, describe, logs...
     - OpenShift
         - Explain the relationship between OpenShift and Kubernetes
-        - Login to oc locally using the UI to get the token
+        - [Login to oc locally using the UI to get the token](./openshift/cheatsheet.md)
         - Describe projects and how they relate to kubernetes
     - Helm
         - Create a basic Helm chart
