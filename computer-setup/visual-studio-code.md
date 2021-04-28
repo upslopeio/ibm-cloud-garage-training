@@ -51,3 +51,12 @@ code not found
 When you open the File menu, you should see that Autosave is checked.
 
 ![](../img/vscode-autosave.png)
+
+
+## Windows Users
+
+[Setup WSL for Visual Studio](https://code.visualstudio.com/docs/remote/wsl)
+
+**✅ ✅  How do I know if I completed this step? ✅ ✅**
+
+When you open a new Terminal from within VSCode, it should default to a WSL linux terminal.
