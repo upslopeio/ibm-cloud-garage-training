@@ -88,7 +88,7 @@ By the end of this course you should be able to demonstrate the following skills
         - Setup a Tekton pipeline and make it pass for a React application
     - CD
         - Sequence diagram CD with Gitops
-        - Setup an Argo project manually in the UI
+        - [Setup an Argo project manually in the UI](./ci-cd/argo.md)
 - Process
     - Design Thinking
         - Explain what design thinking is and how it fits into the flow
