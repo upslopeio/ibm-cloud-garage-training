@@ -60,3 +60,19 @@ When you open the File menu, you should see that Autosave is checked.
 **✅ ✅  How do I know if I completed this step? ✅ ✅**
 
 When you open a new Terminal from within VSCode, it should default to a WSL linux terminal.
+
+## LiveShare
+
+https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-server
+
+**✅ ✅  How do I know if I completed this step? ✅ ✅**
+
+If you've checked off the following steps, it means you have what you need!
+
+- [ ] I started a LiveShare session
+- [ ] I shared a Terminal
+- [ ] I shared a Server (for example localhost:3000)
+- [ ] I joined a LiveShare session
+- [ ] I typed into a remote Terminal
+- [ ] I opened a remote Server
+
