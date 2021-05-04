@@ -4,7 +4,7 @@
 
 Public DockerHub images are [severely rate-limited](https://www.docker.com/increase-rate-limits).
 
-quay.io does not have rate limits on public repositories.  See the [Docker Lab](https://cloudnative101.dev/lectures/containers/activities/) for more information on how to create a quay.io account.
+quay.io does not have rate limits on public repositories. See the [Docker Lab](https://cloudnative101.dev/lectures/containers/activities/) for more information on how to create a quay.io account.
 
 On a client site, you will have an internal docker registry. In fact, even in class there's an [internal docker registry](https://docs.openshift.com/container-platform/3.3/install_config/registry/accessing_registry.html) which you can use.
 
@@ -33,6 +33,7 @@ docker push !$
 React applications (as well as other single-page applications) compile down to static files (HTML, CSS, fonts, etc...).
 
 In order to build these applications, you need to add two files:
+
 1. Dockerfile
 1. nginx.conf
 
@@ -122,5 +123,4 @@ Then open http://localhost:8080 in your browser to see it work.
 
 **Pros**: You don't need to build the react app separately
 
-**Cons**: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system). 
-
+**Cons**: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system).
