@@ -67,7 +67,7 @@ By the end of this course you should be able to demonstrate the following skills
 - Devops
     - Docker
         - Explain images and containers
-        - Create a Dockerfile containing nginx and build it
+        - [Create a Dockerfile containing nginx and build it](./react/docker.md)
         - Run a container in the foreground, mapping ports
         - List images and containers
         - Show running containers
