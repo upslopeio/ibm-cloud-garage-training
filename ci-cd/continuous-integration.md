@@ -26,14 +26,3 @@ note right of K8s Dev: docker run...
 ```
 
 ![](../img/ci-sequence.png)
-
-## Troubleshooting
-
-**Deploy step fails with message 'error: object has been deleted'**
-
-This happens when you've named your Argo project the same as your repo name.
-
-Delete the Argo project and recreate it with a new name. See the following links for more info:
-
-- https://github.com/argoproj/argo-cd/issues/2650
-- https://argoproj.github.io/argo-cd/faq/#why-is-my-app-out-of-sync-even-after-syncing
