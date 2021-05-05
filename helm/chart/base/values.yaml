@@ -10,7 +10,7 @@ image:
   repository: replace
   tag: replace
   pullPolicy: IfNotPresent
-  port: 3000
+  port: 8080
 
 nameOverride: ""
 fullnameOverride: ""
