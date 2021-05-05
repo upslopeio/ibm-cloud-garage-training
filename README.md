@@ -29,9 +29,9 @@ By the end of this course you should be able to demonstrate the following skills
     - Clear the screen using both `clear` and `CMD+K`
     - Create and edit a file at the command line using touch and vim
   - Git
-    - [Configure Git](./git/readme.md) with you your username / email, ignorecase, credential helper, ...
-    - Create a repo locally and push it to a remote
-      - [Clone a Gogs repo](./gogs-authentication.md)
+    - [Configure Git](./git/readme.md) with you your username / email, ignorecase, and credential helper
+    - [Create a local repository and push it to a remote](./gogs/readme.md)
+    - [Clone a Gogs repo](./gogs-authentication.md)
       - Add / commit / pull / push changes
       - Resolve merge conflicts visually in VSCode
       - Restore files you don't want to commit
