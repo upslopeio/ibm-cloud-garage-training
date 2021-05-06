@@ -10,16 +10,16 @@
 Use the following instructions to set up a new continuous integrations pipeline using Tekton.
 
 1. In the repo folder run `oc pipeline --tekton`. This will create a new pipeline and add the application to the gitops repository `qa` environment.
-	1. if successful, the pipeline url is printed out 
+   1. if successful, the pipeline url is printed out
 1. visit the URL and see that the build failed (CMD+click on the url in zsh)
 1. Add Dockerfile and push
 1. Add helm charts
-	- render locally with helm template <release-name> ./chart/base
+   - render locally with helm template <release-name> ./chart/base
 
 ## Finding your pipeline
 
 1. Select developer view
-	![](./developer-view.png)
+   ![](./developer-view.png)
 1. Select pipelines
    ![](./developer-pipelines.png)
 1. Filter projects by name
@@ -46,9 +46,9 @@ You'll see the most errors the first time you are setting up the application.
 
 | Error Message                                                       | Solution                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `cp: can't create directory '/[directory-name]': Permission denied` | [Add helm charts](../helm) <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                                                                                                                                                                   |
+| `cp: can't create directory '/[directory-name]': Permission denied` | [Add helm charts](../helm) <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                    |
 | `error: deployment "react-intro" exceeded its progress deadline`    | This means the pods never came up. If you login to the project from terminal and run `oc get pods`, look for the pod that is failing (it will not be named using the pipeline run). You should see they are not running. Then describe / log them to see why |
-| `error: object has been deleted` | The namespace or Argo project has the same as your repository. Delete the namespace or Argo project and recreate it with a new unique name. |
+| `error: object has been deleted`                                    | The namespace or Argo project has the same as your repository. Delete the namespace or Argo project and recreate it with a new unique name.                                                                                                                  |
 
 **img-scan stage**
 
