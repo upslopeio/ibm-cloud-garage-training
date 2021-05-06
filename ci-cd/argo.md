@@ -11,14 +11,7 @@ Use the following instructions to set up a new continuous delivery controller us
 > **Stop** make sure your pipeline is green before setting up ArgoCD
 
 1. Determine the name of the new project. Usually `project[user-number]-[app-repo-name]-[environment]`
-1. Give new environment permission to pull images from qa namespace
-   1. run `oc project <new-project-name>`
-   1. run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>`
-      If successful, you will see something like the following:
-	  ```shell
-      Warning: Group 'system:serviceaccounts:<new-project-name>' not found
-      clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"
-      ```
+
 1. Update GitOps repository
    1. Run `oc console` to open the web console.
    1. Click the "9 box" menu, then select "Git Ops", then copy the http link
@@ -51,6 +44,17 @@ Use the following instructions to set up a new continuous delivery controller us
       - Destination
         - cluster = select the one available option
         - namespace = the target namespace. Usually `project[user-number]-[app-repo-name]-[environment]`
+	  - Click create at the top
+1. Now the ArgoCD controller is displayed. Shortly you will notice that the pod creation failed, and it has a status of `ImagePullBackOff`. 
+   This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.
+1. Give the new environment permission to pull images from qa namespace
+	1. run `oc project <new-project-name>`
+	1. run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>`
+	   If successful, you will see something like the following:
+	   ```shell
+	   clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"
+	   ```
+    1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this it will have permission to pull images from the other namespace.
 1. If successful, you will see something like the following when you open the ArgoCD controller:
    ![](./argo-success.png)
 1. What just happened?
