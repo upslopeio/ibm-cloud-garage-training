@@ -41,6 +41,7 @@ protocol=http
 ```
 
 Resources:
+
 - https://stackoverflow.com/questions/53419660/how-to-add-credentials-from-the-command-line-using-git-credential-osxkeychain-s
 
 ## Storing Credentials on Linux
@@ -50,6 +51,7 @@ In linux you can temporarily store credentials in memory:
 On Windows WSL, you can optionally use the Git for Windows Credentials Manager:
 
 Resources:
+
 - https://stackoverflow.com/questions/45925964/how-to-use-git-credential-store-on-wsl-ubuntu-on-windows
 
 ## Storing Credentials on Windows
@@ -57,4 +59,3 @@ Resources:
 We don't recommend developing on Windows. You should use WSL.
 
 If you absolutely must develop on Windows, [here's a link](https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git) that will help you cache credentials.
-

@@ -2,7 +2,7 @@
 
 ZSH (zshell) is the new default shell for Mac, and many of the commands in the course work better with zshell.
 
-**✅ ✅  How do I know if I completed this step? ✅ ✅**
+**✅ ✅ How do I know if I completed this step? ✅ ✅**
 
 1. Open a new Terminal window (or tab)
 1. Run the following command:
@@ -26,4 +26,3 @@ brew install zsh
 ```
 
 If you see `cannot find brew` it means you have to [install homebrew](./homebrew.md).
-

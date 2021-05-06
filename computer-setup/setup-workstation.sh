@@ -120,6 +120,7 @@ echo
 echo Installing Terminal Shell
 curl -sL shell.cloudnativetoolkit.dev | bash -
 
+echo 'export PATH="$(npm bin -g):$PATH"' >> ~/.zshrc
 echo
 echo source ~/.zshrc
 
