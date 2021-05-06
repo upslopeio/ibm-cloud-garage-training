@@ -1,14 +1,21 @@
 # CD with ArgoCD
 
+## Prerequisites
+
+1. Tekton pipeline is **green** - all stages are passing
+
+## Setup
+
 Use the following instructions to set up a new continuous delivery controller using ArgoCD.
 
-1. Update GitOps repository
+> **Stop** make sure your pipeline is green before setting up ArgoCD
 
+1. Update GitOps repository
    1. Run `oc console` to open the web console.
    1. Click the "9 box" menu, then select "Git Ops", then copy the http link
    1. In the terminal, CD to your $HOME directory `cd ~`
    1. Type `git clone `, paste in the gitops http url, hit enter.
-   1. `git checkout -b project[user-number]-[environment]` or `git checkout -b squad[squad-number]-[repo-name]-[environment]`
+   1. `git checkout -b add-[user-number]-[environment]` or `git checkout -b add-[squad-number]-[app-repo-name]-[environment]`
    1. Run `code .` and find the application you want to deploy under `/qa`, and copy that entire folder to the new `[environment]` folder (i.e. production)
    1. Git add, commit, and push to your branch.
    1. Create a new pull request and immediately merge it.
@@ -22,22 +29,36 @@ Use the following instructions to set up a new continuous delivery controller us
    1. Allow selected permissions
    1. Click "new app"
    1. Fill in the form
-      - application name: Thus must be unique to the entire cluster. use `project[user-number]-[repo-name]-[environment]` or `squad[squad-number]-[repo-name]-[environment]`
+      - application name: Thus must be unique to the entire cluster. use `project[user-number]-[app-repo-name]-[environment]` or `squad[squad-number]-[app-repo-name]-[environment]`
       - project = default
       - repository = url to gitops repository ("9 box" menu, click "Git Ops")
-      - Project = path to your project environment folder. Usually `[environment]/project[user-number]/[repo-name]`
+      - Project = path to your project environment folder. Usually `[environment]/project[user-number]/[app-repo-name]`
       - cluster = select the one available option
-      - namespace = the target namespace. Usually `project[user-number]-[environment]`
+      - namespace = the target namespace. Usually `project[user-number]-[app-repo-name]-[environment]`
 1. If successful, you will see something like the following when you open the ArgoCD controller:
    ![](./argo-success.png)
+1. What just happened?
+   You have a new environment. Let's assume it is `production`; `qa` and `production` are running the same version of your application because the version in gitops `[environment]/project[user-number]/[app-repo-name]/requirements.yaml`
+	Your CI/CD pipeline looks like the following sequence diagram:
+   ![](./argo-cd.png)
+   
+## Promoting a new version to production
+
+1. Update the application version in the `package.json` file and commit it, so a new image is built by the Tekton pipeline.
+1. Update GitOps repository
+	1. In the terminal, CD to your $HOME directory `cd ~/gitops`
+	1. `git checkout -b update-[user-number]-[app-repo-name]-[environment]` or `git checkout -b update-[squad-number]-[app-repo-name]-[environment]`
+	1. Update and update the version in the `[environment]/project[user-number]/[app-repo-name]/requirements.yaml` file.
+	1. Git add, commit, and push to your branch.
+	1. Create a new pull request and immediately merge it.
+	1. Open the ArgoCD controller and note the new version is running in production.
 
 ## Troubleshooting
 
-**Deploy step fails with message 'error: object has been deleted'**
-
-This happens when you've named your Argo project the same as your repo name.
-
-Delete the Argo project and recreate it with a new name. See the following links for more info:
+| Error Message                     | Solution                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ErrImagePull` or `ImagePullBackOff` | Allow your production namespace to pull images created from your dev namespace<br>Switch to production namespace `oc project project[user-number]-[app-repo-name]-production`<br>run `oc policy add-role-to-group system:image-puller system:serviceaccounts:[PRODUCTION-PROJECT] -n [DEV-PROJECT]` <br>Switch back to dev namespace `oc project project[user-number]-[app-repo-name]-dev` |
+| `error: object has been deleted` | The Argo project has the same as your repository. Delete the Argo project and recreate it with a new unique name. |
 
 ## Resources:
 
