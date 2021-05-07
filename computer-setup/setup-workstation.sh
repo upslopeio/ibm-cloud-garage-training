@@ -85,7 +85,7 @@ echo Looking for jq to set permissions
 if command -v jq &>/dev/null; then
   sh -c "$(chmod u+x $(command -v jq))"
 else
-  sh -c "$(brew install yq@3)"
+  sh -c "$(brew install jq)"
   echo Skipping set jq permissions
 fi
 
