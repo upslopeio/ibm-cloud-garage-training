@@ -8,18 +8,18 @@
 
 Use the following instructions to set up a new continuous delivery controller using ArgoCD.
 
-> **Stop** make sure your pipeline is green before setting up ArgoCD
+> **Stop**: make sure your pipeline is green before setting up ArgoCD
 
 1. Determine the name of the new project. Usually `project<user-number>-<app-repo-name>-<environment>`
 
 1. Update GitOps repository
 
    1. Run `oc console` to open the web console.
-   1. Click the "9 box" menu, then select "Git Ops", then copy the http link
+   1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
    1. In the terminal, CD to your $HOME directory `cd ~`
    1. Type `git clone `, paste in the gitops http url, hit enter.
-   1. `git checkout -b add-<user-number>-<environment>` or `git checkout -b add-<squad-number>-<app-repo-name>-<environment>`
-   1. Run `code .` and find the application you want to deploy under `/qa`, and copy that entire folder to the new `<environment>` folder (i.e. production)
+   1. `git checkout -b add-<user-number>-<app-repo-name>-<environment>` or `git checkout -b add-<squad-number>-<app-repo-name>-<environment>`
+   1. Run `code .` and find the application you want to deploy under the `/qa` folder, and copy that entire folder to the new `<environment>` folder (i.e. production)
    1. Git add, commit, and push to your branch.
    1. Create a new pull request and immediately merge it. After merging, click the delete branch button.
 
@@ -55,12 +55,16 @@ Use the following instructions to set up a new continuous delivery controller us
       ```shell
       clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"
       ```
-   1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this it will have permission to pull images from the other namespace.
-1. If successful, you will see something like the following when you open the ArgoCD controller:
+   1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.
+1. If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
    ![](./argo-success.png)
 1. What just happened?
-   You have a new environment. Let's assume it is `production`; `qa` and `production` are running the same version of your application because the version in gitops `<environment>/project<user-number>/<app-repo-name>/requirements.yaml`
-   Your CI/CD pipeline looks like the following sequence diagram:
+
+   You have a new environment. Let's assume it is `production`.
+   
+   `qa` and `production` are running the same version of your application because the version number specified in gitops `<environment>/project<user-number>/<app-repo-name>/requirements.yaml` is the same in both environments.
+   
+   Your CI/CD pipeline now looks like the following sequence diagram:
    ![](./argo-cd.png)
 
 ## Promoting a new version to production
@@ -79,7 +83,7 @@ Use the following instructions to set up a new continuous delivery controller us
 | Error Message                        | Solution                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ErrImagePull` or `ImagePullBackOff` | Allow your production namespace to pull images created from your dev namespace<br>Switch to production namespace `oc project project<user-number>-<app-repo-name>-production`<br>run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project> -n <dev-project>` <br>Switch back to dev namespace `oc project project<user-number>-<app-repo-name>-dev` |
-| `error: object has been deleted`     | The Argo project has the same as your repository. Delete the Argo project and recreate it with a new unique name.                                                                                                                                                                                                                                                                   |
+| `error: object has been deleted`     | The Argo project has the same name as your repository. Delete the Argo project and recreate it with a new unique name.                                                                                                                                                                                                                                                                   |
 
 ## Resources:
 
