@@ -53,7 +53,7 @@ source ~/.zshrc
 **Install common packages**
 
 ```
-brew install gcc git
+brew install gcc git node
 ```
 
 ## IBM Cloud
