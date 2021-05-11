@@ -1,36 +1,56 @@
 # IBM Cloud Garage Learning Standards
 
+## Computer Setup (Before Class)
+
+In order to complete the course, you need several pieces of software installed.
+
+**Mac is better than Windows for Cloud Garage Development**
+
+If you have the choice, get a Mac. It will greatly simplify your life. It should take about 30m to install everything on your Mac.
+
+If you have Windows, you must use WSL. It will take several hours to install WSL plus the required libraries on your Windows machine.
+
+Please plan for this and set up your machines _before_ class.
+
+### Windows Users
+
+- [Windows Setup Guide](computer-setup/windows.md)
+
+### Mac Users
+
+- [Mac Setup Guide](computer-setup/mac.md)
+
+## Prerequisites
+
+Before joining class you should already be able to do the following things:
+
+- Personal Computing Skills
+  - Make windows full-width / full-height but not full screen with a key command
+  - Recover from making windows full-screen
+  - Split windows left and right (half screen)
+  - Install applications
+  - Switch between windows and applications with keyboard
+- Command Line
+  - Change directories (up, down)
+  - Describe how PATH works
+  - Change PATH in .zshrc
+  - Determine if an executable is in path with which
+  - Print the working directory
+  - List the contents of a directory
+  - Move and copy files
+  - Navigate history using arrow keys and history command
+  - Clear the screen using both `clear` and `CMD+K`
+  - Create and edit a file at the command line using touch and vim
+
+## Learning Standards
+
 By the end of this course you should be able to demonstrate the following skills:
 
 - Basics
-  - Personal Computing Skills
-    - Make windows full-width / full-height but not full screen with a key command
-    - Recover from making windows full-screen
-    - Split windows left and right (half screen)
-    - Installing applications
-    - [For Windows users: Install ELS](./computer-setup/windows-wsl.md)
-    - Switch between windows and applications with keyboard
   - VSCode
-    - [Install with command line tools](./computer-setup/visual-studio-code.md)
     - LiveShare - both host and guest
     - Create files in the correct directory / move files
-  - Command Line
-    - [Install the Cloud Native Toolkit](./computer-setup/cloudnative-toolkit.md)
-    - [Install ZSH](./computer-setup/zsh.md)
-    - [Install Homebrew](./computer-setup/homebrew.md)
-    - Change directories (up, down)
-    - Describe how PATH works
-    - Change PATH in .zshrc
-    - Determine if an executable is in path with which
-    - Print the working directory
-    - List the contents of a directory
-    - Move and copy files
-    - Navigate history using arrow keys and history command
-    - Clear the screen using both `clear` and `CMD+K`
-    - Create and edit a file at the command line using touch and vim
   - Git
-    - [Configure Git](./git/readme.md) with you your username / email, ignorecase, and credential helper
-    - [Create a local repository and push it to a remote](./gogs/readme.md)
     - [Clone a Gogs repo](./gogs-authentication.md)
       - Add / commit / pull / push changes
       - Resolve merge conflicts visually in VSCode
