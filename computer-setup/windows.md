@@ -8,6 +8,23 @@ https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 **NOTE:** Be sure to remember the password you set for your ubuntu user. You'll need this often.
 
+**✅ ✅ How do I know if I completed this step? ✅ ✅**
+
+From PowerShell, run
+
+```powershell
+wsl --list --verbose
+```
+
+Returns the Name of the Linux you installed, thr running state, the WSL version as `2` and the `*` marking default:
+
+```text
+  NAME                   STATE           VERSION
+* Ubuntu-18.04           Running         2
+```
+
+If if you see something else, may need to set [wsl defaults](https://docs.microsoft.com/en-us/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2) . In this case, to set the particular distro as default, use `wsl --set-default Ubuntu-18.04`.
+
 ## Ubuntu Updates
 
 From the WSL Terminal, run the following:
