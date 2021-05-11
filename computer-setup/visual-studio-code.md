@@ -61,7 +61,10 @@ When you open a new Terminal from within VSCode, it should default to a WSL linu
 
 ## LiveShare
 
+Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare)
+
 https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-server
+
 
 **✅ ✅ How do I know if I completed this step? ✅ ✅**
 
@@ -73,3 +76,9 @@ If you've checked off the following steps, it means you have what you need!
 - [ ] I joined a LiveShare session
 - [ ] I typed into a remote Terminal
 - [ ] I opened a remote Server
+
+## Extensions
+
+[Install the Kubernetes yaml extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+Setup VS Code to use ZSH shell

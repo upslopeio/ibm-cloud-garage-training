@@ -26,3 +26,12 @@ brew install zsh
 ```
 
 If you see `cannot find brew` it means you have to [install homebrew](./homebrew.md).
+
+## Windows
+
+From the WSL Terminal
+
+```
+sudo apt-get update -y
+sudo apt-get install build-essential zsh -y 
+```
