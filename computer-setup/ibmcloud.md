@@ -18,7 +18,7 @@ If you see output like `/usr/local/bin/ibmcloud` then you have successfully inst
 If you see output like `not found` then you need to install it:
 
 1. Visit https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli
-1. Follow the instructions for your operating system
+1. Follow the instructions for your operating system. Tip: You can use the shell script in the second section instead of the installer option.
 
 ## Install the `ibmcloud` container plugin
 
