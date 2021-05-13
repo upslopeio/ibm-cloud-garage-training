@@ -29,6 +29,8 @@ You'll see the most errors the first time you are setting up the pipeline.
 | -------------------- | ----------------------------------------------------------------------- |
 | The test stage fails | Run the following command locally and fix any errors `CI=true npm test` |
 
+NOTE: if you want to ignore a failing test (just so you can move onto the next stage during class) you can change `test` to `test.skip`
+
 **build stage**
 
 | Error Message                                                                                     | Solution                                                                                                                                                    |
