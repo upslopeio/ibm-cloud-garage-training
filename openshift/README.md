@@ -56,6 +56,7 @@ If you do not see all the above output, the command failed. (the code ignores al
 | Error Message                          | Solution                                                                                                                                             |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | None but some output lines are missing | Run `ibmcloud ks api`, if that fails with `FAILED 'ks' is not a registered command.` then run `ibmcloud plugin install container-service` to fix it. |
+| You don't see `Copying ConfigMaps`     | Your permissions were setup incorrectly. Contact your instructor to fix them.                                                                        |
 
 ## oc pipeline --tekton failures
 
