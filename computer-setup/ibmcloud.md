@@ -3,7 +3,7 @@
 ## Prereqs
 
 1. If you are a Windows user, make sure you've [installed WSL](windows.md) and that you follow these steps from within WSL (ubuntu)
-1. Make sure you have [set zsh](./zsh.md)  as your default shell
+1. Make sure you have [set zsh](./zsh.md) as your default shell
 1. Make sure you have [homebrew](./homebrew.md)
 1. Make sure you have [node](./node.md)
 
@@ -46,7 +46,7 @@ In order to login to the cluster from the command line, you must first login on 
 1. Under "Resource Summary" click "Clusters"
 1. Click your cohort's cluster
 1. Click "OpenShift Web Console"
-1. You should see the OpenShift web console 
+1. You should see the OpenShift web console
 
 ![](./img/ibmcloud-account.png)
 
@@ -108,10 +108,10 @@ brew install jq
 
 1. Visit https://cloudnativetoolkit.dev/getting-started/dev-env-setup
 1. Follow instructions:
-    ```
+   ```
    curl -sL shell.cloudnativetoolkit.dev | bash -
    source ~/.zshrc
-    ```
+   ```
 1. Run `icc --add-account`
 1. name the account `garage`
 1. Paste in the API key you generated above

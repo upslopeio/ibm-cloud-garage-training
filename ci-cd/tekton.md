@@ -13,7 +13,7 @@ Use the following instructions to set up a new continuous integration pipeline u
    - `Select the Pipeline to use in the Pipeline Run:` choose the most appropriate pipeline for your project
      - For React, choose `ibm-nodejs`
      - For Go, choose `ibm-general`
-   - `Image scan (y/n)`, type `n` 
+   - `Image scan (y/n)`, type `n`
    - `Lint dockerfile (y/n)`, type `n`
 1. If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.
 
@@ -31,35 +31,35 @@ You'll see the most errors the first time you are setting up the pipeline.
 
 **build stage**
 
-| Error Message                                                                                       | Solution                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Error Message                                                                                     | Solution                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | error reading info about "/source/Dockerfile": stat /source/Dockerfile: no such file or directory | [Containerize the application](../react/docker.md)                                                                                                          |
-| The build stage fails                                                                               | Run the following command locally and fix any errors `docker build -t <application-name> .` Replace `<application-name>` with the correct application name. |
+| The build stage fails                                                                             | Run the following command locally and fix any errors `docker build -t <application-name> .` Replace `<application-name>` with the correct application name. |
 
 **deploy stage**
 
-| Error Message                                                       | Solution                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| cp: can't create directory '/<directory-name>': Permission denied | [Add helm charts](../helm) <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                    |
-| error: deployment "react-intro" exceeded its progress deadline   | This means the pods never came up. If you login to the project from terminal and run `oc get pods`, look for the pod that is failing (it will not be named using the pipeline run). You should see at least one that is not running. Then `oc describe pod <pod-name>` and/or `oc logs <pod-name>` to find out why it is not running |
-| `error: object has been deleted`                                    | The namespace or Argo project name is the same as your repository name. Delete the namespace or Argo project and recreate it with a new unique name.                                                                                                                  |
+| Error Message                                                     | Solution                                                                                                                                                                                                                                                                                                                             |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| cp: can't create directory '/<directory-name>': Permission denied | [Add helm charts](../helm) <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                                                                                            |
+| error: deployment "react-intro" exceeded its progress deadline    | This means the pods never came up. If you login to the project from terminal and run `oc get pods`, look for the pod that is failing (it will not be named using the pipeline run). You should see at least one that is not running. Then `oc describe pod <pod-name>` and/or `oc logs <pod-name>` to find out why it is not running |
+| `error: object has been deleted`                                  | The namespace or Argo project name is the same as your repository name. Delete the namespace or Argo project and recreate it with a new unique name.                                                                                                                                                                                 |
 
 **dockerfile-lint stage**
 
-| Error Message               | Solution                                                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------ |
+| Error Message               | Solution                                                    |
+| --------------------------- | ----------------------------------------------------------- |
 | dockerfile-lint stage fails | Set `lint-dockerfile` to `false` in the pipeline parameters |
 
 **img-scan stage**
 
-| Error Message            | Solution                                                                              |
-| ------------------------ | ------------------------------------------------------------------------------------- |
-| The img-scan stage fails | Set `scan-image` to `false` in the pipeline parameters  |
+| Error Message            | Solution                                               |
+| ------------------------ | ------------------------------------------------------ |
+| The img-scan stage fails | Set `scan-image` to `false` in the pipeline parameters |
 
 **health stage**
 
-| Error Message                  | Solution                                                                                                 |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Error Message                            | Solution                                                                      |
+| ---------------------------------------- | ----------------------------------------------------------------------------- |
 | contains `https://` in the error message | Add a `health-protocol` key with a value of `http` to the pipeline parameters |
 
 **tag-release stage**
@@ -70,8 +70,8 @@ You'll see the most errors the first time you are setting up the pipeline.
 
 **helm-release stage**
 
-| Error Message                                                  | Solution                                                                                                 |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Error Message                                                | Solution                                                                                                 |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
 | It looks like your Artifactory installation is not complete. | Instructor should follow setup instructions at <https://cloudnativetoolkit.dev/admin/artifactory-setup/> |
 
 ## Other failures
@@ -85,7 +85,7 @@ You'll see the most errors the first time you are setting up the pipeline.
 
 The following is a screen shot of the pipeline parameters page:
 
-![](./pipeline-parameters.png) 
+![](./pipeline-parameters.png)
 
 ## Finding your pipeline
 

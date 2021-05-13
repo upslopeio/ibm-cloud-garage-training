@@ -65,7 +65,6 @@ Install the [Live Share extension](https://marketplace.visualstudio.com/items?it
 
 https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-server
 
-
 **✅ ✅ How do I know if I completed this step? ✅ ✅**
 
 If you've checked off the following steps, it means you have what you need!

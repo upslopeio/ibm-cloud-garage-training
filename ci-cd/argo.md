@@ -61,9 +61,9 @@ Use the following instructions to set up a new continuous delivery controller us
 1. What just happened?
 
    You have a new environment. Let's assume it is `production`.
-   
+
    `qa` and `production` are running the same version of your application because the version number specified in gitops `<environment>/project<user-number>/<app-repo-name>/requirements.yaml` is the same in both environments.
-   
+
    Your CI/CD pipeline now looks like the following sequence diagram:
    ![](./argo-cd.png)
 
@@ -80,10 +80,10 @@ Use the following instructions to set up a new continuous delivery controller us
 
 ## Troubleshooting
 
-| Error Message                        | Solution                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Error Message                        | Solution                                                                                                                                                                                      |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ErrImagePull` or `ImagePullBackOff` | Allow your production namespace to pull images created from your dev namespace<br>run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project> -n <dev-project>` |
-| `error: object has been deleted`     | The Argo project has the same name as your repository. Delete the Argo project and recreate it with a new unique name.                                                                                                                                                                                                                                                                   |
+| `error: object has been deleted`     | The Argo project has the same name as your repository. Delete the Argo project and recreate it with a new unique name.                                                                        |
 
 ## Resources:
 

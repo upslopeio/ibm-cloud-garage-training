@@ -2,14 +2,16 @@
 
 - [Cheatsheet](./cheatsheet.md)
 
-## ICC 
+## ICC
 
 If you run `icc <cluster-name>` to log into a cluster and you see the following:
+
 ```
 Logging into ibmcloud: us-south/Default
 Logging into OpenShift cluster <cluster-name> with server url https://cXXXX.us-south.containers.cloud.ibm.com:30350
 Error from server (InternalError): Internal error occurred: unexpected response: 500
 ```
+
 It is because you have not yet visited that cluster's OpenShift web console in the browser.
 
 ## ibmcloud plugins
@@ -30,10 +32,10 @@ container-registry                     0.1.518   Update Available   true
 container-service/kubernetes-service   1.0.258                      false
 ```
 
-| Missing Plugin                       | Install command                              |
+| Missing Plugin                       | Install command                              |     |
 | ------------------------------------ | -------------------------------------------- | --- |
 | container-registry                   | `ibmcloud plugin install container-registry` |     |
-| container-service/kubernetes-service | `ibmcloud plugin install container-service`  |
+| container-service/kubernetes-service | `ibmcloud plugin install container-service`  |     |
 
 ## oc sync <project-name> failures
 

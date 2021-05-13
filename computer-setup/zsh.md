@@ -33,5 +33,5 @@ From the WSL Terminal
 
 ```
 sudo apt-get update -y
-sudo apt-get install build-essential zsh -y 
+sudo apt-get install build-essential zsh -y
 ```
