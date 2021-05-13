@@ -21,11 +21,11 @@ export QUAY_USER=<your quay.io username>
 
 docker pull node:alpine
 docker tag node:alpine quay.io/$QUAY_USER/node-alpine
-docker push !$
+docker push quay.io/$QUAY_USER/node-alpine
 
 docker pull nginxinc/nginx-unprivileged
 docker tag node:alpine quay.io/$QUAY_USER/nginx-unprivileged
-docker push !$
+docker push quay.io/$QUAY_USER/nginx-unprivileged
 ```
 
 ## Option 1: Build then Build 😉
