@@ -46,15 +46,15 @@ You'll see the most errors the first time you are setting up the pipeline.
 
 **dockerfile-lint stage**
 
-| Error Message               | Solution                                                    |
-| --------------------------- | ----------------------------------------------------------- |
-| dockerfile-lint stage fails | Set `lint-dockerfile` to `false` in the pipeline parameters |
+| Error Message               | Solution                                                                          |
+| --------------------------- | --------------------------------------------------------------------------------- |
+| dockerfile-lint stage fails | Set `lint-dockerfile` to `false` in the pipeline parameters (see the image below) |
 
 **img-scan stage**
 
-| Error Message            | Solution                                               |
-| ------------------------ | ------------------------------------------------------ |
-| The img-scan stage fails | Set `scan-image` to `false` in the pipeline parameters |
+| Error Message            | Solution                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| The img-scan stage fails | Set `scan-image` to `false` in the pipeline parameters (see the image below) |
 
 **health stage**
 
