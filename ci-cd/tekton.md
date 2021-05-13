@@ -1,11 +1,44 @@
 # CI with Tekton
 
-## Prerequisites
+## Go into your react-intro application
 
-1. Running `CI=true npm test` passes all tests
-1. The code is checked into a Gogs repository
+```
+cd ~/react-intro
+```
 
-## Setup
+## Make sure that tests pass
+
+Run the following command:
+
+```
+CI=true npm test
+```
+
+🛑 - You should see that all of your tests pass. If all of your tests don't pass, do not continue. Fix your tests.
+
+## Make sure your code is on Gogs
+
+Run the following command:
+
+```
+git status
+```
+
+You should have no changes to commit. If you have changes to commit.
+
+```
+git push origin master
+```
+
+### Log Into the cluster
+
+```java
+icc <cluster name>
+```
+
+For example: `icc cohort7`
+
+### Create the Tekton Pipeline
 
 Use the following instructions to set up a new continuous integration pipeline using Tekton.
 
