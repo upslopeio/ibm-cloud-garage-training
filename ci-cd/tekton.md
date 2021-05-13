@@ -30,7 +30,7 @@ You should have no changes to commit. If you have changes to commit.
 git push origin master
 ```
 
-### Log Into the cluster
+## Log Into the cluster
 
 ```java
 icc <cluster name>
@@ -38,19 +38,122 @@ icc <cluster name>
 
 For example: `icc cohort7`
 
+## Create a new project
+
+Replace `<USER NUMBER>` with your user number:
+
+```
+oc sync project-<USER NUBER>-react-app
+```
+
+You should see output like this:
+
+```
+Setting up namespace foobar
+Setting up namespace: foobar
+Checking for existing project: foobar
+Creating project: foobar
+Copying ConfigMaps
+Copying Secrets
+Setting current project to foobar
+```
+
+Then type `oc project` and you should see:
+
+```
+Using project "foobar" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
+```
+
+If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions.
+
 ### Create the Tekton Pipeline
 
-Use the following instructions to set up a new continuous integration pipeline using Tekton.
+Create the pipeline:
 
-1. In the repo folder run `oc pipeline --tekton`. This will create a new pipeline and add the application to the gitops repository `qa` environment.
-   - `Select the Pipeline to use in the Pipeline Run:` choose the most appropriate pipeline for your project
-     - For React, choose `ibm-nodejs`
-     - For Go, choose `ibm-general`
-   - `Image scan (y/n)`, type `n`
-   - `Lint dockerfile (y/n)`, type `n`
-1. If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.
+```
+oc pipeline --tekton
+```
+
+- `Select the Pipeline to use in the Pipeline Run:` choose the most appropriate pipeline for your project
+    - For React, choose `ibm-nodejs`
+- `Image scan (y/n)`, type `n`
+- `Lint dockerfile (y/n)`, type `n`
+
+This will create a new pipeline and add the application to the gitops repository `qa` environment.
+
+If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.
 
 > If the pipeline fails, use the troubleshooting tables below to fix the failure.
+
+1. Run `oc console` to open a console
+1. In the sidebar, go to Pipelines
+1. Click the latest Pipeline Run
+1. Verify that your `test` stage passes
+
+## Adding the Dockerfile
+
+Add the following file:
+
+`nginx.conf` (same as above):
+
+```
+server {
+    listen       8080;
+    server_name  localhost;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html =404;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+`Dockerfile`
+
+```
+FROM quay.io/jeffdean/node-alpine as build
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+FROM quay.io/jeffdean/nginx-unprivileged
+COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+Then from the command line, to build you would execute the following commands:
+
+```
+# no need to run npm build
+docker build --no-cache -t dockerized-react-app .
+docker run -it -p 8080:8080 --rm dockerized-react-app
+```
+
+Then open http://localhost:8080 in your browser to see it work.
+
+Once it works locally:
+
+- Git add commit and push
+- Verify that the "build" stage passes in your pipeline
+
+## Adding the Helm Chart
+
+1. Go to https://github.com/upslopeio/ibm-cloud-garage-training/blob/main/helm/chart.zip
+1. Download the zip file
+1. Unzip the file
+1. Move the `chart` directory to your `react-app` folder. For example:
+    ```
+    pwd # <-- make sure you are in the react-intro directory
+    mv ~/Downloads/chart .
+    ```
+1. Git add / commit and push
+1. View your pipeline run in the OpenShift console
+1. Verify that the "Deploy" step works
 
 ## Pipeline failures
 
