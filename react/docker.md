@@ -38,7 +38,7 @@ Then from the command line, to build you would execute the following commands:
 
 ```
 # no need to run npm build
-docker build -t dockerized-react-app .
+docker build --no-cache -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
 ```
 
@@ -85,7 +85,7 @@ docker tag node:alpine quay.io/$QUAY_USER/node-alpine
 docker push quay.io/$QUAY_USER/node-alpine
 
 docker pull nginxinc/nginx-unprivileged
-docker tag node:alpine quay.io/$QUAY_USER/nginx-unprivileged
+docker tag nginxinc/nginx-unprivileged quay.io/$QUAY_USER/nginx-unprivileged
 docker push quay.io/$QUAY_USER/nginx-unprivileged
 ```
 
