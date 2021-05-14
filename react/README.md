@@ -42,7 +42,11 @@ You should see a React welcome page.
 1. Copy the command at the bottom of the screen
    ![](./img/05-gogs-command.png)
 1. Paste the two lines in your Terminal
+1. Username is `userXX`
+1. Password is `password`
 1. Refresh your repository page
+   ![](./img/06-gogs-code.png)
+
 
 ## Future reading
 
