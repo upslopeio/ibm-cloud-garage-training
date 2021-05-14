@@ -41,48 +41,6 @@ If you do not see `container-service` then do the following:
 1. Follow the instructions
    > At the time of this writing it's `ibmcloud plugin install container-service`
 
-## Get an API Key
-
-1. Log into https://cloud.ibm.com with your IBM email address
-1.  ‼️ Make sure that "DTEV2" is selected from the account menu (see below)
-1. Click on Manage > Access (IAM)
-1. Under "My IBM Cloud API keys" click "View all"
-1. Click "Create an IBM Cloud API key"
-1. Enter a name and create the key
-1. Download the key to your computer (if you don't, you'll have to create another one)
-
-![](./img/apikey-menu.png)
-
-![](./img/apikey-iam.png)
-
-![](./img/apikey-list.png)
-
-![](./img/apikey-name.png)
-
-![](./img/apikey-copy.png)
-
-## Login to `ibmcloud`
-
-In order to test that your account works, login using your API key.
-
-Replace `YOUR_API_KEY` with your actual API key and then run this command:
-
-```
-ibmcloud login --apikey YOUR_API_KEY -r us-south
-```
-
-Run `ibmcloud ks clusters` to see the list of clusters you can access.
-
-> NOTE: if you are following these instructions before class starts, the cluster list might be empty, and that's OK.
-
-You should see your cohort's cluster in the list.
-
-If you don't, it could be because:
-
-1. It's before class started, and we haven't created it yet
-1. You created your API key in the wrong account (your personal account, as opposed to DTEV2)
-1. You have not been granted access to the cluster - contact your instructor
-
 ## Install required dependencies
 
 ```
@@ -129,13 +87,55 @@ source ~/.zshrc
 
 Then run `oc plugin list` again.
 
-## Access the OpenShift Cluster
+## Get an API Key
 
 ---
 
 **NOTE** If you are installing tools before class starts, the cluster below might not be created yet, so skip these steps
 
 ---
+
+1. Log into https://cloud.ibm.com with your IBM email address
+1.  ‼️ Make sure that "DTEV2" is selected from the account menu (see below)
+1. Click on Manage > Access (IAM)
+1. Under "My IBM Cloud API keys" click "View all"
+1. Click "Create an IBM Cloud API key"
+1. Enter a name and create the key
+1. Download the key to your computer (if you don't, you'll have to create another one)
+
+![](./img/apikey-menu.png)
+
+![](./img/apikey-iam.png)
+
+![](./img/apikey-list.png)
+
+![](./img/apikey-name.png)
+
+![](./img/apikey-copy.png)
+
+## Login to `ibmcloud`
+
+In order to test that your account works, login using your API key.
+
+Replace `YOUR_API_KEY` with your actual API key and then run this command:
+
+```
+ibmcloud login --apikey YOUR_API_KEY -r us-south
+```
+
+Run `ibmcloud ks clusters` to see the list of clusters you can access.
+
+> NOTE: if you are following these instructions before class starts, the cluster list might be empty, and that's OK.
+
+You should see your cohort's cluster in the list.
+
+If you don't, it could be because:
+
+1. It's before class started, and we haven't created it yet
+1. You created your API key in the wrong account (your personal account, as opposed to DTEV2)
+1. You have not been granted access to the cluster - contact your instructor
+
+## Access the OpenShift Cluster
 
 In order to login to the cluster from the command line, you must first log in on the website.
 
