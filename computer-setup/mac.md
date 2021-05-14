@@ -1,10 +1,8 @@
 # Mac Setup Guide
 
-Try the [Automated setup script](./setup-workstation.sh).
-
 ## Webex
 
-Download [Webex Meetings](https://www.webex.com/downloads.html) if you haven't already.
+If you haven't already, [Download Webex Meetings](https://www.webex.com/downloads.html)
 
 ## ZSH
 
@@ -17,39 +15,96 @@ If you have a modern mac, [zsh should already be your default shell](https://www
 echo $SHELL
 ```
 
-You have ZSH if you see the following output:
+You have ZSH if you see the following output: `/bin/zsh`
 
-```
-/bin/zsh
-```
+> If you see something else, like `/bin/bash`, then you need to install zsh.
 
-If you see something else, like `/bin/bash`, then you need to install zsh.
+## (Optional) oh-my-zsh
+
+1. Visit https://ohmyz.sh/
+1. Follow instructions. At the time of writing, it's:
+   ```
+   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
 
 ## Homebrew
 
 1. Visit https://brew.sh/
-1. Click the "Copy" link
-1. Open a new Terminal window (or tab)
-1. Paste the command and hit the ENTER key
+1. Click the "Copy" link and run the command. At the time of this writing, it's:
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
-## NodeJS
+## Common Libraries
 
-Install [NodeJS](./node.md)
+```
+brew install helm
+```
 
-## IBM Cloud CLI
+## NodeJS with NVM
 
-Install [the IBM Cloud CLI](./ibmcloud.md)
+1. Visit https://github.com/nvm-sh/nvm
+1. Follow the instructions
 
-## Visual Studio Code
+At the time this article was written, the command is:
 
-Install [Visual Studio Code](./visual-studio-code.md)
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.zshrc
+nvm install node
+nvm alias default node
+```
+
+## Install Visual Studio Code
+
+If you don't have Visual Studio Code, you can install it with Homebrew:
+
+```
+brew install --cask visual-studio-code
+```
+
+> If those instructions don't work, you can follow [these instructions](https://code.visualstudio.com/docs/setup/mac)
+
+### Configure Visual Studio Code
+
+Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
+
+```
+code --install-extension ms-vsliveshare.vsliveshare
+```
+
+[Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
+
+![](../img/vscode-autosave.png)
+
+Install the YAML extension.
+
+```
+code --install-extension redhat.vscode-yaml
+```
 
 ## Docker Desktop
 
-https://www.docker.com/products/docker-desktop
-
-You can install docker via brew:
+You can install [docker desktop](https://www.docker.com/products/docker-desktop) via brew:
 
 ```
 brew install --cask docker
 ```
+
+## Slack App
+
+It's helpful to have the [Slack Mac App](https://slack.com/downloads/mac).
+
+Verify that it's installed correctly by running this command:
+
+```
+defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString
+```
+
+If you see `Contents` it means it's installed correctly.
+
+## IBM Cloud CLI
+
+Click the link below and follow the instructions:
+
+[Install the IBM Cloud CLI](./ibmcloud.md)
