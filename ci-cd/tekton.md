@@ -40,7 +40,7 @@ icc <cluster name>
 
 For example: `icc cohort7`
 
-> **If ICC doesn't work for you** open the OpenShift Web Console and login via "Copy Login Command" 
+> 🛑 &nbsp;&nbsp; **If ICC doesn't work for you** open the OpenShift Web Console and login via "Copy Login Command" 
 
 ## Create a new project
 
@@ -53,22 +53,22 @@ oc sync project-<USER NUMBER>-react-app
 You should see output like this:
 
 ```
-Setting up namespace foobar
-Setting up namespace: foobar
-Checking for existing project: foobar
-Creating project: foobar
+Setting up namespace project-99-react-app
+Setting up namespace: project-99-react-app
+Checking for existing project: project-99-react-app
+Creating project: project-99-react-app
 Copying ConfigMaps
 Copying Secrets
-Setting current project to foobar
+Setting current project to project-99-react-app
 ```
 
 Then type `oc project` and you should see:
 
 ```
-Using project "foobar" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
+Using project "project-99-react-app" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
 ```
 
-If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions.
+> 🛑 &nbsp;&nbsp; If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions.
 
 ### Create the Tekton Pipeline
 
@@ -80,14 +80,14 @@ oc pipeline --tekton
 
 - `Select the Pipeline to use in the Pipeline Run:` choose the most appropriate pipeline for your project
   - For React, choose `ibm-nodejs`
-- `Image scan (y/n)`, type `n`
-- `Lint dockerfile (y/n)`, type `n`
+- `Image scan (y/n)` type `n`
+- `Lint dockerfile (y/n)` type `n`
 
 This will create a new pipeline and add the application to the gitops repository `qa` environment.
 
 If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.
 
-> If the pipeline fails, use the troubleshooting tables below to fix the failure.
+> 🛑 &nbsp;&nbsp; If the pipeline fails, use the troubleshooting tables below to fix the failure:
 
 1. Run `oc console` to open a console
 1. In the sidebar, go to Pipelines
