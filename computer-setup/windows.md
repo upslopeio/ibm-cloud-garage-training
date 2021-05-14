@@ -1,5 +1,11 @@
 # Windows Computer Setup Guide
 
+## Webex
+
+> Windows Side
+
+If you haven't already, [Download Webex Meetings](https://www.webex.com/downloads.html)
+
 ## WSL 2
 
 You must install WSL2 in order to complete this course.
@@ -23,9 +29,11 @@ Returns the Name of the Linux you installed, thr running state, the WSL version 
 * Ubuntu-18.04           Running         2
 ```
 
-If if you see something else, may need to set [wsl defaults](https://docs.microsoft.com/en-us/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2) . In this case, to set the particular distro as default, use `wsl --set-default Ubuntu-18.04`.
+If you see something else, may need to set [wsl defaults](https://docs.microsoft.com/en-us/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2) . In this case, to set the particular distro as default, use `wsl --set-default Ubuntu-18.04`.
 
 ## Ubuntu Updates
+
+> Ubuntu Side
 
 From the WSL Terminal, run the following:
 
@@ -34,7 +42,20 @@ sudo apt-get update -y
 sudo apt-get install build-essential zsh -y
 ```
 
+Close and open your Terminal.
+
+1. Open a new Terminal window (or tab)
+1. Run the following command:
+
+```
+echo $SHELL
+```
+
+You have ZSH if you see the following output: `/bin/zsh`
+
 ## ZSH
+
+> Ubuntu Side
 
 1. Go to https://ohmyz.sh/
 1. Follow instructions
@@ -49,16 +70,19 @@ See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-
 
 ## Homebrew
 
-**Install**
+> Ubuntu Side
+
+**Install Homebrew**
 
 1. Visit https://brew.sh/
-1. Click the "Copy" link
-1. Open a new Terminal window (or tab)
-1. Paste the command and hit the ENTER key
+1. Click the "Copy" link and run the command. At the time of this writing, it's:
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
 ![](../img/homebrew.png)
 
-**Add to Path**
+**Add Homebrew to Path**
 
 Add homebrew to your path in `~/.zshrc`
 
@@ -73,24 +97,90 @@ source ~/.zshrc
 brew install gcc git
 ```
 
-## IBM Cloud
+## Install Helm
 
-Make sure to run the following commands from within the WSL Terminal
+> Ubuntu Side
 
-[Install the IBM Cloud Tools](./ibmcloud.md)
+```
+brew install helm
+```
 
-## Visual Studio Code
+## NodeJS with NVM
 
-[Install VSCode with command line tools](./visual-studio-code.md)
+> Ubuntu Side
 
-Setup VSCode with WSL: https://code.visualstudio.com/docs/remote/wsl
+1. Visit https://github.com/nvm-sh/nvm
+1. Follow the instructions
+
+At the time this article was written, the command is:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.zshrc
+nvm install node
+nvm alias default node
+```
+
+## Install Visual Studio Code
+
+> Windows Side
+
+Install Visual Studio Code following these instructions:
+
+https://code.visualstudio.com/docs/remote/wsl
+
+**Configure Visual Studio Code**
+
+Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
+
+```
+code --install-extension ms-vsliveshare.vsliveshare
+```
+
+[Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
+
+![](../img/vscode-autosave.png)
+
+Install the YAML extension.
+
+```
+code --install-extension redhat.vscode-yaml
+```
 
 ## Configure Git
 
-[Configure Git](../git/README.md) with you your username / email, ignorecase
+> Ubuntu Side
+
+```
+brew install git
+git config --global core.ignorecase false
+```
+
+**Set your name**
+
+```
+git config --global --list
+```
+
+If you don't see your name and email, then run these commands:
+
+```
+git config --global user.name "<your actual name>"
+git config --global user.email "<your actual name>"
+```
+
+## (Optional) Slack App
+
+It's helpful to have the [Slack Mac App](https://slack.com/downloads/windows).
 
 ## Docker Desktop
 
-Follow instructions here:
+Follow instructions here to install Docker Desktop and configure for WSL2.
 
 https://docs.docker.com/docker-for-windows/wsl/
+
+## IBM Cloud CLI
+
+Click the link below and follow the instructions:
+
+[Install the IBM Cloud CLI](./ibmcloud.md)

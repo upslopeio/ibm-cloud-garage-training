@@ -35,7 +35,27 @@ You have ZSH if you see the following output: `/bin/zsh`
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
-## Common Libraries
+## Configure Git
+
+```
+brew install git
+git config --global core.ignorecase false
+```
+
+**Set your name**
+
+```
+git config --global --list
+```
+
+If you don't see your name and email, then run these commands:  
+
+```
+git config --global user.name "<your actual name>"
+git config --global user.email "<your actual name>"
+```
+
+## Install Helm
 
 ```
 brew install helm
@@ -65,7 +85,7 @@ brew install --cask visual-studio-code
 
 > If those instructions don't work, you can follow [these instructions](https://code.visualstudio.com/docs/setup/mac)
 
-### Configure Visual Studio Code
+**Configure Visual Studio Code**
 
 Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
 
@@ -94,14 +114,6 @@ brew install --cask docker
 ## Slack App
 
 It's helpful to have the [Slack Mac App](https://slack.com/downloads/mac).
-
-Verify that it's installed correctly by running this command:
-
-```
-defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString
-```
-
-If you see `Contents` it means it's installed correctly.
 
 ## IBM Cloud CLI
 
