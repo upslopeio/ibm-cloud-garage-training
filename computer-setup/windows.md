@@ -14,8 +14,6 @@ https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 **NOTE:** Be sure to remember the password you set for your ubuntu user. You'll need this often.
 
-**✅ ✅ How do I know if I completed this step? ✅ ✅**
-
 From PowerShell, run
 
 ```powershell
