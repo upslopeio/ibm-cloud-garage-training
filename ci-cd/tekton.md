@@ -27,6 +27,8 @@ git status
 You should have no changes to commit. If you have changes to commit.
 
 ```
+git add -A
+git commit -m "changes for pipeline"
 git push origin master
 ```
 
@@ -38,12 +40,14 @@ icc <cluster name>
 
 For example: `icc cohort7`
 
+> **If ICC doesn't work for you** open the OpenShift Web Console and login via "Copy Login Command" 
+
 ## Create a new project
 
 Replace `<USER NUMBER>` with your user number:
 
 ```
-oc sync project-<USER NUBER>-react-app
+oc sync project-<USER NUMBER>-react-app
 ```
 
 You should see output like this:
