@@ -7,6 +7,7 @@
 First, create a new React app:
 
 ```
+cd ~
 npx create-react-app react-intro
 cd react-intro
 ```
