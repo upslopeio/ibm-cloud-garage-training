@@ -40,7 +40,7 @@ icc <cluster name>
 
 For example: `icc cohort7`
 
-> 🛑 &nbsp;&nbsp; **If ICC doesn't work for you** open the OpenShift Web Console and login via "Copy Login Command" 
+> 🛑 &nbsp;&nbsp; **If ICC doesn't work for you** open the OpenShift Web Console and login via "Copy Login Command"
 
 ## Create a new project
 

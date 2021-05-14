@@ -1,6 +1,7 @@
 # IBM Cloud Setup
 
 ---
+
 ### PLEASE READ CAREFULLY!
 
 Don't just copy/paste every command without reading
@@ -22,7 +23,7 @@ If you see output like `/usr/local/bin/ibmcloud` then you have successfully inst
 If you see output like `not found` then you need to install it:
 
 1. Visit https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli
-1. Follow the instructions for your operating system. 
+1. Follow the instructions for your operating system.
    > Tip: You can use the shell script in the second section instead of the installer option.
 
 ## Install the `ibmcloud` container plugin
@@ -96,7 +97,7 @@ Then run `oc plugin list` again.
 ---
 
 1. Log into https://cloud.ibm.com with your IBM email address
-1.  ‼️ Make sure that "DTEV2" is selected from the account menu (see below)
+1. ‼️ Make sure that "DTEV2" is selected from the account menu (see below)
 1. Click on Manage > Access (IAM)
 1. Under "My IBM Cloud API keys" click "View all"
 1. Click "Create an IBM Cloud API key"
@@ -153,7 +154,6 @@ In order to login to the cluster from the command line, you must first log in on
 ![](./img/ibmcloud-openshift-console.png)
 
 ![](./img/openshift-web-console.png)
-
 
 ## (Optional) Configure ICC - fast cluster switcher
 

@@ -31,9 +31,9 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 1. Visit https://brew.sh/
 1. Click the "Copy" link and run the command. At the time of this writing, it's:
-    ```
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
+   ```
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
 
 ## Configure Git
 
@@ -48,7 +48,7 @@ git config --global core.ignorecase false
 git config --global --list
 ```
 
-If you don't see your name and email, then run these commands:  
+If you don't see your name and email, then run these commands:
 
 ```
 git config --global user.name "<your actual name>"
