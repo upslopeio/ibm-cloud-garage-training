@@ -20,10 +20,10 @@ service:
   port: 80
 
 route:
-  enabled: false
+  enabled: true
 
 ingress:
-  enabled: true
+  enabled: false
   appid:
     enabled: false
     # web or app - https://cloud.ibm.com/docs/services/appid?topic=appid-kube-auth
