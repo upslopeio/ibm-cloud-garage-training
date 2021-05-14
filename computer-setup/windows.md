@@ -167,15 +167,15 @@ Install the YAML extension.
 code --install-extension redhat.vscode-yaml
 ```
 
-## (Optional) Slack App
-
-It's helpful to have the [Slack Mac App](https://slack.com/downloads/windows).
-
 ## Docker Desktop
 
 Follow instructions here to install Docker Desktop and configure for WSL2.
 
 https://docs.docker.com/docker-for-windows/wsl/
+
+## (Optional) Slack App
+
+It's helpful to have the [Slack Mac App](https://slack.com/downloads/windows).
 
 ## IBM Cloud CLI
 
