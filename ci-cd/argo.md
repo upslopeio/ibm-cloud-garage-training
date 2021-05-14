@@ -18,6 +18,7 @@ Use the following instructions to set up a new continuous delivery controller us
    1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
    1. In the terminal, CD to your $HOME directory `cd ~`
    1. Type `git clone `, paste in the gitops http url, hit enter.
+   1. `cd gitops`
    1. `git checkout -b add-<user-number>-<app-repo-name>-<environment>` or `git checkout -b add-<squad-number>-<app-repo-name>-<environment>`
    1. Run `code .` and find the application you want to deploy under the `/qa` folder, and copy that entire folder to the new `<environment>` folder (i.e. production)
    1. Git add, commit, and push to your branch.

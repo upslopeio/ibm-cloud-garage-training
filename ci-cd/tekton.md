@@ -75,7 +75,7 @@ oc pipeline --tekton
 ```
 
 - `Select the Pipeline to use in the Pipeline Run:` choose the most appropriate pipeline for your project
-    - For React, choose `ibm-nodejs`
+  - For React, choose `ibm-nodejs`
 - `Image scan (y/n)`, type `n`
 - `Lint dockerfile (y/n)`, type `n`
 
@@ -147,10 +147,10 @@ Once it works locally:
 1. Download the zip file
 1. Unzip the file
 1. Move the `chart` directory to your `react-app` folder. For example:
-    ```
-    pwd # <-- make sure you are in the react-intro directory
-    mv ~/Downloads/chart .
-    ```
+   ```
+   pwd # <-- make sure you are in the react-intro directory
+   mv ~/Downloads/chart .
+   ```
 1. Git add / commit and push
 1. View your pipeline run in the OpenShift console
 1. Verify that the "Deploy" step works
