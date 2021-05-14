@@ -145,9 +145,9 @@ Then open http://localhost:8080 in your browser to see it work.
 Once it works locally:
 
 - Git add commit and push
-- Verify that the "build" stage passes in your pipeline
+- Verify that the "build" stage in your pipeline passes
 
-## Adding the Helm Chart
+## Add the Helm Chart
 
 1. Go to https://github.com/upslopeio/ibm-cloud-garage-training/blob/main/helm/chart.zip
 1. Download the zip file
@@ -159,7 +159,7 @@ Once it works locally:
    ```
 1. Git add / commit and push
 1. View your pipeline run in the OpenShift console
-1. Verify that the "Deploy" step works
+1. Verify that the "Deploy" step passes
 
 ## Pipeline failures
 
