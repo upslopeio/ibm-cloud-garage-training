@@ -34,7 +34,7 @@ Use the following instructions to set up a new continuous delivery controller us
    1. Click "new app"
    1. Fill in the form
       - General
-        - Application name: Thus must be unique to the entire cluster. use `project[user-number>-<app-repo-name>-<environment>` or `squad<squad-number>-<app-repo-name>-<environment>`
+        - Application name: Thus must be unique to the entire cluster. use `project<user-number>-<app-repo-name>-<environment>` or `squad<squad-number>-<app-repo-name>-<environment>`
           - Project = default
         - Sync Policy = automatic
           - Check PRUNE RESOURCES and SELF HEAL
