@@ -96,7 +96,7 @@ If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open
 
 ## Adding the Dockerfile
 
-Add the following file:
+Add the following file to the root of your `react-intro` app:
 
 `nginx.conf` (same as above):
 
@@ -115,6 +115,8 @@ server {
     }
 }
 ```
+
+Add the following file to the root of your `react-intro` app:
 
 `Dockerfile`
 
