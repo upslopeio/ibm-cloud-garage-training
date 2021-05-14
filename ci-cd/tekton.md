@@ -149,8 +149,7 @@ Once it works locally:
 
 ## Add the Helm Chart
 
-1. Go to https://github.com/upslopeio/ibm-cloud-garage-training/blob/main/helm/chart.zip
-1. Download the zip file
+1. Download this zip file: https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip
 1. Unzip the file
 1. Move the `chart` directory to your `react-app` folder. For example:
    ```
