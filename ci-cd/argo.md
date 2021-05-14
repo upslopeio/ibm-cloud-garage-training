@@ -26,7 +26,7 @@ Use the following instructions to set up a new continuous delivery controller us
 1. Add ArgoCD controller
    1. Run `oc console` to open the web console.
    1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-      ![](./argo-menu.png)
+      ![](img/argo-menu.png)
    1. Accept the security warnings (easiest in Chrome)
    1. Login via openshift
    1. Allow selected permissions
@@ -57,7 +57,7 @@ Use the following instructions to set up a new continuous delivery controller us
       ```
    1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.
 1. If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
-   ![](./argo-success.png)
+   ![](img/argo-success.png)
 1. What just happened?
 
    You have a new environment. Let's assume it is `production`.
@@ -65,7 +65,7 @@ Use the following instructions to set up a new continuous delivery controller us
    `qa` and `production` are running the same version of your application because the version number specified in gitops `<environment>/project<user-number>/<app-repo-name>/requirements.yaml` is the same in both environments.
 
    Your CI/CD pipeline now looks like the following sequence diagram:
-   ![](./argo-cd.png)
+   ![](img/argo-cd.png)
 
 ## Promoting a new version to production
 

@@ -223,13 +223,13 @@ NOTE: if you want to ignore a failing test (just so you can move onto the next s
 
 The following is a screen shot of the pipeline parameters page:
 
-![](./pipeline-parameters.png)
+![](img/pipeline-parameters.png)
 
 ## Finding your pipeline
 
 1. Select developer view
-   ![](./developer-view.png)
+   ![](img/developer-view.png)
 1. Select pipelines
-   ![](./developer-pipelines.png)
+   ![](img/developer-pipelines.png)
 1. Filter projects by name
-   ![](./developer-projects.png)
+   ![](img/developer-projects.png)
