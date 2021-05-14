@@ -51,7 +51,7 @@ echo $SHELL
 
 You have ZSH if you see the following output: `/bin/zsh`
 
-## ZSH
+## (Optional) oh-my-zsh
 
 > Ubuntu Side
 
@@ -77,8 +77,6 @@ See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-
     ```
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-
-![](../img/homebrew.png)
 
 **Add Homebrew to Path**
 
