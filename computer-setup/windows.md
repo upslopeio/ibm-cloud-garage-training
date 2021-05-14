@@ -93,6 +93,28 @@ source ~/.zshrc
 brew install gcc git
 ```
 
+## Configure Git
+
+> Ubuntu Side
+
+```
+brew install git
+git config --global core.ignorecase false
+```
+
+**Set your name**
+
+```
+git config --global --list
+```
+
+If you don't see your name and email, then run these commands:
+
+```
+git config --global user.name "<your actual name>"
+git config --global user.email "<your actual name>"
+```
+
 ## Install Helm
 
 > Ubuntu Side
@@ -143,28 +165,6 @@ Install the YAML extension.
 
 ```
 code --install-extension redhat.vscode-yaml
-```
-
-## Configure Git
-
-> Ubuntu Side
-
-```
-brew install git
-git config --global core.ignorecase false
-```
-
-**Set your name**
-
-```
-git config --global --list
-```
-
-If you don't see your name and email, then run these commands:
-
-```
-git config --global user.name "<your actual name>"
-git config --global user.email "<your actual name>"
 ```
 
 ## (Optional) Slack App
