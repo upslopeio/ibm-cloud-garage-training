@@ -127,7 +127,9 @@ Install Visual Studio Code following these instructions:
 
 https://code.visualstudio.com/docs/remote/wsl
 
-**Configure Visual Studio Code**
+## Configure Visual Studio Code
+
+> Ubuntu Side
 
 Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
 
