@@ -48,18 +48,11 @@ Then open http://localhost:8080 in your browser to see it work.
 
 **Cons**: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system).
 
-------------
-
-
-
+---
 
 🛑 Everything below here is trivia.
 
-
-
-
-
-------------
+---
 
 ## Background
 
