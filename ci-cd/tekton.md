@@ -68,7 +68,7 @@ Then type `oc project` and you should see:
 Using project "project-99-react-app" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
 ```
 
-> 🛑 &nbsp;&nbsp; If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions.
+> 🛑 &nbsp;&nbsp; If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions. You may need to contact your instructor.
 
 ### Create the Tekton Pipeline
 
@@ -227,7 +227,7 @@ NOTE: if you want to ignore a failing test (just so you can move onto the next s
 
 ## Pipeline parameters
 
-The following is a screen shot of the pipeline parameters page:
+The following is a screenshot of the pipeline parameters page:
 
 ![](img/pipeline-parameters.png)
 
