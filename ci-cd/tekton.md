@@ -14,7 +14,7 @@ Run the following command:
 CI=true npm test
 ```
 
-> 🛑 **NOTE:** You should see that all of your tests pass. If all of your tests don't pass, do not continue. Fix your tests.
+> 🛑 &nbsp;&nbsp; **NOTE:** You should see that all of your tests pass. If all of your tests don't pass, do not continue. Fix your tests.
 
 ## Make sure your code is on Gogs
 
