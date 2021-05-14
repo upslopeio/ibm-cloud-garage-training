@@ -22,32 +22,58 @@ This should open http://localhost:3000
 
 You should see a React welcome page.
 
-## Create the repo in gogs
+## Open Gogs
 
-1. Open the OpenShift Web Console
-   ```
-   oc console
-   ```
-1. Open the App Menu (the 9-box menu)
-1. Click "Git Dev"
-   ![](../img/gogs-menu.png)
-1. Click Sign In
-   ![](./img/01-gogs-sign-in.png)
-1. Enter `userXX` and the password `password`
-   ![](./img/02-gogs-username.png)
-   > NOTE: get your user number from your instructor
-1. Click "New Repository"
-   ![](./img/03-gogs-new-repo.png)
-1. Enter the name `react-intro`
-   ![](./img/04-gogs-repo-name.png)
-1. Copy the command at the bottom of the screen
-   ![](./img/05-gogs-command.png)
-1. Paste the two lines in your Terminal
-1. Username is `userXX`
-1. Password is `password`
-1. Refresh your repository page
-   ![](./img/06-gogs-code.png)
+Open the OpenShift Web Console
 
+```
+oc console
+```
+
+Open the App Menu (the 9-box menu)
+
+Click "Git Dev"
+
+![](../img/gogs-menu.png)
+
+## Sign In
+
+Click Sign In
+
+![](./img/01-gogs-sign-in.png)
+
+Enter `userXX` and the password `password`
+
+![](./img/02-gogs-username.png)
+
+> NOTE: get your user number from your instructor
+
+## Create Repository
+
+Click "New Repository"
+
+![](./img/03-gogs-new-repo.png)
+
+Enter the name `react-intro`
+
+![](./img/04-gogs-repo-name.png)
+
+Click "Create Repository"
+
+## Push Local Code to Gogs
+
+Copy the command at the bottom of the screen
+
+![](./img/05-gogs-command.png)
+
+Paste the two lines in your Terminal, and use the following credentials:
+
+- Username is `userXX`
+- Password is `password`
+
+Refresh your repository page
+
+![](./img/06-gogs-code.png)
 
 ## Future reading
 
