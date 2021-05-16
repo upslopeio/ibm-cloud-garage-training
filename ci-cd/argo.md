@@ -50,11 +50,12 @@ Use the following instructions to set up a new continuous delivery controller us
 1. Now the ArgoCD controller is displayed. Shortly you will notice that the pod creation failed, and it has a status of `ImagePullBackOff`.
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.
 1. Give the new environment permission to pull images from qa namespace
-   1. run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>`
-      If successful, you will see something like the following:
+   1. run 
       ```shell
-      clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"
+      oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>
       ```
+      If successful, you will see something like the following:
+      `clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"`
    1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.
 1. If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
    ![](img/argo-success.png)
