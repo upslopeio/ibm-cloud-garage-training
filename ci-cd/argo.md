@@ -50,7 +50,6 @@ Use the following instructions to set up a new continuous delivery controller us
 1. Now the ArgoCD controller is displayed. Shortly you will notice that the pod creation failed, and it has a status of `ImagePullBackOff`.
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.
 1. Give the new environment permission to pull images from qa namespace
-   1. run `oc project <new-project-name>`
    1. run `oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>`
       If successful, you will see something like the following:
       ```shell
