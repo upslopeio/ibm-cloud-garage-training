@@ -20,28 +20,28 @@
 
 - Iteration Planning Meeting (IPM) - Devs, Product Owner, UX - 30m
 - Retrospective
-    - "If someone makes a mistake, shame on us for making so easy to make that mistake"
+  - "If someone makes a mistake, shame on us for making so easy to make that mistake"
 
 ## Daily Cycle
 
 - Standup - Product Owner, Devs, the UX - 5m
-    - Figure out who's going to pair with whom on what
-    - Pairs rotate daily - the "lottery count" ("bus count")
+  - Figure out who's going to pair with whom on what
+  - Pairs rotate daily - the "lottery count" ("bus count")
 - Work the backlog:
-    - choose a story
-    - write tests (locally)
-    - write code (locally)
-    - do user story acceptance
-    - pushing code dozens of times per day
+  - choose a story
+  - write tests (locally)
+  - write code (locally)
+  - do user story acceptance
+  - pushing code dozens of times per day
 
 ## Devops Cycle
 
 - Every git push
-    - Continuous Integration build will run automatically
-    - Deploy to some lower environment (QA env)
-    - (optionally) deploy to Prod whenever master/main is updated
+  - Continuous Integration build will run automatically
+  - Deploy to some lower environment (QA env)
+  - (optionally) deploy to Prod whenever master/main is updated
 - Developer manually indicates which build should be in prod
-    - Continuous Delivery
+  - Continuous Delivery
 
 ## TDD Cycle
 
@@ -61,5 +61,3 @@
 
 - "Just in time"
 - YAGNI - Ya Ain't Gonna Need It
-
-

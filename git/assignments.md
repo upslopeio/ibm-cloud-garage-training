@@ -121,4 +121,3 @@ Find your branch and click "New Pull Request"
 Add a title, and click "Create Pull Request"
 
 ![](./img/assignments-pr.png)
-

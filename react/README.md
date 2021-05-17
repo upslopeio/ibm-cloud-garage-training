@@ -2,7 +2,7 @@
 
 > **NOTE** For windows users, run all commands from within Ubuntu (WSL)
 
-## Create the react app
+## Create the React app
 
 First, create a new React app:
 
@@ -12,7 +12,7 @@ npx create-react-app react-intro
 cd react-intro
 ```
 
-## Start the react app
+## Start the React app
 
 ```
 npm start
@@ -21,6 +21,16 @@ npm start
 This should open http://localhost:3000
 
 You should see a React welcome page.
+
+## Run Tests
+
+```
+npm test
+```
+
+This starts an interactive test window. Tests should be green.
+
+Press `q` or `CTRL+C` to exit.
 
 ## Open Gogs
 

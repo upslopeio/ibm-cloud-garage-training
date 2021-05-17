@@ -19,4 +19,3 @@ Please plan for this and set up your machines _before_ class.
 - [Assignments Repo](../git/assignments.md)
 
 ## Day 2
-
