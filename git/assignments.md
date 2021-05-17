@@ -1,10 +1,21 @@
-# React
+# Assignments Repo
 
 > **NOTE** For Windows users, run all commands from within Ubuntu (WSL)
 
+## Add your user number to `~/.zshrc`
+
+If you haven't done so yet, set your `CGB_USER` environment variable:
+
+1. Find your user number
+1. Run the following commands - replace `XX` with your user number:
+
+```
+echo 'export CGB_USER="XX"' >> ~/.zshrc && source ~/.zshrc && echo $CGB_USER
+```
+
 ## Open Gogs
 
-Open the OpenShift Web Console
+Open the OpenShift Web Console:
 
 ```
 oc console
@@ -20,42 +31,92 @@ Click "Git Dev"
 
 Click Sign In
 
-![](./img/01-gogs-sign-in.png)
+![](../react/img/01-gogs-sign-in.png)
 
-Enter `userXX` and the password `password`
+Enter `userXX` (replace `XX` with your user number) and the password `password`
 
-![](./img/02-gogs-username.png)
+![](../react/img/02-gogs-username.png)
 
 > NOTE: get your user number from your instructor
 
-## Create Repository
+## Find the Assignments Repository
 
-Click "New Repository"
+Under "Collaborative Repositories" click on "assignments".
 
-![](./img/03-gogs-new-repo.png)
+![](./img/assignments-find.png)
 
-Enter the name `react-intro`
+> NOTE: if you don't see the repo there, ask your instructor to add you
 
-![](./img/04-gogs-repo-name.png)
+## Clone the Repository
 
-Click "Create Repository"
+1. Make sure that "HTTP" is selected (not SSH)
+1. Copy the URL
 
-## Push Local Code to Gogs
+![](./img/assignments-clone.png)
 
-Copy the command at the bottom of the screen
+1. Run the following command in terminal
 
-![](./img/05-gogs-command.png)
+```
+cd ~
+git clone <URL>
+cd assignments
+```
 
-Paste the two lines in your Terminal, and use the following credentials:
+## Create a Branch
 
-- Username is `userXX`
-- Password is `password`
+```
+git checkout -b user-$CGB_USER
+```
 
-Refresh your repository page
+## Complete your first assignment
 
-![](./img/06-gogs-code.png)
+For the first assignment, we'll just output some software versions to a file.
 
-## Future reading
+> **NOTE**: you can copy the entire block of code and paste it in your terminal
 
-- [Testing a React App](./testing.md)
-- [Containerizing a React App](./docker.md)
+```
+mkdir -p user-$CGB_USER
+echo "$(brew --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "Code version $(code --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "$(docker --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "Helm version $(helm version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "$(git --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "$(ibmcloud --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "igc version $(igc --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "node version $(node --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "npm version $(npm --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+echo "oc version $(oc version || echo ERROR)" >> user-$CGB_USER/software.md
+echo >> user-$CGB_USER/software.md
+```
+
+Then git add, commit and push to your branch:
+
+```
+git add user-$CGB_USER
+git commit -m "first assignment"
+git push -u origin user-$CGB_USER
+```
+
+## Create a Pull Request
+
+Go to the branches tab:
+
+![](./img/assignments-branches-tab.png)
+
+Find your branch and click "New Pull Request"
+
+![](./img/assignments-branch-list.png)
+
+Add a title, and click "Create Pull Request"
+
+![](./img/assignments-pr.png)
+
