@@ -106,6 +106,8 @@ git commit -m "first assignment"
 git push -u origin user-$CGB_USER
 ```
 
+Type your username in (for example `user06`) and the password `password`.
+
 ## Create a Pull Request
 
 Go to the branches tab:
