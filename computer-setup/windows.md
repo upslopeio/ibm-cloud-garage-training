@@ -182,3 +182,7 @@ It's helpful to have the [Slack Mac App](https://slack.com/downloads/windows).
 Click the link below and follow the instructions:
 
 [Install the IBM Cloud CLI](./ibmcloud.md)
+
+## Finish your first Assignment
+
+- [Assignments Repo](../git/assignments.md)

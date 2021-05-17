@@ -16,7 +16,7 @@ Please plan for this and set up your machines _before_ class.
 
 - [Windows Setup Guide](../computer-setup/windows.md)
 - [Mac Setup Guide](../computer-setup/mac.md)
+- [Assignments Repo](../git/assignments.md)
 
 ## Day 2
 
-- [Assignments Repo](../git/assignments.md)
