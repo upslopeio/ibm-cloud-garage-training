@@ -36,7 +36,7 @@ Click "Git Dev"
 
 ![](../img/gogs-menu.png)
 
-## Sign In
+## Sign In (if needed)
 
 Click Sign In
 
@@ -74,6 +74,28 @@ Paste the two lines in your Terminal, and use the following credentials:
 Refresh your repository page
 
 ![](./img/06-gogs-code.png)
+
+## Submit the Assignment
+
+1. Go to Gogs
+1. Copy the URL to your `react-intro` repo
+1. Run the following commands:
+
+```
+cd ~/assignments
+touch user-$CGB_USER/react-intro.md
+code .
+```
+
+Find the `react-intro.md` file. Paste the URL to your `react-intro` repository.
+
+```
+git add user-$CGB_USER
+git commit -m "react intro"
+git push -u origin user-$CGB_USER
+```
+
+Create and submit a pull request.
 
 ## Future reading
 

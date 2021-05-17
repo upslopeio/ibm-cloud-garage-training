@@ -82,7 +82,7 @@ echo "Code version $(code --version || echo ERROR)" >> user-$CGB_USER/software.m
 echo >> user-$CGB_USER/software.md
 echo "$(docker --version || echo ERROR)" >> user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
-echo "Helm version $(helm version || echo ERROR)" >> user-$CGB_USER/software.md
+echo "Helm version $(which helm || echo ERROR)" >> user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
 echo "$(git --version || echo ERROR)" >> user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
