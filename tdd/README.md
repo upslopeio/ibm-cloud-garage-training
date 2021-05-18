@@ -11,9 +11,9 @@ When you write automated tests, there are two files:
 
 ## TDD Behavior - 3 Step
 
-- (Red) Write a failing test
-- (Green) Make the test pass
-- (Refactor) Make improvements to the code that don't change the behavior
+1. (Red) Write a failing test
+1. (Green) Make the test pass
+1. (Refactor) Make improvements to the code that don't change the behavior
     - Once you've written 3 tests
 
 ## 2 Rules of TDD
