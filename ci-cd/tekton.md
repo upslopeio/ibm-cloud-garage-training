@@ -44,28 +44,34 @@ For example: `icc cohort7`
 
 ## Create a new project
 
-Replace `<USER NUMBER>` with your user number:
+Make sure your user number is set in your environment:
 
 ```
-oc sync project-<USER NUMBER>-react-app
+echo $CGB_USER
+```
+
+You should see something like `03`
+
+```
+oc sync react-intro-$CGB_USER-dev
 ```
 
 You should see output like this:
 
 ```
-Setting up namespace project-99-react-app
-Setting up namespace: project-99-react-app
-Checking for existing project: project-99-react-app
-Creating project: project-99-react-app
+Setting up namespace react-intro...
+Setting up namespace: react-intro...
+Checking for existing project: react-intro...
+Creating project: react-intro...
 Copying ConfigMaps
 Copying Secrets
-Setting current project to project-99-react-app
+Setting current project to react-intro...
 ```
 
 Then type `oc project` and you should see:
 
 ```
-Using project "project-99-react-app" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
+Using project "react-intro-99-dev" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
 ```
 
 > 🛑 &nbsp;&nbsp; If you see `Using project "default"` it means your project creation did not work. Make sure you are logged in and have permissions. You may need to contact your instructor.
@@ -146,6 +152,8 @@ Once it works locally:
 
 - Git add commit and push
 - Verify that the "build" stage in your pipeline passes
+
+---
 
 ## Add the Helm Chart
 
