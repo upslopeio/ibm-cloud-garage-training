@@ -70,3 +70,43 @@ npm root -g
 ## More information
 
 For detailed information, see [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
+
+## Debugging Steps
+
+1. `get`
+1. `describe`
+1. `logs`
+1. `port-forward`
+
+List things:
+
+```
+oc get <type>
+```
+
+See the actual YAML
+
+```
+oc get <type> <name> -o yaml
+```
+
+Describe also shows you more details about the current state:
+
+```
+oc describe <type> <name>
+```
+
+Logs
+
+```
+oc logs <pod name>
+oc logs <pod name> -f
+oc logs <pod name> -c <container>
+```
+
+Port-forward:
+
+```
+oc port-forward pod/react-intro-6b7787654f-zw25x 8080:8080
+oc port-forward service/react-intro 8080:80
+```
