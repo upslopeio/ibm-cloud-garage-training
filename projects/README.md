@@ -37,6 +37,34 @@ export default App;
 
 ## Styling
 
+**Option 1**
+
+You can just pull in CSS to your application
+
 1. Go to https://getbootstrap.com/
 1. Go to "Download"
 1. Copy and paste the stylesheet to your `public/index.html` page
+
+Then, whenever you want a styled component, just add the class names.
+
+For example if the Bootstrap docs show you this HTML:
+
+```html
+<div class="row">
+    <div class="col"></div>
+</div>
+```
+
+You'd add this to your React component:
+
+```js
+<div className="row">
+    <div className="col"></div>
+</div>
+```
+
+**Option 2**
+
+Use a component library:
+
+https://react-bootstrap.github.io/
