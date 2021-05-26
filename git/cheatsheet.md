@@ -33,4 +33,3 @@ git pull
 git checkout user-30
 git merge master
 ```
-

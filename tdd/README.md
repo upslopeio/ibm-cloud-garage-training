@@ -14,7 +14,7 @@ When you write automated tests, there are two files:
 1. (Red) Write a failing test
 1. (Green) Make the test pass
 1. (Refactor) Make improvements to the code that don't change the behavior
-    - Once you've written 3 tests
+   - Once you've written 3 tests
 
 ## 2 Rules of TDD
 
@@ -31,11 +31,7 @@ Ensures that you have you complete and thorough.
 
 ```js
 describe("convert", () => {
-
-    it("returns 0 when passed 32", () => {
-        
-    });
-
+  it("returns 0 when passed 32", () => {});
 });
 ```
 
@@ -43,19 +39,18 @@ Write the first test:
 
 ```js
 describe("convert", () => {
+  it("returns 0 when passed 32", () => {
+    // SEA
+    // setup
+    const degreesInFahrenheit = 32;
+    const expected = 0;
 
-    it("returns 0 when passed 32", () => {
-        // SEA
-        // setup
-        const degreesInFahrenheit = 32;
-        const expected = 0;
+    // execution
+    const actual = convert(degreesInFahrenheit);
 
-        // execution
-        const actual = convert(degreesInFahrenheit);
-
-        // assertion
-        expect(actual).toEqual(expected);
-    });
+    // assertion
+    expect(actual).toEqual(expected);
+  });
 });
 ```
 
@@ -65,7 +60,7 @@ Write enough code to make it pass:
 
 ```js
 export default function convert(input) {
-    return 0;
+  return 0;
 }
 ```
 
