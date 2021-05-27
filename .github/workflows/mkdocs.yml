@@ -29,11 +29,10 @@ jobs:
       - name: Install material theme
         run: pip install mkdocs-material
 
-      - name: Test
+      - name: Setup directory stucture for mkdocs
         run: |
+          cd ..
+          git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
           ls
-          pwd
-          cd $GITHUB_WORKSPACE
-          ls
-          pwd
+          ls ibm-cloud-garage-training-mkdocs
         
