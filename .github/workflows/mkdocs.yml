@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push events but only for the main branch
   push:
     branches: [ main ]
 
@@ -34,11 +32,9 @@ jobs:
           git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
           
           # copy docs from main repo into mkdocs repo folder
-          cp ibm-cloud-garage-training/* ibm-cloud-garage-training-mkdocs/docs/
+          cp -r ibm-cloud-garage-training/* ibm-cloud-garage-training-mkdocs/docs/
           
       - name: Deploy to gh-pages branch
         run: |
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
-      
-        
