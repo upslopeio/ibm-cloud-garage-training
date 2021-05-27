@@ -36,5 +36,8 @@ jobs:
           
       - name: Deploy to gh-pages branch
         run: |
+          cd ..
+          cd ibm-cloud-garage-training-mkdocs
+          
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
