@@ -28,3 +28,12 @@ jobs:
         
       - name: Install material theme
         run: pip install mkdocs-material
+
+      - name: Test
+        run: |
+          ls
+          pwd
+          cd $GITHUB_WORKSPACE
+          ls
+          pwd
+        
