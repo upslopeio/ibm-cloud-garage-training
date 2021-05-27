@@ -8,14 +8,10 @@ on:
   push:
     branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  deploy:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -31,8 +27,18 @@ jobs:
 
       - name: Setup directory stucture for mkdocs
         run: |
+          # move up one dir from repo
           cd ..
+          
+          # clone repo with mkdocs configs
           git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
-          ls
-          ls ibm-cloud-garage-training-mkdocs
+          
+          # copy docs from main repo into mkdocs repo folder
+          cp ibm-cloud-garage-training/* ibm-cloud-garage-training-mkdocs/docs/
+          
+      - name: Deploy to gh-pages branch
+        run: |
+          # builds site and commits to gh-pages branch
+          mkdocs gh-deploy
+      
         
