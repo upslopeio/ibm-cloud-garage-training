@@ -48,4 +48,4 @@ jobs:
           git config --global user.name "mkdocs"
           
           # builds site and commits to gh-pages branch
-          mkdocs gh-deploy -f
+          mkdocs gh-deploy --force 
