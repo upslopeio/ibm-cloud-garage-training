@@ -50,8 +50,7 @@ jobs:
           # configure git
           git config --global user.email "mkdocs@upslope.io"
           git config --global user.name "mkdocs"
-          git pull origin gh-pages
-          git config pull.rebase true
+          git pull origin gh-pages --allow-unrelated-histories
           
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
