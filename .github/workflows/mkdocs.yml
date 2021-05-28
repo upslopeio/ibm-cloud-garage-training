@@ -41,6 +41,8 @@ jobs:
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
+          ls
+          pwd
           cd ibm-cloud-garage-training
           
           # configure git
