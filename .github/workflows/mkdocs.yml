@@ -34,18 +34,22 @@ jobs:
           # copy docs from main repo into mkdocs repo folder
           cp -r ibm-cloud-garage-training/* ibm-cloud-garage-training-mkdocs/docs/
           
+          # and copy back...
+          cp -r ibm-cloud-garage-training-mkdocs/* ibm-cloud-garage-training/
+          
+          # save fixed 404
+          mv ibm-cloud-garage-training/404.html  ibm-cloud-garage-training-mkdocs/
+          
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
           cd ..
-          cd ibm-cloud-garage-training-mkdocs
+          cd ibm-cloud-garage-training
           
           # configure git
-          git remote rm origin
-          git remote add origin "https://enzobarrett:$GH_PAT@github.com/upslopeio/ibm-cloud-garage-training.git"
           git config --global user.email "mkdocs@upslope.io"
           git config --global user.name "mkdocs"
           
           # builds site and commits to gh-pages branch
-          mkdocs gh-deploy --force 
+          mkdocs gh-deploy
