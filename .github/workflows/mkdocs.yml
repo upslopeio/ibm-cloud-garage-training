@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
 
@@ -31,17 +28,20 @@ jobs:
           # clone repo with mkdocs configs
           git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
           
+          # clone main repo
+          git clone https://github.com/upslopeio/ibm-cloud-garage-training.git
+          
           # setup folder hierarchy
-          mkdir $GITHUB_WORKSPACE/docs/
+          mkdir ibm-cloud-garage-training/docs/
           shopt -s nullglob dotglob extglob
-          cp -r $GITHUB_WORKSPACE/!(docs) $GITHUB_WORKSPACE/docs/
-          cp ibm-cloud-garage-training-mkdocs/mkdocs.yml $GITHUB_WORKSPACE/
+          cp -r ibm-cloud-garage-training/!(docs) ibm-cloud-garage-training/docs/
+          cp ibm-cloud-garage-training-mkdocs/mkdocs.yml ibm-cloud-garage-training/
           
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
-          cd $GITHUB_WORKSPACE
+          cd ibm-cloud-garage-training
           
           # configure git
           git config --global user.email "mkdocs@upslope.io"
