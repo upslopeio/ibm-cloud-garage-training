@@ -31,26 +31,19 @@ jobs:
           # clone repo with mkdocs configs
           git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
           
-          # copy docs from main repo into mkdocs repo folder
-          cp -r ibm-cloud-garage-training/* ibm-cloud-garage-training-mkdocs/docs/
-          
-          # and copy back...
-          cp -r ibm-cloud-garage-training-mkdocs/* ibm-cloud-garage-training/
-          
-          # save fixed 404
-          mv ibm-cloud-garage-training/404.html  ibm-cloud-garage-training-mkdocs/
+          # setup folder hierarchy
+          mkdir $GITHUB_WORKSPACE/docs/
+          cp $GITHUB_WORKSPACE/* $GITHUB_WORKSPACE/docs/
           
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
-          cd ..
-          cd ibm-cloud-garage-training
+          cd $GITHUB_WORKSPACE
           
           # configure git
           git config --global user.email "mkdocs@upslope.io"
           git config --global user.name "mkdocs"
-          git pull origin gh-pages --allow-unrelated-histories
           
           # builds site and commits to gh-pages branch
-          mkdocs gh-deploy --force
+          mkdocs gh-deploy
