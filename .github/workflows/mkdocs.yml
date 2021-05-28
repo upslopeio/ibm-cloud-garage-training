@@ -33,7 +33,8 @@ jobs:
           
           # setup folder hierarchy
           mkdir $GITHUB_WORKSPACE/docs/
-          cp -rT $GITHUB_WORKSPACE/* $GITHUB_WORKSPACE/docs/
+          shopt -s nullglob dotglob extglob
+          cp -r $GITHUB_WORKSPACE/!(docs) $GITHUB_WORKSPACE/docs/
           
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
