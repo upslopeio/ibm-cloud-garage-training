@@ -21,12 +21,14 @@ jobs:
         run: pip install mkdocs-material
 
       - name: Setup directory stucture for mkdocs
+        env: # Or as an environment variable
+          GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
           # move up one dir from repo
           cd ..
           
           # clone main repo
-          git clone https://github.com/upslopeio/ibm-cloud-garage-training.git
+          git clone https://enzobarrett:$GH_PAT@github.com/upslopeio/ibm-cloud-garage-training.git
           
           # clone repo with mkdocs configs
           git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
