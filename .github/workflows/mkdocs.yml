@@ -53,4 +53,4 @@ jobs:
           git pull origin gh-pages --allow-unrelated-histories
           
           # builds site and commits to gh-pages branch
-          mkdocs gh-deploy
+          mkdocs gh-deploy --force
