@@ -25,11 +25,11 @@ jobs:
           # move up one dir from repo
           cd ..
           
-          # clone repo with mkdocs configs
-          git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
-          
           # clone main repo
           git clone https://github.com/upslopeio/ibm-cloud-garage-training.git
+          
+          # clone repo with mkdocs configs
+          git clone https://github.com/upslopeio/ibm-cloud-garage-training-mkdocs.git
           
           # setup folder hierarchy
           mkdir ibm-cloud-garage-training/docs/
