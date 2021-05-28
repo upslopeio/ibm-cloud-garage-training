@@ -39,5 +39,9 @@ jobs:
           cd ..
           cd ibm-cloud-garage-training-mkdocs
           
+          # configure git
+          git remote rm origin
+          git remote add origin "https://github.com/upslopeio/ibm-cloud-garage-training.git"
+          
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
