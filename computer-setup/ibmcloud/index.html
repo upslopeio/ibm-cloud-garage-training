@@ -1,0 +1,1264 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>IBM Cloud Setup - ibm-cloud-garage-training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,700%7CIBM+Plex+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"IBM Plex Sans";--md-code-font-family:"IBM Plex Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ibm-cloud-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ibm-cloud-garage-training" class="md-header__button md-logo" aria-label="ibm-cloud-garage-training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ibm-cloud-garage-training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IBM Cloud Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ibm-cloud-garage-training" class="md-nav__button md-logo" aria-label="ibm-cloud-garage-training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ibm-cloud-garage-training
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        IBM Cloud Garage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gogs-authentication/" class="md-nav__link">
+        Gogs Authentication
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xp/" class="md-nav__link">
+        Garage Method
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Ci cd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ci cd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Ci cd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ci-cd/" class="md-nav__link">
+        CI/CD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ci-cd/argo/" class="md-nav__link">
+        CD with ArgoCD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ci-cd/continuous-integration/" class="md-nav__link">
+        Continuous Integration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ci-cd/tekton/" class="md-nav__link">
+        CI with Tekton
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Cloud garage engineer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cloud garage engineer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud garage engineer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud-garage-engineer/" class="md-nav__link">
+        Cloud Native Engineer Bootcamp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud-garage-engineer/standards/" class="md-nav__link">
+        Standards
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Computer setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Computer setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Computer setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudnative-toolkit/" class="md-nav__link">
+        Cloudnative toolkit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homebrew/" class="md-nav__link">
+        Computer Setup > Homebrew
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IBM Cloud Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IBM Cloud Setup
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#please-read-carefully" class="md-nav__link">
+    PLEASE READ CAREFULLY!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibmcloud-cli" class="md-nav__link">
+    Install the ibmcloud CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibmcloud-container-plugin" class="md-nav__link">
+    Install the ibmcloud container plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-required-dependencies" class="md-nav__link">
+    Install required dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-toolkit-developer-tools" class="md-nav__link">
+    Install the toolkit developer tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-oc-plugins" class="md-nav__link">
+    Verifying OC Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-an-api-key" class="md-nav__link">
+    Get an API Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-ibmcloud" class="md-nav__link">
+    Login to ibmcloud
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-openshift-cluster" class="md-nav__link">
+    Access the OpenShift Cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-configure-icc-fast-cluster-switcher" class="md-nav__link">
+    (Optional) Configure ICC - fast cluster switcher
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mac/" class="md-nav__link">
+        Mac Setup Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node/" class="md-nav__link">
+        Install Node
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Background: Kubernetes and OpenShift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-studio-code/" class="md-nav__link">
+        Computer Setup > Visual Studio Code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows/" class="md-nav__link">
+        Windows Computer Setup Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zsh/" class="md-nav__link">
+        Computer Setup > ZSH
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        One-time Git Configuration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/assignments/" class="md-nav__link">
+        Assignments Repo
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/cheatsheet/" class="md-nav__link">
+        Add New Content
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Gogs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Gogs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Gogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gogs/" class="md-nav__link">
+        Push a Local Git Repository to Gogs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Helm
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Helm" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Helm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+      
+      <label class="md-nav__link" for="__nav_10">
+        Openshift
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Openshift" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Openshift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openshift/" class="md-nav__link">
+        Openshift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openshift/cheatsheet/" class="md-nav__link">
+        OpenShift
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" data-md-state="indeterminate" type="checkbox" id="__nav_11" checked>
+      
+      <label class="md-nav__link" for="__nav_11">
+        Projects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Projects" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Projects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        Projects
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" data-md-state="indeterminate" type="checkbox" id="__nav_12" checked>
+      
+      <label class="md-nav__link" for="__nav_12">
+        React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/" class="md-nav__link">
+        React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/docker/" class="md-nav__link">
+        Dockerizing a React App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/testing/" class="md-nav__link">
+        Testing a React App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" data-md-state="indeterminate" type="checkbox" id="__nav_13" checked>
+      
+      <label class="md-nav__link" for="__nav_13">
+        Tdd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tdd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Tdd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tdd/" class="md-nav__link">
+        TDD in JavaScript / Jest
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#please-read-carefully" class="md-nav__link">
+    PLEASE READ CAREFULLY!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibmcloud-cli" class="md-nav__link">
+    Install the ibmcloud CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-ibmcloud-container-plugin" class="md-nav__link">
+    Install the ibmcloud container plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-required-dependencies" class="md-nav__link">
+    Install required dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-toolkit-developer-tools" class="md-nav__link">
+    Install the toolkit developer tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-oc-plugins" class="md-nav__link">
+    Verifying OC Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-an-api-key" class="md-nav__link">
+    Get an API Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-ibmcloud" class="md-nav__link">
+    Login to ibmcloud
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-openshift-cluster" class="md-nav__link">
+    Access the OpenShift Cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-configure-icc-fast-cluster-switcher" class="md-nav__link">
+    (Optional) Configure ICC - fast cluster switcher
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="ibm-cloud-setup">IBM Cloud Setup</h1>
+<hr />
+<h3 id="please-read-carefully">PLEASE READ CAREFULLY!</h3>
+<p>Don't just copy/paste every command without reading</p>
+<hr />
+<blockquote>
+<p><strong>Note for Windows Users:</strong> You'll run all of these commands from Ubuntu (WSL)</p>
+</blockquote>
+<h2 id="install-the-ibmcloud-cli">Install the <code>ibmcloud</code> CLI</h2>
+<p>Do you already have <code>ibmcloud</code> installed?</p>
+<pre><code>which ibmcloud
+</code></pre>
+<p>If you see output like <code>/usr/local/bin/ibmcloud</code> then you have successfully installed it.</p>
+<p>If you see output like <code>not found</code> then you need to install it:</p>
+<ol>
+<li>Visit https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</li>
+<li>Follow the instructions for your operating system.<blockquote>
+<p>Tip: You can use the shell script in the second section instead of the installer option.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="install-the-ibmcloud-container-plugin">Install the <code>ibmcloud</code> container plugin</h2>
+<p>Do you have the container plugin?</p>
+<pre><code>ibmcloud plugin list
+</code></pre>
+<p>You should see <code>container-service</code> in the list of plugins.</p>
+<p>If you do not see <code>container-service</code> then do the following:</p>
+<ol>
+<li>Visit https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install</li>
+<li>Follow the instructions<blockquote>
+<p>At the time of this writing it's <code>ibmcloud plugin install container-service</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="install-required-dependencies">Install required dependencies</h2>
+<pre><code>brew install yq@3
+echo &quot;export PATH=\&quot;$(brew --prefix yq@3)/bin:$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
+brew install jq
+</code></pre>
+<h2 id="install-the-toolkit-developer-tools">Install the toolkit developer tools</h2>
+<ol>
+<li>Visit https://cloudnativetoolkit.dev/getting-started/dev-env-setup</li>
+<li>Follow instructions. At the time of this writing, the commands are:
+   <code>curl -sL shell.cloudnativetoolkit.dev | bash -
+   source ~/.zshrc</code></li>
+</ol>
+<p>After installing this, the following commands should all print a path:</p>
+<pre><code>which igc
+which tkn
+which oc
+</code></pre>
+<h2 id="verifying-oc-plugins">Verifying OC Plugins</h2>
+<p>When you run <code>oc plugin list</code> you should see several lines, including one with <code>kubectl-pipeline</code>.</p>
+<p>If not, it's likely that your npm bin directory is not in your path.</p>
+<p>If you installed Node via NVM, this might work:</p>
+<pre><code>nvm alias default node
+</code></pre>
+<p>If you installed Node with the installer, this might work:</p>
+<pre><code>echo &quot;export PATH=\&quot;\${HOME}/.npm/bin:\${PATH}\&quot;&quot; &gt;&gt; ~/.zshrc
+source ~/.zshrc
+</code></pre>
+<p>Then run <code>oc plugin list</code> again.</p>
+<h2 id="get-an-api-key">Get an API Key</h2>
+<hr />
+<p><strong>NOTE</strong> If you are installing tools before class starts, the cluster below might not be created yet, so skip these steps</p>
+<hr />
+<ol>
+<li>Log into https://cloud.ibm.com with your IBM email address</li>
+<li>‼️ Make sure that "DTEV2" is selected from the account menu (see below)</li>
+<li>Click on Manage &gt; Access (IAM)</li>
+<li>Under "My IBM Cloud API keys" click "View all"</li>
+<li>Click "Create an IBM Cloud API key"</li>
+<li>Enter a name and create the key</li>
+<li>Download the key to your computer (if you don't, you'll have to create another one)</li>
+</ol>
+<p><img alt="" src="../img/apikey-menu.png" /></p>
+<p><img alt="" src="../img/apikey-iam.png" /></p>
+<p><img alt="" src="../img/apikey-list.png" /></p>
+<p><img alt="" src="../img/apikey-name.png" /></p>
+<p><img alt="" src="../img/apikey-copy.png" /></p>
+<h2 id="login-to-ibmcloud">Login to <code>ibmcloud</code></h2>
+<p>In order to test that your account works, login using your API key.</p>
+<p>Replace <code>YOUR_API_KEY</code> with your actual API key and then run this command:</p>
+<pre><code>ibmcloud login --apikey YOUR_API_KEY -r us-south
+</code></pre>
+<p>Run <code>ibmcloud ks clusters</code> to see the list of clusters you can access.</p>
+<blockquote>
+<p>NOTE: if you are following these instructions before class starts, the cluster list might be empty, and that's OK.</p>
+</blockquote>
+<p>You should see your cohort's cluster in the list.</p>
+<p>If you don't, it could be because:</p>
+<ol>
+<li>It's before class started, and we haven't created it yet</li>
+<li>You created your API key in the wrong account (your personal account, as opposed to DTEV2)</li>
+<li>You have not been granted access to the cluster - contact your instructor</li>
+</ol>
+<h2 id="access-the-openshift-cluster">Access the OpenShift Cluster</h2>
+<p>In order to login to the cluster from the command line, you must first log in on the website.</p>
+<ol>
+<li>Log into https://cloud.ibm.com with your IBM email address</li>
+<li>Make sure that "DTEV2" is selected from the account menu</li>
+<li>Under "Resource Summary" click "Clusters"</li>
+<li>Click your cohort's cluster</li>
+<li>Click "OpenShift Web Console"</li>
+<li>You should see the OpenShift web console</li>
+</ol>
+<p><img alt="" src="../img/ibmcloud-account.png" /></p>
+<p><img alt="" src="../img/ibmcloud-clusters.png" /></p>
+<p><img alt="" src="../img/ibmcloud-openshift-console.png" /></p>
+<p><img alt="" src="../img/openshift-web-console.png" /></p>
+<h2 id="optional-configure-icc-fast-cluster-switcher">(Optional) Configure ICC - fast cluster switcher</h2>
+<ol>
+<li>Run <code>icc --add-account</code></li>
+<li>name the account <code>garage</code></li>
+<li>Paste in the API key you generated above</li>
+<li>Run <code>icc --generate</code></li>
+</ol>
+<p>When you run <code>icc</code> you should see at least one cluster listed (the cluster for your cohort).</p>
+<p>When you run <code>icc &lt;cluster name&gt;</code> you should not see an error message.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../homebrew/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Computer Setup > Homebrew
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../mac/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mac Setup Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>

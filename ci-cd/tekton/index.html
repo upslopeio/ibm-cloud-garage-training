@@ -1,0 +1,1473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>CI with Tekton - ibm-cloud-garage-training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,700%7CIBM+Plex+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"IBM Plex Sans";--md-code-font-family:"IBM Plex Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ci-with-tekton" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ibm-cloud-garage-training" class="md-header__button md-logo" aria-label="ibm-cloud-garage-training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ibm-cloud-garage-training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CI with Tekton
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ibm-cloud-garage-training" class="md-nav__button md-logo" aria-label="ibm-cloud-garage-training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ibm-cloud-garage-training
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        IBM Cloud Garage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gogs-authentication/" class="md-nav__link">
+        Gogs Authentication
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xp/" class="md-nav__link">
+        Garage Method
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Ci cd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ci cd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Ci cd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        CI/CD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argo/" class="md-nav__link">
+        CD with ArgoCD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous-integration/" class="md-nav__link">
+        Continuous Integration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CI with Tekton
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CI with Tekton
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go-into-your-react-intro-application" class="md-nav__link">
+    Go into your react-intro application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-that-tests-pass" class="md-nav__link">
+    Make sure that tests pass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-your-code-is-on-gogs" class="md-nav__link">
+    Make sure your code is on Gogs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-into-the-cluster" class="md-nav__link">
+    Log Into the cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-project" class="md-nav__link">
+    Create a new project
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a new project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-tekton-pipeline" class="md-nav__link">
+    Create the Tekton Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-dockerfile" class="md-nav__link">
+    Adding the Dockerfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-helm-chart" class="md-nav__link">
+    Add the Helm Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-failures" class="md-nav__link">
+    Pipeline failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-failures" class="md-nav__link">
+    Other failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-parameters" class="md-nav__link">
+    Pipeline parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-your-pipeline" class="md-nav__link">
+    Finding your pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Cloud garage engineer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cloud garage engineer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud garage engineer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud-garage-engineer/" class="md-nav__link">
+        Cloud Native Engineer Bootcamp
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud-garage-engineer/standards/" class="md-nav__link">
+        Standards
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Computer setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Computer setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Computer setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/cloudnative-toolkit/" class="md-nav__link">
+        Cloudnative toolkit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/homebrew/" class="md-nav__link">
+        Computer Setup > Homebrew
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/ibmcloud/" class="md-nav__link">
+        IBM Cloud Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/mac/" class="md-nav__link">
+        Mac Setup Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/node/" class="md-nav__link">
+        Install Node
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/overview/" class="md-nav__link">
+        Background: Kubernetes and OpenShift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/visual-studio-code/" class="md-nav__link">
+        Computer Setup > Visual Studio Code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/windows/" class="md-nav__link">
+        Windows Computer Setup Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-setup/zsh/" class="md-nav__link">
+        Computer Setup > ZSH
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        One-time Git Configuration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/assignments/" class="md-nav__link">
+        Assignments Repo
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/cheatsheet/" class="md-nav__link">
+        Add New Content
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Gogs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Gogs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Gogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gogs/" class="md-nav__link">
+        Push a Local Git Repository to Gogs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Helm
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Helm" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Helm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+      
+      <label class="md-nav__link" for="__nav_10">
+        Openshift
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Openshift" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Openshift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openshift/" class="md-nav__link">
+        Openshift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openshift/cheatsheet/" class="md-nav__link">
+        OpenShift
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" data-md-state="indeterminate" type="checkbox" id="__nav_11" checked>
+      
+      <label class="md-nav__link" for="__nav_11">
+        Projects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Projects" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Projects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        Projects
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" data-md-state="indeterminate" type="checkbox" id="__nav_12" checked>
+      
+      <label class="md-nav__link" for="__nav_12">
+        React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/" class="md-nav__link">
+        React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/docker/" class="md-nav__link">
+        Dockerizing a React App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react/testing/" class="md-nav__link">
+        Testing a React App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" data-md-state="indeterminate" type="checkbox" id="__nav_13" checked>
+      
+      <label class="md-nav__link" for="__nav_13">
+        Tdd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tdd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Tdd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tdd/" class="md-nav__link">
+        TDD in JavaScript / Jest
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go-into-your-react-intro-application" class="md-nav__link">
+    Go into your react-intro application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-that-tests-pass" class="md-nav__link">
+    Make sure that tests pass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-sure-your-code-is-on-gogs" class="md-nav__link">
+    Make sure your code is on Gogs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-into-the-cluster" class="md-nav__link">
+    Log Into the cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-project" class="md-nav__link">
+    Create a new project
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a new project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-tekton-pipeline" class="md-nav__link">
+    Create the Tekton Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-dockerfile" class="md-nav__link">
+    Adding the Dockerfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-helm-chart" class="md-nav__link">
+    Add the Helm Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-failures" class="md-nav__link">
+    Pipeline failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-failures" class="md-nav__link">
+    Other failures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-parameters" class="md-nav__link">
+    Pipeline parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-your-pipeline" class="md-nav__link">
+    Finding your pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="ci-with-tekton">CI with Tekton</h1>
+<h2 id="go-into-your-react-intro-application">Go into your react-intro application</h2>
+<pre><code>cd ~/react-intro
+</code></pre>
+<h2 id="make-sure-that-tests-pass">Make sure that tests pass</h2>
+<p>Run the following command:</p>
+<pre><code>CI=true npm test
+</code></pre>
+<blockquote>
+<p>🛑 &nbsp;&nbsp; <strong>NOTE:</strong> You should see that all of your tests pass. If all of your tests don't pass, do not continue. Fix your tests.</p>
+</blockquote>
+<h2 id="make-sure-your-code-is-on-gogs">Make sure your code is on Gogs</h2>
+<p>Run the following command:</p>
+<pre><code>git status
+</code></pre>
+<p>You should have no changes to commit. If you have changes to commit.</p>
+<pre><code>git add -A
+git commit -m &quot;changes for pipeline&quot;
+git push origin master
+</code></pre>
+<h2 id="log-into-the-cluster">Log Into the cluster</h2>
+<pre><code class="language-java">icc &lt;cluster name&gt;
+</code></pre>
+<p>For example: <code>icc cohort7</code></p>
+<blockquote>
+<p>🛑 &nbsp;&nbsp; <strong>If ICC doesn't work for you</strong> open the OpenShift Web Console and login via "Copy Login Command"</p>
+</blockquote>
+<h2 id="create-a-new-project">Create a new project</h2>
+<p>Make sure your user number is set in your environment:</p>
+<pre><code>echo $CGB_USER
+</code></pre>
+<p>You should see something like <code>03</code></p>
+<pre><code>oc sync react-intro-$CGB_USER-dev
+</code></pre>
+<p>You should see output like this:</p>
+<pre><code>Setting up namespace react-intro...
+Setting up namespace: react-intro...
+Checking for existing project: react-intro...
+Creating project: react-intro...
+Copying ConfigMaps
+Copying Secrets
+Setting current project to react-intro...
+</code></pre>
+<p>Then type <code>oc project</code> and you should see:</p>
+<pre><code>Using project &quot;react-intro-99-dev&quot; on server &quot;https://c109-e.us-east.containers.cloud.ibm.com:31982&quot;.
+</code></pre>
+<blockquote>
+<p>🛑 &nbsp;&nbsp; If you see <code>Using project "default"</code> it means your project creation did not work. Make sure you are logged in and have permissions. You may need to contact your instructor.</p>
+</blockquote>
+<h3 id="create-the-tekton-pipeline">Create the Tekton Pipeline</h3>
+<p>Create the pipeline:</p>
+<pre><code>oc pipeline --tekton
+</code></pre>
+<ul>
+<li><code>Select the Pipeline to use in the Pipeline Run:</code> choose the most appropriate pipeline for your project</li>
+<li>For React, choose <code>ibm-nodejs</code></li>
+<li><code>Image scan (y/n)</code> type <code>n</code></li>
+<li><code>Lint dockerfile (y/n)</code> type <code>n</code></li>
+</ul>
+<p>This will create a new pipeline and add the application to the gitops repository <code>qa</code> environment.</p>
+<p>If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.</p>
+<blockquote>
+<p>🛑 &nbsp;&nbsp; If the pipeline fails, use the troubleshooting tables below to fix the failure:</p>
+</blockquote>
+<ol>
+<li>Run <code>oc console</code> to open a console</li>
+<li>In the sidebar, go to Pipelines</li>
+<li>Click the latest Pipeline Run</li>
+<li>Verify that your <code>test</code> stage passes</li>
+</ol>
+<h2 id="adding-the-dockerfile">Adding the Dockerfile</h2>
+<p>Add the following file to the root of your <code>react-intro</code> app:</p>
+<p><code>nginx.conf</code> (same as above):</p>
+<pre><code>server {
+    listen       8080;
+    server_name  localhost;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html =404;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+</code></pre>
+<p>Add the following file to the root of your <code>react-intro</code> app:</p>
+<p><code>Dockerfile</code></p>
+<pre><code>FROM quay.io/jeffdean/node-alpine as build
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+FROM quay.io/jeffdean/nginx-unprivileged
+COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+</code></pre>
+<p>Then from the command line, to build you would execute the following commands:</p>
+<pre><code># no need to run npm build
+docker build --no-cache -t dockerized-react-app .
+docker run -it -p 8080:8080 --rm dockerized-react-app
+</code></pre>
+<p>Then open http://localhost:8080 in your browser to see it work.</p>
+<p>Once it works locally:</p>
+<ul>
+<li>Git add commit and push</li>
+<li>Verify that the "build" stage in your pipeline passes</li>
+</ul>
+<hr />
+<h2 id="add-the-helm-chart">Add the Helm Chart</h2>
+<ol>
+<li>Download this zip file: https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip</li>
+<li>Unzip the file</li>
+<li>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:
+   <code>pwd # &lt;-- make sure you are in the react-intro directory
+   mv ~/Downloads/chart .</code></li>
+<li>Git add / commit and push</li>
+<li>View your pipeline run in the OpenShift console</li>
+<li>Verify that the "Deploy" step passes</li>
+</ol>
+<h2 id="pipeline-failures">Pipeline failures</h2>
+<p>You'll see the most errors the first time you are setting up the pipeline.</p>
+<p><strong>test stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The test stage fails</td>
+<td>Run the following command locally and fix any errors <code>CI=true npm test</code></td>
+</tr>
+</tbody>
+</table>
+<p>NOTE: if you want to ignore a failing test (just so you can move onto the next stage during class) you can change <code>test</code> to <code>test.skip</code></p>
+<p><strong>build stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error reading info about "/source/Dockerfile": stat /source/Dockerfile: no such file or directory</td>
+<td><a href="../../react/docker/">Containerize the application</a></td>
+</tr>
+<tr>
+<td>The build stage fails</td>
+<td>Run the following command locally and fix any errors <code>docker build -t &lt;application-name&gt; .</code> Replace <code>&lt;application-name&gt;</code> with the correct application name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>deploy stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cp: can't create directory '/<directory-name>': Permission denied</td>
+<td><a href="../helm">Add helm charts</a> <br> render locally with <code>helm template &lt;release-name&gt; ./chart/base</code> where <code>&lt;release-name&gt;</code> is the name of your application in all lower case.</td>
+</tr>
+<tr>
+<td>error: deployment "react-intro" exceeded its progress deadline</td>
+<td>This means the pods never came up. If you login to the project from terminal and run <code>oc get pods</code>, look for the pod that is failing (it will not be named using the pipeline run). You should see at least one that is not running. Then <code>oc describe pod &lt;pod-name&gt;</code> and/or <code>oc logs &lt;pod-name&gt;</code> to find out why it is not running</td>
+</tr>
+<tr>
+<td><code>error: object has been deleted</code></td>
+<td>The namespace or Argo project name is the same as your repository name. Delete the namespace or Argo project and recreate it with a new unique name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>dockerfile-lint stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dockerfile-lint stage fails</td>
+<td>Set <code>lint-dockerfile</code> to <code>false</code> in the pipeline parameters (see the image below)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>img-scan stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The img-scan stage fails</td>
+<td>Set <code>scan-image</code> to <code>false</code> in the pipeline parameters (see the image below)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>health stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contains <code>https://</code> in the error message</td>
+<td>Add a <code>health-protocol</code> key with a value of <code>http</code> to the pipeline parameters</td>
+</tr>
+</tbody>
+</table>
+<p><strong>tag-release stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The tag already exists</td>
+<td>delete the tag on origin by running <code>git push --delete origin &lt;tag-name&gt;</code> where <code>[tag-name&gt;</code> is replaced with the conflicting tag value. Then delete the tag locally, if it exists, by running <code>git tag -d &lt;tag-name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>helm-release stage</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It looks like your Artifactory installation is not complete.</td>
+<td>Instructor should follow setup instructions at <a href="https://cloudnativetoolkit.dev/admin/artifactory-setup/">https://cloudnativetoolkit.dev/admin/artifactory-setup/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-failures">Other failures</h2>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pod with a status of ErrImagePull or ImagePullBackOff.</td>
+<td><code>oc describe pod &lt;pod-name&gt;</code> to verify status - Add an <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/">ImagePullSecret</a> for the private registry.</td>
+</tr>
+<tr>
+<td>Container does not run, crashes, or other application error</td>
+<td>Diagnose pod issues by looking at the logs: <br> <code>oc get pod</code><br> <code>oc describe pod &lt;pod-name&gt;</code><br> <code>oc logs &lt;pod-name&gt;</code><br> <code>oc logs &lt;pod-name&gt; -f</code> &lt;- streams the logs<br> <br> Or run locally: <code>docker build ...</code> then <code>docker run...</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipeline-parameters">Pipeline parameters</h2>
+<p>The following is a screenshot of the pipeline parameters page:</p>
+<p><img alt="" src="../img/pipeline-parameters.png" /></p>
+<h2 id="finding-your-pipeline">Finding your pipeline</h2>
+<ol>
+<li>Select developer view
+   <img alt="" src="../img/developer-view.png" /></li>
+<li>Select pipelines
+   <img alt="" src="../img/developer-pipelines.png" /></li>
+<li>Filter projects by name
+   <img alt="" src="../img/developer-projects.png" /></li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../continuous-integration/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Continuous Integration
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../cloud-garage-engineer/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Cloud Native Engineer Bootcamp
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>
