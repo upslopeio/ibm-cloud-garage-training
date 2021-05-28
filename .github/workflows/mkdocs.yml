@@ -38,6 +38,7 @@ jobs:
           shopt -s nullglob dotglob extglob
           cp -r ibm-cloud-garage-training/!(docs) ibm-cloud-garage-training/docs/
           cp ibm-cloud-garage-training-mkdocs/mkdocs.yml ibm-cloud-garage-training/
+          cp -r ibm-cloud-garage-training-mkdocs/custom_theme/ ibm-cloud-garage-training/
           
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
