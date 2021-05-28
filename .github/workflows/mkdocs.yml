@@ -37,11 +37,9 @@ jobs:
           mkdir ibm-cloud-garage-training/docs/
           shopt -s nullglob dotglob extglob
           cp -r ibm-cloud-garage-training/!(docs) ibm-cloud-garage-training/docs/
-          cp ibm-cloud-garage-training-mkdocs/mkdocs.yml ibm-cloud-garage-training/
+          cp -r ibm-cloud-garage-training-mkdocs/* ibm-cloud-garage-training/
           
       - name: Deploy to gh-pages branch
-        env: # Or as an environment variable
-          GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |       
           # configure git
           git config --global user.email "mkdocs@upslope.io"
