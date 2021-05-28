@@ -40,11 +40,7 @@ jobs:
       - name: Deploy to gh-pages branch
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
-        run: |
-          ls
-          pwd
-          cd ibm-cloud-garage-training
-          
+        run: |       
           # configure git
           git config --global user.email "mkdocs@upslope.io"
           git config --global user.name "mkdocs"
