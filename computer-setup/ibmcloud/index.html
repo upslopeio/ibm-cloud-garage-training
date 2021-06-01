@@ -919,7 +919,7 @@
 </ol>
 <h2 id="install-required-dependencies">Install required dependencies</h2>
 <pre><code>brew install yq@3
-echo &quot;export PATH=\&quot;$(brew --prefix yq@3)/bin:$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
+echo &quot;export PATH=\&quot;$(brew --prefix yq@3)/bin:\$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
 brew install jq
 </code></pre>
 <h2 id="install-the-toolkit-developer-tools">Install the toolkit developer tools</h2>
@@ -941,7 +941,7 @@ which oc
 <pre><code>nvm alias default node
 </code></pre>
 <p>If you installed Node with the installer, this might work:</p>
-<pre><code>echo &quot;export PATH=\&quot;\${HOME}/.npm/bin:\\${PATH}\&quot;&quot; &gt;&gt; ~/.zshrc
+<pre><code>echo &quot;export PATH=\&quot;\${HOME}/.npm/bin:\${PATH}\&quot;&quot; &gt;&gt; ~/.zshrc
 source ~/.zshrc
 </code></pre>
 <p>Then run <code>oc plugin list</code> again.</p>
