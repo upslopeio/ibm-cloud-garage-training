@@ -54,10 +54,11 @@ brew install jq
 
 1. Visit https://cloudnativetoolkit.dev/getting-started/dev-env-setup
 1. Follow instructions. At the time of this writing, the commands are:
-   ```
-   curl -sL shell.cloudnativetoolkit.dev | bash -
-   source ~/.zshrc
-   ```
+
+```
+curl -sL shell.cloudnativetoolkit.dev | bash -
+source ~/.zshrc
+```
 
 After installing this, the following commands should all print a path:
 
