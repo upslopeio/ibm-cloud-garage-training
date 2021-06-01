@@ -46,7 +46,7 @@ If you do not see `container-service` then do the following:
 
 ```
 brew install yq@3
-echo "export PATH=\"$(brew --prefix yq@3)/bin:$PATH\"" >> ~/.zshrc
+echo "export PATH=\"$(brew --prefix yq@3)/bin:\$PATH\"" >> ~/.zshrc
 brew install jq
 ```
 
@@ -82,7 +82,7 @@ nvm alias default node
 If you installed Node with the installer, this might work:
 
 ```
-echo "export PATH=\"\${HOME}/.npm/bin:\\${PATH}\"" >> ~/.zshrc
+echo "export PATH=\"\${HOME}/.npm/bin:\${PATH}\"" >> ~/.zshrc
 source ~/.zshrc
 ```
 
