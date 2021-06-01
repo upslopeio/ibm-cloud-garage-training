@@ -82,7 +82,7 @@ nvm alias default node
 If you installed Node with the installer, this might work:
 
 ```
-echo "export PATH=\"\${HOME}/.npm/bin:\${PATH}\"" >> ~/.zshrc
+echo "export PATH=\"\${HOME}/.npm/bin:\\${PATH}\"" >> ~/.zshrc
 source ~/.zshrc
 ```
 
