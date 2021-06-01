@@ -1,4 +1,4 @@
-# OpenShift
+# Cheatsheet
 
 ## Login
 
