@@ -14,7 +14,7 @@
     
     
       
-        <title>One-time Git Configuration - ibm-cloud-garage-training</title>
+        <title>Cheatsheet - ibm-cloud-garage-training</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#one-time-git-configuration" class="md-skip">
+        <a href="#cheatsheet" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              One-time Git Configuration
+              Cheatsheet
             
           </span>
         </div>
@@ -389,12 +389,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          One-time Git Configuration
+          Cheatsheet
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        One-time Git Configuration
+        Cheatsheet
       </a>
       
         
@@ -412,29 +412,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#credential-helper" class="md-nav__link">
-    Credential Helper
-  </a>
-  
-    <nav class="md-nav" aria-label="Credential Helper">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#macos" class="md-nav__link">
-    MacOS
+  <a href="#add-new-content" class="md-nav__link">
+    Add New Content
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    Windows
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-branch" class="md-nav__link">
+    Create a new branch
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#switch-branches" class="md-nav__link">
+    Switch branches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    Git merge
+  </a>
   
 </li>
       
@@ -453,18 +454,6 @@
     <li class="md-nav__item">
       <a href="assignments/" class="md-nav__link">
         Assignments Repo
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cheatsheet/" class="md-nav__link">
-        Add New Content
       </a>
     </li>
   
@@ -508,7 +497,7 @@
   
     <li class="md-nav__item">
       <a href="../openshift/" class="md-nav__link">
-        Openshift
+        Debugging ICC
       </a>
     </li>
   
@@ -520,7 +509,7 @@
   
     <li class="md-nav__item">
       <a href="../openshift/cheatsheet/" class="md-nav__link">
-        OpenShift
+        Cheatsheet
       </a>
     </li>
   
@@ -770,29 +759,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#credential-helper" class="md-nav__link">
-    Credential Helper
-  </a>
-  
-    <nav class="md-nav" aria-label="Credential Helper">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#macos" class="md-nav__link">
-    MacOS
+  <a href="#add-new-content" class="md-nav__link">
+    Add New Content
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    Windows
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-branch" class="md-nav__link">
+    Create a new branch
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#switch-branches" class="md-nav__link">
+    Switch branches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    Git merge
+  </a>
   
 </li>
       
@@ -809,51 +799,30 @@
               
                 
                 
-                <h1 id="one-time-git-configuration">One-time Git Configuration</h1>
-<p>The following commands will configure git with your username and email.</p>
-<pre><code class="language-shell">git config --global user.name &quot;&lt;your actual name&gt;&quot;
-git config --global user.email &quot;you@ibm.com&quot;
+                <h1 id="cheatsheet">Cheatsheet</h1>
+<h2 id="add-new-content">Add New Content</h2>
+<p>Default branch is either <code>master</code> or <code>main</code>.</p>
+<pre><code>git add -A
+git commit -m &quot;message&quot;
+git pull
+git push origin &lt;branch name&gt;
 </code></pre>
 <blockquote>
-<p>If you want to use your personal email address for your personal Github account, go for it.</p>
+<p>If you forget the <code>-m</code> flag in git commit, and it opens VI just type ESCAPE + <code>:q</code></p>
 </blockquote>
-<p>MacOS and Windows are case-insensitive operating systems, but with git you might be working with other users on a case-sensitive operating system. To avoid problems with file names that differ only in case, run the following command to make git case-sensitive.</p>
-<pre><code class="language-shell">git config --global core.ignorecase false
+<h2 id="create-a-new-branch">Create a new branch</h2>
+<pre><code>git checkout -b &lt;branch name&gt;
 </code></pre>
-<h2 id="credential-helper">Credential Helper</h2>
-<p>The git credential helper will transparently provide your credentials for authentication by securely storing your credentials.</p>
-<p>After enabling the credential helper, the next time you clone a repo via HTTP/S, you’ll be prompted to grant access to credential storage (Keychain or Core).
-The, any future authentication will be done transparently by Git reading the credential record.</p>
-<p>Chances are you already have a credential helper installed; in this section you will configure git to use it.</p>
-<h3 id="macos">MacOS</h3>
-<p>Run the following command to make sure you have the credential manager installed.</p>
-<pre><code class="language-shell">git credential-osxkeychain
+<h2 id="switch-branches">Switch branches</h2>
+<pre><code>git checkout &lt;branch name&gt;
 </code></pre>
-<p>It should print something like <code>usage: git credential-osxkeychain &lt;get|store|erase&gt;</code></p>
-<p>Tell Git to use the KeyChain to store your credentials:</p>
-<pre><code class="language-shell">git config --global credential.helper osxkeychain
+<h2 id="git-merge">Git merge</h2>
+<p>Let's say you are in a branch named <code>user-30</code> and you want to pull in changes from master:</p>
+<pre><code>git checkout master
+git pull
+git checkout user-30
+git merge master
 </code></pre>
-<p>If the above command does not work, install Git using brew: <code>brew install git</code>, then try the command again.</p>
-<p>Next time you clone a repo via HTTP/S, you’ll be prompted to grant access to KeyChain.
-Any future authentication will be done transparently by Git reading the KeyChain record.</p>
-<h3 id="windows">Windows</h3>
-<p>Run the following command to make sure you have the credential manager installed.</p>
-<pre><code class="language-shell">git credential-manager-core
-</code></pre>
-<p>It should print something like <code>usage: git credential-manager-core &lt;get|store|erase&gt;</code></p>
-<p>Then, tell git to use the credential-manager-core to store your credentials:</p>
-<pre><code class="language-shell">git config --global credential.helper manager-core
-</code></pre>
-<p>If the above command does not work, follow the installation instructions at <a href="https://github.com/microsoft/Git-Credential-Manager-Core">https://github.com/microsoft/Git-Credential-Manager-Core</a> and try the command again.</p>
-<p><strong>✅ ✅ How do I know if I completed this step? ✅ ✅</strong></p>
-<p>Confirm your settings are correct by running the following command:</p>
-<pre><code class="language-shell">git config --global --list
-</code></pre>
-<blockquote>
-<p>type Q to quit out of git config list command</p>
-</blockquote>
-<p>If all the information is correct, you have what you need!</p>
-<p>For more information, see <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-your-dvcs-username-for-commits/">this Atlassian article</a>.</p>
                 
               
               
