@@ -1,4 +1,4 @@
-# CD with ArgoCD
+# Argo - Continuous Delivery
 
 ## Prerequisites
 

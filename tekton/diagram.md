@@ -1,4 +1,4 @@
-# Continuous Integration
+# Sequence Diagram
 
 https://www.websequencediagrams.com/
 

@@ -1,3 +1,4 @@
+```
 title Continuous Integration
 
 participant Developer
@@ -30,3 +31,4 @@ note right of Tekton: helm-release
 Tekton->Artifactory: publish helm chart
 note right of Tekton: gitops
 Tekton->GitOps Repo: update QA folder
+```
