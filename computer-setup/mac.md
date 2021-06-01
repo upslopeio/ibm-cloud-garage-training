@@ -21,11 +21,12 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 ## (Optional) oh-my-zsh
 
-1. Visit https://ohmyz.sh/
+1. Visit [https://ohmyz.sh/](https://ohmyz.sh/)
 1. Follow instructions. At the time of writing, it's:
-   ```
-   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   ```
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
 ## Homebrew
 

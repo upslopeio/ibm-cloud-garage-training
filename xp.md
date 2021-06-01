@@ -6,6 +6,8 @@
 
 # (XP) Extreme Programming
 
+- https://en.wikipedia.org/wiki/Extreme_programming
+
 # Cycles
 
 ## Project Cycle
