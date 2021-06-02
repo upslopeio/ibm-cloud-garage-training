@@ -20,7 +20,6 @@
 - [The mythical man month](https://www.amazon.com/exec/obidos/ASIN/0201835959/)
 - [The Art of Computer Programming](https://www.amazon.com/exec/obidos/ASIN/0201485419)
 - [Range: Why Generalists Triumph in a Specialized World](https://www.amazon.com/dp/0735214484/ref=cm_sw_r_other_apa_i_G9MTDb7N1N64P)
-- [Accelerate: The Science of DevOps](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339)
 - [Refactoring: Improving the Design of Existing Code (2nd Edition)](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599/ref=dp_ob_title_bk)
 
 
