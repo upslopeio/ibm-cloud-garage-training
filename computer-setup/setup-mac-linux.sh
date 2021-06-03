@@ -11,7 +11,14 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
   exit 1
 fi
 
-read -rp "This script will setup your workstation for the IBM Cloud Native Garage Method course with Upslope.io. Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+EXISTING_EMAIL=$(git config --global user.email)
+read -rp "Please Enter your email address for git (${EXISTING_EMAIL}): " GIT_EMAIL
+GIT_EMAIL=${GIT_EMAIL:-${EXISTING_EMAIL}}
+
+EXISTING_USER_NAME=$(git config --global user.name)
+EXISTING_USER_NAME=${EXISTING_USER_NAME:-${USER}}
+read -rp "Please Enter your user name for git (${EXISTING_USER_NAME}): " GIT_USER_NAME
+GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
 
 if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   echo zsh not found
@@ -181,6 +188,10 @@ else
   echo 'export PATH="$(npm bin -g):$PATH"' >> ~/.zshrc
 fi
 
+git config --global user.name "${GIT_USER_NAME}"
+git config --global user.email "${GIT_EMAIL}"
+git config --global core.ignorecase false
+
 if [ ! -d ~/.npm-packages/bin ]; then
   mkdir -p ~/.npm-packages/bin
 fi
@@ -192,6 +203,7 @@ echo
 SLACK_VERSION="Unknown"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  git config --global credential.helper osxkeychain
   SLACK_VERSION=$(defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString)
 fi
 
@@ -199,6 +211,7 @@ BREW_VERSION=$(brew --version 2>&1)
 CODE_VERSION=$(code --version 2>&1)
 DOCKER_VERSION=$(docker version 2>&1)
 GIT_VERSION=$(git --version 2>&1)
+GIT_CONFIG=$(git config --global --list 2>&1)
 IBM_CLOUD_VERSION=$(ibmcloud --version 2>&1)
 IBM_CLOUD_PLUGINS=$(ibmcloud plugin list 2>&1)
 IGC_VERSION=$(igc --version 2>&1)
@@ -226,6 +239,7 @@ printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "docker" "${DOCKER_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "git" "${GIT_VERSION:-ERROR}"
+printf '**********\n%-20s: %s \n\n' "git config" "${GIT_CONFIG:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "HOME" "${HOME:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "ibmcloud" "${IBM_CLOUD_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "ibmcloud plugins" "${IBM_CLOUD_PLUGINS:-ERROR}"
