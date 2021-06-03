@@ -162,10 +162,10 @@ Once it works locally:
 1. Unzip the file
 1. Move the `chart` directory to your `react-app` folder. For example:
 
-```
-pwd # <-- make sure you are in the react-intro directory
-mv ~/Downloads/chart .
-```
+   ```
+   pwd # <-- make sure you are in the react-intro directory
+   mv ~/Downloads/chart .
+   ```
 
 1. Git add / commit and push
 1. View your pipeline run in the OpenShift console
