@@ -1080,10 +1080,8 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
 <hr />
 <h2 id="add-the-helm-chart">Add the Helm Chart</h2>
 <ol>
-<li>Download <a href="https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip">this zip file</a><ol>
+<li>Download <a href="https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip">this zip file</a></li>
 <li>You can <a href="https://github.com/upslopeio/ibm-cloud-garage-training/tree/main/helm/chart">see the contents here</a></li>
-</ol>
-</li>
 <li>Unzip the file</li>
 <li>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:
    <code>pwd # &lt;-- make sure you are in the react-intro directory
@@ -1094,6 +1092,20 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
 </ol>
 <h2 id="pipeline-failures">Pipeline failures</h2>
 <p>You'll see the most errors the first time you are setting up the pipeline.</p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error Unable to identify git host type</td>
+<td>You may have entered your GitHub credentials, not <code>userXX</code> and <code>password</code> for Gogs. In OC Console, click developer view, select your project, then select "Secrets" on the left, then select <code>git-credentials</code>, then "Actions", then "Edit Secret", enter in <code>userXX</code> and <code>password</code>.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>test stage</strong></p>
 <table>
 <thead>
