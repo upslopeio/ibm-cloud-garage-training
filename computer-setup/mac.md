@@ -28,6 +28,17 @@ You have ZSH if you see the following output: `/bin/zsh`
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+## Automatic Install Script
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
+```
+
+[Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
+
+![](../img/vscode-autosave.png)
+
+
 ## Homebrew
 
 1. Visit https://brew.sh/
