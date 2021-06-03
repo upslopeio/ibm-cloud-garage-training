@@ -167,21 +167,21 @@ nvm alias default 'lts/*'
 
 YQ3_PATH="$(brew --prefix yq@3)/bin"
 
-if grep -qE "export PATH=.*${YQ3_PATH}" ~/.zshrc; then
+if grep -qE "^export PATH=.*${YQ3_PATH}" ~/.zshrc; then
   echo Found yq@3 in PATH
 else
   echo Adding yq@3 to PATH
-  echo "export PATH=\"${YQ3_PATH}:\$\{PATH\}\"" >> ~/.zshrc
+  echo "export PATH=\"${YQ3_PATH}:\$PATH\"" >> ~/.zshrc
 fi
 
-if grep -qE 'export PATH=.*\$\{HOME\}/bin' ~/.zshrc; then
+if grep -qE '^export PATH=.*\$HOME/bin' ~/.zshrc; then
   echo Found HOME in PATH
 else
   echo Adding HOME/bin to path
-  echo 'export PATH="${HOME}/bin:${PATH}"' >> ~/.zshrc
+  echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
 fi
 
-if grep -qE 'export PATH=.*\$\(npm bin -g\)' ~/.zshrc; then
+if grep -qE '^export PATH=.*\$\(npm bin -g\)' ~/.zshrc; then
   echo Found npm bin -g in PATH
 else
   echo Adding npm bin -g to path
