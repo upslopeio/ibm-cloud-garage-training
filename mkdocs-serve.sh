@@ -6,7 +6,10 @@ cleanup() {
 
     # sync docs dir with main repo
     cd ..
-    rsync --dry-run -azv --exclude 'mkdocs-serve' --exclude '.*' mkdocs-serve/docs/ ./
+    rsync -az --exclude 'mkdocs-serve' --exclude '.*' mkdocs-serve/docs/ ./
+    echo "files synced with repo!"
+
+    rm -r mkdocs-serve
 }
 
 # run cleanup on exit
@@ -25,7 +28,7 @@ cp -r !(mkdocs|mkdocs-serve|.git|.|..) mkdocs-serve/docs/
 
 # run mkdocs
 cd mkdocs-serve
-echo -e "\e[41m\e[30mNOTE: Edit markdown files in docs/ to take advantage of live-reload, they will be copied over when you stop the dev server.\e[0m"
+echo -e "\e[41m\e[30mNOTE: Edit markdown files in mkdocs-serve/docs/ to take advantage of live-reload, they will be copied over when you stop the dev server.\e[0m"
 sleep 3
 mkdocs serve &
 sleep 1
