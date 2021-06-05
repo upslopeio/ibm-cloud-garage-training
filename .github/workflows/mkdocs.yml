@@ -24,7 +24,11 @@ jobs:
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |
+          # enable globing
+          shopt -s nullglob dotglob extglob
+
           # move up one dir from repo
+          
           cd ..
           
           # clone main repo
@@ -34,6 +38,7 @@ jobs:
           
           # REMOVE ME
           git checkout mkdocs-test
+          git pull origin mkdocs-test
           
           # setup folder heiarchy
           mkdir docs
