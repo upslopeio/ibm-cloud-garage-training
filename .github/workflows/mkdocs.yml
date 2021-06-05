@@ -32,17 +32,10 @@ jobs:
           
           cd ibm-cloud-garage-training
           
-          # setup folder hierarchy
-          mkdir ibm-cloud-garage-training/docs/
-          shopt -s nullglob dotglob extglob
-          cp -r ibm-cloud-garage-training/!(docs) ibm-cloud-garage-training/docs/
-          cp ibm-cloud-garage-training-mkdocs/mkdocs.yml ibm-cloud-garage-training/
-          cp -r ibm-cloud-garage-training-mkdocs/custom_theme/ ibm-cloud-garage-training/
-          
+          # setup folder heiarchy
           mkdir docs
-
           rm mkdocs-serve.sh
-          cp -r !(.git|mkdocs) mkdocs-serve/docs/
+          cp -r !(.git|mkdocs|docs) mkdocs-serve/docs/
           cp -r mkdocs/* ./
           rm -r mkdocs
    
