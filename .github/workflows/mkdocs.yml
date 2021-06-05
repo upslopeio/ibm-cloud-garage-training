@@ -43,7 +43,7 @@ jobs:
           # setup folder heiarchy
           mkdir docs
           rm mkdocs-serve.sh
-          cp -r !(.git|mkdocs|docs) mkdocs-serve/docs/
+          cp -r !(.git|mkdocs|docs) docs/
           cp -r mkdocs/* ./
           rm -r mkdocs
    
