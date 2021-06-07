@@ -13,3 +13,7 @@ theme:
     text: IBM Plex Sans
     code: IBM Plex Mono
   language: en
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+
