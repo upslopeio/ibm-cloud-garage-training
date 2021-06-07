@@ -28,15 +28,11 @@ jobs:
           shopt -s nullglob dotglob extglob
 
           # move up one dir from repo
-          pwd
-          ls
-          
           cd ..
           
+          # clean local copy of repo
           rm -r ibm-cloud-garage-training
-          
-          tree
-          
+
           # clone main repo
           git clone https://enzobarrett:$GH_PAT@github.com/upslopeio/ibm-cloud-garage-training.git
           
@@ -54,14 +50,11 @@ jobs:
           GH_PAT: ${{ secrets.GH_PASSWORD }}
         run: |       
           # configure git
-          pwd
-          ls
           git config --global user.email "mkdocs@upslope.io"
           git config --global user.name "mkdocs"
-          
-          git remote -v
           
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
           
+          # make sure branch gets pushed
           git push origin gh-pages
