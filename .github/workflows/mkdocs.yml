@@ -33,6 +33,8 @@ jobs:
           
           cd ..
           
+          rm -r ibm-cloud-garage-training
+          
           # clone main repo
           git clone https://enzobarrett:$GH_PAT@github.com/upslopeio/ibm-cloud-garage-training.git
           
