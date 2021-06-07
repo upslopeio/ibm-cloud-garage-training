@@ -35,7 +35,7 @@ If you see something else, may need to set [wsl defaults](https://docs.microsoft
 
 From the WSL Terminal, run the following:
 
-```
+```bash
 sudo apt-get update -y
 sudo apt-get install build-essential zsh -y
 ```
@@ -45,7 +45,7 @@ Close and open your Terminal.
 1. Open a new Terminal window (or tab)
 1. Run the following command:
 
-```
+```bash
 echo $SHELL
 ```
 
@@ -60,7 +60,7 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 At the time of this writing, the command was:
 
-```
+```bash
 bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -74,7 +74,7 @@ See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-
 
 1. Visit https://brew.sh/
 1. Click the "Copy" link and run the command. At the time of this writing, it's:
-   ```
+   ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
@@ -82,14 +82,14 @@ See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-
 
 Add homebrew to your path in `~/.zshrc`
 
-```
+```bash
 echo "export PATH=\"/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH\"" >> ~/.zshrc
 source ~/.zshrc
 ```
 
 **Install common packages**
 
-```
+```bash
 brew install gcc git
 ```
 
@@ -97,20 +97,20 @@ brew install gcc git
 
 > Ubuntu Side
 
-```
+```bash
 brew install git
 git config --global core.ignorecase false
 ```
 
 **Set your name**
 
-```
+```bash
 git config --global --list
 ```
 
 If you don't see your name and email, then run these commands:
 
-```
+```bash
 git config --global user.name "<your actual name>"
 git config --global user.email "<your actual email>"
 ```
@@ -119,7 +119,7 @@ git config --global user.email "<your actual email>"
 
 > Ubuntu Side
 
-```
+```bash
 brew install helm
 ```
 
@@ -132,7 +132,7 @@ brew install helm
 
 At the time this article was written, the command is:
 
-```
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.zshrc
 nvm install node
@@ -153,7 +153,7 @@ https://code.visualstudio.com/docs/remote/wsl
 
 Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
 
-```
+```bash
 code --install-extension ms-vsliveshare.vsliveshare
 ```
 
@@ -163,7 +163,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 
 Install the YAML extension.
 
-```
+```bash
 code --install-extension redhat.vscode-yaml
 ```
 

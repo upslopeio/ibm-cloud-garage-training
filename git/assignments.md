@@ -9,7 +9,7 @@ If you haven't done so yet, set your `CGB_USER` environment variable:
 1. Find your user number
 1. Run the following commands - replace `XX` with your user number:
 
-```
+```bash
 echo 'export CGB_USER="XX"' >> ~/.zshrc && source ~/.zshrc && echo $CGB_USER
 ```
 
@@ -17,7 +17,7 @@ echo 'export CGB_USER="XX"' >> ~/.zshrc && source ~/.zshrc && echo $CGB_USER
 
 Open the OpenShift Web Console:
 
-```
+```bash
 oc console
 ```
 
@@ -56,7 +56,7 @@ Under "Collaborative Repositories" click on "assignments".
 
 1. Run the following command in terminal
 
-```
+```bash
 cd ~
 git clone <URL>
 cd assignments
@@ -64,7 +64,7 @@ cd assignments
 
 ## Create a Branch
 
-```
+```bash
 git checkout -b user-$CGB_USER
 ```
 
@@ -74,7 +74,7 @@ For the first assignment, we'll just output some software versions to a file.
 
 > **NOTE**: you can copy the entire block of code and paste it in your terminal
 
-```
+```bash
 mkdir -p user-$CGB_USER
 echo "$(brew --version || echo ERROR)" >> user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
@@ -100,7 +100,7 @@ echo >> user-$CGB_USER/software.md
 
 Then git add, commit and push to your branch:
 
-```
+```bash
 git add user-$CGB_USER
 git commit -m "first assignment"
 git push -u origin user-$CGB_USER

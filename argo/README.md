@@ -51,7 +51,7 @@ Use the following instructions to set up a new continuous delivery controller us
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.
 1. Give the new environment permission to pull images from qa namespace
    1. run
-      ```shell
+      ```bash
       oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>
       ```
       If successful, you will see something like the following:

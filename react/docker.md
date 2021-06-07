@@ -4,7 +4,7 @@
 
 `nginx.conf` (same as above):
 
-```
+```nginx
 server {
     listen       8080;
     server_name  localhost;
@@ -22,7 +22,7 @@ server {
 
 `Dockerfile`
 
-```
+```dockerfile
 FROM quay.io/jeffdean/node-alpine as build
 WORKDIR /app
 COPY . .
@@ -36,7 +36,7 @@ COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 
 Then from the command line, to build you would execute the following commands:
 
-```
+```bash
 # no need to run npm build
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
@@ -70,7 +70,7 @@ For this tutorial we're referencing images pushed to a personal quay.io account.
 
 If you want a more recent image, do the following:
 
-```
+```bash
 export QUAY_USER=<your quay.io username>
 
 docker pull node:alpine
@@ -93,7 +93,7 @@ In order to build these applications, you need to add two files:
 
 `nginx.conf`:
 
-```
+```nginx
 server {
     listen       8080;
     server_name  localhost;
@@ -111,7 +111,7 @@ server {
 
 `Dockerfile`
 
-```
+```dockerfile
 FROM quay.io/jeffdean/nginx-unprivileged
 COPY build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -119,7 +119,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 Then from the command line, to build you would execute the following commands:
 
-```
+```bash
 npm run build
 docker build -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app

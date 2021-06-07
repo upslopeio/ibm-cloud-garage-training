@@ -2,7 +2,7 @@
 
 ## Go into your react-intro application
 
-```
+```bash
 cd ~/react-intro
 ```
 
@@ -10,7 +10,7 @@ cd ~/react-intro
 
 Run the following command:
 
-```
+```bash
 CI=true npm test
 ```
 
@@ -20,13 +20,13 @@ CI=true npm test
 
 Run the following command:
 
-```
+```bash
 git status
 ```
 
 You should have no changes to commit. If you have changes to commit.
 
-```
+```bash
 git add -A
 git commit -m "changes for pipeline"
 git push origin master
@@ -34,7 +34,7 @@ git push origin master
 
 ## Log Into the cluster
 
-```java
+```bash
 icc <cluster name>
 ```
 
@@ -46,19 +46,19 @@ For example: `icc cohort7`
 
 Make sure your user number is set in your environment:
 
-```
+```bash
 echo $CGB_USER
 ```
 
 You should see something like `03`
 
-```
+```bash
 oc sync react-intro-$CGB_USER-dev
 ```
 
 You should see output like this:
 
-```
+```bash
 Setting up namespace react-intro...
 Setting up namespace: react-intro...
 Checking for existing project: react-intro...
@@ -70,7 +70,7 @@ Setting current project to react-intro...
 
 Then type `oc project` and you should see:
 
-```
+```bash
 Using project "react-intro-99-dev" on server "https://c109-e.us-east.containers.cloud.ibm.com:31982".
 ```
 
@@ -80,7 +80,7 @@ Using project "react-intro-99-dev" on server "https://c109-e.us-east.containers.
 
 Create the pipeline:
 
-```
+```bash
 oc pipeline --tekton
 ```
 
@@ -106,7 +106,7 @@ Add the following file to the root of your `react-intro` app:
 
 `nginx.conf` (same as above):
 
-```
+```nginx
 server {
     listen       8080;
     server_name  localhost;
@@ -126,7 +126,7 @@ Add the following file to the root of your `react-intro` app:
 
 `Dockerfile`
 
-```
+```dockerfile
 FROM quay.io/jeffdean/node-alpine as build
 WORKDIR /app
 COPY . .
@@ -140,7 +140,7 @@ COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 
 Then from the command line, to build you would execute the following commands:
 
-```
+```bash
 # no need to run npm build
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
@@ -162,7 +162,7 @@ Once it works locally:
 1. Unzip the file
 1. Move the `chart` directory to your `react-app` folder. For example:
 
-```
+```bash
 pwd # <-- make sure you are in the react-intro directory
 mv ~/Downloads/chart .
 ```

@@ -6,7 +6,7 @@
 
 First, create a new React app:
 
-```
+```bash
 cd ~
 npx create-react-app react-intro
 cd react-intro
@@ -14,7 +14,7 @@ cd react-intro
 
 ## Start the React app
 
-```
+```bash
 npm start
 ```
 
@@ -24,7 +24,7 @@ You should see a React welcome page.
 
 ## Run Tests
 
-```
+```bash
 npm test
 ```
 
@@ -36,7 +36,7 @@ Press `q` or `CTRL+C` to exit.
 
 Open the OpenShift Web Console
 
-```
+```bash
 oc console
 ```
 
@@ -91,7 +91,7 @@ Refresh your repository page
 1. Copy the URL to your `react-intro` repo
 1. Run the following commands:
 
-```
+```bash
 cd ~/assignments
 touch user-$CGB_USER/react-intro.md
 code .
@@ -99,7 +99,7 @@ code .
 
 Find the `react-intro.md` file. Paste the URL to your `react-intro` repository.
 
-```
+```bash
 git add user-$CGB_USER
 git commit -m "react intro"
 git push -u origin user-$CGB_USER
