@@ -66,7 +66,7 @@ export default function convert(input) {
 
 Import the function in the test file and make it green:
 
-```
+```js
 import convert from './convert';
 
 describe("convert", () => {
