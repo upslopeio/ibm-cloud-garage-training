@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/computer-setup/windows/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -994,28 +996,28 @@
 <p>https://docs.microsoft.com/en-us/windows/wsl/install-win10</p>
 <p><strong>NOTE:</strong> Be sure to remember the password you set for your ubuntu user. You'll need this often.</p>
 <p>From PowerShell, run</p>
-<pre><code class="language-powershell">wsl --list --verbose
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">wsl</span> <span class="p">-</span><span class="n">-list</span> <span class="p">-</span><span class="n">-verbose</span>
+</code></pre></div>
 <p>Returns the Name of the Linux you installed, thr running state, the WSL version as <code>2</code> and the <code>*</code> marking default:</p>
-<pre><code class="language-text">  NAME                   STATE           VERSION
+<div class="highlight"><pre><span></span><code>  NAME                   STATE           VERSION
 * Ubuntu-18.04           Running         2
-</code></pre>
+</code></pre></div>
 <p>If you see something else, may need to set <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2">wsl defaults</a> . In this case, to set the particular distro as default, use <code>wsl --set-default Ubuntu-18.04</code>.</p>
 <h2 id="ubuntu-updates">Ubuntu Updates</h2>
 <blockquote>
 <p>Ubuntu Side</p>
 </blockquote>
 <p>From the WSL Terminal, run the following:</p>
-<pre><code>sudo apt-get update -y
+<div class="highlight"><pre><span></span><code>sudo apt-get update -y
 sudo apt-get install build-essential zsh -y
-</code></pre>
+</code></pre></div>
 <p>Close and open your Terminal.</p>
 <ol>
 <li>Open a new Terminal window (or tab)</li>
 <li>Run the following command:</li>
 </ol>
-<pre><code>echo $SHELL
-</code></pre>
+<div class="highlight"><pre><span></span><code>echo $SHELL
+</code></pre></div>
 <p>You have ZSH if you see the following output: <code>/bin/zsh</code></p>
 <h2 id="optional-oh-my-zsh">(Optional) oh-my-zsh</h2>
 <blockquote>
@@ -1026,8 +1028,8 @@ sudo apt-get install build-essential zsh -y
 <li>Follow instructions</li>
 </ol>
 <p>At the time of this writing, the command was:</p>
-<pre><code>bash -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>bash -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre></div>
 <p>See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/</p>
 <h2 id="homebrew">Homebrew</h2>
 <blockquote>
@@ -1037,36 +1039,37 @@ sudo apt-get install build-essential zsh -y
 <ol>
 <li>Visit https://brew.sh/</li>
 <li>Click the "Copy" link and run the command. At the time of this writing, it's:
-   <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+   <div class="highlight"><pre><span></span><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre></div></li>
 </ol>
 <p><strong>Add Homebrew to Path</strong></p>
 <p>Add homebrew to your path in <code>~/.zshrc</code></p>
-<pre><code>echo &quot;export PATH=\&quot;/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
+<div class="highlight"><pre><span></span><code>echo &quot;export PATH=\&quot;/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
 source ~/.zshrc
-</code></pre>
+</code></pre></div>
 <p><strong>Install common packages</strong></p>
-<pre><code>brew install gcc git
-</code></pre>
+<div class="highlight"><pre><span></span><code>brew install gcc git
+</code></pre></div>
 <h2 id="configure-git">Configure Git</h2>
 <blockquote>
 <p>Ubuntu Side</p>
 </blockquote>
-<pre><code>brew install git
+<div class="highlight"><pre><span></span><code>brew install git
 git config --global core.ignorecase false
-</code></pre>
+</code></pre></div>
 <p><strong>Set your name</strong></p>
-<pre><code>git config --global --list
-</code></pre>
+<div class="highlight"><pre><span></span><code>git config --global --list
+</code></pre></div>
 <p>If you don't see your name and email, then run these commands:</p>
-<pre><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
+<div class="highlight"><pre><span></span><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
 git config --global user.email &quot;&lt;your actual name&gt;&quot;
-</code></pre>
+</code></pre></div>
 <h2 id="install-helm">Install Helm</h2>
 <blockquote>
 <p>Ubuntu Side</p>
 </blockquote>
-<pre><code>brew install helm
-</code></pre>
+<div class="highlight"><pre><span></span><code>brew install helm
+</code></pre></div>
 <h2 id="nodejs-with-nvm">NodeJS with NVM</h2>
 <blockquote>
 <p>Ubuntu Side</p>
@@ -1076,11 +1079,11 @@ git config --global user.email &quot;&lt;your actual name&gt;&quot;
 <li>Follow the instructions</li>
 </ol>
 <p>At the time this article was written, the command is:</p>
-<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.zshrc
 nvm install node
 nvm alias default node
-</code></pre>
+</code></pre></div>
 <h2 id="install-visual-studio-code">Install Visual Studio Code</h2>
 <blockquote>
 <p>Windows Side</p>
@@ -1092,13 +1095,13 @@ nvm alias default node
 <p>Ubuntu Side</p>
 </blockquote>
 <p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare">Live Share extension</a>:</p>
-<pre><code>code --install-extension ms-vsliveshare.vsliveshare
-</code></pre>
+<div class="highlight"><pre><span></span><code>code --install-extension ms-vsliveshare.vsliveshare
+</code></pre></div>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on Autosave</a></p>
 <p><img alt="" src="../../img/vscode-autosave.png" /></p>
 <p>Install the YAML extension.</p>
-<pre><code>code --install-extension redhat.vscode-yaml
-</code></pre>
+<div class="highlight"><pre><span></span><code>code --install-extension redhat.vscode-yaml
+</code></pre></div>
 <h2 id="docker-desktop">Docker Desktop</h2>
 <p>Follow instructions here to install Docker Desktop and configure for WSL2.</p>
 <p>https://docs.docker.com/docker-for-windows/wsl/</p>
@@ -1129,7 +1132,8 @@ nvm alias default node
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../overview/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Background: Kubernetes and OpenShift" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1144,7 +1148,8 @@ nvm alias default node
         </a>
       
       
-        <a href="../../git/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../../git/" class="md-footer__link md-footer__link--next" aria-label="Next: Cheatsheet" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1179,10 +1184,10 @@ nvm alias default node
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

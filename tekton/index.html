@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/tekton/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -969,57 +971,57 @@
                 
                 <h1 id="ci-with-tekton">CI with Tekton</h1>
 <h2 id="go-into-your-react-intro-application">Go into your react-intro application</h2>
-<pre><code>cd ~/react-intro
-</code></pre>
+<div class="highlight"><pre><span></span><code>cd ~/react-intro
+</code></pre></div>
 <h2 id="make-sure-that-tests-pass">Make sure that tests pass</h2>
 <p>Run the following command:</p>
-<pre><code>CI=true npm test
-</code></pre>
+<div class="highlight"><pre><span></span><code>CI=true npm test
+</code></pre></div>
 <blockquote>
 <p>🛑 &nbsp;&nbsp; <strong>NOTE:</strong> You should see that all of your tests pass. If all of your tests don't pass, do not continue. Fix your tests.</p>
 </blockquote>
 <h2 id="make-sure-your-code-is-on-gogs">Make sure your code is on Gogs</h2>
 <p>Run the following command:</p>
-<pre><code>git status
-</code></pre>
+<div class="highlight"><pre><span></span><code>git status
+</code></pre></div>
 <p>You should have no changes to commit. If you have changes to commit.</p>
-<pre><code>git add -A
+<div class="highlight"><pre><span></span><code>git add -A
 git commit -m &quot;changes for pipeline&quot;
 git push origin master
-</code></pre>
+</code></pre></div>
 <h2 id="log-into-the-cluster">Log Into the cluster</h2>
-<pre><code class="language-java">icc &lt;cluster name&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">icc</span> <span class="o">&lt;</span><span class="n">cluster</span> <span class="n">name</span><span class="o">&gt;</span>
+</code></pre></div>
 <p>For example: <code>icc cohort7</code></p>
 <blockquote>
 <p>🛑 &nbsp;&nbsp; <strong>If ICC doesn't work for you</strong> open the OpenShift Web Console and login via "Copy Login Command"</p>
 </blockquote>
 <h2 id="create-a-new-project">Create a new project</h2>
 <p>Make sure your user number is set in your environment:</p>
-<pre><code>echo $CGB_USER
-</code></pre>
+<div class="highlight"><pre><span></span><code>echo $CGB_USER
+</code></pre></div>
 <p>You should see something like <code>03</code></p>
-<pre><code>oc sync react-intro-$CGB_USER-dev
-</code></pre>
+<div class="highlight"><pre><span></span><code>oc sync react-intro-$CGB_USER-dev
+</code></pre></div>
 <p>You should see output like this:</p>
-<pre><code>Setting up namespace react-intro...
+<div class="highlight"><pre><span></span><code>Setting up namespace react-intro...
 Setting up namespace: react-intro...
 Checking for existing project: react-intro...
 Creating project: react-intro...
 Copying ConfigMaps
 Copying Secrets
 Setting current project to react-intro...
-</code></pre>
+</code></pre></div>
 <p>Then type <code>oc project</code> and you should see:</p>
-<pre><code>Using project &quot;react-intro-99-dev&quot; on server &quot;https://c109-e.us-east.containers.cloud.ibm.com:31982&quot;.
-</code></pre>
+<div class="highlight"><pre><span></span><code>Using project &quot;react-intro-99-dev&quot; on server &quot;https://c109-e.us-east.containers.cloud.ibm.com:31982&quot;.
+</code></pre></div>
 <blockquote>
 <p>🛑 &nbsp;&nbsp; If you see <code>Using project "default"</code> it means your project creation did not work. Make sure you are logged in and have permissions. You may need to contact your instructor.</p>
 </blockquote>
 <h3 id="create-the-tekton-pipeline">Create the Tekton Pipeline</h3>
 <p>Create the pipeline:</p>
-<pre><code>oc pipeline --tekton
-</code></pre>
+<div class="highlight"><pre><span></span><code>oc pipeline --tekton
+</code></pre></div>
 <ul>
 <li><code>Select the Pipeline to use in the Pipeline Run:</code> choose the most appropriate pipeline for your project</li>
 <li>For React, choose <code>ibm-nodejs</code></li>
@@ -1040,7 +1042,7 @@ Setting current project to react-intro...
 <h2 id="adding-the-dockerfile">Adding the Dockerfile</h2>
 <p>Add the following file to the root of your <code>react-intro</code> app:</p>
 <p><code>nginx.conf</code> (same as above):</p>
-<pre><code>server {
+<div class="highlight"><pre><span></span><code>server {
     listen       8080;
     server_name  localhost;
     location / {
@@ -1053,10 +1055,10 @@ Setting current project to react-intro...
         root   /usr/share/nginx/html;
     }
 }
-</code></pre>
+</code></pre></div>
 <p>Add the following file to the root of your <code>react-intro</code> app:</p>
 <p><code>Dockerfile</code></p>
-<pre><code>FROM quay.io/jeffdean/node-alpine as build
+<div class="highlight"><pre><span></span><code>FROM quay.io/jeffdean/node-alpine as build
 WORKDIR /app
 COPY . .
 RUN npm install
@@ -1065,12 +1067,12 @@ RUN npm run build
 FROM quay.io/jeffdean/nginx-unprivileged
 COPY --from=build /app/build /usr/share/nginx/html
 COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
-</code></pre>
+</code></pre></div>
 <p>Then from the command line, to build you would execute the following commands:</p>
-<pre><code># no need to run npm build
+<div class="highlight"><pre><span></span><code># no need to run npm build
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
-</code></pre>
+</code></pre></div>
 <p>Then open http://localhost:8080 in your browser to see it work.</p>
 <p>Once it works locally:</p>
 <ul>
@@ -1085,9 +1087,9 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
 <li>Unzip the file</li>
 <li>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:</li>
 </ol>
-<pre><code>pwd # &lt;-- make sure you are in the react-intro directory
+<div class="highlight"><pre><span></span><code>pwd # &lt;-- make sure you are in the react-intro directory
 mv ~/Downloads/chart .
-</code></pre>
+</code></pre></div>
 <ol>
 <li>Git add / commit and push</li>
 <li>View your pipeline run in the OpenShift console</li>
@@ -1291,7 +1293,8 @@ mv ~/Downloads/chart .
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../tdd/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../tdd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: TDD in JavaScript / Jest" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1306,7 +1309,8 @@ mv ~/Downloads/chart .
         </a>
       
       
-        <a href="diagram/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="diagram/" class="md-footer__link md-footer__link--next" aria-label="Next: Sequence Diagram" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1341,10 +1345,10 @@ mv ~/Downloads/chart .
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

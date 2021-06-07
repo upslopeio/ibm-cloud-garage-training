@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/tdd/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -872,52 +874,52 @@
 <li>Put it right next to the code file</li>
 <li>name it <code>&lt;name&gt;.test.js</code></li>
 </ul>
-<pre><code class="language-js">describe(&quot;convert&quot;, () =&gt; {
-  it(&quot;returns 0 when passed 32&quot;, () =&gt; {});
-});
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;returns 0 when passed 32&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+<span class="p">});</span>
+</code></pre></div>
 <p>Write the first test:</p>
-<pre><code class="language-js">describe(&quot;convert&quot;, () =&gt; {
-  it(&quot;returns 0 when passed 32&quot;, () =&gt; {
-    // SEA
-    // setup
-    const degreesInFahrenheit = 32;
-    const expected = 0;
+<div class="highlight"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;returns 0 when passed 32&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// SEA</span>
+    <span class="c1">// setup</span>
+    <span class="kd">const</span> <span class="nx">degreesInFahrenheit</span> <span class="o">=</span> <span class="mf">32</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">expected</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
 
-    // execution
-    const actual = convert(degreesInFahrenheit);
+    <span class="c1">// execution</span>
+    <span class="kd">const</span> <span class="nx">actual</span> <span class="o">=</span> <span class="nx">convert</span><span class="p">(</span><span class="nx">degreesInFahrenheit</span><span class="p">);</span>
 
-    // assertion
-    expect(actual).toEqual(expected);
-  });
-});
-</code></pre>
+    <span class="c1">// assertion</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">expected</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
 <p>Write the production code file <code>convert.js</code></p>
 <p>Write enough code to make it pass:</p>
-<pre><code class="language-js">export default function convert(input) {
-  return 0;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">convert</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Import the function in the test file and make it green:</p>
-<pre><code>import convert from './convert';
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">convert</span> <span class="k">from</span> <span class="s1">&#39;./convert&#39;</span><span class="p">;</span>
 
-describe(&quot;convert&quot;, () =&gt; {
+<span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 
-    it(&quot;returns 0 when passed 32&quot;, () =&gt; {
-        // SEA
-        // setup
-        const degreesInFahrenheit = 32;
-        const expected = 0;
+    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;returns 0 when passed 32&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// SEA</span>
+        <span class="c1">// setup</span>
+        <span class="kd">const</span> <span class="nx">degreesInFahrenheit</span> <span class="o">=</span> <span class="mf">32</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">expected</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
 
-        // execution
-        const actual = convert(degreesInFahrenheit);
+        <span class="c1">// execution</span>
+        <span class="kd">const</span> <span class="nx">actual</span> <span class="o">=</span> <span class="nx">convert</span><span class="p">(</span><span class="nx">degreesInFahrenheit</span><span class="p">);</span>
 
-        // assertion
-        expect(actual).toEqual(expected);
-    });
+        <span class="c1">// assertion</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">expected</span><span class="p">);</span>
+    <span class="p">});</span>
 
-});
-</code></pre>
+<span class="p">});</span>
+</code></pre></div>
 <p>Rinse and repeat</p>
                 
               
@@ -937,7 +939,8 @@ describe(&quot;convert&quot;, () =&gt; {
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../reading-list/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../reading-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reading List" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -952,7 +955,8 @@ describe(&quot;convert&quot;, () =&gt; {
         </a>
       
       
-        <a href="../tekton/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../tekton/" class="md-footer__link md-footer__link--next" aria-label="Next: CI with Tekton" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -987,10 +991,10 @@ describe(&quot;convert&quot;, () =&gt; {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/openshift/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -849,22 +851,22 @@
 </ul>
 <h2 id="icc">ICC</h2>
 <p>If you run <code>icc &lt;cluster-name&gt;</code> to log into a cluster and you see the following:</p>
-<pre><code>Logging into ibmcloud: us-south/Default
+<div class="highlight"><pre><span></span><code>Logging into ibmcloud: us-south/Default
 Logging into OpenShift cluster &lt;cluster-name&gt; with server url https://cXXXX.us-south.containers.cloud.ibm.com:30350
 Error from server (InternalError): Internal error occurred: unexpected response: 500
-</code></pre>
+</code></pre></div>
 <p>It is because you have not yet visited that cluster's OpenShift web console in the browser.</p>
 <h2 id="ibmcloud-plugins">ibmcloud plugins</h2>
 <p>There are two plugins that must be installed for ibmcloud, verify they are installed by running the following command:</p>
-<pre><code class="language-shell">ibmcloud plugin list
-</code></pre>
+<div class="highlight"><pre><span></span><code>ibmcloud plugin list
+</code></pre></div>
 <p>which should print something like the following (versions may be higher):</p>
-<pre><code class="language-shell">Listing installed plug-ins...
+<div class="highlight"><pre><span></span><code>Listing installed plug-ins...
 
 Plugin Name                            Version   Status             Private endpoints supported
-container-registry                     0.1.518   Update Available   true
-container-service/kubernetes-service   1.0.258                      false
-</code></pre>
+container-registry                     <span class="m">0</span>.1.518   Update Available   <span class="nb">true</span>
+container-service/kubernetes-service   <span class="m">1</span>.0.258                      <span class="nb">false</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -888,14 +890,14 @@ container-service/kubernetes-service   1.0.258                      false
 </table>
 <h2 id="oc-sync-failures">oc sync <project-name> failures</h2>
 <p>The successful output from this command is:</p>
-<pre><code class="language-shell">Setting up namespace &lt;project-name&gt;
+<div class="highlight"><pre><span></span><code>Setting up namespace &lt;project-name&gt;
 Setting up namespace: &lt;project-name&gt;
-Checking for existing project: &lt;project-name&gt;
+Checking <span class="k">for</span> existing project: &lt;project-name&gt;
 Creating project: &lt;project-name&gt;
 Copying ConfigMaps
 Copying Secrets
 Setting current project to &lt;project-name&gt;
-</code></pre>
+</code></pre></div>
 <p>If you do not see all the above output, the command failed. (the code ignores all errors!)</p>
 <table>
 <thead>
@@ -964,7 +966,8 @@ Setting current project to &lt;project-name&gt;
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../git/assignments/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../git/assignments/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assignments Repo" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -979,7 +982,8 @@ Setting current project to &lt;project-name&gt;
         </a>
       
       
-        <a href="cheatsheet/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="cheatsheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Cheatsheet" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1014,10 +1018,10 @@ Setting current project to &lt;project-name&gt;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

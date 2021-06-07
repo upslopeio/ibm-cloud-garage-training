@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/react/docker/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -832,7 +834,7 @@
                 <h1 id="dockerizing-a-react-app">Dockerizing a React App</h1>
 <h2 id="option-1-multistage-build">Option 1: Multistage build</h2>
 <p><code>nginx.conf</code> (same as above):</p>
-<pre><code>server {
+<div class="highlight"><pre><span></span><code>server {
     listen       8080;
     server_name  localhost;
     location / {
@@ -845,9 +847,9 @@
         root   /usr/share/nginx/html;
     }
 }
-</code></pre>
+</code></pre></div>
 <p><code>Dockerfile</code></p>
-<pre><code>FROM quay.io/jeffdean/node-alpine as build
+<div class="highlight"><pre><span></span><code>FROM quay.io/jeffdean/node-alpine as build
 WORKDIR /app
 COPY . .
 RUN npm install
@@ -856,12 +858,12 @@ RUN npm run build
 FROM quay.io/jeffdean/nginx-unprivileged
 COPY --from=build /app/build /usr/share/nginx/html
 COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
-</code></pre>
+</code></pre></div>
 <p>Then from the command line, to build you would execute the following commands:</p>
-<pre><code># no need to run npm build
+<div class="highlight"><pre><span></span><code># no need to run npm build
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
-</code></pre>
+</code></pre></div>
 <p>Then open http://localhost:8080 in your browser to see it work.</p>
 <p><strong>Pros</strong>: You don't need to build the react app separately</p>
 <p><strong>Cons</strong>: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system).</p>
@@ -876,7 +878,7 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
 <p>For this tutorial we're referencing images pushed to a personal quay.io account.</p>
 <p>❌️❌ WARNING: these images are not maintained up-to-date and may contain un-patched security vulnerabilities. DO NOT USE on a production application. ❌❌</p>
 <p>If you want a more recent image, do the following:</p>
-<pre><code>export QUAY_USER=&lt;your quay.io username&gt;
+<div class="highlight"><pre><span></span><code>export QUAY_USER=&lt;your quay.io username&gt;
 
 docker pull node:alpine
 docker tag node:alpine quay.io/$QUAY_USER/node-alpine
@@ -885,7 +887,7 @@ docker push quay.io/$QUAY_USER/node-alpine
 docker pull nginxinc/nginx-unprivileged
 docker tag nginxinc/nginx-unprivileged quay.io/$QUAY_USER/nginx-unprivileged
 docker push quay.io/$QUAY_USER/nginx-unprivileged
-</code></pre>
+</code></pre></div>
 <h2 id="option-1-build-then-build">Option 1: Build then Build 😉</h2>
 <p>React applications (as well as other single-page applications) compile down to static files (HTML, CSS, fonts, etc...).</p>
 <p>In order to build these applications, you need to add two files:</p>
@@ -894,7 +896,7 @@ docker push quay.io/$QUAY_USER/nginx-unprivileged
 <li>nginx.conf</li>
 </ol>
 <p><code>nginx.conf</code>:</p>
-<pre><code>server {
+<div class="highlight"><pre><span></span><code>server {
     listen       8080;
     server_name  localhost;
     location / {
@@ -907,17 +909,17 @@ docker push quay.io/$QUAY_USER/nginx-unprivileged
         root   /usr/share/nginx/html;
     }
 }
-</code></pre>
+</code></pre></div>
 <p><code>Dockerfile</code></p>
-<pre><code>FROM quay.io/jeffdean/nginx-unprivileged
+<div class="highlight"><pre><span></span><code>FROM quay.io/jeffdean/nginx-unprivileged
 COPY build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-</code></pre>
+</code></pre></div>
 <p>Then from the command line, to build you would execute the following commands:</p>
-<pre><code>npm run build
+<div class="highlight"><pre><span></span><code>npm run build
 docker build -t dockerized-react-app .
 docker run -it -p 8080:8080 --rm dockerized-react-app
-</code></pre>
+</code></pre></div>
 <p>Then open http://localhost:8080 in your browser to see it work.</p>
 <p><strong>Pros</strong> Your Dockerfile is super simple.</p>
 <p><strong>Cons</strong> You need to build the application before building the Dockerfile.</p>
@@ -939,7 +941,8 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: React" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -954,7 +957,8 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
         </a>
       
       
-        <a href="../testing/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Next: Testing a React App" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -989,10 +993,10 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

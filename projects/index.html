@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/projects/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -844,22 +846,22 @@
 <h2 id="code-organization">Code Organization</h2>
 <p>Very early on, split the app into multiple components.</p>
 <p>Your <code>App.js</code> file should be thin, like this:</p>
-<pre><code class="language-js">import Deployment from &quot;./Deployments&quot;;
-import LeadTimes from &quot;./LeadTimes&quot;;
-import RecoveryTimes from &quot;./RecoveryTimes&quot;;
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">Deployment</span> <span class="k">from</span> <span class="s2">&quot;./Deployments&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">LeadTimes</span> <span class="k">from</span> <span class="s2">&quot;./LeadTimes&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">RecoveryTimes</span> <span class="k">from</span> <span class="s2">&quot;./RecoveryTimes&quot;</span><span class="p">;</span>
 
-function App() {
-  return (
-    &lt;div&gt;
-      &lt;Deployment /&gt;
-      &lt;RecoveryTimes /&gt;
-      &lt;LeadTimes /&gt;
-    &lt;/div&gt;
-  );
-}
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Deployment</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">RecoveryTimes</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">LeadTimes</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
 
-export default App;
-</code></pre>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="styling">Styling</h2>
 <p><strong>Option 1</strong></p>
 <p>You can just pull in CSS to your application</p>
@@ -870,15 +872,15 @@ export default App;
 </ol>
 <p>Then, whenever you want a styled component, just add the class names.</p>
 <p>For example if the Bootstrap docs show you this HTML:</p>
-<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
 <p>You'd add this to your React component:</p>
-<pre><code class="language-js">&lt;div className=&quot;row&quot;&gt;
-  &lt;div className=&quot;col&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
 <p><strong>Option 2</strong></p>
 <p>Use a component library:</p>
 <p>https://react-bootstrap.github.io/</p>
@@ -900,7 +902,8 @@ export default App;
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../openshift/cheatsheet/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../openshift/cheatsheet/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cheatsheet" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -915,7 +918,8 @@ export default App;
         </a>
       
       
-        <a href="../react/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../react/" class="md-footer__link md-footer__link--next" aria-label="Next: React" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -950,10 +954,10 @@ export default App;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

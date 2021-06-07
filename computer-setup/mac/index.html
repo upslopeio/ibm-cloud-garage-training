@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/computer-setup/mac/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -978,8 +980,8 @@
 <li>Open a new Terminal window (or tab)</li>
 <li>Run the following command:</li>
 </ol>
-<pre><code>echo $SHELL
-</code></pre>
+<div class="highlight"><pre><span></span><code>echo $SHELL
+</code></pre></div>
 <p>You have ZSH if you see the following output: <code>/bin/zsh</code></p>
 <blockquote>
 <p>If you see something else, like <code>/bin/bash</code>, then you need to install zsh.</p>
@@ -989,64 +991,65 @@
 <li>Visit <a href="https://ohmyz.sh/">https://ohmyz.sh/</a></li>
 <li>Follow instructions. At the time of writing, it's:</li>
 </ol>
-<pre><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre></div>
 <h2 id="automatic-install-script">Automatic Install Script</h2>
-<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)&quot;
+</code></pre></div>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on Autosave</a></p>
 <p><img alt="" src="../../img/vscode-autosave.png" /></p>
 <h2 id="homebrew">Homebrew</h2>
 <ol>
 <li>Visit https://brew.sh/</li>
 <li>Click the "Copy" link and run the command. At the time of this writing, it's:
-   <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+   <div class="highlight"><pre><span></span><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre></div></li>
 </ol>
 <h2 id="configure-git">Configure Git</h2>
-<pre><code>brew install git
+<div class="highlight"><pre><span></span><code>brew install git
 git config --global core.ignorecase false
-</code></pre>
+</code></pre></div>
 <p><strong>Set your name</strong></p>
-<pre><code>git config --global --list
-</code></pre>
+<div class="highlight"><pre><span></span><code>git config --global --list
+</code></pre></div>
 <p>If you don't see your name and email, then run these commands:</p>
-<pre><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
+<div class="highlight"><pre><span></span><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
 git config --global user.email &quot;&lt;your actual name&gt;&quot;
-</code></pre>
+</code></pre></div>
 <h2 id="install-helm">Install Helm</h2>
-<pre><code>brew install helm
-</code></pre>
+<div class="highlight"><pre><span></span><code>brew install helm
+</code></pre></div>
 <h2 id="nodejs-with-nvm">NodeJS with NVM</h2>
 <ol>
 <li>Visit https://github.com/nvm-sh/nvm</li>
 <li>Follow the instructions</li>
 </ol>
 <p>At the time this article was written, the command is:</p>
-<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.zshrc
 nvm install node
 nvm alias default node
-</code></pre>
+</code></pre></div>
 <h2 id="install-visual-studio-code">Install Visual Studio Code</h2>
 <p>If you don't have Visual Studio Code, you can install it with Homebrew:</p>
-<pre><code>brew install --cask visual-studio-code
-</code></pre>
+<div class="highlight"><pre><span></span><code>brew install --cask visual-studio-code
+</code></pre></div>
 <blockquote>
 <p>If those instructions don't work, you can follow <a href="https://code.visualstudio.com/docs/setup/mac">these instructions</a></p>
 </blockquote>
 <p><strong>Configure Visual Studio Code</strong></p>
 <p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare">Live Share extension</a>:</p>
-<pre><code>code --install-extension ms-vsliveshare.vsliveshare
-</code></pre>
+<div class="highlight"><pre><span></span><code>code --install-extension ms-vsliveshare.vsliveshare
+</code></pre></div>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on Autosave</a></p>
 <p><img alt="" src="../../img/vscode-autosave.png" /></p>
 <p>Install the YAML extension.</p>
-<pre><code>code --install-extension redhat.vscode-yaml
-</code></pre>
+<div class="highlight"><pre><span></span><code>code --install-extension redhat.vscode-yaml
+</code></pre></div>
 <h2 id="docker-desktop">Docker Desktop</h2>
 <p>You can install <a href="https://www.docker.com/products/docker-desktop">docker desktop</a> via brew:</p>
-<pre><code>brew install --cask docker
-</code></pre>
+<div class="highlight"><pre><span></span><code>brew install --cask docker
+</code></pre></div>
 <h2 id="slack-app">Slack App</h2>
 <p>It's helpful to have the <a href="https://slack.com/downloads/mac">Slack Mac App</a>.</p>
 <h2 id="ibm-cloud-cli">IBM Cloud CLI</h2>
@@ -1074,7 +1077,8 @@ nvm alias default node
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../ibmcloud/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../ibmcloud/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IBM Cloud Setup" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1089,7 +1093,8 @@ nvm alias default node
         </a>
       
       
-        <a href="../overview/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Background: Kubernetes and OpenShift" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1124,10 +1129,10 @@ nvm alias default node
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>
