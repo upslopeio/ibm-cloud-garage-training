@@ -1016,7 +1016,7 @@ sudo apt-get install build-essential zsh -y
 <li>Open a new Terminal window (or tab)</li>
 <li>Run the following command:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>echo $SHELL
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$SHELL</span>
 </code></pre></div>
 <p>You have ZSH if you see the following output: <code>/bin/zsh</code></p>
 <h2 id="optional-oh-my-zsh">(Optional) oh-my-zsh</h2>
@@ -1028,7 +1028,7 @@ sudo apt-get install build-essential zsh -y
 <li>Follow instructions</li>
 </ol>
 <p>At the time of this writing, the command was:</p>
-<div class="highlight"><pre><span></span><code>bash -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+<div class="highlight"><pre><span></span><code>bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/</p>
 <h2 id="homebrew">Homebrew</h2>
@@ -1039,13 +1039,13 @@ sudo apt-get install build-essential zsh -y
 <ol>
 <li>Visit https://brew.sh/</li>
 <li>Click the "Copy" link and run the command. At the time of this writing, it's:
-   <div class="highlight"><pre><span></span><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+   <div class="highlight"><pre><span></span><code>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div></li>
 </ol>
 <p><strong>Add Homebrew to Path</strong></p>
 <p>Add homebrew to your path in <code>~/.zshrc</code></p>
-<div class="highlight"><pre><span></span><code>echo &quot;export PATH=\&quot;/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
-source ~/.zshrc
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;export PATH=\&quot;/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH\&quot;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc
 </code></pre></div>
 <p><strong>Install common packages</strong></p>
 <div class="highlight"><pre><span></span><code>brew install gcc git
@@ -1055,14 +1055,14 @@ source ~/.zshrc
 <p>Ubuntu Side</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>brew install git
-git config --global core.ignorecase false
+git config --global core.ignorecase <span class="nb">false</span>
 </code></pre></div>
 <p><strong>Set your name</strong></p>
 <div class="highlight"><pre><span></span><code>git config --global --list
 </code></pre></div>
 <p>If you don't see your name and email, then run these commands:</p>
-<div class="highlight"><pre><span></span><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
-git config --global user.email &quot;&lt;your actual email&gt;&quot;
+<div class="highlight"><pre><span></span><code>git config --global user.name <span class="s2">&quot;&lt;your actual name&gt;&quot;</span>
+git config --global user.email <span class="s2">&quot;&lt;your actual email&gt;&quot;</span>
 </code></pre></div>
 <h2 id="install-helm">Install Helm</h2>
 <blockquote>
@@ -1079,10 +1079,10 @@ git config --global user.email &quot;&lt;your actual email&gt;&quot;
 <li>Follow the instructions</li>
 </ol>
 <p>At the time this article was written, the command is:</p>
-<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-source ~/.zshrc
+<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh <span class="p">|</span> bash
+<span class="nb">source</span> ~/.zshrc
 nvm install node
-nvm alias default node
+nvm <span class="nb">alias</span> default node
 </code></pre></div>
 <h2 id="install-visual-studio-code">Install Visual Studio Code</h2>
 <blockquote>

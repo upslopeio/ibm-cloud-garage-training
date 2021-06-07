@@ -911,7 +911,7 @@
 <li>Find your user number</li>
 <li>Run the following commands - replace <code>XX</code> with your user number:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>echo &#39;export CGB_USER=&quot;XX&quot;&#39; &gt;&gt; ~/.zshrc &amp;&amp; source ~/.zshrc &amp;&amp; echo $CGB_USER
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;export CGB_USER=&quot;XX&quot;&#39;</span> &gt;&gt; ~/.zshrc <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.zshrc <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$CGB_USER</span>
 </code></pre></div>
 <h2 id="open-gogs">Open Gogs</h2>
 <p>Open the OpenShift Web Console:</p>
@@ -943,44 +943,44 @@
 <ol>
 <li>Run the following command in terminal</li>
 </ol>
-<div class="highlight"><pre><span></span><code>cd ~
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~
 git clone &lt;URL&gt;
-cd assignments
+<span class="nb">cd</span> assignments
 </code></pre></div>
 <h2 id="create-a-branch">Create a Branch</h2>
-<div class="highlight"><pre><span></span><code>git checkout -b user-$CGB_USER
+<div class="highlight"><pre><span></span><code>git checkout -b user-<span class="nv">$CGB_USER</span>
 </code></pre></div>
 <h2 id="complete-your-first-assignment">Complete your first assignment</h2>
 <p>For the first assignment, we'll just output some software versions to a file.</p>
 <blockquote>
 <p><strong>NOTE</strong>: you can copy the entire block of code and paste it in your terminal</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code>mkdir -p user-$CGB_USER
-echo &quot;$(brew --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;Code version $(code --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;$(docker --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;Helm version $(which helm || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;$(git --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;$(ibmcloud --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;igc version $(igc --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;node version $(node --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;npm version $(npm --version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
-echo &quot;oc version $(oc version || echo ERROR)&quot; &gt;&gt; user-$CGB_USER/software.md
-echo &gt;&gt; user-$CGB_USER/software.md
+<div class="highlight"><pre><span></span><code>mkdir -p user-<span class="nv">$CGB_USER</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>brew --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;Code version </span><span class="k">$(</span>code --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>docker --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;Helm version </span><span class="k">$(</span>which helm <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>git --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>ibmcloud --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;igc version </span><span class="k">$(</span>igc --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;node version </span><span class="k">$(</span>node --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;npm version </span><span class="k">$(</span>npm --version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> <span class="s2">&quot;oc version </span><span class="k">$(</span>oc version <span class="o">||</span> <span class="nb">echo</span> ERROR<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
+<span class="nb">echo</span> &gt;&gt; user-<span class="nv">$CGB_USER</span>/software.md
 </code></pre></div>
 <p>Then git add, commit and push to your branch:</p>
-<div class="highlight"><pre><span></span><code>git add user-$CGB_USER
-git commit -m &quot;first assignment&quot;
-git push -u origin user-$CGB_USER
+<div class="highlight"><pre><span></span><code>git add user-<span class="nv">$CGB_USER</span>
+git commit -m <span class="s2">&quot;first assignment&quot;</span>
+git push -u origin user-<span class="nv">$CGB_USER</span>
 </code></pre></div>
 <p>Type your username in (for example <code>user06</code>) and the password <code>password</code>.</p>
 <h2 id="create-a-pull-request">Create a Pull Request</h2>

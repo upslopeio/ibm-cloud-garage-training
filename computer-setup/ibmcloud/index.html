@@ -965,7 +965,7 @@
 </ol>
 <h2 id="install-required-dependencies">Install required dependencies</h2>
 <div class="highlight"><pre><span></span><code>brew install yq@3
-echo &quot;export PATH=\&quot;$(brew --prefix yq@3)/bin:\$PATH\&quot;&quot; &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s2">&quot;export PATH=\&quot;</span><span class="k">$(</span>brew --prefix yq@3<span class="k">)</span><span class="s2">/bin:\$PATH\&quot;&quot;</span> &gt;&gt; ~/.zshrc
 brew install jq
 </code></pre></div>
 <h2 id="install-the-toolkit-developer-tools">Install the toolkit developer tools</h2>
@@ -973,8 +973,8 @@ brew install jq
 <li>Visit https://cloudnativetoolkit.dev/getting-started/dev-env-setup</li>
 <li>Follow instructions. At the time of this writing, the commands are:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>curl -sL shell.cloudnativetoolkit.dev | bash -
-source ~/.zshrc
+<div class="highlight"><pre><span></span><code>curl -sL shell.cloudnativetoolkit.dev <span class="p">|</span> bash -
+<span class="nb">source</span> ~/.zshrc
 </code></pre></div>
 <p>After installing this, the following commands should all print a path:</p>
 <div class="highlight"><pre><span></span><code>which igc
@@ -985,11 +985,11 @@ which oc
 <p>When you run <code>oc plugin list</code> you should see several lines, including one with <code>kubectl-pipeline</code>.</p>
 <p>If not, it's likely that your npm bin directory is not in your path.</p>
 <p>If you installed Node via NVM, this might work:</p>
-<div class="highlight"><pre><span></span><code>nvm alias default node
+<div class="highlight"><pre><span></span><code>nvm <span class="nb">alias</span> default node
 </code></pre></div>
 <p>If you installed Node with the installer, this might work:</p>
-<div class="highlight"><pre><span></span><code>echo &quot;export PATH=\&quot;\${HOME}/.npm/bin:\${PATH}\&quot;&quot; &gt;&gt; ~/.zshrc
-source ~/.zshrc
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;export PATH=\&quot;\${HOME}/.npm/bin:\${PATH}\&quot;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc
 </code></pre></div>
 <p>Then run <code>oc plugin list</code> again.</p>
 <h2 id="get-an-api-key">Get an API Key</h2>

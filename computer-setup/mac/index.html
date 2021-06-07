@@ -980,7 +980,7 @@
 <li>Open a new Terminal window (or tab)</li>
 <li>Run the following command:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>echo $SHELL
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$SHELL</span>
 </code></pre></div>
 <p>You have ZSH if you see the following output: <code>/bin/zsh</code></p>
 <blockquote>
@@ -991,10 +991,10 @@
 <li>Visit <a href="https://ohmyz.sh/">https://ohmyz.sh/</a></li>
 <li>Follow instructions. At the time of writing, it's:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+<div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 <h2 id="automatic-install-script">Automatic Install Script</h2>
-<div class="highlight"><pre><span></span><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)&quot;
+<div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on Autosave</a></p>
 <p><img alt="" src="../../img/vscode-autosave.png" /></p>
@@ -1002,19 +1002,19 @@
 <ol>
 <li>Visit https://brew.sh/</li>
 <li>Click the "Copy" link and run the command. At the time of this writing, it's:
-   <div class="highlight"><pre><span></span><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+   <div class="highlight"><pre><span></span><code>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div></li>
 </ol>
 <h2 id="configure-git">Configure Git</h2>
 <div class="highlight"><pre><span></span><code>brew install git
-git config --global core.ignorecase false
+git config --global core.ignorecase <span class="nb">false</span>
 </code></pre></div>
 <p><strong>Set your name</strong></p>
 <div class="highlight"><pre><span></span><code>git config --global --list
 </code></pre></div>
 <p>If you don't see your name and email, then run these commands:</p>
-<div class="highlight"><pre><span></span><code>git config --global user.name &quot;&lt;your actual name&gt;&quot;
-git config --global user.email &quot;&lt;your actual email&gt;&quot;
+<div class="highlight"><pre><span></span><code>git config --global user.name <span class="s2">&quot;&lt;your actual name&gt;&quot;</span>
+git config --global user.email <span class="s2">&quot;&lt;your actual email&gt;&quot;</span>
 </code></pre></div>
 <h2 id="install-helm">Install Helm</h2>
 <div class="highlight"><pre><span></span><code>brew install helm
@@ -1025,10 +1025,10 @@ git config --global user.email &quot;&lt;your actual email&gt;&quot;
 <li>Follow the instructions</li>
 </ol>
 <p>At the time this article was written, the command is:</p>
-<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-source ~/.zshrc
+<div class="highlight"><pre><span></span><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh <span class="p">|</span> bash
+<span class="nb">source</span> ~/.zshrc
 nvm install node
-nvm alias default node
+nvm <span class="nb">alias</span> default node
 </code></pre></div>
 <h2 id="install-visual-studio-code">Install Visual Studio Code</h2>
 <p>If you don't have Visual Studio Code, you can install it with Homebrew:</p>

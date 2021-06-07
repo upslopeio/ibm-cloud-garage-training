@@ -805,83 +805,83 @@
                 
                 <h1 id="testing-a-react-app">Testing a React App</h1>
 <p>Example Component:</p>
-<div class="highlight"><pre><span></span><code>import React, { useState } from &quot;react&quot;;
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
 
-function App() {
-  // define state for the list of books
-  const [books, setBooks] = useState([]);
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// define state for the list of books</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">books</span><span class="p">,</span> <span class="nx">setBooks</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
 
-  // define state for the book form
-  const [newBook, setNewBook] = useState({ title: &quot;&quot;, author: &quot;&quot; });
+  <span class="c1">// define state for the book form</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">setNewBook</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="p">});</span>
 
-  // define the function that runs when the form is submitted
-  const onSubmit = (e) =&gt; {
-    e.preventDefault();
-    setBooks((books) =&gt; [...books, newBook]);
-    setNewBook({ title: &quot;&quot;, author: &quot;&quot; });
-  };
+  <span class="c1">// define the function that runs when the form is submitted</span>
+  <span class="kd">const</span> <span class="nx">onSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">setBooks</span><span class="p">((</span><span class="nx">books</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">[...</span><span class="nx">books</span><span class="p">,</span> <span class="nx">newBook</span><span class="p">]);</span>
+    <span class="nx">setNewBook</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="p">});</span>
+  <span class="p">};</span>
 
-  return (
-    &lt;div className=&quot;container pt-5&quot;&gt;
-      &lt;h1&gt;Books&lt;/h1&gt;
-      &lt;form onSubmit={onSubmit}&gt;
-        &lt;p&gt;
-          &lt;label htmlFor=&quot;title&quot;&gt;Title&lt;/label&gt;
-          &lt;input
-            id=&quot;title&quot;
-            className=&quot;form-control&quot;
-            type=&quot;text&quot;
-            name=&quot;title&quot;
-            value={newBook.title}
-            onChange={(e) =&gt; setNewBook({ ...newBook, title: e.target.value })}
-          /&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-          &lt;label htmlFor=&quot;author&quot;&gt;Author&lt;/label&gt;
-          &lt;input
-            id=&quot;author&quot;
-            className=&quot;form-control&quot;
-            type=&quot;text&quot;
-            name=&quot;author&quot;
-            value={newBook.author}
-            onChange={(e) =&gt; setNewBook({ ...newBook, author: e.target.value })}
-          /&gt;
-        &lt;/p&gt;
-        &lt;button className=&quot;btn btn-primary&quot;&gt;Add Book&lt;/button&gt;
-      &lt;/form&gt;
-      &lt;table className=&quot;table table-striped mt-5&quot;&gt;
-        &lt;tbody&gt;
-          {books.map((book, i) =&gt; (
-            &lt;tr key={i}&gt;
-              &lt;td&gt;{book.title}&lt;/td&gt;
-              &lt;td&gt;{book.author}&lt;/td&gt;
-            &lt;/tr&gt;
-          ))}
-        &lt;/tbody&gt;
-      &lt;/table&gt;
-    &lt;/div&gt;
-  );
-}
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;container pt-5&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Books</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">onSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">Title</span><span class="o">&lt;</span><span class="err">/label&gt;</span>
+          <span class="o">&lt;</span><span class="nx">input</span>
+            <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;title&quot;</span>
+            <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;form-control&quot;</span>
+            <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+            <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;title&quot;</span>
+            <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">newBook</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+            <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setNewBook</span><span class="p">({</span> <span class="p">...</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})}</span>
+          <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="s2">&quot;author&quot;</span><span class="o">&gt;</span><span class="nx">Author</span><span class="o">&lt;</span><span class="err">/label&gt;</span>
+          <span class="o">&lt;</span><span class="nx">input</span>
+            <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;author&quot;</span>
+            <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;form-control&quot;</span>
+            <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+            <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;author&quot;</span>
+            <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">newBook</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span>
+            <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setNewBook</span><span class="p">({</span> <span class="p">...</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})}</span>
+          <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">Book</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+      <span class="o">&lt;</span><span class="err">/form&gt;</span>
+      <span class="o">&lt;</span><span class="nx">table</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;table table-striped mt-5&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">books</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">book</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">tr</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+              <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">book</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+            <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+          <span class="p">))}</span>
+        <span class="o">&lt;</span><span class="err">/tbody&gt;</span>
+      <span class="o">&lt;</span><span class="err">/table&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
 
-export default App;
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
 </code></pre></div>
 <p>Example Test:</p>
-<div class="highlight"><pre><span></span><code>import { render, screen } from &quot;@testing-library/react&quot;;
-import App from &quot;./App&quot;;
-import userEvent from &quot;@testing-library/user-event&quot;;
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">render</span><span class="p">,</span> <span class="nx">screen</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/react&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">userEvent</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/user-event&quot;</span><span class="p">;</span>
 
-test(&quot;allows users to add recovery times&quot;, () =&gt; {
-  render(&lt;App /&gt;);
+<span class="nx">test</span><span class="p">(</span><span class="s2">&quot;allows users to add recovery times&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
 
-  const titleField = screen.getByLabelText(&quot;Title&quot;);
-  const authorField = screen.getByLabelText(&quot;Author&quot;);
-  userEvent.type(titleField, &quot;Accelerate&quot;);
-  userEvent.type(authorField, &quot;Jez Humble&quot;);
-  userEvent.click(screen.getByRole(&quot;button&quot;));
+  <span class="kd">const</span> <span class="nx">titleField</span> <span class="o">=</span> <span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">authorField</span> <span class="o">=</span> <span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="s2">&quot;Author&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">titleField</span><span class="p">,</span> <span class="s2">&quot;Accelerate&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">authorField</span><span class="p">,</span> <span class="s2">&quot;Jez Humble&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s2">&quot;button&quot;</span><span class="p">));</span>
 
-  expect(screen.getByText(/Accelerate/)).toBeVisible();
-  expect(screen.getByText(/Jez Humble/)).toBeVisible();
-});
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Accelerate/</span><span class="p">)).</span><span class="nx">toBeVisible</span><span class="p">();</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Jez Humble/</span><span class="p">)).</span><span class="nx">toBeVisible</span><span class="p">();</span>
+<span class="p">});</span>
 </code></pre></div>
 <h2 id="links">Links</h2>
 <ul>
