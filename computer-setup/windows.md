@@ -112,7 +112,7 @@ If you don't see your name and email, then run these commands:
 
 ```
 git config --global user.name "<your actual name>"
-git config --global user.email "<your actual name>"
+git config --global user.email "<your actual email>"
 ```
 
 ## Install Helm
