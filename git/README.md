@@ -4,7 +4,7 @@
 
 Default branch is either `master` or `main`.
 
-```
+```bash
 git add -A
 git commit -m "message"
 git pull
@@ -15,13 +15,13 @@ git push origin <branch name>
 
 ## Create a new branch
 
-```
+```bash
 git checkout -b <branch name>
 ```
 
 ## Switch branches
 
-```
+```bash
 git checkout <branch name>
 ```
 
@@ -29,7 +29,7 @@ git checkout <branch name>
 
 Let's say you are in a branch named `user-30` and you want to pull in changes from master:
 
-```
+```bash
 git checkout master
 git pull
 git checkout user-30

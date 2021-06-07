@@ -80,25 +80,25 @@ For detailed information, see [Getting started with the OpenShift CLI](https://d
 
 List things:
 
-```
+```bash
 oc get <type>
 ```
 
 See the actual YAML
 
-```
+```bash
 oc get <type> <name> -o yaml
 ```
 
 Describe also shows you more details about the current state:
 
-```
+```bash
 oc describe <type> <name>
 ```
 
 Logs
 
-```
+```bash
 oc logs <pod name>
 oc logs <pod name> -f
 oc logs <pod name> -c <container>
@@ -106,7 +106,7 @@ oc logs <pod name> -c <container>
 
 Port-forward:
 
-```
+```bash
 oc port-forward pod/react-intro-6b7787654f-zw25x 8080:8080
 oc port-forward service/react-intro 8080:80
 ```

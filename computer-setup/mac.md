@@ -11,7 +11,7 @@ If you have a modern mac, [zsh should already be your default shell](https://www
 1. Open a new Terminal window (or tab)
 1. Run the following command:
 
-```
+```bash
 echo $SHELL
 ```
 
@@ -24,13 +24,13 @@ You have ZSH if you see the following output: `/bin/zsh`
 1. Visit [https://ohmyz.sh/](https://ohmyz.sh/)
 1. Follow instructions. At the time of writing, it's:
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ## Automatic Install Script
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
 ```
 
@@ -43,33 +43,33 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage
 
 1. Visit https://brew.sh/
 1. Click the "Copy" link and run the command. At the time of this writing, it's:
-   ```
+   ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
 ## Configure Git
 
-```
+```bash
 brew install git
 git config --global core.ignorecase false
 ```
 
 **Set your name**
 
-```
+```bash
 git config --global --list
 ```
 
 If you don't see your name and email, then run these commands:
 
-```
+```bash
 git config --global user.name "<your actual name>"
 git config --global user.email "<your actual name>"
 ```
 
 ## Install Helm
 
-```
+```bash
 brew install helm
 ```
 
@@ -80,7 +80,7 @@ brew install helm
 
 At the time this article was written, the command is:
 
-```
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.zshrc
 nvm install node
@@ -91,7 +91,7 @@ nvm alias default node
 
 If you don't have Visual Studio Code, you can install it with Homebrew:
 
-```
+```bash
 brew install --cask visual-studio-code
 ```
 
@@ -101,7 +101,7 @@ brew install --cask visual-studio-code
 
 Install the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare):
 
-```
+```bash
 code --install-extension ms-vsliveshare.vsliveshare
 ```
 
@@ -111,7 +111,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 
 Install the YAML extension.
 
-```
+```bash
 code --install-extension redhat.vscode-yaml
 ```
 
@@ -119,7 +119,7 @@ code --install-extension redhat.vscode-yaml
 
 You can install [docker desktop](https://www.docker.com/products/docker-desktop) via brew:
 
-```
+```bash
 brew install --cask docker
 ```
 

@@ -67,4 +67,4 @@ You'd add this to your React component:
 
 Use a component library:
 
-https://react-bootstrap.github.io/
+[https://react-bootstrap.github.io/](https://react-bootstrap.github.io/)

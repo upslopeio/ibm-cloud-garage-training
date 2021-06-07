@@ -14,7 +14,7 @@ Don't just copy/paste every command without reading
 
 Do you already have `ibmcloud` installed?
 
-```
+```bash
 which ibmcloud
 ```
 
@@ -30,7 +30,7 @@ If you see output like `not found` then you need to install it:
 
 Do you have the container plugin?
 
-```
+```bash
 ibmcloud plugin list
 ```
 
@@ -44,7 +44,7 @@ If you do not see `container-service` then do the following:
 
 ## Install required dependencies
 
-```
+```bash
 brew install yq@3
 echo "export PATH=\"$(brew --prefix yq@3)/bin:\$PATH\"" >> ~/.zshrc
 brew install jq
@@ -55,14 +55,14 @@ brew install jq
 1. Visit https://cloudnativetoolkit.dev/getting-started/dev-env-setup
 1. Follow instructions. At the time of this writing, the commands are:
 
-```
+```bash
 curl -sL shell.cloudnativetoolkit.dev | bash -
 source ~/.zshrc
 ```
 
 After installing this, the following commands should all print a path:
 
-```
+```bash
 which igc
 which tkn
 which oc
@@ -76,13 +76,13 @@ If not, it's likely that your npm bin directory is not in your path.
 
 If you installed Node via NVM, this might work:
 
-```
+```bash
 nvm alias default node
 ```
 
 If you installed Node with the installer, this might work:
 
-```
+```bash
 echo "export PATH=\"\${HOME}/.npm/bin:\${PATH}\"" >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -121,7 +121,7 @@ In order to test that your account works, login using your API key.
 
 Replace `YOUR_API_KEY` with your actual API key and then run this command:
 
-```
+```bash
 ibmcloud login --apikey YOUR_API_KEY -r us-south
 ```
 

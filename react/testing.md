@@ -2,7 +2,7 @@
 
 Example Component:
 
-```jsx
+```js
 import React, { useState } from "react";
 
 function App() {
@@ -66,7 +66,7 @@ export default App;
 
 Example Test:
 
-```jsx
+```js
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
