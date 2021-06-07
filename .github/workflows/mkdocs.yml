@@ -63,3 +63,5 @@ jobs:
           
           # builds site and commits to gh-pages branch
           mkdocs gh-deploy
+          
+          git push origin gh-pages
