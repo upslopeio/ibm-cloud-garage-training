@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/projects/permissions/</loc>
+         <lastmod>2021-06-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/react/</loc>
          <lastmod>2021-06-08</lastmod>
          <changefreq>daily</changefreq>
