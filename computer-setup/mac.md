@@ -38,6 +38,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage
 
 ![](../img/vscode-autosave.png)
 
+### Automatic Setup complete
+
+If you ran the automatic setup and there were no errors, your setup is complete.
+
+If you saw errors, you can run through the following steps to manually verify each tool is installed.
 
 ## Homebrew
 
