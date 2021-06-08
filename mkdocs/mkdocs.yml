@@ -36,3 +36,4 @@ nav:
       - Sequence Diagram: argo/diagram.md
   - Project Work:
       - Getting Started: projects/index.md
+      - Assigning Permissions: projects/permissions.md
