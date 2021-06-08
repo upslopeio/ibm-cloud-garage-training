@@ -30,10 +30,6 @@ You have ZSH if you see the following output: `/bin/zsh`
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
 ```
 
-[Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
-
-![](../img/vscode-autosave.png)
-
 ### Automatic Setup complete
 
 If you ran the automatic setup and there were no errors, your setup is complete.
