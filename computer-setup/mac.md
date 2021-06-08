@@ -11,9 +11,7 @@ If you have a modern mac, [zsh should already be your default shell](https://www
 1. Open a new Terminal window (or tab)
 1. Run the following command:
 
-```bash
-echo $SHELL
-```
+         echo $SHELL
 
 You have ZSH if you see the following output: `/bin/zsh`
 
@@ -24,9 +22,7 @@ You have ZSH if you see the following output: `/bin/zsh`
 1. Visit [https://ohmyz.sh/](https://ohmyz.sh/)
 1. Follow instructions. At the time of writing, it's:
 
-```bash
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ## Automatic Install Script
 
@@ -48,9 +44,8 @@ If you saw errors, you can run through the following steps to manually verify ea
 
 1. Visit https://brew.sh/
 1. Click the "Copy" link and run the command. At the time of this writing, it's:
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+
+         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Configure Git
 

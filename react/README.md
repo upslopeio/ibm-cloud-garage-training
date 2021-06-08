@@ -106,8 +106,3 @@ git push -u origin user-$CGB_USER
 ```
 
 Create and submit a pull request.
-
-## Future reading
-
-- [Testing a React App](./testing.md)
-- [Containerizing a React App](./docker.md)

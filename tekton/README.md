@@ -162,10 +162,11 @@ Once it works locally:
 1. Unzip the file
 1. Move the `chart` directory to your `react-app` folder. For example:
 
-```bash
-pwd # <-- make sure you are in the react-intro directory
-mv ~/Downloads/chart .
-```
+        # MAC
+        mv ~/Downloads/chart .
+
+        # Windows will be something like
+        mv /mnt/c/Users/<user id>/Downloads/chart .
 
 1. Git add / commit and push
 1. View your pipeline run in the OpenShift console
@@ -191,14 +192,14 @@ NOTE: if you want to ignore a failing test (just so you can move onto the next s
 
 | Error Message                                                                                     | Solution                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| error reading info about "/source/Dockerfile": stat /source/Dockerfile: no such file or directory | [Containerize the application](../react/docker.md)                                                                                                          |
+| error reading info about "/source/Dockerfile": stat /source/Dockerfile: no such file or directory | Containerize the application                                                                                                          |
 | The build stage fails                                                                             | Run the following command locally and fix any errors `docker build -t <application-name> .` Replace `<application-name>` with the correct application name. |
 
 **deploy stage**
 
 | Error Message                                                     | Solution                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| cp: can't create directory '/<directory-name>': Permission denied | [Add helm charts](../helm) <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                                                                                            |
+| cp: can't create directory '/<directory-name>': Permission denied | Add helm charts <br> render locally with `helm template <release-name> ./chart/base` where `<release-name>` is the name of your application in all lower case.                                                                                                                                                            |
 | error: deployment "react-intro" exceeded its progress deadline    | This means the pods never came up. If you login to the project from terminal and run `oc get pods`, look for the pod that is failing (it will not be named using the pipeline run). You should see at least one that is not running. Then `oc describe pod <pod-name>` and/or `oc logs <pod-name>` to find out why it is not running |
 | `error: object has been deleted`                                  | The namespace or Argo project name is the same as your repository name. Delete the namespace or Argo project and recreate it with a new unique name.                                                                                                                                                                                 |
 
