@@ -39,9 +39,9 @@ You should see `container-service` in the list of plugins.
 If you do not see `container-service` then do the following:
 
 1. Visit https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install
-1. Follow the instructions 
-   
-At the time of this writing it's 
+1. Follow the instructions
+
+At the time of this writing it's
 
 ```
 ibmcloud plugin install container-service

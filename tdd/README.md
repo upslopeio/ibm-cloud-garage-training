@@ -67,23 +67,21 @@ export default function convert(input) {
 Import the function in the test file and make it green:
 
 ```js
-import convert from './convert';
+import convert from "./convert";
 
 describe("convert", () => {
+  it("returns 0 when passed 32", () => {
+    // SEA
+    // setup
+    const degreesInFahrenheit = 32;
+    const expected = 0;
 
-    it("returns 0 when passed 32", () => {
-        // SEA
-        // setup
-        const degreesInFahrenheit = 32;
-        const expected = 0;
+    // execution
+    const actual = convert(degreesInFahrenheit);
 
-        // execution
-        const actual = convert(degreesInFahrenheit);
-
-        // assertion
-        expect(actual).toEqual(expected);
-    });
-
+    // assertion
+    expect(actual).toEqual(expected);
+  });
 });
 ```
 

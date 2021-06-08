@@ -1,6 +1,7 @@
 # Reading List
 
 ## Technical
+
 - [Accelerate](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339/)
 - **[Extreme Programming Explained](https://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658)**
 - [Effective JavaScript](https://www.amazon.com/gp/product/0321812182/)
@@ -21,8 +22,6 @@
 - [The Art of Computer Programming](https://www.amazon.com/exec/obidos/ASIN/0201485419)
 - [Range: Why Generalists Triumph in a Specialized World](https://www.amazon.com/dp/0735214484/ref=cm_sw_r_other_apa_i_G9MTDb7N1N64P)
 - [Refactoring: Improving the Design of Existing Code (2nd Edition)](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599/ref=dp_ob_title_bk)
-
-
 
 ## Non-Technical
 

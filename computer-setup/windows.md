@@ -72,8 +72,8 @@ See also https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-
 
 **Install Homebrew**
 
-1. Visit https://brew.sh/
-1. Click the "Copy" link and run the command. At the time of this writing, it's:
+1.  Visit https://brew.sh/
+1.  Click the "Copy" link and run the command. At the time of this writing, it's:
 
          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 

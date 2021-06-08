@@ -8,8 +8,8 @@ If you haven't already, [Download Webex Meetings](https://www.webex.com/download
 
 If you have a modern mac, [zsh should already be your default shell](https://www.theverge.com/2019/6/4/18651872/apple-macos-catalina-zsh-bash-shell-replacement-features).
 
-1. Open a new Terminal window (or tab)
-1. Run the following command:
+1.  Open a new Terminal window (or tab)
+1.  Run the following command:
 
          echo $SHELL
 
@@ -19,8 +19,8 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 ## (Optional) oh-my-zsh
 
-1. Visit [https://ohmyz.sh/](https://ohmyz.sh/)
-1. Follow instructions. At the time of writing, it's:
+1.  Visit [https://ohmyz.sh/](https://ohmyz.sh/)
+1.  Follow instructions. At the time of writing, it's:
 
          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -42,8 +42,8 @@ If you saw errors, you can run through the following steps to manually verify ea
 
 ## Homebrew
 
-1. Visit https://brew.sh/
-1. Click the "Copy" link and run the command. At the time of this writing, it's:
+1.  Visit https://brew.sh/
+1.  Click the "Copy" link and run the command. At the time of this writing, it's:
 
          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
