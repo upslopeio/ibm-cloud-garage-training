@@ -161,13 +161,13 @@ Once it works locally:
     1. You can [see the contents here](https://github.com/upslopeio/ibm-cloud-garage-training/tree/main/helm/chart)
 1.  Unzip the file
 1.  Move the `chart` directory to your `react-app` folder. For example:
+    ```
+    # MAC
+    mv ~/Downloads/chart .
 
-        # MAC
-        mv ~/Downloads/chart .
-
-        # Windows will be something like
-        mv /mnt/c/Users/<user id>/Downloads/chart .
-
+    # Windows will be something like
+    mv /mnt/c/Users/<user id>/Downloads/chart .
+    ```
 1.  Git add / commit and push
 1.  View your pipeline run in the OpenShift console
 1.  Verify that the "Deploy" step passes

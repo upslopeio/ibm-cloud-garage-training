@@ -17,6 +17,8 @@ theme:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.magiclink
+  - pymdownx.keys
 nav:
   - Computer Setup:
       - Mac: computer-setup/mac.md
