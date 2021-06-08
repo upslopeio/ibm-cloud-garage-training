@@ -816,7 +816,7 @@ Setting current project to react-intro...
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 </code></pre></div>
-<p>Then open http://localhost:8080 in your browser to see it work.</p>
+<p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
 <p>Once it works locally:</p>
 <ul>
 <li>Git add commit and push</li>
@@ -830,18 +830,14 @@ docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 </ol>
 </li>
 <li>Unzip the file</li>
-<li>
-<p>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:</p>
-<div class="highlight"><pre><span></span><code># MAC
+<li>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:
+    <div class="highlight"><pre><span></span><code># MAC
 mv ~/Downloads/chart .
 
 # Windows will be something like
 mv /mnt/c/Users/&lt;user id&gt;/Downloads/chart .
-</code></pre></div>
-</li>
-<li>
-<p>Git add / commit and push</p>
-</li>
+</code></pre></div></li>
+<li>Git add / commit and push</li>
 <li>View your pipeline run in the OpenShift console</li>
 <li>Verify that the "Deploy" step passes</li>
 </ol>

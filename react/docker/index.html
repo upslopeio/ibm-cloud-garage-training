@@ -551,7 +551,7 @@
 docker build --no-cache -t dockerized-react-app .
 docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 </code></pre></div>
-<p>Then open http://localhost:8080 in your browser to see it work.</p>
+<p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
 <p><strong>Pros</strong>: You don't need to build the react app separately</p>
 <p><strong>Cons</strong>: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system).</p>
 <hr />
@@ -607,7 +607,7 @@ docker push quay.io/<span class="nv">$QUAY_USER</span>/nginx-unprivileged
 docker build -t dockerized-react-app .
 docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 </code></pre></div>
-<p>Then open http://localhost:8080 in your browser to see it work.</p>
+<p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
 <p><strong>Pros</strong> Your Dockerfile is super simple.</p>
 <p><strong>Cons</strong> You need to build the application before building the Dockerfile.</p>
                 
