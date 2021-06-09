@@ -41,13 +41,6 @@ else
   sh -c "$(brew install --cask docker)"
 fi
 
-if command -v kustomize &>/dev/null; then
-    echo Found kustomize
-else
-  echo Installing kustomize
-  sh -c "$(brew install kustomize)"
-fi
-
 if command -v git &>/dev/null; then
   echo Found git
 else
@@ -217,7 +210,6 @@ IBM_CLOUD_PLUGINS=$(ibmcloud plugin list 2>&1)
 IGC_VERSION=$(igc --version 2>&1)
 JQ_VERSION=$(jq --version 2>&1)
 KUBECTL_VERSION=$(kubectl version 2>&1)
-KUSTOMIZE_VERSION=$(kustomize version 2>&1)
 NODE_VERSION=$(node --version 2>&1)
 NPM_VERSION=$(npm --version 2>&1)
 NVM_VERSION=$(nvm --version 2>&1)
@@ -248,7 +240,6 @@ printf '**********\n%-20s: %s \n\n' "icc" "$(which icc)"
 printf '**********\n%-20s: %s \n\n' "igc" "${IGC_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "jq" "${JQ_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
