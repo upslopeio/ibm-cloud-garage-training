@@ -98,13 +98,6 @@ else
   sh -c "$(brew install argocd)"
 fi
 
-if command -v igc &>/dev/null; then
-  echo Found igc
-else
-  echo Installing igc
-  npm install -g --silent @ibmgaragecloud/cloud-native-toolkit-cli
-fi
-
 CODE_APP="/Applications/Visual Studio Code.app"
 
 if [[ -e $CODE_APP ]]; then
@@ -145,7 +138,7 @@ else
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx | sh)"
   else
-    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx | sh)"
+    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/linux | sh)"
   fi
 fi
 
@@ -172,6 +165,13 @@ nvm install --lts
 echo Setting node default to lts
 nvm alias default 'lts/*'
 
+if command -v igc &>/dev/null; then
+  echo Found igc
+else
+  echo Installing igc
+  npm install -g --silent @ibmgaragecloud/cloud-native-toolkit-cli
+fi
+
 YQ3_PATH="$(brew --prefix yq@3)/bin"
 
 if grep -qE "^export PATH=.*${YQ3_PATH}" ~/.zshrc; then
@@ -186,13 +186,6 @@ if grep -qE '^export PATH=.*\$HOME/bin' ~/.zshrc; then
 else
   echo Adding HOME/bin to path
   echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
-fi
-
-if grep -qE '^export PATH=.*\$\(npm bin -g\)' ~/.zshrc; then
-  echo Found npm bin -g in PATH
-else
-  echo Adding npm bin -g to path
-  echo 'export PATH="$(npm bin -g):$PATH"' >> ~/.zshrc
 fi
 
 git config --global user.name "${GIT_USER_NAME}"
