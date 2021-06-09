@@ -22,7 +22,7 @@ shopt -s nullglob dotglob extglob
 #set -x
 
 # setup dir structure
-mkdir -p mkdocs-serve/docs
+mkdir -p build
 cp -r mkdocs/* mkdocs-serve/
 cp -r !(mkdocs|mkdocs-serve|.git|.|..) mkdocs-serve/docs/
 

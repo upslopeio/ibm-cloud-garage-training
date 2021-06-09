@@ -27,6 +27,13 @@ if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   exit 1
 fi
 
+if command -v brew &>/dev/null; then
+  echo Found homebrew
+else
+  echo Installing homebrew
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 if command -v docker &>/dev/null; then
     echo Found docker
 else
@@ -34,11 +41,11 @@ else
   sh -c "$(brew install --cask docker)"
 fi
 
-if command -v brew &>/dev/null; then
-  echo Found homebrew
+if command -v kustomize &>/dev/null; then
+    echo Found kustomize
 else
-  echo Installing homebrew
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo Installing kustomize
+  sh -c "$(brew install kustomize)"
 fi
 
 if command -v git &>/dev/null; then
@@ -217,6 +224,7 @@ IBM_CLOUD_PLUGINS=$(ibmcloud plugin list 2>&1)
 IGC_VERSION=$(igc --version 2>&1)
 JQ_VERSION=$(jq --version 2>&1)
 KUBECTL_VERSION=$(kubectl version 2>&1)
+KUSTOMIZE_VERSION=$(kustomize version 2>&1)
 NODE_VERSION=$(node --version 2>&1)
 NPM_VERSION=$(npm --version 2>&1)
 NVM_VERSION=$(nvm --version 2>&1)
@@ -247,6 +255,7 @@ printf '**********\n%-20s: %s \n\n' "icc" "$(which icc)"
 printf '**********\n%-20s: %s \n\n' "igc" "${IGC_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "jq" "${JQ_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
+printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
