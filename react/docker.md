@@ -23,13 +23,13 @@ server {
 `Dockerfile`
 
 ```dockerfile
-FROM quay.io/jeffdean/node-alpine as build
+FROM quay.io/upslopeio/node-alpine as build
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
 
-FROM quay.io/jeffdean/nginx-unprivileged
+FROM quay.io/upslopeio/nginx-unprivileged
 COPY --from=build /app/build /usr/share/nginx/html
 COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 ```
@@ -112,7 +112,7 @@ server {
 `Dockerfile`
 
 ```dockerfile
-FROM quay.io/jeffdean/nginx-unprivileged
+FROM quay.io/upslopeio/nginx-unprivileged
 COPY build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 ```
