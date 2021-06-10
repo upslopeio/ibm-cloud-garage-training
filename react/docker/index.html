@@ -548,13 +548,13 @@
 <span class="p">}</span>
 </code></pre></div>
 <p><code>Dockerfile</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/jeffdean/node-alpine</span> <span class="k">as</span> <span class="s">build</span>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/upslopeio/node-alpine</span> <span class="k">as</span> <span class="s">build</span>
 <span class="k">WORKDIR</span><span class="s"> /app</span>
 <span class="k">COPY</span> . .
 <span class="k">RUN</span> npm install
 <span class="k">RUN</span> npm run build
 
-<span class="k">FROM</span> <span class="s">quay.io/jeffdean/nginx-unprivileged</span>
+<span class="k">FROM</span> <span class="s">quay.io/upslopeio/nginx-unprivileged</span>
 <span class="k">COPY</span> --from<span class="o">=</span>build /app/build /usr/share/nginx/html
 <span class="k">COPY</span> --from<span class="o">=</span>build /app/nginx.conf /etc/nginx/conf.d/default.conf
 </code></pre></div>
@@ -610,7 +610,7 @@ docker push quay.io/<span class="nv">$QUAY_USER</span>/nginx-unprivileged
 <span class="p">}</span>
 </code></pre></div>
 <p><code>Dockerfile</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/jeffdean/nginx-unprivileged</span>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/upslopeio/nginx-unprivileged</span>
 <span class="k">COPY</span> build /usr/share/nginx/html
 <span class="k">COPY</span> nginx.conf /etc/nginx/conf.d/default.conf
 </code></pre></div>
