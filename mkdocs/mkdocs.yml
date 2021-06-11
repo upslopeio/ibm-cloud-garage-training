@@ -37,3 +37,5 @@ nav:
   - Project Work:
       - Getting Started: projects/index.md
       - Assigning Permissions: projects/permissions.md
+      - Playbacks: projects/playbacks.md
+      - Presentations: projects/presentation.md
