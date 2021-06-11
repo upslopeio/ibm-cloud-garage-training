@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/tekton/diagram/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/projects/presentation/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.7">
     
     
       
-        <title>Sequence Diagram - Cloud Native Garage Method Boot Camp</title>
+        <title>Presentations - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sequence-diagram" class="md-skip">
+        <a href="#ibm-cloud-garage-bootcamp-product-presentation" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sequence Diagram
+              Presentations
             
           </span>
         </div>
@@ -378,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../tekton/" class="md-nav__link">
         Tekton
       </a>
     </li>
@@ -421,14 +421,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Project Work
@@ -446,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -458,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/permissions/" class="md-nav__link">
+      <a href="../permissions/" class="md-nav__link">
         Assigning Permissions
       </a>
     </li>
@@ -470,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/playbacks/" class="md-nav__link">
+      <a href="../playbacks/" class="md-nav__link">
         Playbacks
       </a>
     </li>
@@ -480,11 +482,65 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../projects/presentation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Presentations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Presentations
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    Purpose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -514,6 +570,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    Purpose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -525,30 +610,37 @@
               
                 
                 
-                <h1 id="sequence-diagram">Sequence Diagram</h1>
-<p><a href="https://www.websequencediagrams.com/">https://www.websequencediagrams.com/</a></p>
-<div class="highlight"><pre><span></span><code>title Continuous Integration
-
-participant Developer
-participant Code Repo
-participant CI Pipeline
-participant Image Registry
-participant K8s Dev
-
-Developer-&gt;Code Repo: git push
-Code Repo-&gt;CI Pipeline: webhook
-CI Pipeline-&gt;Code Repo: git pull
-note right of CI Pipeline: npm test
-note right of CI Pipeline: security scans
-note right of CI Pipeline: linting
-note right of CI Pipeline: docker build
-CI Pipeline-&gt;Image Registry: docker push (quay.io, etc...)
-note right of CI Pipeline: update helm values.yaml
-CI Pipeline-&gt;K8s Dev: helm upgrade
-K8s Dev-&gt;Image Registry: docker pull
-note right of K8s Dev: docker run...
-</code></pre></div>
-<p><img alt="" src="../../img/ci-sequence.png" /></p>
+                <h1 id="ibm-cloud-garage-bootcamp-product-presentation">IBM Cloud Garage Bootcamp Product Presentation</h1>
+<h2 id="purpose">Purpose</h2>
+<p>In this Bootcamp we developed an application focused on the four metrics from the landmark DevOps book/study, Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. However, we did not provide much context beyond naming the book and the metrics.</p>
+<p>The four metrics featured in Accelerate are "the real deal" and knowing them will bolster your ability to help clients bridge the gap between their current deployment practices and DevOps. The faster you bridge this gap, the sooner your client (and you) lead the life of Riley.</p>
+<p>The four metrics are:</p>
+<ol>
+<li>Deployment Frequency - How many deployments over how many weeks? Can be trended using a Bar Chart with "Calendar Weeks" as the x-axis and deployments as the y-axis.</li>
+<li>Mean Time to Recover - Amongst all outages, what is the average time it took to get to a recovered application state?</li>
+<li>Change Failure Rate - What percentage of deployments result in a failure?</li>
+<li>Lead Time from Commit to Deployment - How long does it take, on average, for commits to get to production?</li>
+</ol>
+<h2 id="objective">Objective</h2>
+<p>IBM's latest project, the Four Metrics app, is about to be launched by the IBM Cloud team. To grow adoption with IBM's customers, the Sales organization has asked Cloud Engineers in the Garage to work with their clients on using the Four Key metrics. In particular, Cloud Engineers need to help organizations see how using the metrics for decision making can transform their IT organization, from the ground up. Overall this transformation should lead to product innovation and corporate financial growth (this claim is made by Accelerate.).</p>
+<p>Your squad will create a presentation that focuses on explaining the metrics above in a client- friendly manner, drawing connections between the metrics and the Garage Method, DevOps, and other topics of this course.</p>
+<p>Your presentation should:</p>
+<ul>
+<li>focus on the connection between the metrics and team performance</li>
+<li>focus on the connection between IBM Cloud and enabling high performing teams address (some) objections that the client may have to the Garage, DevOps or Cloud in general</li>
+<li>include a demo of your software, connecting the software to using the metrics in a day to day setting</li>
+<li>not be just text</li>
+<li>be strictly less than 7 minutes in length</li>
+</ul>
+<p>You are allowed to use any tools or references you want to create your presentation and the format of your presentation is entirely up to your Squad. Get as creative and THINK as far out of the box as you want. Be bold.</p>
+<p>Your Instructor has left the building, now meet your client! Hints</p>
+<ul>
+<li>Cause and effect are important for these metrics. What are some reasons deployment frequency might drop? What might it mean if a squad has a high change failure rate? What might we do to reduce lead time from commit to deployment? What might an increasing MTTR represent?</li>
+<li>Clients may be coming from waterfall software development. We have characterized this largely as "all of the architecture upfront, assuming we know what's coming next." What objections might they have to moving quickly?</li>
+<li>What pain points arise from manual deployment processes? What about it might be problematic? Why should a customer care about this?</li>
+</ul>
+<h2 id="example">Example</h2>
+<p><a href="https://ibm.box.com/s/vrj8jtozu2281mtqs7qn07fyfts0gy1c">https://ibm.box.com/s/vrj8jtozu2281mtqs7qn07fyfts0gy1c</a></p>
                 
               
               
@@ -564,6 +656,26 @@ note right of K8s Dev: docker run...
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../playbacks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Playbacks" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Playbacks
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

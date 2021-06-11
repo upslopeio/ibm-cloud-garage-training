@@ -76,6 +76,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/projects/playbacks/</loc>
+         <lastmod>2021-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/projects/presentation/</loc>
+         <lastmod>2021-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/react/</loc>
          <lastmod>2021-06-11</lastmod>
          <changefreq>daily</changefreq>
