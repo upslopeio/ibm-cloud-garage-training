@@ -1,12 +1,15 @@
 #!/bin/bash
 
 cleanup() {
+    shopt -s nullglob dotglob extglob
+
     # kill mkdocs serve
     kill $(jobs -p)
 
     # sync docs dir with main repo
     cd ..
     rsync -az --exclude 'mkdocs-serve' --exclude '.*' mkdocs-serve/docs/ ./
+    rsync -az --exclude '.*' --exclude 'docs' mkdocs-serve/ ./mkdocs/
     echo "files synced with repo!"
 
     rm -r mkdocs-serve
@@ -22,7 +25,7 @@ shopt -s nullglob dotglob extglob
 #set -x
 
 # setup dir structure
-mkdir -p build
+mkdir -p mkdocs-serve/docs/
 cp -r mkdocs/* mkdocs-serve/
 cp -r !(mkdocs|mkdocs-serve|.git|.|..) mkdocs-serve/docs/
 
