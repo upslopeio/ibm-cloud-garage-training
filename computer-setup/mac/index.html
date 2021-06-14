@@ -801,7 +801,12 @@
 </li>
 </ol>
 <h2 id="automatic-install-script">Automatic Install Script</h2>
-<div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh<span class="k">)</span><span class="s2">&quot;</span>
+<p>First, run the following script</p>
+<p><div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+Then run the following script</p>
+<div class="highlight"><pre><span></span><code>curl -sL shell.cloudnativetoolkit.dev <span class="p">|</span> bash -
+<span class="nb">source</span> ~/.zshrc
 </code></pre></div>
 <h3 id="automatic-setup-complete">Automatic Setup complete</h3>
 <p>If you ran the automatic setup and there were no errors, your setup is complete.</p>
