@@ -26,8 +26,16 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 ## Automatic Install Script
 
+First, run the following script
+
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
+```
+Then run the following script
+
+```bash
+curl -sL shell.cloudnativetoolkit.dev | bash -
+source ~/.zshrc
 ```
 
 ### Automatic Setup complete

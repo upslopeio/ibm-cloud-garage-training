@@ -174,7 +174,7 @@ https://docs.docker.com/docker-for-windows/wsl/
 
 ## (Optional) Slack App
 
-It's helpful to have the [Slack Mac App](https://slack.com/downloads/windows).
+It's helpful to have the [Slack App](https://slack.com/downloads/windows).
 
 ## IBM Cloud CLI
 

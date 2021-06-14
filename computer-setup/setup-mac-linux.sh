@@ -150,16 +150,14 @@ else
   ibmcloud plugin install container-service -f
 fi
 
-NVM=~/.nvm/nvm.sh
-
-if [ -f "$NVM" ]; then
+if [ -f "$NVM_DIR/nvm.sh" ]; then
     echo found nvm
 else
   echo Installing nvm
-  sh -c "$(brew install nvm)"
+  sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh)"
 fi
 
-. ~/.nvm/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 nvm install --lts
 echo Setting node default to lts
@@ -188,6 +186,20 @@ else
   echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
 fi
 
+if grep -qE '^export NVM_DIR="\$HOME/.nvm"' ~/.zshrc; then
+  echo Found NVM_DIR
+else
+  echo Adding NVM_DIR
+  echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+fi
+
+if grep -qE '^\[ -s "\$NVM_DIR/nvm.sh" \] && \. "\$NVM_DIR/nvm.sh"' ~/.zshrc; then
+  echo Found NVM loaded in ~/.zshrc
+else
+  echo Adding NVM load to ~/.zshrc
+  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+fi
+
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_EMAIL}"
 git config --global core.ignorecase false
@@ -208,6 +220,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 BREW_VERSION=$(brew --version 2>&1)
+BREW_DOCTOR=$(brew doctor 2>&1)
 CODE_VERSION=$(code --version 2>&1)
 DOCKER_VERSION=$(docker version 2>&1)
 GIT_VERSION=$(git --version 2>&1)
@@ -237,6 +250,7 @@ echo
 printf '**********\n%-20s: %s \n\n' "OS" "${OSTYPE:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "argocd" "${ARGO_CD_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
+printf '**********\n%-20s: %s \n\n' "brew doctor" "${BREW_DOCTOR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "docker" "${DOCKER_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "git" "${GIT_VERSION:-ERROR}"
