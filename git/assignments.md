@@ -76,7 +76,7 @@ For the first assignment, we'll just output some software versions to a file.
 
 ```bash
 mkdir -p user-$CGB_USER
-echo "$(brew --version || echo ERROR)" >> user-$CGB_USER/software.md
+echo "$(brew --version || echo ERROR)" > user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
 echo "Code version $(code --version || echo ERROR)" >> user-$CGB_USER/software.md
 echo >> user-$CGB_USER/software.md
