@@ -93,12 +93,12 @@ This will create a new pipeline and add the application to the gitops repository
 
 If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.
 
-> 🛑 &nbsp;&nbsp; If the pipeline fails, use the troubleshooting tables below to fix the failure:
-
 1. Run `oc console` to open a console
 1. In the sidebar, go to Pipelines
 1. Click the latest Pipeline Run
 1. Verify that your `test` stage passes
+
+> NOTE: the pipeline WILL FAIL! That's fine. The next few steps will fix it.
 
 ## Adding the Dockerfile
 
@@ -148,10 +148,7 @@ docker run -it -p 8080:8080 --rm dockerized-react-app
 
 Then open http://localhost:8080 in your browser to see it work.
 
-Once it works locally:
-
-- Git add commit and push
-- Verify that the "build" stage in your pipeline passes
+You'll have to type CTRL+C to stop the server.
 
 ---
 
@@ -171,6 +168,8 @@ Once it works locally:
 1.  Git add / commit and push
 1.  View your pipeline run in the OpenShift console
 1.  Verify that the "Deploy" step passes
+
+At this point, your entire pipeline should be green!
 
 ## Pipeline failures
 
