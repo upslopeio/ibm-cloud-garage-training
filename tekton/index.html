@@ -823,15 +823,15 @@ Setting current project to react-intro...
 </ul>
 <p>This will create a new pipeline and add the application to the gitops repository <code>qa</code> environment.</p>
 <p>If successful, the Pipeline Run URL is printed out. CMD+click on the URL to open in your default browser and see if the pipeline passes or fails.</p>
-<blockquote>
-<p>🛑 &nbsp;&nbsp; If the pipeline fails, use the troubleshooting tables below to fix the failure:</p>
-</blockquote>
 <ol>
 <li>Run <code>oc console</code> to open a console</li>
 <li>In the sidebar, go to Pipelines</li>
 <li>Click the latest Pipeline Run</li>
 <li>Verify that your <code>test</code> stage passes</li>
 </ol>
+<blockquote>
+<p>NOTE: the pipeline WILL FAIL! That's fine. The next few steps will fix it.</p>
+</blockquote>
 <h2 id="adding-the-dockerfile">Adding the Dockerfile</h2>
 <p>Add the following file to the root of your <code>react-intro</code> app:</p>
 <p><code>nginx.conf</code> (same as above):</p>
@@ -867,11 +867,7 @@ docker build --no-cache -t dockerized-react-app .
 docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 </code></pre></div>
 <p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
-<p>Once it works locally:</p>
-<ul>
-<li>Git add commit and push</li>
-<li>Verify that the "build" stage in your pipeline passes</li>
-</ul>
+<p>You'll have to type CTRL+C to stop the server.</p>
 <hr />
 <h2 id="add-the-helm-chart">Add the Helm Chart</h2>
 <ol>
@@ -891,6 +887,7 @@ mv /mnt/c/Users/&lt;user id&gt;/Downloads/chart .
 <li>View your pipeline run in the OpenShift console</li>
 <li>Verify that the "Deploy" step passes</li>
 </ol>
+<p>At this point, your entire pipeline should be green!</p>
 <h2 id="pipeline-failures">Pipeline failures</h2>
 <p>You'll see the most errors the first time you are setting up the pipeline.</p>
 <table>
