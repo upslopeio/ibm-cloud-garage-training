@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/git/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/tools/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Cheatsheet - Cloud Native Garage Method Boot Camp</title>
+        <title>Tools - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cheatsheet" class="md-skip">
+        <a href="#is-gogs-the-default-git-tool-for-the-garage" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cheatsheet
+              Tools
             
           </span>
         </div>
@@ -525,8 +525,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -535,29 +533,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#add-new-content" class="md-nav__link">
-    Add New Content
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-branch" class="md-nav__link">
-    Create a new branch
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#switch-branches" class="md-nav__link">
-    Switch branches
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-merge" class="md-nav__link">
-    Git merge
+  <a href="#is-gogs-the-default-git-tool-for-the-garage" class="md-nav__link">
+    Is gogs the default git tool for the garage?
   </a>
   
 </li>
@@ -575,30 +552,10 @@
               
                 
                 
-                <h1 id="cheatsheet">Cheatsheet</h1>
-<h2 id="add-new-content">Add New Content</h2>
-<p>Default branch is either <code>master</code> or <code>main</code>.</p>
-<div class="highlight"><pre><span></span><code>git add -A
-git commit -m <span class="s2">&quot;message&quot;</span>
-git pull
-git push origin &lt;branch name&gt;
-</code></pre></div>
-<blockquote>
-<p>If you forget the <code>-m</code> flag in git commit, and it opens VI just type ESCAPE + <code>:q</code></p>
-</blockquote>
-<h2 id="create-a-new-branch">Create a new branch</h2>
-<div class="highlight"><pre><span></span><code>git checkout -b &lt;branch name&gt;
-</code></pre></div>
-<h2 id="switch-branches">Switch branches</h2>
-<div class="highlight"><pre><span></span><code>git checkout &lt;branch name&gt;
-</code></pre></div>
-<h2 id="git-merge">Git merge</h2>
-<p>Let's say you are in a branch named <code>user-30</code> and you want to pull in changes from master:</p>
-<div class="highlight"><pre><span></span><code>git checkout master
-git pull
-git checkout user-30
-git merge master
-</code></pre></div>
+                  <h1>Tools</h1>
+                
+                <h2 id="is-gogs-the-default-git-tool-for-the-garage">Is gogs the default git tool for the garage?</h2>
+<p>No. Github is likely the primary git host / git server you'll use.</p>
                 
               
               
