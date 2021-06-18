@@ -10,9 +10,11 @@ Use the following instructions to set up a new continuous delivery controller us
 
 > **Stop**: make sure your pipeline is green before setting up ArgoCD
 
-1. Determine the name of the new project. Usually `project<user-number>-<app-repo-name>-<environment>`
+1. Determine the name of the new project. Usually `<app>-<user-number>-<environment>` - for example `react-intro-35-prod`
 
-1. Update GitOps repository
+1. Create the project with `oc new-project <app>-<user-number>-<environment>` - for example `oc new-project react-intro-35-prod`
+
+1. Update GitOps repository (only for non-QA environemnts)
 
    1. Run `oc console` to open the web console.
    1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
@@ -24,17 +26,18 @@ Use the following instructions to set up a new continuous delivery controller us
    1. Git add, commit, and push to your branch.
    1. Create a new pull request and immediately merge it. After merging, click the delete branch button.
 
-1. Add ArgoCD controller
+1. Add ArgoCD App
    1. Run `oc console` to open the web console.
    1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
       ![](img/argo-menu.png)
    1. Accept the security warnings (easiest in Chrome)
-   1. Login via openshift
-   1. Allow selected permissions
+   1. Login
+      - if "Login via OpenShift" is available, do that
+      - if not, run `igc credentials` to get the password
    1. Click "new app"
    1. Fill in the form
       - General
-        - Application name: This must be unique to the entire cluster. use `project<user-number>-<app-repo-name>-<environment>` or `squad<squad-number>-<app-repo-name>-<environment>`
+        - Application name: This must be unique to the entire cluster. use `<app>-<user-number>-<environment>` or `squad<squad-number>-<app-repo-name>-<environment>`
           - Project = default
         - Sync Policy = automatic
           - Check PRUNE RESOURCES and SELF HEAL
@@ -45,9 +48,9 @@ Use the following instructions to set up a new continuous delivery controller us
         - Path = path to the project environment folder you just created. Usually `<environment>/project<user-number>/<app-repo-name>`
       - Destination
         - cluster = select the one available option
-        - namespace = the target namespace. Usually `project<user-number>-<app-repo-name>-<environment>`
+        - namespace = the target namespace. Usually `<app>-<user-number>-<environment>`
    - Click create at the top
-1. Now the ArgoCD controller is displayed. Shortly you will notice that the pod creation failed, and it has a status of `ImagePullBackOff`.
+1. Now the ArgoCD app is displayed. Shortly you will notice that the pod creation failed, and it has a status of `ImagePullBackOff`.
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.
 1. Give the new environment permission to pull images from qa namespace
    1. run
