@@ -545,18 +545,17 @@ Code Repo-&gt;Tekton: webhook
 note right of Tekton: setup
 Tekton-&gt;Code Repo: git pull
 note right of Tekton: npm test
-note right of Tekton: build
+note right of Tekton: docker build
 Tekton-&gt;Image Registry: docker push
 note right of Tekton: deploy
 Tekton-&gt;K8s Dev: helm upgrade
 K8s Dev-&gt;Image Registry: docker pull
-note right of K8s Dev: docker run...
+note right of K8s Dev: docker run
 note right of Tekton: health
 Tekton-&gt;K8s Dev: GET /health
 note right of Tekton: tag-release
 Tekton-&gt;Code Repo: add tag
 note right of Tekton: img-release
-Tekton-&gt;Image Registry: docker push
 note right of Tekton: helm-release
 Tekton-&gt;Artifactory: publish helm chart
 note right of Tekton: gitops
