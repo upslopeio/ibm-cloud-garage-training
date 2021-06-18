@@ -130,4 +130,9 @@
          <lastmod>2021-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/tekton/notes/</loc>
+         <lastmod>2021-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>

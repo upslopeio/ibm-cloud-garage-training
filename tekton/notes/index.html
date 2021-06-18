@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/projects/playbacks/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/tekton/notes/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Playbacks - Cloud Native Garage Method Boot Camp</title>
+        <title>Notes - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#playbacks" class="md-skip">
+        <a href="#create-project" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Playbacks
+              Notes
             
           </span>
         </div>
@@ -367,14 +367,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Devops
@@ -392,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tekton/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Tekton
       </a>
     </li>
@@ -426,11 +428,68 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tekton/notes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Notes
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-project" class="md-nav__link">
+    Create project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-pipeline" class="md-nav__link">
+    Create pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#will-we-always-use-tekton" class="md-nav__link">
+    Will we always use Tekton?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -447,16 +506,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Project Work
@@ -474,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../projects/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -486,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permissions/" class="md-nav__link">
+      <a href="../../projects/permissions/" class="md-nav__link">
         Assigning Permissions
       </a>
     </li>
@@ -496,58 +553,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Playbacks
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../projects/playbacks/" class="md-nav__link">
         Playbacks
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-people-ask-why-you-pair" class="md-nav__link">
-    When people ask why you pair
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-people-question-time-spent-on-devops" class="md-nav__link">
-    When people question time spent on devops
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -557,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../presentation/" class="md-nav__link">
+      <a href="../../projects/presentation/" class="md-nav__link">
         Presentations
       </a>
     </li>
@@ -586,8 +596,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -596,15 +604,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-people-ask-why-you-pair" class="md-nav__link">
-    When people ask why you pair
+  <a href="#create-project" class="md-nav__link">
+    Create project
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-people-question-time-spent-on-devops" class="md-nav__link">
-    When people question time spent on devops
+  <a href="#create-pipeline" class="md-nav__link">
+    Create pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#will-we-always-use-tekton" class="md-nav__link">
+    Will we always use Tekton?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm
   </a>
   
 </li>
@@ -622,35 +644,34 @@
               
                 
                 
-                <h1 id="playbacks">Playbacks</h1>
-<p>Start with real customer / production data.</p>
-<p>In general:</p>
-<ul>
-<li>Always demo with live URLs</li>
-<li>Encourage participants to try the site for themselves where possible<ul>
-<li>SHow a QR code on a slide if it's a lower environment</li>
-</ul>
-</li>
-<li>If possible show real live analytics dashboards as opposed to screenshots</li>
-</ul>
-<p>When it's fake - people will engage in "bike shedding" - it tends to trend toward micro-management, wasteful activities such as:</p>
-<ul>
-<li>focusing on estimates / velocity / predicting release schedules</li>
-<li>wondering when you'll deliver what they designed upfront</li>
-<li>increasing the animosity on the team</li>
-</ul>
-<h2 id="when-people-ask-why-you-pair">When people ask why you pair</h2>
-<p>Focus on things that non-technical users will understand:</p>
-<ul>
-<li>improves code quality (more bugs caught earlier in the cycle)</li>
-<li>reduces risk (people leaving a team, mistakes being pushed to prod)</li>
-</ul>
-<h2 id="when-people-question-time-spent-on-devops">When people question time spent on devops</h2>
-<p>Focus on things that make sense to non-technical users:</p>
-<ul>
-<li>it allows us to push changes safely, which means we can push things more frequently</li>
-<li>more frequent feedback leads to higher quality products</li>
-</ul>
+                  <h1>Notes</h1>
+                
+                <h2 id="create-project">Create project</h2>
+<div class="highlight"><pre><span></span><code>oc sync [project name]
+</code></pre></div>
+<p><code>oc sync</code> comes from <code>igc</code></p>
+<ol>
+<li>Creates the Kube namespace / OpenShift project</li>
+<li>copies over some passwords that your pipeline needs in order to run</li>
+</ol>
+<p>Where does it get the passwords from?</p>
+<p>These come from the <code>tools</code> namespace which created when we ran a cluster setup script.</p>
+<p>Cluster setup script comes from cloudnativetoolkit.dev</p>
+<h2 id="create-pipeline">Create pipeline</h2>
+<div class="highlight"><pre><span></span><code>oc pipeline --tekton
+</code></pre></div>
+<p><code>oc pipeline</code> comes from <code>igc</code></p>
+<ol>
+<li>Copies Tekton tasks from <a href="https://github.com/IBM/ibm-garage-tekton-tasks">https://github.com/IBM/ibm-garage-tekton-tasks</a> into your project</li>
+<li>Created the Pipeline</li>
+<li>Created a PipelineRun</li>
+</ol>
+<h2 id="will-we-always-use-tekton">Will we always use Tekton?</h2>
+<p>Alternatives: Travis CI, Circle CI, Jenkins, Github Actions, ADO etc...</p>
+<p>Jenkins was built before clouds existed. Not cloud native. Assumes disk usage.</p>
+<p>Tekton was built from the ground up for K8s. Also comes "for free".</p>
+<h2 id="helm">Helm</h2>
+<p>Generates YAML files from templates.</p>
                 
               
               
@@ -670,7 +691,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assigning Permissions" rel="prev">
+        <a href="../../argo/diagram/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sequence Diagram" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -679,20 +700,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Assigning Permissions
+              Sequence Diagram
             </div>
           </div>
         </a>
       
       
         
-        <a href="../presentation/" class="md-footer__link md-footer__link--next" aria-label="Next: Presentations" rel="next">
+        <a href="../../projects/" class="md-footer__link md-footer__link--next" aria-label="Next: Getting Started" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Presentations
+              Getting Started
             </div>
           </div>
           <div class="md-footer__button md-icon">
