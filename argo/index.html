@@ -682,11 +682,9 @@
 <p>Create the project with <code>oc new-project &lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code> - for example <code>oc new-project react-intro-35-prod</code></p>
 </li>
 <li>
-<p>Update GitOps repository (only for non-QA environemnts)</p>
-</li>
-<li>
-<p>Run <code>oc console</code> to open the web console.</p>
-</li>
+<p>Update GitOps repository (only for non-QA environments)</p>
+<ol>
+<li>Run <code>oc console</code> to open the web console.</li>
 <li>Click the "9 box" menu, then select "Git Ops", then copy the http link.</li>
 <li>In the terminal, CD to your $HOME directory <code>cd ~</code></li>
 <li>Type <code>git clone</code>, paste in the gitops http url, hit enter.</li>
@@ -694,15 +692,15 @@
 <li><code>git checkout -b add-&lt;user-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code> or <code>git checkout -b add-&lt;squad-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></li>
 <li>Run <code>code .</code> and find the application you want to deploy under the <code>/qa</code> folder, and copy that entire folder to the new <code>&lt;environment&gt;</code> folder (i.e. production)</li>
 <li>Git add, commit, and push to your branch.</li>
-<li>
-<p>Create a new pull request and immediately merge it. After merging, click the delete branch button.</p>
+<li>Create a new pull request and immediately merge it. After merging, click the delete branch button.</li>
+</ol>
 </li>
 <li>
 <p>Add ArgoCD App</p>
-</li>
+<ol>
 <li>Run <code>oc console</code> to open the web console.</li>
 <li>On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-      <img alt="" src="img/argo-menu.png" /></li>
+     <img alt="" src="img/argo-menu.png" /></li>
 <li>Accept the security warnings (easiest in Chrome)</li>
 <li>Login<ul>
 <li>if "Login via OpenShift" is available, do that</li>
@@ -710,7 +708,7 @@
 </ul>
 </li>
 <li>Click "new app"</li>
-<li>Fill in the form<ul>
+<li>Fill in the form</li>
 <li>General<ul>
 <li>Application name: This must be unique to the entire cluster. use <code>&lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code> or <code>squad&lt;squad-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></li>
 <li>Project = default</li>
@@ -730,21 +728,21 @@
 <li>namespace = the target namespace. Usually <code>&lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code></li>
 </ul>
 </li>
-</ul>
-</li>
 <li>Click create at the top</li>
 <li>Now the ArgoCD app is displayed. Shortly you will notice that the pod creation failed, and it has a status of <code>ImagePullBackOff</code>.
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.</li>
 <li>Give the new environment permission to pull images from qa namespace</li>
 <li>run
-      <div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:&lt;new-project-name&gt; -n &lt;dev-project-name&gt;
+  <div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:&lt;new-project-name&gt; -n &lt;dev-project-name&gt;
 </code></pre></div>
-      If successful, you will see something like the following:
-      <code>clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:&lt;new-project-name&gt;"</code></li>
+  If successful, you will see something like the following:
+  <code>clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:&lt;new-project-name&gt;"</code></li>
 <li>Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.</li>
 <li>If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
    <img alt="" src="img/argo-success.png" /></li>
 <li>What just happened?</li>
+</ol>
+</li>
 </ol>
 <p>You have a new environment. Let's assume it is <code>production</code>.</p>
 <p><code>qa</code> and <code>production</code> are running the same version of your application because the version number specified in gitops <code>&lt;environment&gt;/project&lt;user-number&gt;/&lt;app-repo-name&gt;/requirements.yaml</code> is the same in both environments.</p>
