@@ -676,10 +676,13 @@
 </blockquote>
 <ol>
 <li>
-<p>Determine the name of the new project. Usually <code>project&lt;user-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></p>
+<p>Determine the name of the new project. Usually <code>&lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code> - for example <code>react-intro-35-prod</code></p>
 </li>
 <li>
-<p>Update GitOps repository</p>
+<p>Create the project with <code>oc new-project &lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code> - for example <code>oc new-project react-intro-35-prod</code></p>
+</li>
+<li>
+<p>Update GitOps repository (only for non-QA environemnts)</p>
 </li>
 <li>
 <p>Run <code>oc console</code> to open the web console.</p>
@@ -695,18 +698,21 @@
 <p>Create a new pull request and immediately merge it. After merging, click the delete branch button.</p>
 </li>
 <li>
-<p>Add ArgoCD controller</p>
+<p>Add ArgoCD App</p>
 </li>
 <li>Run <code>oc console</code> to open the web console.</li>
 <li>On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
       <img alt="" src="img/argo-menu.png" /></li>
 <li>Accept the security warnings (easiest in Chrome)</li>
-<li>Login via openshift</li>
-<li>Allow selected permissions</li>
+<li>Login<ul>
+<li>if "Login via OpenShift" is available, do that</li>
+<li>if not, run <code>igc credentials</code> to get the password</li>
+</ul>
+</li>
 <li>Click "new app"</li>
 <li>Fill in the form<ul>
 <li>General<ul>
-<li>Application name: This must be unique to the entire cluster. use <code>project&lt;user-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code> or <code>squad&lt;squad-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></li>
+<li>Application name: This must be unique to the entire cluster. use <code>&lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code> or <code>squad&lt;squad-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></li>
 <li>Project = default</li>
 <li>Sync Policy = automatic</li>
 <li>Check PRUNE RESOURCES and SELF HEAL</li>
@@ -721,13 +727,13 @@
 </li>
 <li>Destination<ul>
 <li>cluster = select the one available option</li>
-<li>namespace = the target namespace. Usually <code>project&lt;user-number&gt;-&lt;app-repo-name&gt;-&lt;environment&gt;</code></li>
+<li>namespace = the target namespace. Usually <code>&lt;app&gt;-&lt;user-number&gt;-&lt;environment&gt;</code></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Click create at the top</li>
-<li>Now the ArgoCD controller is displayed. Shortly you will notice that the pod creation failed, and it has a status of <code>ImagePullBackOff</code>.
+<li>Now the ArgoCD app is displayed. Shortly you will notice that the pod creation failed, and it has a status of <code>ImagePullBackOff</code>.
    This is because the new namespace is trying to pull images created in another namespace. You will fix this in the next step.</li>
 <li>Give the new environment permission to pull images from qa namespace</li>
 <li>run
