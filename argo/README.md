@@ -14,28 +14,29 @@ Use the following instructions to set up a new continuous delivery controller us
 
 1. Create the project with `oc new-project <app>-<user-number>-<environment>` - for example `oc new-project react-intro-35-prod`
 
-1. Update GitOps repository (only for non-QA environemnts)
+1. Update GitOps repository (only for non-QA environments)
 
-   1. Run `oc console` to open the web console.
-   1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
-   1. In the terminal, CD to your $HOME directory `cd ~`
-   1. Type `git clone `, paste in the gitops http url, hit enter.
-   1. `cd gitops`
-   1. `git checkout -b add-<user-number>-<app-repo-name>-<environment>` or `git checkout -b add-<squad-number>-<app-repo-name>-<environment>`
-   1. Run `code .` and find the application you want to deploy under the `/qa` folder, and copy that entire folder to the new `<environment>` folder (i.e. production)
-   1. Git add, commit, and push to your branch.
-   1. Create a new pull request and immediately merge it. After merging, click the delete branch button.
+    1. Run `oc console` to open the web console.
+    1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
+    1. In the terminal, CD to your $HOME directory `cd ~`
+    1. Type `git clone `, paste in the gitops http url, hit enter.
+    1. `cd gitops`
+    1. `git checkout -b add-<user-number>-<app-repo-name>-<environment>` or `git checkout -b add-<squad-number>-<app-repo-name>-<environment>`
+    1. Run `code .` and find the application you want to deploy under the `/qa` folder, and copy that entire folder to the new `<environment>` folder (i.e. production)
+    1. Git add, commit, and push to your branch.
+    1. Create a new pull request and immediately merge it. After merging, click the delete branch button.
 
 1. Add ArgoCD App
-   1. Run `oc console` to open the web console.
-   1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-      ![](img/argo-menu.png)
-   1. Accept the security warnings (easiest in Chrome)
-   1. Login
-      - if "Login via OpenShift" is available, do that
-      - if not, run `igc credentials` to get the password
-   1. Click "new app"
-   1. Fill in the form
+
+    1. Run `oc console` to open the web console.
+    1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
+         ![](img/argo-menu.png)
+    1. Accept the security warnings (easiest in Chrome)
+    1. Login
+         - if "Login via OpenShift" is available, do that
+         - if not, run `igc credentials` to get the password
+    1. Click "new app"
+    1. Fill in the form
       - General
         - Application name: This must be unique to the entire cluster. use `<app>-<user-number>-<environment>` or `squad<squad-number>-<app-repo-name>-<environment>`
           - Project = default
