@@ -35,6 +35,7 @@ nav:
       - Tekton: tekton/README.md
       - Argo: argo/README.md
       - Sequence Diagram: argo/diagram.md
+      - Notes: tekton/notes.md
   - Project Work:
       - Getting Started: projects/index.md
       - Assigning Permissions: projects/permissions.md
