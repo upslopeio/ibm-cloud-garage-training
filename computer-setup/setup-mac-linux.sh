@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [[ "$OSTYPE" == "cygwin" ]]; then
   echo 'cygwin is not supported'
   exit 1
@@ -19,6 +21,10 @@ EXISTING_USER_NAME=$(git config --global user.name)
 EXISTING_USER_NAME=${EXISTING_USER_NAME:-${USER}}
 read -rp "Please Enter your user name for git (${EXISTING_USER_NAME}): " GIT_USER_NAME
 GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
+
+git config --global user.name "${GIT_USER_NAME}"
+git config --global user.email "${GIT_EMAIL}"
+git config --global core.ignorecase false
 
 if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   echo zsh not found
@@ -89,13 +95,6 @@ if command -v tkn &>/dev/null; then
 else
   echo Installing tektoncd-cli
   sh -c "$(brew install tektoncd-cli)"
-fi
-
-if command -v argocd &>/dev/null; then
-  echo Found argocd
-else
-  echo Installing argocd
-  sh -c "$(brew install argocd)"
 fi
 
 CODE_APP="/Applications/Visual Studio Code.app"
@@ -170,6 +169,18 @@ else
   npm install -g --silent @ibmgaragecloud/cloud-native-toolkit-cli
 fi
 
+ICC_CLI="${HOME}/bin/icc"
+ICC_URL="https://raw.githubusercontent.com/ibm-garage-cloud/cloud-shell-commands/main/assets/icc"
+
+if [ -f "${ICC_CLI}" ]; then
+  echo Found icc
+else
+  echo Installing icc
+  mkdir -p ~/bin
+  curl -sSL -o "${ICC_CLI}" "${ICC_URL}"
+  chmod u+x "${ICC_CLI}"
+fi
+
 YQ3_PATH="$(brew --prefix yq@3)/bin"
 
 if grep -qE "^export PATH=.*${YQ3_PATH}" ~/.zshrc; then
@@ -200,13 +211,11 @@ else
   echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
 fi
 
-git config --global user.name "${GIT_USER_NAME}"
-git config --global user.email "${GIT_EMAIL}"
-git config --global core.ignorecase false
-
 if [ ! -d ~/.npm-packages/bin ]; then
   mkdir -p ~/.npm-packages/bin
 fi
+
+set +e
 
 echo
 echo Collecting results....
@@ -232,6 +241,7 @@ JQ_VERSION=$(jq --version 2>&1)
 KUBECTL_VERSION=$(kubectl version 2>&1)
 KUSTOMIZE_VERSION=$(kustomize version 2>&1)
 NODE_VERSION=$(node --version 2>&1)
+NPM_DOCTOR=$(npm doctor 2>&1)
 NPM_VERSION=$(npm --version 2>&1)
 NVM_VERSION=$(nvm --version 2>&1)
 OC_VERSION=$(oc version 2>&1)
@@ -239,16 +249,13 @@ OC_PLUGINS=$(oc plugin list 2>&1)
 YQ_VERSION=$(yq --version 2>&1)
 
 # The following commands return "cannot execute binary file" for some reason
-#"$(argocd version)"
 #"$(tkn verion)"
-ARGO_CD_VERSION=$(which argocd 2>&1)
 TKN_VERSION=$(which tkn 2>&1)
 
 echo ===== RESULTS: post the following to the slack channel =====
 echo
 
 printf '**********\n%-20s: %s \n\n' "OS" "${OSTYPE:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "argocd" "${ARGO_CD_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "brew doctor" "${BREW_DOCTOR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
@@ -265,6 +272,7 @@ printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
+printf '**********\n%-20s: %s \n\n' "npm doctor" "${NPM_DOCTOR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm dir" "${NVM_DIR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm bin" "${NVM_BIN:-ERROR}"
@@ -297,5 +305,5 @@ echo If there are no errors, post the above RESULTS to the slack channel.
 echo
 echo
 
-echo "Next, run 'argocd version' and post the output to the slack channel"
-echo "finally, run 'tkn version' and post the output to the slack channel"
+echo "Next, run the following commands and post the output to the slack channel"
+echo 'tkn version'
