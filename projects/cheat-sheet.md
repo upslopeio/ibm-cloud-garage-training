@@ -1,3 +1,9 @@
+# React Project Cheat Sheet
+
+## React Components
+
+You can see an example of a full component along with tests [here](../react/testing.md).
+
 ## Code Organization
 
 Very early on, split the app into multiple components.
