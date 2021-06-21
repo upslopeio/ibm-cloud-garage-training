@@ -625,14 +625,16 @@
 <ol>
 <li>Meet in your squad's main room</li>
 <li>One person shares their screen and:<ol>
-<li>Creates a React app</li>
-<li>Creates a Gogs repo (in your squad organization)</li>
+<li>Creates a React app on their local machine</li>
+<li>Creates a Gogs repo</li>
+<li>Gives access to everyone (either by putting the repo in an org, or by just adding collaborators)</li>
 <li>Pushes the React app to the gogs repo</li>
 </ol>
 </li>
 <li>Everyone else:<ol>
 <li>Clones the Gogs repo (then <code>cd</code> into it)</li>
 <li>Runs <code>npm install</code> to install the project dependencies</li>
+<li>Runs <code>npm start</code> to make sure they can run the app locally</li>
 </ol>
 </li>
 </ol>
