@@ -534,6 +534,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    Required Fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
   </a>
@@ -609,6 +616,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    Required Fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
   </a>
@@ -637,6 +651,21 @@
 <p>When testing date pickers, set the value in this format: <code>2021-02-03</code></p>
 <p>To add a Time Picker, use this HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;time&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h2 id="required-fields">Required Fields</h2>
+<p>To make a field required add the <code>required</code> attribute to HTML:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">required</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>Then make sure that instead of putting an <code>onClick</code> event on the button, you put an <code>onSubmit</code> on the form.</p>
+<p>In the example below, the <code>createDeployment</code> function will never be called if the date field isn't filled in.</p>
+<div class="highlight"><pre><span></span><code>const createDeployment = (e) =&gt; {
+    e.preventDefault();
+};
+
+&lt;form onSubmit={createDeployment}&gt;
+    &lt;input type=&quot;date&quot; required /&gt;
+    &lt;button type=&quot;submit&quot;&gt;
+&lt;/form&gt;
 </code></pre></div>
 <h2 id="working-with-localstorage">Working with localStorage</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// store an array of objects in localStorage</span>
