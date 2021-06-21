@@ -43,3 +43,5 @@ nav:
       - Assigning Permissions: projects/permissions.md
       - Playbacks: projects/playbacks.md
       - Presentations: projects/presentation.md
+  - General:
+      - Reading List: reading-list/README.md
