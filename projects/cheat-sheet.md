@@ -1,3 +1,19 @@
+## HTML Date Pickers
+
+To add a Date Picker, use this HTML:
+
+```html
+<input type="date" />
+```
+
+When testing date pickers, set the value in this format: `2021-02-03`
+
+To add a Time Picker, use this HTML:
+
+```html
+<input type="time" />
+```
+
 ## Working with localStorage
 
 ```js
