@@ -531,8 +531,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#react-components" class="md-nav__link">
-    React Components
+  <a href="#react-component-example" class="md-nav__link">
+    React Component Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-test-example" class="md-nav__link">
+    React Test Example
   </a>
   
 </li>
@@ -559,9 +566,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#field-validations" class="md-nav__link">
+    Field Validations
+  </a>
+  
+    <nav class="md-nav" aria-label="Field Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-form-submission" class="md-nav__link">
+    Handling Form Submission
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#required-fields" class="md-nav__link">
     Required Fields
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-fields" class="md-nav__link">
+    Number Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -692,8 +726,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#react-components" class="md-nav__link">
-    React Components
+  <a href="#react-component-example" class="md-nav__link">
+    React Component Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-test-example" class="md-nav__link">
+    React Test Example
   </a>
   
 </li>
@@ -720,9 +761,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#field-validations" class="md-nav__link">
+    Field Validations
+  </a>
+  
+    <nav class="md-nav" aria-label="Field Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-form-submission" class="md-nav__link">
+    Handling Form Submission
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#required-fields" class="md-nav__link">
     Required Fields
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-fields" class="md-nav__link">
+    Number Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -747,8 +815,86 @@
                 
                 
                 <h1 id="react-project-cheat-sheet">React Project Cheat Sheet</h1>
-<h2 id="react-components">React Components</h2>
-<p>You can see an example of a full component along with tests <a href="../../react/testing/">here</a>.</p>
+<h2 id="react-component-example">React Component Example</h2>
+<p>The following component shows how to implement a form that adds items to a list:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// define state for the list of books</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">books</span><span class="p">,</span> <span class="nx">setBooks</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+
+  <span class="c1">// define state for the book form</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">setNewBook</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="p">});</span>
+
+  <span class="c1">// define the function that runs when the form is submitted</span>
+  <span class="kd">const</span> <span class="nx">onSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">setBooks</span><span class="p">((</span><span class="nx">books</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">[...</span><span class="nx">books</span><span class="p">,</span> <span class="nx">newBook</span><span class="p">]);</span>
+    <span class="nx">setNewBook</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="p">});</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;container pt-5&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Books</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">onSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span><span class="nx">Title</span><span class="o">&lt;</span><span class="err">/label&gt;</span>
+          <span class="o">&lt;</span><span class="nx">input</span>
+            <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;title&quot;</span>
+            <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;form-control&quot;</span>
+            <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+            <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;title&quot;</span>
+            <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">newBook</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+            <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setNewBook</span><span class="p">({</span> <span class="p">...</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})}</span>
+          <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="s2">&quot;author&quot;</span><span class="o">&gt;</span><span class="nx">Author</span><span class="o">&lt;</span><span class="err">/label&gt;</span>
+          <span class="o">&lt;</span><span class="nx">input</span>
+            <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;author&quot;</span>
+            <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;form-control&quot;</span>
+            <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+            <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;author&quot;</span>
+            <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">newBook</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span>
+            <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setNewBook</span><span class="p">({</span> <span class="p">...</span><span class="nx">newBook</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})}</span>
+          <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">Book</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+      <span class="o">&lt;</span><span class="err">/form&gt;</span>
+      <span class="o">&lt;</span><span class="nx">table</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;table table-striped mt-5&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">books</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">book</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">tr</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">book</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+              <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">book</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+            <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+          <span class="p">))}</span>
+        <span class="o">&lt;</span><span class="err">/tbody&gt;</span>
+      <span class="o">&lt;</span><span class="err">/table&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="react-test-example">React Test Example</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">render</span><span class="p">,</span> <span class="nx">screen</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/react&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">userEvent</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/user-event&quot;</span><span class="p">;</span>
+
+<span class="nx">test</span><span class="p">(</span><span class="s2">&quot;allows users to add books&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">titleField</span> <span class="o">=</span> <span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="s2">&quot;Title&quot;</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">authorField</span> <span class="o">=</span> <span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="s2">&quot;Author&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">titleField</span><span class="p">,</span> <span class="s2">&quot;Accelerate&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">authorField</span><span class="p">,</span> <span class="s2">&quot;Jez Humble&quot;</span><span class="p">);</span>
+  <span class="nx">userEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s2">&quot;button&quot;</span><span class="p">));</span>
+
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Accelerate/</span><span class="p">)).</span><span class="nx">toBeVisible</span><span class="p">();</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Jez Humble/</span><span class="p">)).</span><span class="nx">toBeVisible</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
 <h2 id="code-organization">Code Organization</h2>
 <p>Very early on, split the app into multiple components.</p>
 <p>Your <code>App.js</code> file should be thin, like this:</p>
@@ -815,11 +961,9 @@
 <p>To add a Time Picker, use this HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;time&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
-<h2 id="required-fields">Required Fields</h2>
-<p>To make a field required add the <code>required</code> attribute to HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">required</span> <span class="p">/&gt;</span>
-</code></pre></div>
-<p>Then make sure that instead of putting an <code>onClick</code> event on the button, you put an <code>onSubmit</code> on the form.</p>
+<h2 id="field-validations">Field Validations</h2>
+<h3 id="handling-form-submission">Handling Form Submission</h3>
+<p>Make sure that instead of putting an <code>onClick</code> event on the button, you put an <code>onSubmit</code> on the form.</p>
 <p>In the example below, the <code>createDeployment</code> function will never be called if the date field isn't filled in.</p>
 <div class="highlight"><pre><span></span><code>const createDeployment = (e) =&gt; {
     e.preventDefault();
@@ -829,6 +973,14 @@
     &lt;input type=&quot;date&quot; required /&gt;
     &lt;button type=&quot;submit&quot;&gt;
 &lt;/form&gt;
+</code></pre></div>
+<h3 id="required-fields">Required Fields</h3>
+<p>To make a field required add the <code>required</code> attribute to HTML:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">required</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h3 id="number-fields">Number Fields</h3>
+<p>To make a number field, use <code>type="number"</code> and the <code>min</code> and <code>max</code> attributes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">required</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;10&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <h2 id="working-with-localstorage">Working with localStorage</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// store an array of objects in localStorage</span>
