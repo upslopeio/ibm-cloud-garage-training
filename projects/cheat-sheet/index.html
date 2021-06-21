@@ -534,6 +534,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#styling" class="md-nav__link">
+    Styling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#html-date-pickers" class="md-nav__link">
     HTML Date Pickers
   </a>
@@ -550,13 +557,6 @@
         <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#styling" class="md-nav__link">
-    Styling
   </a>
   
 </li>
@@ -630,6 +630,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#styling" class="md-nav__link">
+    Styling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#html-date-pickers" class="md-nav__link">
     HTML Date Pickers
   </a>
@@ -646,13 +653,6 @@
         <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#styling" class="md-nav__link">
-    Styling
   </a>
   
 </li>
@@ -707,6 +707,29 @@
   <span class="c1">// ...</span>
 <span class="p">});</span>
 </code></pre></div>
+<h2 id="styling">Styling</h2>
+<p>Add Bootstrap CSS to your application:</p>
+<ol>
+<li>Go to <a href="https://getbootstrap.com/">https://getbootstrap.com/</a></li>
+<li>Go to "Download"</li>
+<li>Copy and paste the stylesheet to your <code>public/index.html</code> page</li>
+</ol>
+<p>Example layout:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- deployments go here --&gt;</span>
+    <span class="c">&lt;!-- lead time goes here --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- recovery times go here --&gt;</span>
+    <span class="c">&lt;!-- change fail rate goes here --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Whenever the Twitter Bootstrap docs show you <code>class="something"</code> in React it needs to be <code>className="something"</code> (<code>class</code> =&gt; <code>className</code>).</p>
+<blockquote>
+<p>NOTE: you may also use a component library like <a href="https://react-bootstrap.github.io/">https://react-bootstrap.github.io/</a></p>
+</blockquote>
 <h2 id="html-date-pickers">HTML Date Pickers</h2>
 <p>To add a Date Picker, use this HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="p">/&gt;</span>
@@ -738,28 +761,6 @@
 <span class="c1">// retrieve an array of objects from localStorage</span>
 <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;participants&quot;</span><span class="p">));</span>
 </code></pre></div>
-<h2 id="styling">Styling</h2>
-<p><strong>Option 1</strong></p>
-<p>You can just pull in CSS to your application</p>
-<ol>
-<li>Go to <a href="https://getbootstrap.com/">https://getbootstrap.com/</a></li>
-<li>Go to "Download"</li>
-<li>Copy and paste the stylesheet to your <code>public/index.html</code> page</li>
-</ol>
-<p>Then, whenever you want a styled component, just add the class names.</p>
-<p>For example if the Bootstrap docs show you this HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>You'd add this to your React component:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
-<span class="o">&lt;</span><span class="err">/div&gt;</span>
-</code></pre></div>
-<p><strong>Option 2</strong></p>
-<p>Use a component library:</p>
-<p><a href="https://react-bootstrap.github.io/">https://react-bootstrap.github.io/</a></p>
                 
               
               
