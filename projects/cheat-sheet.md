@@ -14,6 +14,29 @@ To add a Time Picker, use this HTML:
 <input type="time" />
 ```
 
+## Required Fields
+
+To make a field required add the `required` attribute to HTML:
+
+```html
+<input type="date" required />
+```
+
+Then make sure that instead of putting an `onClick` event on the button, you put an `onSubmit` on the form.
+
+In the example below, the `createDeployment` function will never be called if the date field isn't filled in.
+
+```jsx
+const createDeployment = (e) => {
+    e.preventDefault();
+};
+
+<form onSubmit={createDeployment}>
+    <input type="date" required />
+    <button type="submit">
+</form>
+```
+
 ## Working with localStorage
 
 ```js
