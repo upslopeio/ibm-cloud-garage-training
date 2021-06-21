@@ -1,8 +1,93 @@
 # React Project Cheat Sheet
 
-## React Components
+## React Component Example
 
-You can see an example of a full component along with tests [here](../react/testing.md).
+The following component shows how to implement a form that adds items to a list:
+
+```js
+import React, { useState } from "react";
+
+function App() {
+  // define state for the list of books
+  const [books, setBooks] = useState([]);
+
+  // define state for the book form
+  const [newBook, setNewBook] = useState({ title: "", author: "" });
+
+  // define the function that runs when the form is submitted
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setBooks((books) => [...books, newBook]);
+    setNewBook({ title: "", author: "" });
+  };
+
+  return (
+    <div className="container pt-5">
+      <h1>Books</h1>
+      <form onSubmit={onSubmit}>
+        <p>
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
+            className="form-control"
+            type="text"
+            name="title"
+            value={newBook.title}
+            onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
+          />
+        </p>
+        <p>
+          <label htmlFor="author">Author</label>
+          <input
+            id="author"
+            className="form-control"
+            type="text"
+            name="author"
+            value={newBook.author}
+            onChange={(e) => setNewBook({ ...newBook, author: e.target.value })}
+          />
+        </p>
+        <button className="btn btn-primary">Add Book</button>
+      </form>
+      <table className="table table-striped mt-5">
+        <tbody>
+          {books.map((book, i) => (
+            <tr key={i}>
+              <td>{book.title}</td>
+              <td>{book.author}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## React Test Example
+
+```js
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import userEvent from "@testing-library/user-event";
+
+test("allows users to add books", () => {
+  render(<App />);
+
+  const titleField = screen.getByLabelText("Title");
+  const authorField = screen.getByLabelText("Author");
+  userEvent.type(titleField, "Accelerate");
+  userEvent.type(authorField, "Jez Humble");
+  userEvent.click(screen.getByRole("button"));
+
+  expect(screen.getByText(/Accelerate/)).toBeVisible();
+  expect(screen.getByText(/Jez Humble/)).toBeVisible();
+});
+```
+
+
 
 ## Code Organization
 
@@ -94,15 +179,11 @@ To add a Time Picker, use this HTML:
 <input type="time" />
 ```
 
-## Required Fields
+## Field Validations
 
-To make a field required add the `required` attribute to HTML:
+### Handling Form Submission
 
-```html
-<input type="date" required />
-```
-
-Then make sure that instead of putting an `onClick` event on the button, you put an `onSubmit` on the form.
+Make sure that instead of putting an `onClick` event on the button, you put an `onSubmit` on the form.
 
 In the example below, the `createDeployment` function will never be called if the date field isn't filled in.
 
@@ -116,6 +197,23 @@ const createDeployment = (e) => {
     <button type="submit">
 </form>
 ```
+
+### Required Fields
+
+To make a field required add the `required` attribute to HTML:
+
+```html
+<input type="date" required />
+```
+
+### Number Fields
+
+To make a number field, use `type="number"` and the `min` and `max` attributes:
+
+```html
+<input type="number" required min="1" max="10" />
+```
+
 
 ## Working with localStorage
 
