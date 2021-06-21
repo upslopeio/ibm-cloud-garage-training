@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#working-with-localstorage" class="md-skip">
+        <a href="#html-date-pickers" class="md-skip">
           Skip to content
         </a>
       
@@ -527,6 +527,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#html-date-pickers" class="md-nav__link">
+    HTML Date Pickers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
   </a>
@@ -595,6 +602,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#html-date-pickers" class="md-nav__link">
+    HTML Date Pickers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
   </a>
@@ -616,7 +630,15 @@
                 
                   <h1>React Cheat Sheet</h1>
                 
-                <h2 id="working-with-localstorage">Working with localStorage</h2>
+                <h2 id="html-date-pickers">HTML Date Pickers</h2>
+<p>To add a Date Picker, use this HTML:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>When testing date pickers, set the value in this format: <code>2021-02-03</code></p>
+<p>To add a Time Picker, use this HTML:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;time&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h2 id="working-with-localstorage">Working with localStorage</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// store an array of objects in localStorage</span>
 <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Instructor&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Abe&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Student&quot;</span><span class="p">}];</span>
 <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;participants&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
