@@ -26,12 +26,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/argo/</loc>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/argo/diagram/</loc>
          <lastmod>2021-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/argo/diagram/</loc>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/argo/production/</loc>
+         <lastmod>2021-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/argo/qa/</loc>
          <lastmod>2021-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
