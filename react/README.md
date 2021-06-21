@@ -84,25 +84,3 @@ Paste the two lines in your Terminal, and use the following credentials:
 Refresh your repository page
 
 ![](./img/06-gogs-code.png)
-
-## Submit the Assignment
-
-1. Go to Gogs
-1. Copy the URL to your `react-intro` repo
-1. Run the following commands:
-
-```bash
-cd ~/assignments
-touch user-$CGB_USER/react-intro.md
-code .
-```
-
-Find the `react-intro.md` file. Paste the URL to your `react-intro` repository.
-
-```bash
-git add user-$CGB_USER
-git commit -m "react intro"
-git push -u origin user-$CGB_USER
-```
-
-Create and submit a pull request.
