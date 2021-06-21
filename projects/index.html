@@ -513,20 +513,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#code-organization" class="md-nav__link">
-    Code Organization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#styling" class="md-nav__link">
-    Styling
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -621,20 +607,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#code-organization" class="md-nav__link">
-    Code Organization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#styling" class="md-nav__link">
-    Styling
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -660,47 +632,6 @@
 <li>Clones the Gogs repo (then <code>cd</code> into it)</li>
 <li>Runs <code>npm install</code> to install the project dependencies</li>
 </ol>
-<h2 id="code-organization">Code Organization</h2>
-<p>Very early on, split the app into multiple components.</p>
-<p>Your <code>App.js</code> file should be thin, like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">Deployment</span> <span class="k">from</span> <span class="s2">&quot;./Deployments&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">LeadTimes</span> <span class="k">from</span> <span class="s2">&quot;./LeadTimes&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">RecoveryTimes</span> <span class="k">from</span> <span class="s2">&quot;./RecoveryTimes&quot;</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">Deployment</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="nx">RecoveryTimes</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="nx">LeadTimes</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="err">/div&gt;</span>
-  <span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="styling">Styling</h2>
-<p><strong>Option 1</strong></p>
-<p>You can just pull in CSS to your application</p>
-<ol>
-<li>Go to <a href="https://getbootstrap.com/">https://getbootstrap.com/</a></li>
-<li>Go to "Download"</li>
-<li>Copy and paste the stylesheet to your <code>public/index.html</code> page</li>
-</ol>
-<p>Then, whenever you want a styled component, just add the class names.</p>
-<p>For example if the Bootstrap docs show you this HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>You'd add this to your React component:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
-<span class="o">&lt;</span><span class="err">/div&gt;</span>
-</code></pre></div>
-<p><strong>Option 2</strong></p>
-<p>Use a component library:</p>
-<p><a href="https://react-bootstrap.github.io/">https://react-bootstrap.github.io/</a></p>
                 
               
               
