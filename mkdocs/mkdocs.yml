@@ -39,5 +39,6 @@ nav:
   - Project Work:
       - Getting Started: projects/index.md
       - Assigning Permissions: projects/permissions.md
+      - React Cheat Sheet: projects/cheat-sheet.md
       - Playbacks: projects/playbacks.md
       - Presentations: projects/presentation.md
