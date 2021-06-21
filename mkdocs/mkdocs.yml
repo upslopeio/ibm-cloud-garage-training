@@ -33,7 +33,8 @@ nav:
       - React Testing: react/testing.md
   - Devops:
       - Tekton: tekton/README.md
-      - Argo: argo/README.md
+      - Argo QA: argo/qa.md
+      - Argo Prod: argo/production.md
       - Sequence Diagram: argo/diagram.md
       - Notes: tekton/notes.md
   - Project Work:
