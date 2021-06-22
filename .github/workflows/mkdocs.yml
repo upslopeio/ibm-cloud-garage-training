@@ -20,6 +20,9 @@ jobs:
       - name: Install material theme
         run: pip install mkdocs-material
 
+      - name: Install truly sane lists plugin
+        run: pip install mdx_truly_sane_lists
+
       - name: Setup directory stucture for mkdocs
         env: # Or as an environment variable
           GH_PAT: ${{ secrets.GH_PASSWORD }}

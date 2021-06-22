@@ -1,6 +1,7 @@
 # IBM Cloud Garage Bootcamp Product Presentation
 
 ## Purpose
+
 In this Bootcamp we developed an application focused on the four metrics from the landmark DevOps book/study, Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. However, we did not provide much context beyond naming the book and the metrics.
 
 The four metrics featured in Accelerate are "the real deal" and knowing them will bolster your ability to help clients bridge the gap between their current deployment practices and DevOps. The faster you bridge this gap, the sooner your client (and you) lead the life of Riley.
@@ -37,4 +38,3 @@ Your Instructor has left the building, now meet your client! Hints
 ## Example
 
 https://ibm.box.com/s/vrj8jtozu2281mtqs7qn07fyfts0gy1c
-

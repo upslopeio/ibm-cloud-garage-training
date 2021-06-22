@@ -17,8 +17,8 @@ Two developers, one machine, two keyboards, two mice - co-developing the code.
 Side effects:
 
 - Shared responsibility (collective owernship)
-    - You can have higher standards for code/processes, without having to worry about feelings
-    - When things need to change you'll be more receptive
+  - You can have higher standards for code/processes, without having to worry about feelings
+  - When things need to change you'll be more receptive
 
 ## Getting the most out pair programming
 
@@ -27,6 +27,7 @@ Rotate pairs at least daily.
 Some stories will have more than 2 people work on them.
 
 When you rotate:
+
 - 1 person stays on the story
 - the other person swaps out
 
@@ -136,8 +137,8 @@ Really good for situations where nobody knows what they're doing: example, you'r
 1. TDD (code & tests)
 1. Merge/rebase your feature branch regularly (every hour)
 1. Pushing to your feature branch
-    - which triggers CI pipeline (runs tests)
-    - deploy to a lower environment per-branch
+   - which triggers CI pipeline (runs tests)
+   - deploy to a lower environment per-branch
 1. Product Owner does user story acceptance on that branch's QA env
 1. Merge the code to main
 
@@ -145,5 +146,3 @@ In class - where we're using IGC (and also at customer engagements with IGC):
 
 1. Do everything on master
 1. OR setup a pipeline per-branch (know Tekton a little better)
-
-

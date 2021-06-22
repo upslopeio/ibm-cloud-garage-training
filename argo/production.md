@@ -13,8 +13,9 @@ Use the following instructions to set up a new continuous delivery controller us
 ### Create the project
 
 1. Determine the name of the new project.
-    - For react-intro: `react-intro-<USER ID>-prod` (for example `react-intro-35-prod`)
-    - For squads: `squad-<squad-number>-prod` (for example `squad-4-prod`)
+
+   - For react-intro: `react-intro-<USER ID>-prod` (for example `react-intro-35-prod`)
+   - For squads: `squad-<squad-number>-prod` (for example `squad-4-prod`)
 
 1. Create the project with `oc new-project react-intro-<USER ID>-prod` (for example `oc new-project react-intro-35-prod`)
 
@@ -25,53 +26,54 @@ By creating the project, you will have permissions to manually edit objects in t
 1. Run `oc console` to open the web console.
 1. Click the "9 box" menu, then select "Git Ops", then copy the http link.
 1. Clone the gitops repo:
-    ```
-    cd ~
-    git clone <repo url>
-    cd gitops
-    code .
-    ```
+   ```
+   cd ~
+   git clone <repo url>
+   cd gitops
+   code .
+   ```
 1. Find the application you want to deploy under the `/qa` folder, and copy that entire folder to the new `<environment>` folder
-    ```
-    mkdir -p production
-    cp -r qa/react-intro-<user-number> production/
-    ```
+   ```
+   mkdir -p production
+   cp -r qa/react-intro-<user-number> production/
+   ```
 1. Git add, commit, and push to your branch.
-    ```
-    git add -A
-    git commit -m "added production env"
-    git pull
-    git push
-    ```
+   ```
+   git add -A
+   git commit -m "added production env"
+   git pull
+   git push
+   ```
 
 ### Add ArgoCD App
 
 1. Run `oc console` to open the web console.
 1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-    ![](img/argo-menu.png)
+   ![](img/argo-menu.png)
 1. Accept the security warnings (easiest in Chrome)
 1. Login
-    - if "Login via OpenShift" is available, do that
-    - if not, run `igc credentials` to get the password
+   - if "Login via OpenShift" is available, do that
+   - if not, run `igc credentials` to get the password
 1. Click "New App"
 1. Fill in the form
-    - General
-        - Application name: 
-            - `react-intro-<user-number>-prod` or 
-            - `squad-<squad-number>-prod`
-        - Project = default
-    - Sync Policy = automatic
+   - General
+     - Application name:
+       - `react-intro-<user-number>-prod` or
+       - `squad-<squad-number>-prod`
+     - Project = default
+   - Sync Policy = automatic
    - Check PRUNE RESOURCES and SELF HEAL
    - Check "use a schema to validate resource manifests"
+
 - Source
-    - Repository = url to gitops repository ("9 box" menu, click "Git Ops")
-    - Revision = HEAD
-    - Path = path to the project environment folder you just created. 
-        - For react-intro `<environment>/react-intro-<user-number>/react-intro`
-        - For projects `<environment>/squad-<squad-number>/<repo-name>`
+  - Repository = url to gitops repository ("9 box" menu, click "Git Ops")
+  - Revision = HEAD
+  - Path = path to the project environment folder you just created.
+    - For react-intro `<environment>/react-intro-<user-number>/react-intro`
+    - For projects `<environment>/squad-<squad-number>/<repo-name>`
 - Destination
-    - cluster = select the one available option
-    - namespace = the target namespace. Should be the same as "Application name" above
+  - cluster = select the one available option
+  - namespace = the target namespace. Should be the same as "Application name" above
 - Click create at the top
 
 ### Add the image pull policy

@@ -22,28 +22,29 @@ By creating the project, you will have permissions to manually edit objects in t
 
 1. Run `oc console` to open the web console.
 1. On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-    ![](img/argo-menu.png)
+   ![](img/argo-menu.png)
 1. Accept the security warnings (easiest in Chrome)
 1. Login
-    - if "Login via OpenShift" is available, do that
-    - if not, run `igc credentials` to get the password
+   - if "Login via OpenShift" is available, do that
+   - if not, run `igc credentials` to get the password
 1. Click "New App"
 1. Fill in the form
-    - General
-        - Application name: `react-intro-<user-number>-qa` or `squad<squad-number>-qa`
-        - Project = default
-    - Sync Policy = automatic
+   - General
+     - Application name: `react-intro-<user-number>-qa` or `squad<squad-number>-qa`
+     - Project = default
+   - Sync Policy = automatic
    - Check PRUNE RESOURCES and SELF HEAL
    - Check "use a schema to validate resource manifests"
+
 - Source
-    - Repository = url to gitops repository ("9 box" menu, click "Git Ops")
-    - Revision = HEAD
-    - Path = path to the project environment folder you just created. 
-        - For react-intro `<environment>/react-intro-<user-number>/react-intro`
-        - For projects `<environment>/squad-<squad-number>/<repo-name>`
+  - Repository = url to gitops repository ("9 box" menu, click "Git Ops")
+  - Revision = HEAD
+  - Path = path to the project environment folder you just created.
+    - For react-intro `<environment>/react-intro-<user-number>/react-intro`
+    - For projects `<environment>/squad-<squad-number>/<repo-name>`
 - Destination
-    - cluster = select the one available option
-    - namespace = the target namespace. Should be the same as "Application name" above
+  - cluster = select the one available option
+  - namespace = the target namespace. Should be the same as "Application name" above
 - Click create at the top
 
 ### Add the image pull policy

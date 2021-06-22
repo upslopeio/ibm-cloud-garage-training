@@ -87,8 +87,6 @@ test("allows users to add books", () => {
 });
 ```
 
-
-
 ## Code Organization
 
 Very early on, split the app into multiple components.
@@ -119,7 +117,7 @@ Then you should have separate files (with their own separate test files) that lo
 
 ```js
 export default function Deployments() {
-    return <div></div>
+  return <div></div>;
 }
 ```
 
@@ -214,12 +212,14 @@ To make a number field, use `type="number"` and the `min` and `max` attributes:
 <input type="number" required min="1" max="10" />
 ```
 
-
 ## Working with localStorage
 
 ```js
 // store an array of objects in localStorage
-const data = [{name: "Jeff", role: "Instructor"}, {name: "Abe", role: "Student"}];
+const data = [
+  { name: "Jeff", role: "Instructor" },
+  { name: "Abe", role: "Student" },
+];
 localStorage.setItem("participants", JSON.stringify(data));
 
 // retrieve an array of objects from localStorage

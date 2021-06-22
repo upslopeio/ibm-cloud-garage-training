@@ -6,7 +6,7 @@ In general:
 
 - Always demo with live URLs
 - Encourage participants to try the site for themselves where possible
-    - SHow a QR code on a slide if it's a lower environment
+  - SHow a QR code on a slide if it's a lower environment
 - If possible show real live analytics dashboards as opposed to screenshots
 
 When it's fake - people will engage in "bike shedding" - it tends to trend toward micro-management, wasteful activities such as:
