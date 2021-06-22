@@ -896,8 +896,10 @@ Setting current project to react-intro...
 <div class="highlight"><pre><span></span><code>oc pipeline --tekton
 </code></pre></div>
 <ul>
-<li><code>Select the Pipeline to use in the Pipeline Run:</code> choose the most appropriate pipeline for your project</li>
+<li><code>Select the Pipeline to use in the Pipeline Run:</code> choose the most appropriate pipeline for your project<ul>
 <li>For React, choose <code>ibm-nodejs</code></li>
+</ul>
+</li>
 <li><code>Image scan (y/n)</code> type <code>n</code></li>
 <li><code>Lint dockerfile (y/n)</code> type <code>n</code></li>
 </ul>
@@ -951,19 +953,21 @@ docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
 <hr />
 <h2 id="add-the-helm-chart">Add the Helm Chart</h2>
 <ol>
-<li>Download <a href="https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip">this zip file</a><ol>
-<li>You can <a href="https://github.com/upslopeio/ibm-cloud-garage-training/tree/main/helm/chart">see the contents here</a></li>
-</ol>
-</li>
+<li>Download <a href="https://github.com/upslopeio/ibm-cloud-garage-training/raw/main/helm/chart.zip">this zip file</a>
+    1. You can <a href="https://github.com/upslopeio/ibm-cloud-garage-training/tree/main/helm/chart">see the contents here</a></li>
 <li>Unzip the file</li>
-<li>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:
-    <div class="highlight"><pre><span></span><code># MAC
+<li>
+<p>Move the <code>chart</code> directory to your <code>react-app</code> folder. For example:</p>
+<div class="highlight"><pre><span></span><code># MAC
 mv ~/Downloads/chart .
 
 # Windows will be something like
 mv /mnt/c/Users/&lt;user id&gt;/Downloads/chart .
-</code></pre></div></li>
-<li>Git add / commit and push</li>
+</code></pre></div>
+</li>
+<li>
+<p>Git add / commit and push</p>
+</li>
 <li>View your pipeline run in the OpenShift console</li>
 <li>Verify that the "Deploy" step passes</li>
 </ol>

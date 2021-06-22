@@ -917,7 +917,7 @@
 <p>Then you should have separate files (with their own separate test files) that look like this:</p>
 <p><code>Deployments.js</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Deployments</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>Deployments.test.js</code></p>
@@ -984,7 +984,10 @@
 </code></pre></div>
 <h2 id="working-with-localstorage">Working with localStorage</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// store an array of objects in localStorage</span>
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Instructor&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Abe&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Student&quot;</span><span class="p">}];</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Instructor&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Abe&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;Student&quot;</span> <span class="p">},</span>
+<span class="p">];</span>
 <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;participants&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
 
 <span class="c1">// retrieve an array of objects from localStorage</span>

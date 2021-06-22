@@ -839,17 +839,17 @@
 <li>Run <code>oc console</code> to open the web console.</li>
 <li>Click the "9 box" menu, then select "Git Ops", then copy the http link.</li>
 <li>Clone the gitops repo:
-    <div class="highlight"><pre><span></span><code>cd ~
+   <div class="highlight"><pre><span></span><code>cd ~
 git clone &lt;repo url&gt;
 cd gitops
 code .
 </code></pre></div></li>
 <li>Find the application you want to deploy under the <code>/qa</code> folder, and copy that entire folder to the new <code>&lt;environment&gt;</code> folder
-    <div class="highlight"><pre><span></span><code>mkdir -p production
+   <div class="highlight"><pre><span></span><code>mkdir -p production
 cp -r qa/react-intro-&lt;user-number&gt; production/
 </code></pre></div></li>
 <li>Git add, commit, and push to your branch.
-    <div class="highlight"><pre><span></span><code>git add -A
+   <div class="highlight"><pre><span></span><code>git add -A
 git commit -m &quot;added production env&quot;
 git pull
 git push
@@ -859,7 +859,7 @@ git push
 <ol>
 <li>Run <code>oc console</code> to open the web console.</li>
 <li>On the OpenShift console page, Click the "9 box" menu, then select "ArgoCD"
-    <img alt="" src="../img/argo-menu.png" /></li>
+   <img alt="" src="../img/argo-menu.png" /></li>
 <li>Accept the security warnings (easiest in Chrome)</li>
 <li>Login<ul>
 <li>if "Login via OpenShift" is available, do that</li>
@@ -869,8 +869,8 @@ git push
 <li>Click "New App"</li>
 <li>Fill in the form<ul>
 <li>General<ul>
-<li>Application name: <ul>
-<li><code>react-intro-&lt;user-number&gt;-prod</code> or </li>
+<li>Application name:<ul>
+<li><code>react-intro-&lt;user-number&gt;-prod</code> or</li>
 <li><code>squad-&lt;squad-number&gt;-prod</code></li>
 </ul>
 </li>
@@ -878,14 +878,16 @@ git push
 </ul>
 </li>
 <li>Sync Policy = automatic</li>
-</ul>
-</li>
 <li>Check PRUNE RESOURCES and SELF HEAL</li>
 <li>Check "use a schema to validate resource manifests"</li>
+</ul>
+</li>
+</ol>
+<ul>
 <li>Source<ul>
 <li>Repository = url to gitops repository ("9 box" menu, click "Git Ops")</li>
 <li>Revision = HEAD</li>
-<li>Path = path to the project environment folder you just created. <ul>
+<li>Path = path to the project environment folder you just created.<ul>
 <li>For react-intro <code>&lt;environment&gt;/react-intro-&lt;user-number&gt;/react-intro</code></li>
 <li>For projects <code>&lt;environment&gt;/squad-&lt;squad-number&gt;/&lt;repo-name&gt;</code></li>
 </ul>
@@ -898,13 +900,13 @@ git push
 </ul>
 </li>
 <li>Click create at the top</li>
-</ol>
+</ul>
 <h3 id="add-the-image-pull-policy">Add the image pull policy</h3>
 <p>Now the ArgoCD app is displayed. Shortly you will notice that the pod creation failed, and it has a status of <code>ImagePullBackOff</code>.</p>
 <p>This is because the new namespace is trying to pull images created in another namespace.</p>
 <ol>
-<li>Give the new environment permission to pull images from qa namespace</li>
-</ol>
+<li>
+<p>Give the new environment permission to pull images from qa namespace</p>
 <div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:&lt;new-project-name&gt; -n &lt;dev-project-name&gt;
 </code></pre></div>
 <p>For example:</p>
@@ -913,7 +915,7 @@ git push
 <p>If successful, you will see something like the following:</p>
 <div class="highlight"><pre><span></span><code>clusterrole.rbac.authorization.k8s.io/system:image-puller added: &quot;system:serviceaccounts:&lt;new-project-name&gt;&quot;
 </code></pre></div>
-<ol>
+</li>
 <li>
 <p>Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.</p>
 </li>
