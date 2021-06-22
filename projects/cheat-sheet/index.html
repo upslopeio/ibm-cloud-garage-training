@@ -989,6 +989,7 @@
 </code></pre></div>
 <h2 id="date-time-formatting">Date / Time Formatting</h2>
 <p>Here are two handy functions you might want for formatting dates and times:</p>
+<p><strong>Pure JS</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">formatDate</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">utcSeconds</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">date</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">time</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000</span><span class="p">;</span>
     <span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
@@ -1003,6 +1004,15 @@
     <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+<p><strong>Libraries</strong></p>
+<p>You can also pull in a library to do the date calculations:</p>
+<ul>
+<li><a href="https://date-fns.org/">https://date-fns.org/</a><ul>
+<li><a href="https://date-fns.org/v2.22.1/docs/format">https://date-fns.org/v2.22.1/docs/format</a></li>
+<li><a href="https://date-fns.org/v2.22.1/docs/differenceInCalendarWeeks">https://date-fns.org/v2.22.1/docs/differenceInCalendarWeeks</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="field-validations">Field Validations</h2>
 <h3 id="handling-form-submission">Handling Form Submission</h3>
 <p>Make sure that instead of putting an <code>onClick</code> event on the button, you put an <code>onSubmit</code> on the form.</p>
