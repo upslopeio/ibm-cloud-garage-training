@@ -177,6 +177,26 @@ To add a Time Picker, use this HTML:
 <input type="time" />
 ```
 
+## Date / Time Formatting
+
+Here are two handy functions you might want for formatting dates and times:
+
+```js
+function formatDate(date, time) {
+    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
+    const d = new Date(0);
+    d.setUTCSeconds(utcSeconds);
+    return d.toLocaleDateString();
+}
+
+function formatTime(date, time) {
+    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
+    const d = new Date(0);
+    d.setUTCSeconds(utcSeconds);
+    return d.toLocaleTimeString();
+}
+```
+
 ## Field Validations
 
 ### Handling Form Submission

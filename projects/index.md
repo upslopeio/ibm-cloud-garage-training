@@ -12,3 +12,7 @@
    1. Clones the Gogs repo (then `cd` into it)
    1. Runs `npm install` to install the project dependencies
    1. Runs `npm start` to make sure they can run the app locally
+
+## Wireframes
+
+![]()
