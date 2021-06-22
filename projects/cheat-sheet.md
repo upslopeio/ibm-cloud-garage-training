@@ -181,6 +181,8 @@ To add a Time Picker, use this HTML:
 
 Here are two handy functions you might want for formatting dates and times:
 
+**Pure JS**
+
 ```js
 function formatDate(date, time) {
     const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
@@ -196,6 +198,14 @@ function formatTime(date, time) {
     return d.toLocaleTimeString();
 }
 ```
+
+**Libraries**
+
+You can also pull in a library to do the date calculations:
+
+- https://date-fns.org/
+  - https://date-fns.org/v2.22.1/docs/format
+  - https://date-fns.org/v2.22.1/docs/differenceInCalendarWeeks
 
 ## Field Validations
 
