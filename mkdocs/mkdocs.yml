@@ -25,6 +25,7 @@ nav:
       - Mac: computer-setup/mac.md
       - Windows: computer-setup/windows.md
       - IBM Cloud: computer-setup/ibmcloud.md
+      - Tools Overview: computer-setup/tools.md
   - XP:
       - Overview: xp.md
       - Pair Programming: pair-programming.md
