@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/RUNNING_LOCALLY/</loc>
+         <lastmod>2021-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/pair-programming/</loc>
          <lastmod>2021-06-22</lastmod>
          <changefreq>daily</changefreq>
