@@ -527,6 +527,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#optionally-configure-argo" class="md-nav__link">
+    Optionally configure Argo
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -537,14 +544,7 @@
     Cleanup the pipeline
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional" class="md-nav__link">
-    Optional
-  </a>
-  
-    <nav class="md-nav" aria-label="Optional">
+    <nav class="md-nav" aria-label="Cleanup the pipeline">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -557,6 +557,13 @@
           <li class="md-nav__item">
   <a href="#delete-the-webhook" class="md-nav__link">
     Delete the webhook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionally-delete-argo-app" class="md-nav__link">
+    Optionally delete argo app
   </a>
   
 </li>
@@ -770,6 +777,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#optionally-configure-argo" class="md-nav__link">
+    Optionally configure Argo
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -780,14 +794,7 @@
     Cleanup the pipeline
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional" class="md-nav__link">
-    Optional
-  </a>
-  
-    <nav class="md-nav" aria-label="Optional">
+    <nav class="md-nav" aria-label="Cleanup the pipeline">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -800,6 +807,13 @@
           <li class="md-nav__item">
   <a href="#delete-the-webhook" class="md-nav__link">
     Delete the webhook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionally-delete-argo-app" class="md-nav__link">
+    Optionally delete argo app
   </a>
   
 </li>
@@ -843,12 +857,12 @@ git push -u origin homepage
 <blockquote>
 <p>NOTE: there is no argo configuration added to this Tekton pipeline, so there's no QA environment. Just the app that's created by Tekton in the same namespace.</p>
 </blockquote>
-<h2 id="cleanup-the-pipeline">Cleanup the pipeline</h2>
-<p>When you merge your code, you need to delete the pipeline.</p>
-<h2 id="optional">Optional</h2>
+<h3 id="optionally-configure-argo">Optionally configure Argo</h3>
 <p>If for some reason you needed to test something out in Argo (for example, you are testing changes to the configs that affect how Argo works) you can also create a new Argo App that's tied to your branch-based folder in the gitops repo.</p>
 <p>Consider using the command line for this:</p>
 <p><a href="https://argoproj.github.io/argo-cd/user-guide/commands/argocd_app_create/">https://argoproj.github.io/argo-cd/user-guide/commands/argocd_app_create/</a></p>
+<h2 id="cleanup-the-pipeline">Cleanup the pipeline</h2>
+<p>When you merge your code, you need to delete the pipeline.</p>
 <h3 id="delete-the-project">Delete the project</h3>
 <p>First, switch to another project.</p>
 <div class="highlight"><pre><span></span><code>oc project react-intro-35-dev
@@ -862,6 +876,8 @@ git push -u origin homepage
 <li>Go to Settings &gt; Webhooks</li>
 <li>Delete the webhook specific to your branch</li>
 </ol>
+<h3 id="optionally-delete-argo-app">Optionally delete argo app</h3>
+<p>If you installed an Argo app, delete it.</p>
                 
               
               
