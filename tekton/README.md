@@ -110,10 +110,16 @@ Add the following file to the root of your `react-intro` app:
 server {
     listen       8080;
     server_name  localhost;
+    root         /usr/share/nginx/html;
     location / {
-        root   /usr/share/nginx/html;
         index  index.html index.htm;
         try_files $uri $uri/ /index.html =404;
+    }
+    location /static/ {
+        add_header Cache-Control max-age=31536000;
+    }
+    location /index.html {
+        add_header Cache-Control no-cache;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
