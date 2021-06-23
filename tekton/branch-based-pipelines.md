@@ -8,7 +8,9 @@ If you are on the `foo` branch when you run `oc pipeline --tekton` it will only 
 
 In order to have pipelines run for different branches, follow these instructions:
 
-## Create the git branch
+## Create the pipeline
+
+### Create the git branch
 
 Assuming your new branch is named `homepage` your commands would look like this:
 
@@ -17,13 +19,13 @@ git checkout -b homepage
 git push -u origin homepage
 ```
 
-## Create a new project
+### Create a new project
 
 ```
 oc sync react-intro-35-homepage
 ```
 
-## Create a new Tekton pipeline
+### Create a new Tekton pipeline
 
 ```
 oc pipeline --tekton --pipeline ibm-nodejs -p scan-image=false -p lint-dockerfile=false
@@ -33,5 +35,27 @@ Now, whenever you push to the `homepage` branch, it will trigger a new pipeline 
 
 > NOTE: there is no argo configuration added to this Tekton pipeline, so there's no QA environment. Just the app that's created by Tekton in the same namespace.
 
+## Cleanup the pipeline
 
+When you merge your code, you need to delete the pipeline.
+
+### Delete the project
+
+First, switch to another project.
+
+```
+oc project react-intro-35-dev
+```
+
+Then delete the branch-based project:
+
+```
+oc delete project react-intro-35-homepage
+```
+
+### Delete the webhook
+
+1. Login to gogs
+1. Go to Settings > Webhooks
+1. Delete the webhook specific to your branch
 
