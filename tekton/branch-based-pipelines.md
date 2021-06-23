@@ -35,17 +35,17 @@ Now, whenever you push to the `homepage` branch, it will trigger a new pipeline 
 
 > NOTE: there is no argo configuration added to this Tekton pipeline, so there's no QA environment. Just the app that's created by Tekton in the same namespace.
 
-## Cleanup the pipeline
-
-When you merge your code, you need to delete the pipeline.
-
-## Optional
+### Optionally configure Argo
 
 If for some reason you needed to test something out in Argo (for example, you are testing changes to the configs that affect how Argo works) you can also create a new Argo App that's tied to your branch-based folder in the gitops repo.
 
 Consider using the command line for this:
 
 https://argoproj.github.io/argo-cd/user-guide/commands/argocd_app_create/
+
+## Cleanup the pipeline
+
+When you merge your code, you need to delete the pipeline.
 
 ### Delete the project
 
@@ -67,3 +67,6 @@ oc delete project react-intro-35-homepage
 1. Go to Settings > Webhooks
 1. Delete the webhook specific to your branch
 
+### Optionally delete argo app
+
+If you installed an Argo app, delete it.
