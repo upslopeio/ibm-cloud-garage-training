@@ -932,10 +932,16 @@ Setting current project to react-intro...
 <div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
     <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
     <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
+    <span class="kn">root</span>         <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
     <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
         <span class="kn">index</span>  <span class="s">index.html</span> <span class="s">index.htm</span><span class="p">;</span>
         <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.html</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">/static/</span> <span class="p">{</span>
+        <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">max-age=31536000</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">/index.html</span> <span class="p">{</span>
+        <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">no-cache</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="kn">error_page</span>   <span class="mi">500</span> <span class="mi">502</span> <span class="mi">503</span> <span class="mi">504</span>  <span class="s">/50x.html</span><span class="p">;</span>
     <span class="kn">location</span> <span class="p">=</span> <span class="s">/50x.html</span> <span class="p">{</span>
