@@ -39,6 +39,14 @@ Now, whenever you push to the `homepage` branch, it will trigger a new pipeline 
 
 When you merge your code, you need to delete the pipeline.
 
+## Optional
+
+If for some reason you needed to test something out in Argo (for example, you are testing changes to the configs that affect how Argo works) you can also create a new Argo App that's tied to your branch-based folder in the gitops repo.
+
+Consider using the command line for this:
+
+https://argoproj.github.io/argo-cd/user-guide/commands/argocd_app_create/
+
 ### Delete the project
 
 First, switch to another project.
