@@ -39,6 +39,7 @@ nav:
       - Argo Prod: argo/production.md
       - Sequence Diagram: argo/diagram.md
       - Notes: tekton/notes.md
+      - Branch-Based Pipelines: tekton/branch-based-pipelines.md
   - Project Work:
       - Getting Started: projects/index.md
       - React Cheat Sheet: projects/cheat-sheet.md
