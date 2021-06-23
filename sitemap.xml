@@ -141,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/tekton/branch-based-pipelines/</loc>
+         <lastmod>2021-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/tekton/diagram/</loc>
          <lastmod>2021-06-23</lastmod>
          <changefreq>daily</changefreq>
