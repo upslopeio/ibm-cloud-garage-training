@@ -261,3 +261,7 @@ The following is a screenshot of the pipeline parameters page:
    ![](img/developer-pipelines.png)
 1. Filter projects by name
    ![](img/developer-projects.png)
+
+## Resources
+
+- https://cloudnative101.dev/lectures/continuous-integration/

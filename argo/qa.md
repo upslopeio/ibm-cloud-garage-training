@@ -95,5 +95,6 @@ Your CI/CD pipeline now looks like the following sequence diagram:
 
 ## Resources:
 
+- https://cloudnative101.dev/lectures/continuous-deployment/
 - https://github.com/argoproj/argo-cd/issues/2650
 - https://argoproj.github.io/argo-cd/faq/#why-is-my-app-out-of-sync-even-after-syncing

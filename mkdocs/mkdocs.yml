@@ -27,8 +27,8 @@ nav:
       - IBM Cloud: computer-setup/ibmcloud.md
       - Tools Overview: computer-setup/tools.md
   - XP:
-      - Overview: xp.md
-      - Pair Programming: pair-programming.md
+      - Overview: xp/xp.md
+      - Pair Programming: xp/pair-programming.md
   - Coding:
       - React Intro Setup: react/README.md
       - JS Testing: tdd/README.md
