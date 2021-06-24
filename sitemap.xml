@@ -11,22 +11,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/pair-programming/</loc>
-         <lastmod>2021-06-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/standards/</loc>
-         <lastmod>2021-06-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/tools/</loc>
-         <lastmod>2021-06-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/xp/</loc>
          <lastmod>2021-06-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -152,6 +137,16 @@
     </url>
     <url>
          <loc>https://upslopeio.github.io/ibm-cloud-garage-training/tekton/notes/</loc>
+         <lastmod>2021-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/xp/pair-programming/</loc>
+         <lastmod>2021-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/xp/xp/</loc>
          <lastmod>2021-06-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
