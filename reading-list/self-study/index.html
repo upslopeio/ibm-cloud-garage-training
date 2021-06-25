@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/react/docker/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/reading-list/self-study/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Dockerizing a React App - Cloud Native Garage Method Boot Camp</title>
+        <title>Self Study - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dockerizing-a-react-app" class="md-skip">
+        <a href="#becoming-a-better-software-developer" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dockerizing a React App
+              Self Study
             
           </span>
         </div>
@@ -336,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../react/" class="md-nav__link">
         React Intro Setup
       </a>
     </li>
@@ -360,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+      <a href="../../react/testing/" class="md-nav__link">
         React Testing
       </a>
     </li>
@@ -575,14 +575,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         General
@@ -600,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reading-list/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Reading List
       </a>
     </li>
@@ -610,11 +612,72 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../reading-list/self-study/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Self Study
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Self Study
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms-and-data-structures" class="md-nav__link">
+    Algorithms and Data Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-frameworks" class="md-nav__link">
+    Web Frameworks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    Devops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-schedule" class="md-nav__link">
+    Daily Schedule
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -651,22 +714,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#option-1-multistage-build" class="md-nav__link">
-    Option 1: Multistage build
+  <a href="#algorithms-and-data-structures" class="md-nav__link">
+    Algorithms and Data Structures
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#web-frameworks" class="md-nav__link">
+    Web Frameworks
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#option-1-build-then-build" class="md-nav__link">
-    Option 1: Build then Build 😉
+  <a href="#devops" class="md-nav__link">
+    Devops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-schedule" class="md-nav__link">
+    Daily Schedule
   </a>
   
 </li>
@@ -684,98 +754,36 @@
               
                 
                 
-                <h1 id="dockerizing-a-react-app">Dockerizing a React App</h1>
-<h2 id="option-1-multistage-build">Option 1: Multistage build</h2>
-<p><code>nginx.conf</code> (same as above):</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
-    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-        <span class="kn">index</span>  <span class="s">index.html</span> <span class="s">index.htm</span><span class="p">;</span>
-        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.html</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kn">error_page</span>   <span class="mi">500</span> <span class="mi">502</span> <span class="mi">503</span> <span class="mi">504</span>  <span class="s">/50x.html</span><span class="p">;</span>
-    <span class="kn">location</span> <span class="p">=</span> <span class="s">/50x.html</span> <span class="p">{</span>
-        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><code>Dockerfile</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/upslopeio/node-alpine</span> <span class="k">as</span> <span class="s">build</span>
-<span class="k">WORKDIR</span><span class="s"> /app</span>
-<span class="k">COPY</span> . .
-<span class="k">RUN</span> npm install
-<span class="k">RUN</span> npm run build
-
-<span class="k">FROM</span> <span class="s">quay.io/upslopeio/nginx-unprivileged</span>
-<span class="k">COPY</span> --from<span class="o">=</span>build /app/build /usr/share/nginx/html
-<span class="k">COPY</span> --from<span class="o">=</span>build /app/nginx.conf /etc/nginx/conf.d/default.conf
-</code></pre></div>
-<p>Then from the command line, to build you would execute the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># no need to run npm build</span>
-docker build --no-cache -t dockerized-react-app .
-docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
-</code></pre></div>
-<p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
-<p><strong>Pros</strong>: You don't need to build the react app separately</p>
-<p><strong>Cons</strong>: The Dockerfile is more complex, and re-downloads npm packages and re-runs the build which might not be necessary (depending on your build system).</p>
-<hr />
-<p>🛑 Everything below here is trivia.</p>
-<hr />
-<h2 id="background">Background</h2>
-<p>Public DockerHub images are <a href="https://www.docker.com/increase-rate-limits">severely rate-limited</a>.</p>
-<p>quay.io does not have rate limits on public repositories. See the <a href="https://cloudnative101.dev/lectures/containers/activities/">Docker Lab</a> for more information on how to create a quay.io account.</p>
-<p>On a client site, you will have an internal docker registry. In fact, even in class there's an <a href="https://docs.openshift.com/container-platform/3.3/install_config/registry/accessing_registry.html">internal docker registry</a> which you can use.</p>
-<p>You can see access information about the OpenShift image repository by running <code>igc credentials</code>.</p>
-<p>For this tutorial we're referencing images pushed to a personal quay.io account.</p>
-<p>❌️❌ WARNING: these images are not maintained up-to-date and may contain un-patched security vulnerabilities. DO NOT USE on a production application. ❌❌</p>
-<p>If you want a more recent image, do the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">QUAY_USER</span><span class="o">=</span>&lt;your quay.io username&gt;
-
-docker pull node:alpine
-docker tag node:alpine quay.io/<span class="nv">$QUAY_USER</span>/node-alpine
-docker push quay.io/<span class="nv">$QUAY_USER</span>/node-alpine
-
-docker pull nginxinc/nginx-unprivileged
-docker tag nginxinc/nginx-unprivileged quay.io/<span class="nv">$QUAY_USER</span>/nginx-unprivileged
-docker push quay.io/<span class="nv">$QUAY_USER</span>/nginx-unprivileged
-</code></pre></div>
-<h2 id="option-1-build-then-build">Option 1: Build then Build 😉</h2>
-<p>React applications (as well as other single-page applications) compile down to static files (HTML, CSS, fonts, etc...).</p>
-<p>In order to build these applications, you need to add two files:</p>
+                <h1 id="becoming-a-better-software-developer">Becoming a better software developer</h1>
+<p>What do you need in order to be an effective programmer on a customer site?</p>
 <ol>
-<li>Dockerfile</li>
-<li>nginx.conf</li>
+<li>Algorithms and data structures</li>
+<li>Web frameworks</li>
+<li>Devops</li>
 </ol>
-<p><code>nginx.conf</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
-    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-        <span class="kn">index</span>  <span class="s">index.html</span> <span class="s">index.htm</span><span class="p">;</span>
-        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.html</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kn">error_page</span>   <span class="mi">500</span> <span class="mi">502</span> <span class="mi">503</span> <span class="mi">504</span>  <span class="s">/50x.html</span><span class="p">;</span>
-    <span class="kn">location</span> <span class="p">=</span> <span class="s">/50x.html</span> <span class="p">{</span>
-        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><code>Dockerfile</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/upslopeio/nginx-unprivileged</span>
-<span class="k">COPY</span> build /usr/share/nginx/html
-<span class="k">COPY</span> nginx.conf /etc/nginx/conf.d/default.conf
-</code></pre></div>
-<p>Then from the command line, to build you would execute the following commands:</p>
-<div class="highlight"><pre><span></span><code>npm run build
-docker build -t dockerized-react-app .
-docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
-</code></pre></div>
-<p>Then open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to see it work.</p>
-<p><strong>Pros</strong> Your Dockerfile is super simple.</p>
-<p><strong>Cons</strong> You need to build the application before building the Dockerfile.</p>
+<h2 id="algorithms-and-data-structures">Algorithms and Data Structures</h2>
+<p>You'll know you are at a decent level when you can <strong>complete 6kyu <a href="https://codewars.com">CodeWars</a> problems in under an hour without looking up reference documentation</strong>. </p>
+<p>Complete 5 in a row to confirm this.</p>
+<p>Start with level 8 - do 30 or 40 problems</p>
+<h2 id="web-frameworks">Web Frameworks</h2>
+<p>For web frameworks (Java Spring / React / Flask)</p>
+<p>Go from nothing to a CRUD application (Create, Read, Update, and Delete things) in under 4 hours, with tests, with no reference documentation</p>
+<ol>
+<li>Build an app to store plant names</li>
+<li>Delete it</li>
+<li>Build an app that stores car names</li>
+<li>Delete it</li>
+<li>Build an app that stores car names</li>
+</ol>
+<h2 id="devops">Devops</h2>
+<p>You should be able to containerize and deploy your CRUD apps in under 4 hours.</p>
+<h2 id="daily-schedule">Daily Schedule</h2>
+<p>In any given day, you might spend:</p>
+<ul>
+<li>2-3 hours on codewars</li>
+<li>1 hour watching videos, copy/pasting from tutorials</li>
+<li>1 hour building framework code from scratch</li>
+</ul>
                 
               
               
@@ -791,6 +799,26 @@ docker run -it -p <span class="m">8080</span>:8080 --rm dockerized-react-app
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reading List" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Reading List
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
