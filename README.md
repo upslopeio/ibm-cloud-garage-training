@@ -82,3 +82,5 @@ To learn more about Design Thinking and the Garage Method, read these:
 1. [Playbacks](./projects/playbacks.md) and [Presentations](./projects/presentation.md)
 1. Retrospectives
 1. Mapping Your Learning Journey
+1. [End of class survey](https://www.surveygizmo.com/s3/6248994/Technology-Garage-Bootcamp-Survey)
+1. Share your LinkedIn profiles
