@@ -22,10 +22,13 @@ Your presentation should:
 - be strictly less than 7 minutes in length
 - include a demo of your software
 - not be just text (name your product and find a logo for it)
+- have an arc:
+    - what we did (built and shipped an app with these features...)
+    - what our (fake) users thought about it / how they use it in real life
+    - what we're planning next and why
+- Use your **production** environment for the demo
+- It's OK to pretend you have users. Not OK to pretend your site does more than it does.
 
-You are allowed to use any tools or references you want to create your presentation and the format of your presentation is entirely up to your Squad. Get as creative and THINK as far out of the box as you want. Be bold.
+You are allowed to use any tools or references you want to create your presentation and the format of your presentation is entirely up to your Squad.
 
-
-## Example
-
-https://ibm.box.com/s/vrj8jtozu2281mtqs7qn07fyfts0gy1c
+Get as creative and THINK as far out of the box as you want. Be bold.
