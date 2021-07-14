@@ -587,6 +587,19 @@
     HTML Date Pickers
   </a>
   
+    <nav class="md-nav" aria-label="HTML Date Pickers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-date-pickers" class="md-nav__link">
+    Testing Date Pickers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -801,6 +814,19 @@
     HTML Date Pickers
   </a>
   
+    <nav class="md-nav" aria-label="HTML Date Pickers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-date-pickers" class="md-nav__link">
+    Testing Date Pickers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -984,8 +1010,8 @@
 <p>Add Bootstrap CSS to your application:</p>
 <ol>
 <li>Go to <a href="https://getbootstrap.com/">https://getbootstrap.com/</a></li>
-<li>Go to "Download"</li>
-<li>Copy and paste the stylesheet to your <code>public/index.html</code> page</li>
+<li>Scroll down to the instructions for "jsDelivr"</li>
+<li>Copy and paste the <code>CSS Only</code> stylesheet to your <code>public/index.html</code> page</li>
 </ol>
 <p>Example layout:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
@@ -1007,9 +1033,16 @@
 <p>To add a Date Picker, use this HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
-<p>When testing date pickers, set the value in this format: <code>2021-02-03</code></p>
 <p>To add a Time Picker, use this HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;time&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h3 id="testing-date-pickers">Testing Date Pickers</h3>
+<p>The format of the date pickers is important when testing. Here are two examples:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// NOTE the format is YYYY-mm-dd</span>
+<span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">dateField</span><span class="p">,</span> <span class="err">‘</span><span class="mf">2021</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mf">29</span><span class="err">’</span><span class="p">);</span>
+
+<span class="c1">// NOTE the format is HH:MM - with no seconds</span>
+<span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">timeField</span><span class="p">,</span> <span class="err">‘</span><span class="mo">02</span><span class="o">:</span><span class="mf">12</span><span class="err">’</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="date-time-formatting">Date / Time Formatting</h2>
 <p>Here are two handy functions you might want for formatting dates and times:</p>
