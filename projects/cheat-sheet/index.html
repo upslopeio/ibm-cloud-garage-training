@@ -1018,14 +1018,14 @@
     <span class="kd">const</span> <span class="nx">utcSeconds</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">date</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">time</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000</span><span class="p">;</span>
     <span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
     <span class="nx">d</span><span class="p">.</span><span class="nx">setUTCSeconds</span><span class="p">(</span><span class="nx">utcSeconds</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">(</span><span class="s2">&quot;en-US&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">formatTime</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">utcSeconds</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">date</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">time</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000</span><span class="p">;</span>
     <span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
     <span class="nx">d</span><span class="p">.</span><span class="nx">setUTCSeconds</span><span class="p">(</span><span class="nx">utcSeconds</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">(</span><span class="s2">&quot;en-US&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Libraries</strong></p>
