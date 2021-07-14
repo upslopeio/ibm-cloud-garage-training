@@ -40,8 +40,8 @@ By creating the project, you will have permissions to manually edit objects in t
   - Repository = url to gitops repository ("9 box" menu, click "Git Ops")
   - Revision = HEAD
   - Path = path to the project environment folder you just created.
-    - For react-intro `<environment>/react-intro-<user-number>/react-intro`
-    - For projects `<environment>/squad-<squad-number>/<repo-name>`
+    - For react-intro `qa/react-intro-<user-number>/react-intro`
+    - For projects `qa/squad-<squad-number>/<repo-name>`
 - Destination
   - cluster = select the one available option
   - namespace = the target namespace. Should be the same as "Application name" above
@@ -59,7 +59,7 @@ This is because the new namespace is trying to pull images created in another na
    oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>
    ```
 
-   For example:
+   For your react intro app:
 
    ```bash
    oc policy add-role-to-group system:image-puller system:serviceaccounts:react-intro-35-qa -n react-intro-35-dev
