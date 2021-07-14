@@ -16,3 +16,9 @@
 ## Wireframes
 
 ![](./img/wireframes.png)
+
+## Assumptions
+
+- You only need to target desktop Chrome users (no need to support mobile, Safari etc...)
+- It only needs to work for the `en-US` locale
+- It does not need any server-side component (no database or API to store the data) - `localStorage` is fine
