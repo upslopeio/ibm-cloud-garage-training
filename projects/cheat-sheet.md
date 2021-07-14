@@ -139,8 +139,8 @@ test("allows users to add deployments", () => {
 Add Bootstrap CSS to your application:
 
 1. Go to https://getbootstrap.com/
-1. Go to "Download"
-1. Copy and paste the stylesheet to your `public/index.html` page
+1. Scroll down to the instructions for "jsDelivr"
+1. Copy and paste the `CSS Only` stylesheet to your `public/index.html` page
 
 Example layout:
 
@@ -169,12 +169,22 @@ To add a Date Picker, use this HTML:
 <input type="date" />
 ```
 
-When testing date pickers, set the value in this format: `2021-02-03`
-
 To add a Time Picker, use this HTML:
 
 ```html
 <input type="time" />
+```
+
+### Testing Date Pickers
+
+The format of the date pickers is important when testing. Here are two examples:
+
+```js
+// NOTE the format is YYYY-mm-dd
+userEvent.type(dateField, ‘2021-06-29’);
+
+// NOTE the format is HH:MM - with no seconds
+userEvent.type(timeField, ‘02:12’);
 ```
 
 ## Date / Time Formatting
