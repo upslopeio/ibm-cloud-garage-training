@@ -197,7 +197,7 @@ else
   echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
 fi
 
-if grep -qE '^\[ -s "\$NVM_DIR/nvm.sh" \] && \. "\$NVM_DIR/nvm.sh"' ~/.zshrc; then
+if grep -qE '^\[ -s "\$NVM_DIR/nvm.sh" \] \&\& \\. "\$NVM_DIR/nvm.sh"' ~/.zshrc; then
   echo Found NVM loaded in ~/.zshrc
 else
   echo Adding NVM load to ~/.zshrc
