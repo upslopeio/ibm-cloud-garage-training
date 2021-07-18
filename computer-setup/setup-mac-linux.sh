@@ -61,13 +61,6 @@ else
   sh -c "$(brew install git)"
 fi
 
-if command -v helm &>/dev/null; then
-  echo Found helm
-else
-  echo Installing helm
-  sh -c "$(brew install helm)"
-fi
-
 if command -v yq &>/dev/null; then
   echo Found yq@3
 else
