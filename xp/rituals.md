@@ -12,6 +12,16 @@ Design thinking activities help customers define an idea that they'd like to val
 
 Inceptions happen **once** after Design Thinking but before the squad starts writing code.
 
+Typical agenda:
+
+1. Goals (both from a product and engagement perspective)
+1. Non-Goals
+1. Risks
+1. Personas
+1. User Stories
+1. Prioritization
+1. Retrospective
+
 * **Cadence**: Once, at the beginning of a project
 * **Duration**: Between 2 hours to 1 day
 * **Participants**: Product Owner, Developers, UX Designers, SMEs from the customer, maybe Architects
@@ -53,7 +63,11 @@ NOTE: you may deploy each story to production as soon as it's accepted. There ma
 
 ### Retrospectives
 
-Retrospectives happen once per iteration
+Retrospectives happen once per iteration. General agenda:
+
+- 40% time gathering data (facts and opinions about the last iteration)
+- 10% time grouping / prioritizing themes (if necessary)
+- 50% time coming up with ways to address issues while keeping the good things
 
 * **Cadence**: Once per iteration, at the end
 * **Duration**: 30-60 minutes

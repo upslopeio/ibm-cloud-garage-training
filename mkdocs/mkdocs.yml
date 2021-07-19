@@ -27,11 +27,12 @@ nav:
       - IBM Cloud: computer-setup/ibmcloud.md
       - Tools Overview: computer-setup/tools.md
   - Garage Method:
-      - Overview: xp/xp.md
+      - Overview: xp/overview.md
       - Pair Programming: xp/pair-programming.md
       - TDD: xp/tdd.md
       - Roles: xp/roles.md
-      - Timeline: xp/timeline.md
+      - Rituals: xp/rituals.md
+      - User Stories: xp/user-stories.md
   - Coding:
       - React Intro Setup: react/README.md
       - JS Testing: tdd/README.md
