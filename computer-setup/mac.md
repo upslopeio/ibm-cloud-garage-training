@@ -65,7 +65,7 @@ brew install helm
 At the time this article was written, the command is:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | zsh
 source ~/.zshrc
 nvm install node
 nvm alias default node
