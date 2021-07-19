@@ -1,67 +1,30 @@
 # Garage Method
 
-- Design Thinking
-- Lean Product Development (build / measure / learn)
-- XP
-
 [Internal IBM Deck](https://ibm.box.com/s/2cdwroay4a4mpc0ti778c2hknol925q1)
 
-# (XP) Extreme Programming
+## (XP) Extreme Programming
 
 - https://en.wikipedia.org/wiki/Extreme_programming
 
-# Cycles
+### Big Idea
 
-## Project Cycle
+Do more of what works. Do less of what doesn't work.
 
-- Design Thinking Workshop
-- Inception - 1-time-per-project kickoff with developers
-  - 2-3 weeks of stories in the backlog
-- Iterations
-- Pivot / persevere decision
+### Key Practices
 
-## Weekly Iteration Cycle
+- Test-Driven Development
+- Pair Programming
+- Working from a ranked backlog
+- Deploying working software early and often
 
-- Iteration Planning Meeting (IPM) - Devs, Product Owner, UX - 30m
-- Retrospective
-  - "If someone makes a mistake, shame on us for making so easy to make that mistake"
+## Devops
 
-## Daily Cycle
+### Big Idea
 
-- Standup - Product Owner, Devs, the UX - 5m
-  - Figure out who's going to pair with whom on what
-  - Pairs rotate daily - the "lottery count" ("bus count")
-- Work the backlog:
-  - choose a story
-  - write tests (locally)
-  - write code (locally)
-  - do user story acceptance
-  - pushing code dozens of times per day
+Automate everything.
 
-## Devops Cycle
+### Key Practices
 
-- Every git push
-  - Continuous Integration build will run automatically
-  - Deploy to some lower environment (QA env)
-  - (optionally) deploy to Prod whenever master/main is updated
-- Developer manually indicates which build should be in prod
-  - Continuous Delivery
-
-## TDD Cycle
-
-## Stakeholder Cycle (monthly? as-needed?)
-
-- Playbacks: we converse with other members of the business
-- Show and tell: developers geeking out
-
-# Roles
-
-## Developers
-
-- fullstack - K8s, frontend, server-side, persistence, devops pipelines
-- everything from CSS all the way to devops
-
-# Architecture
-
-- "Just in time"
-- YAGNI - Ya Ain't Gonna Need It
+- OpenShift (Kubernetes) as the default platform for running applications
+- Continuous Integration (running tests, security scans, building images etc...)
+- Continuous Delivery with Gitops (automated deploys, self-healing infrastructure etc...)

@@ -49,6 +49,8 @@ Most of a developer's time will be spent working the backlog. This includes:
 - Test-Driven Development
 - Devops (deploying stories to production)
 
+NOTE: you may deploy each story to production as soon as it's accepted. There may be (and should be) several deployments within each iteration.
+
 ### Retrospectives
 
 Retrospectives happen once per iteration
