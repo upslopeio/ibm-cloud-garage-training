@@ -51,7 +51,7 @@ echo $SHELL
 
 You have ZSH if you see the following output: `/bin/zsh`
 
-## (Optional) oh-my-zsh
+## oh-my-zsh
 
 > Ubuntu Side
 
