@@ -29,6 +29,7 @@ nav:
   - Garage Method:
       - Overview: xp/xp.md
       - Pair Programming: xp/pair-programming.md
+      - TDD: xp/tdd.md
       - Roles: xp/roles.md
       - Timeline: xp/timeline.md
   - Coding:
