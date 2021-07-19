@@ -923,6 +923,7 @@
 <h2 id="install-required-dependencies">Install required dependencies</h2>
 <div class="highlight"><pre><span></span><code>brew install yq@3
 <span class="nb">echo</span> <span class="s2">&quot;export PATH=\&quot;</span><span class="k">$(</span>brew --prefix yq@3<span class="k">)</span><span class="s2">/bin:\$PATH\&quot;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc
 brew install jq
 </code></pre></div>
 <h2 id="install-the-toolkit-developer-tools">Install the toolkit developer tools</h2>
@@ -999,9 +1000,11 @@ which oc
 <p><img alt="" src="../img/openshift-web-console.png" /></p>
 <h2 id="optional-configure-icc-fast-cluster-switcher">(Optional) Configure ICC - fast cluster switcher</h2>
 <ol>
-<li>Run <code>icc --add-account</code></li>
+<li>Run <code>icc --add-account</code><ol>
 <li>name the account <code>garage</code></li>
 <li>Paste in the API key you generated above</li>
+</ol>
+</li>
 <li>Run <code>icc --generate</code></li>
 </ol>
 <p>When you run <code>icc</code> you should see at least one cluster listed (the cluster for your cohort).</p>
