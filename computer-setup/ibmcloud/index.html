@@ -913,13 +913,11 @@
 </code></pre></div>
 <p>You should see <code>container-service</code> in the list of plugins.</p>
 <p>If you do not see <code>container-service</code> then do the following:</p>
-<ol>
-<li>Visit <a href="https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install">https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install</a></li>
-<li>Follow the instructions</li>
-</ol>
-<p>At the time of this writing it's</p>
 <div class="highlight"><pre><span></span><code>ibmcloud plugin install container-service
 </code></pre></div>
+<blockquote>
+<p>NOTE: if that still doesn't work, go to <a href="https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install">this page</a> and follow the instructions.</p>
+</blockquote>
 <h2 id="install-required-dependencies">Install required dependencies</h2>
 <div class="highlight"><pre><span></span><code>brew install yq@3
 <span class="nb">echo</span> <span class="s2">&quot;export PATH=\&quot;</span><span class="k">$(</span>brew --prefix yq@3<span class="k">)</span><span class="s2">/bin:\$PATH\&quot;&quot;</span> &gt;&gt; ~/.zshrc
