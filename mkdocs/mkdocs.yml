@@ -26,9 +26,10 @@ nav:
       - Windows: computer-setup/windows.md
       - IBM Cloud: computer-setup/ibmcloud.md
       - Tools Overview: computer-setup/tools.md
-  - XP:
+  - Garage Method:
       - Overview: xp/xp.md
       - Pair Programming: xp/pair-programming.md
+      - Roles: xp/roles.md
       - Timeline: xp/timeline.md
   - Coding:
       - React Intro Setup: react/README.md
