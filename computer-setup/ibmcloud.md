@@ -52,6 +52,7 @@ ibmcloud plugin install container-service
 ```bash
 brew install yq@3
 echo "export PATH=\"$(brew --prefix yq@3)/bin:\$PATH\"" >> ~/.zshrc
+source ~/.zshrc
 brew install jq
 ```
 
@@ -164,8 +165,8 @@ In order to login to the cluster from the command line, you must first log in on
 ## (Optional) Configure ICC - fast cluster switcher
 
 1. Run `icc --add-account`
-1. name the account `garage`
-1. Paste in the API key you generated above
+   1. name the account `garage`
+   1. Paste in the API key you generated above
 1. Run `icc --generate`
 
 When you run `icc` you should see at least one cluster listed (the cluster for your cohort).
