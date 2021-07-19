@@ -29,6 +29,7 @@ nav:
   - XP:
       - Overview: xp/xp.md
       - Pair Programming: xp/pair-programming.md
+      - Timeline: xp/timeline.md
   - Coding:
       - React Intro Setup: react/README.md
       - JS Testing: tdd/README.md
