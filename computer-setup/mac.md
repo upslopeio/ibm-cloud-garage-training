@@ -17,33 +17,12 @@ You have ZSH if you see the following output: `/bin/zsh`
 
 > If you see something else, like `/bin/bash`, then you need to install zsh.
 
-## (Optional) oh-my-zsh
+## oh-my-zsh
 
 1.  Visit [https://ohmyz.sh/](https://ohmyz.sh/)
 1.  Follow instructions. At the time of writing, it's:
 
          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-## Automatic Install Script
-
-First, run the following script
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
-```
-
-Then run the following script
-
-```bash
-curl -sL shell.cloudnativetoolkit.dev | bash -
-source ~/.zshrc
-```
-
-### Automatic Setup complete
-
-If you ran the automatic setup and there were no errors, your setup is complete.
-
-If you saw errors, you can run through the following steps to manually verify each tool is installed.
 
 ## Homebrew
 
