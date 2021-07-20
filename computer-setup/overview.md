@@ -46,7 +46,7 @@ Class has a kubernetes cluster.
 
 - Installed to `$HOME/bin`
 
-`ibmcloud` - IBM Cloud CLI
+`ibmcloud` - IBM Cloud CLI (https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli)
 
 # Development
 
