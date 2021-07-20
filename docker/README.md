@@ -90,6 +90,10 @@ You can see that image now exists on your machine with the following command:
 docker image ls
 ```
 
+You have one image on your machine, and one `repository:tag` combination pointing to it:
+
+![](./img/docker-image-one-tag.png)
+
 ## Run the image
 
 ```
@@ -121,6 +125,10 @@ You can see that image now has two tags on your machine:
 ```
 docker image ls
 ```
+
+Both `repository:tag`s point to the same image ID:
+
+![](./img/docker-image-two-tags.png)
 
 Then push the image to quay.io (replace USERNAME with your quay.io username):
 
