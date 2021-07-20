@@ -20,7 +20,7 @@ Test-Driven Development is a set of **behaviors** that, when followed, increase 
 1. **Green** - Make the test pass
 1. **Refactor** - Make improvements to the code that don't change the behavior
 
-# TDD in JavaScript / Jest
+## TDD in JavaScript / Jest
 
 ### Concepts
 
