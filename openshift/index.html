@@ -655,6 +655,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-challenges" class="md-nav__link">
+    Additional Challenges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ui" class="md-nav__link">
     UI
   </a>
@@ -1091,6 +1098,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-challenges" class="md-nav__link">
+    Additional Challenges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ui" class="md-nav__link">
     UI
   </a>
@@ -1247,6 +1261,20 @@ static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
 static-site   static-site-...appdomain.cloud        static-site   &lt;all&gt;   edge          None
 </code></pre></div>
 <p>Copy the <code>HOST/PORT</code> and open it in a browser. You should be able to see your site! 🎉</p>
+<h2 id="additional-challenges">Additional Challenges</h2>
+<p>Deploy a new version:</p>
+<ul>
+<li>Make a change to <code>index.html</code></li>
+<li>Rebuild and push a new version of your docker image to quay.io (for example <code>v3</code>)</li>
+<li>Change <code>k8s/deployment.yaml</code> to point to this new version and apply it</li>
+</ul>
+<p>Scale the app:</p>
+<ul>
+<li>Make a change to <code>k8s/deployment.yaml</code> to increase the number of replicas</li>
+<li>Apply the file</li>
+<li>Use <code>oc</code> to list the pods to make sure they are all there</li>
+<li>Repeat the process, but reduce the replicas</li>
+</ul>
 <h2 id="ui">UI</h2>
 <p>Inspect the app in the UI</p>
 <h2 id="cleanup">Cleanup</h2>
