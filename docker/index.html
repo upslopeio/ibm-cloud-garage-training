@@ -563,6 +563,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-the-image" class="md-nav__link">
+    Update the image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     Resources
   </a>
@@ -905,6 +912,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-the-image" class="md-nav__link">
+    Update the image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     Resources
   </a>
@@ -1005,6 +1019,14 @@ code .
 <p>Then push the image to quay.io (replace USERNAME with your quay.io username):</p>
 <div class="highlight"><pre><span></span><code>docker push quay.io/USERNAME/static-site:v1
 </code></pre></div>
+<h2 id="update-the-image">Update the image</h2>
+<ul>
+<li>Make a change to <code>index.html</code></li>
+<li>Rebuild the image</li>
+<li>Rerun the image to make sure it's working correctly</li>
+<li>Tag the new image with <code>v2</code></li>
+<li>Push the <code>v2</code> image to quay.io</li>
+</ul>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://www.katacoda.com/courses/docker">https://www.katacoda.com/courses/docker</a></li>
