@@ -14,7 +14,7 @@ Test-Driven Development is a set of **behaviors** that, when followed, increase 
 1. Write the simplest thing to make the test pass
    - Rule of thumb: write "real" code once you've written 3 tests
 
-## TDD Behavior - 3 Step
+## Red / Green / Refactor
 
 1. **Red** - Write a failing test
 1. **Green** - Make the test pass
