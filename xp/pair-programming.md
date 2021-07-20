@@ -39,57 +39,51 @@ Sometimes come up with a rotation schedule (if needed).
 
 ## Techniques
 
-2 people of roughly equal skill:
+### Ping Pong
 
-**Ping Pong** <-- really good default
+Useful when both people know the code and test frameworks well:
 
 1. Person A writes a failing test
 1. Person B makes it pass, then writes the next failing test
 1. Person A makes it pass, then writes the next failing test
 1. ....
 
----
+### Driving School
 
-One person who knows the code/system better than the other:
-
-**Driving School** (backseat driver)
+Useful when one person who knows the code/system better than the other:
 
 1. Person who knows more is the navigator (talk)
 1. Person who knows less is the driver (type)
 
----
+### Natural
 
-When both people are comfortable with both the code/system and with pair programming:
-
-**Natural**
+Useful when both people are comfortable with both the code/system and with pair programming:
 
 1. You both just talk and code switch back and forth effortlessly
 1. No "keyboard hogs"
 
----
+### Chess Timers
 
-You have some keyboard hogs.
-
-**Chess Timers**
+Useful if you or your pair are a keyboard hogs 😄
 
 1. You have a timer that goes off every N minutes
 1. Switch driver/navigator roles when the timer goes off
 1. Navigator "sits on their hands"
 
----
+## ANTI-PATTERNS
 
-ANTI-PATTERN:
+### Tour Guide
 
-**Tour Guide**
+One person thinks and types, and the other person watches. 🙁
 
-1. One person thinks and types, and the other person watches. 🙁
+## FAQ
 
-## Who pairs
+### Who pairs
 
 - Developers (from IBM or from the customer)
 - UX designers (sometimes) - Driving School
 
-## How much should you pair?
+### How much should you pair?
 
 Goal: 100%
 
@@ -98,13 +92,13 @@ Sometimes teams are odd - 7 people, for example.
 - Ensemble programming (aka mob programming) with 3 people
 - 1 person solo, but then have their code reviewed before merging (solo writes code in a branch)
 
-## How do you track ownership in git?
+### How do you track ownership in git?
 
 Use a tool like https://github.com/chrisk/git-pair which allows you to change the email / name per-project to show both people.
 
 One person commit / push, and the other person merges.
 
-## Code Reviews
+### Code Reviews
 
 Do you need code reviews? No.
 
@@ -112,13 +106,11 @@ You don't _need_ Pull Requests, Code Reviews, approvals.
 
 It's builtin to the process.
 
-## What can you pair on?
+### What can you pair on?
 
-Infrastructure-as-code & Devops / pipeline setup:
+Everything! Choose the right technique.
 
-- driving school
-- chess timers
-- ensemble programming
+Infrastructure-as-code / devops / pipeline setup can all be done in pairs.
 
 ## Ensemble Programming
 
@@ -145,4 +137,4 @@ Really good for situations where nobody knows what they're doing: example, you'r
 In class - where we're using IGC (and also at customer engagements with IGC):
 
 1. Do everything on master
-1. OR setup a pipeline per-branch (know Tekton a little better)
+1. OR setup a pipeline per-branch (if you know Tekton a little better)
