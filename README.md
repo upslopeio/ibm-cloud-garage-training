@@ -8,7 +8,6 @@ Here's the standard schedule
 
 1. Introductions
 1. Design Thinking
-1. [Garage Method Overview](https://ibm.box.com/s/2cdwroay4a4mpc0ti778c2hknol925q1)
 1. Install Fest ([Mac](./computer-setup/mac.md), [Windows](./computer-setup/windows.md))
 
 **Self-paced work**
@@ -27,8 +26,9 @@ To learn more about Design Thinking and the Garage Method, read these:
 ## Day 2
 
 1. [Tools Review](./computer-setup/tools.md)
-1. [Test-Driven Development](./tdd/README.md)
+1. [Garage Method Overview](https://ibm.box.com/s/2cdwroay4a4mpc0ti778c2hknol925q1)
 1. [Pair Programming](./xp/pair-programming.md)
+1. [Test-Driven Development](./tdd/README.md)
 1. [Intro to React](./react/README.md)
 
 **Self-paced work**
