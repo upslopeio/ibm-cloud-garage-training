@@ -1,6 +1,6 @@
 # TDD in JavaScript / Jest
 
-> _NOTE_ this tutorial assumes you've already created a react-intro app
+> _NOTE_ this tutorial assumes you've already created a `react-intro` app
 
 ## Concepts
 
@@ -27,7 +27,7 @@ If you follow these rules, it will ensure that you have thorough tests with high
 
 ## JavaScript / Jest Test Syntax
 
-- Create the test file
+- Create the test file in the `src` folder
 - Put it right next to the code file
 - name it `<name>.test.js`
 
@@ -35,7 +35,14 @@ If you follow these rules, it will ensure that you have thorough tests with high
 test("convert returns 0 when passed 32", () => {});
 ```
 
-Write the first test:
+Tests have the following parts:
+
+* **S**etup
+* **E**xecution
+* **A**ssertion
+* (optional) **T**eardown
+
+You can remember this with the acronym SEA (or SEAT).
 
 ```js
 test("convert returns 0 when passed 32", () => {
