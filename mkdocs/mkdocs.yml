@@ -35,7 +35,7 @@ nav:
       - User Stories: xp/user-stories.md
   - Coding:
       - React Intro Setup: react/README.md
-      - JS Testing: tdd/README.md
+      - Unit Testing: tdd/README.md
       - React Testing: react/testing.md
   - Devops:
       - Docker: docker/README.md
