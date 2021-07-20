@@ -982,6 +982,8 @@ code .
 <p>You can see that image now exists on your machine with the following command:</p>
 <div class="highlight"><pre><span></span><code>docker image ls
 </code></pre></div>
+<p>You have one image on your machine, and one <code>repository:tag</code> combination pointing to it:</p>
+<p><img alt="" src="img/docker-image-one-tag.png" /></p>
 <h2 id="run-the-image">Run the image</h2>
 <div class="highlight"><pre><span></span><code>docker run -p 8080:8080 -it static-site
 </code></pre></div>
@@ -998,6 +1000,8 @@ code .
 <p>You can see that image now has two tags on your machine:</p>
 <div class="highlight"><pre><span></span><code>docker image ls
 </code></pre></div>
+<p>Both <code>repository:tag</code>s point to the same image ID:</p>
+<p><img alt="" src="img/docker-image-two-tags.png" /></p>
 <p>Then push the image to quay.io (replace USERNAME with your quay.io username):</p>
 <div class="highlight"><pre><span></span><code>docker push quay.io/USERNAME/static-site:v1
 </code></pre></div>
