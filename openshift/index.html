@@ -16,7 +16,7 @@
     
     
       
-        <title>Debugging ICC - Cloud Native Garage Method Boot Camp</title>
+        <title>OpenShift and Kubernetes - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-icc" class="md-skip">
+        <a href="#openshift-and-kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debugging ICC
+              OpenShift and Kubernetes
             
           </span>
         </div>
@@ -711,29 +711,178 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#icc" class="md-nav__link">
-    ICC
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ibmcloud-plugins" class="md-nav__link">
-    ibmcloud plugins
+  <a href="#project-setup" class="md-nav__link">
+    Project Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-config-directory" class="md-nav__link">
+    Create the config directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-openshift-project" class="md-nav__link">
+    Create the OpenShift Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-objects" class="md-nav__link">
+    Kubernetes Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployments" class="md-nav__link">
+    Deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-file" class="md-nav__link">
+    Create the file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-the-file" class="md-nav__link">
+    Apply the file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-deployment-works" class="md-nav__link">
+    Verify the deployment works
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pods" class="md-nav__link">
+    Pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-file_1" class="md-nav__link">
+    Create the file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-the-file_1" class="md-nav__link">
+    Apply the file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    Verify
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    Routes
+  </a>
+  
+    <nav class="md-nav" aria-label="Routes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-file_2" class="md-nav__link">
+    Create the file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    Apply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify_1" class="md-nav__link">
+    Verify
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    UI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oc-sync-failures" class="md-nav__link">
-    oc sync  failures
+  <a href="#cleanup" class="md-nav__link">
+    Cleanup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oc-pipeline-tekton-failures" class="md-nav__link">
-    oc pipeline --tekton failures
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -751,109 +900,142 @@
               
                 
                 
-                <h1 id="debugging-icc">Debugging ICC</h1>
+                <h1 id="openshift-and-kubernetes">OpenShift and Kubernetes</h1>
+<h2 id="overview">Overview</h2>
+<p>You write YAML files that describe what you'd like to have.</p>
+<p>You apply those YAML files to Kubernetes.</p>
+<p>Kubernetes stores your data in a database called <code>etcd</code> - this stores the desired state of your application.</p>
+<p>The Kubernetes control plane looks at <code>etcd</code>, looks at the nodes, then makes the nodes match the desired state.</p>
+<h2 id="project-setup">Project Setup</h2>
+<h3 id="create-the-config-directory">Create the config directory</h3>
+<p><code>cd</code> into the project you created in the docker lesson and make a <code>k8s</code> folder:</p>
+<div class="highlight"><pre><span></span><code>cd ~/static-site
+mkdir k8s
+code .
+</code></pre></div>
+<h3 id="create-the-openshift-project">Create the OpenShift Project</h3>
+<p>Make sure you are logged into the cluster, either with <code>icc</code> or via <code>Copy Login Command</code>. </p>
+<p>Then run the following command, replacing <code>&lt;NAME&gt;</code> with your name, all lowercase, no spaces:</p>
+<div class="highlight"><pre><span></span><code>oc new-project &lt;NAME&gt;
+</code></pre></div>
+<p>For example <code>oc new-project john-smith</code></p>
+<h2 id="kubernetes-objects">Kubernetes Objects</h2>
+<h3 id="deployments">Deployments</h3>
+<p>The most basic Kubernetes object you'll work with is a Deployment, which tells Kubernetes:</p>
 <ul>
-<li><a href="cheatsheet/">Cheatsheet</a></li>
+<li>which image you would like to run</li>
+<li>how many replicas (instances) you would like to run</li>
 </ul>
-<h2 id="icc">ICC</h2>
-<p>If you run <code>icc &lt;cluster-name&gt;</code> to log into a cluster and you see the following:</p>
-<div class="highlight"><pre><span></span><code>Logging into ibmcloud: us-south/Default
-Logging into OpenShift cluster &lt;cluster-name&gt; with server url https://cXXXX.us-south.containers.cloud.ibm.com:30350
-Error from server (InternalError): Internal error occurred: unexpected response: 500
+<h4 id="create-the-file">Create the file</h4>
+<ol>
+<li>Create a file named <code>k8s/deployment.yaml</code></li>
+<li>Paste the following YAML into the file</li>
+<li>Replace the word <code>&lt;USERNAME&gt;</code> with your quay.io username</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/&lt;USERNAME&gt;/static-site:v1</span>
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-<p>It is because you have not yet visited that cluster's OpenShift web console in the browser.</p>
-<h2 id="ibmcloud-plugins">ibmcloud plugins</h2>
-<p>There are two plugins that must be installed for ibmcloud, verify they are installed by running the following command:</p>
-<div class="highlight"><pre><span></span><code>ibmcloud plugin list
+<h4 id="apply-the-file">Apply the file</h4>
+<div class="highlight"><pre><span></span><code>oc apply -f k8s/deployment.yaml
 </code></pre></div>
-<p>which should print something like the following (versions may be higher):</p>
-<div class="highlight"><pre><span></span><code>Listing installed plug-ins...
-
-Plugin Name                            Version   Status             Private endpoints supported
-container-registry                     <span class="m">0</span>.1.518   Update Available   <span class="nb">true</span>
-container-service/kubernetes-service   <span class="m">1</span>.0.258                      <span class="nb">false</span>
+<h4 id="verify-the-deployment-works">Verify the deployment works</h4>
+<div class="highlight"><pre><span></span><code>oc get deploy
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Missing Plugin</th>
-<th>Install command</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>container-registry</td>
-<td><code>ibmcloud plugin install container-registry</code></td>
-<td></td>
-</tr>
-<tr>
-<td>container-service/kubernetes-service</td>
-<td><code>ibmcloud plugin install container-service</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="oc-sync-failures">oc sync <project-name> failures</h2>
-<p>The successful output from this command is:</p>
-<div class="highlight"><pre><span></span><code>Setting up namespace &lt;project-name&gt;
-Setting up namespace: &lt;project-name&gt;
-Checking <span class="k">for</span> existing project: &lt;project-name&gt;
-Creating project: &lt;project-name&gt;
-Copying ConfigMaps
-Copying Secrets
-Setting current project to &lt;project-name&gt;
+<p>You should see the following:</p>
+<div class="highlight"><pre><span></span><code>NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+static-site   1/1     1            1           24s
 </code></pre></div>
-<p>If you do not see all the above output, the command failed. (the code ignores all errors!)</p>
-<table>
-<thead>
-<tr>
-<th>Error Message</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>None but some output lines are missing</td>
-<td>Run <code>ibmcloud ks api</code>, if that fails with <code>FAILED 'ks' is not a registered command.</code> then run <code>ibmcloud plugin install container-service</code> to fix it.</td>
-</tr>
-<tr>
-<td>You don't see <code>Copying ConfigMaps</code></td>
-<td>Your permissions were setup incorrectly. Contact your instructor to fix them.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="oc-pipeline-tekton-failures">oc pipeline --tekton failures</h2>
-<table>
-<thead>
-<tr>
-<th>Error Message</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Error creating pipeline: "Not a git repository"</td>
-<td>cd into the application repository folder</td>
-</tr>
-<tr>
-<td>Error creating pipeline: It appears the kubernetes environment has not been initialized.</td>
-<td>Go to OpenShift → Click on Your Name → Click "Copy Login Command" → Click Display Token → copy <code>oc login --token=...</code> → Paste command in the terminal and hit enter.</td>
-</tr>
-<tr>
-<td>Error identifying git host</td>
-<td>run <code>oc delete project project[user-number]-dev</code> where <code>[user-number]</code> is replaced with your assigned user number. <br> Wait a minute or two.<br>run <code>oc sync project[user-number]-dev</code> then run <code>oc pipeline --tekton</code></td>
-</tr>
-<tr>
-<td>Pipeline is not triggered when pushing to master branch</td>
-<td>pipeline webhook wasn't created. Run <code>oc project project[user-number]-dev</code> where <code>[user-number]</code> is replaced with your assigned user number.<br>cd into the application repository folder<br>Run <code>oc sync</code></td>
-</tr>
-<tr>
-<td>Every time I git push, my pipeline runs twice</td>
-<td>Go to gogs, click Settings → Webhook and then delete one of the webhooks</td>
-</tr>
-</tbody>
-</table>
+<h3 id="pods">Pods</h3>
+<p>A Deployment creates Pods. You can see pods by running:</p>
+<div class="highlight"><pre><span></span><code>oc get pods
+</code></pre></div>
+<h3 id="services">Services</h3>
+<p>Services allow pods within a Kubernetes cluster to access the pods from your deployment.</p>
+<h4 id="create-the-file_1">Create the file</h4>
+<p>Create a file named <code>k8s/service.yaml</code></p>
+<p>Paste the following YAML into it:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+      <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+      <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+</code></pre></div>
+<h4 id="apply-the-file_1">Apply the file</h4>
+<div class="highlight"><pre><span></span><code>oc apply -f k8s/service.yaml
+</code></pre></div>
+<h4 id="verify">Verify</h4>
+<div class="highlight"><pre><span></span><code>oc get svc
+</code></pre></div>
+<p>You should see something like this (the IP will be different):</p>
+<div class="highlight"><pre><span></span><code>NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
+</code></pre></div>
+<h3 id="routes">Routes</h3>
+<p>Routes are an OpenShift concept. They serve a similar purpose to Kubernetes Ingresses.</p>
+<h4 id="create-the-file_2">Create the file</h4>
+<p>Create a file named <code>k8s/route.yaml</code> and paste the following contents:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Route</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">tls</span><span class="p">:</span>
+    <span class="nt">termination</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">edge</span>
+  <span class="nt">to</span><span class="p">:</span>
+    <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
+    <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+  <span class="nt">wildcardPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+</code></pre></div>
+<h4 id="apply">Apply</h4>
+<div class="highlight"><pre><span></span><code>oc apply -f k8s/route.yaml
+</code></pre></div>
+<h4 id="verify_1">Verify</h4>
+<div class="highlight"><pre><span></span><code>oc get routes
+</code></pre></div>
+<p>This will print something like this:</p>
+<div class="highlight"><pre><span></span><code>NAME          HOST/PORT                       PATH  SERVICES      PORT    TERMINATION   WILDCARD
+static-site   static-site-...appdomain.cloud        static-site   &lt;all&gt;   edge          None
+</code></pre></div>
+<p>Copy the <code>HOST/PORT</code> and open it in a browser. You should be able to see your site! 🎉</p>
+<h2 id="ui">UI</h2>
+<p>Inspect the app in the UI</p>
+<h2 id="cleanup">Cleanup</h2>
+<p>Run the following command to delete your project, replacing <code>&lt;NAME&gt;</code> with your project name:</p>
+<div class="highlight"><pre><span></span><code>oc project default
+oc delete &lt;NAME&gt;
+</code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></li>
+<li><a href="https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html">Routes</a></li>
+</ul>
                 
               
               
