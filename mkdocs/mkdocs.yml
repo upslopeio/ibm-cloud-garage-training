@@ -29,7 +29,7 @@ nav:
   - Garage Method:
       - Overview: xp/overview.md
       - Pair Programming: xp/pair-programming.md
-      - TDD: xp/tdd.md
+      - TDD: tdd/README.md
       - Roles: xp/roles.md
       - Rituals: xp/rituals.md
       - User Stories: xp/user-stories.md

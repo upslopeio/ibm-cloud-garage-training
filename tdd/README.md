@@ -1,39 +1,49 @@
+# TDD
+
+From Extreme Programming:
+
+We know that testing code helps produce higher quality code (code with fewer bugs). So let's take it to the _extreme_ and write the tests **first**.
+
+Writing tests is a technical skill. 
+
+Test-Driven Development is a set of **behaviors** that, when followed, increase the value of tests even more.
+
+## Rules of TDD
+
+1. Only write production code in response to a failing test
+1. Write the simplest thing to make the test pass
+   - Rule of thumb: write "real" code once you've written 3 tests
+
+## TDD Behavior - 3 Step
+
+1. **Red** - Write a failing test
+1. **Green** - Make the test pass
+1. **Refactor** - Make improvements to the code that don't change the behavior
+
 # TDD in JavaScript / Jest
 
-> _NOTE_ this tutorial assumes you've already created a `react-intro` app
+### Concepts
 
-## Concepts
+> _NOTE_ this section assumes you've already created a `react-intro` app
 
 When you write automated tests, there are two files:
 
 - Your test file
 - Your code file (your production code)
 
-## Red / Green / Refactor
-
-When writing tests, follow these steps (the 3 steps of TDD)
-
-1. **Red** Write a failing test
-1. **Green** Make the test pass
-1. **Refactor** Make improvements to the code that don't change the behavior
-
-## 2 Rules of TDD
-
-1. Only write production code in response to a failing test
-1. Write the simplest thing to make the test pass
-   - Write the real implementation once you've written 3 tests
-
-If you follow these rules, it will ensure that you have thorough tests with high test coverage.
-
-## JavaScript / Jest Test Syntax
+### Create the test file
 
 - Create the test file in the `src` folder
 - Put it right next to the code file
-- name it `<name>.test.js`
+- name it `src/<name>.test.js`
+
+For example create the file `src/convert.test.js`
 
 ```js
 test("convert returns 0 when passed 32", () => {});
 ```
+
+### Parts of a Test
 
 Tests have the following parts:
 
@@ -43,6 +53,8 @@ Tests have the following parts:
 * (optional) **T**eardown
 
 You can remember this with the acronym SEA (or SEAT).
+
+For example:
 
 ```js
 test("convert returns 0 when passed 32", () => {
@@ -59,7 +71,9 @@ test("convert returns 0 when passed 32", () => {
 });
 ```
 
-Write the production code file `convert.js`
+### Write production code
+
+Write the production code file `src/convert.js`
 
 Write enough code to make it pass:
 
