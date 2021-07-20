@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/xp/pair-programming/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/docker/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>Pair Programming - Cloud Native Garage Method Boot Camp</title>
+        <title>Docker - Cloud Native Garage Method Boot Camp</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3754935a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -59,7 +59,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pair-programming" class="md-skip">
+        <a href="#docker" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Cloud Native Garage Method Boot Camp" class="md-header__button md-logo" aria-label="Cloud Native Garage Method Boot Camp" data-md-component="logo">
+    <a href=".." title="Cloud Native Garage Method Boot Camp" class="md-header__button md-logo" aria-label="Cloud Native Garage Method Boot Camp" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pair Programming
+              Docker
             
           </span>
         </div>
@@ -158,7 +158,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cloud Native Garage Method Boot Camp" class="md-nav__button md-logo" aria-label="Cloud Native Garage Method Boot Camp" data-md-component="logo">
+    <a href=".." title="Cloud Native Garage Method Boot Camp" class="md-nav__button md-logo" aria-label="Cloud Native Garage Method Boot Camp" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -200,7 +200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer-setup/mac/" class="md-nav__link">
+      <a href="../computer-setup/mac/" class="md-nav__link">
         Mac
       </a>
     </li>
@@ -212,7 +212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer-setup/windows/" class="md-nav__link">
+      <a href="../computer-setup/windows/" class="md-nav__link">
         Windows
       </a>
     </li>
@@ -224,7 +224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer-setup/ibmcloud/" class="md-nav__link">
+      <a href="../computer-setup/ibmcloud/" class="md-nav__link">
         IBM Cloud
       </a>
     </li>
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer-setup/tools/" class="md-nav__link">
+      <a href="../computer-setup/tools/" class="md-nav__link">
         Tools Overview
       </a>
     </li>
@@ -255,16 +255,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         Garage Method
@@ -282,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../xp/overview/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -292,135 +290,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Pair Programming
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../xp/pair-programming/" class="md-nav__link">
         Pair Programming
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-pair-programming" class="md-nav__link">
-    What is pair programming?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    Roles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    Benefits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-the-most-out-pair-programming" class="md-nav__link">
-    Getting the most out pair programming
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#determine-pairs" class="md-nav__link">
-    Determine Pairs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
-    Techniques
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#who-pairs" class="md-nav__link">
-    Who pairs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-much-should-you-pair" class="md-nav__link">
-    How much should you pair?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-do-you-track-ownership-in-git" class="md-nav__link">
-    How do you track ownership in git?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-reviews" class="md-nav__link">
-    Code Reviews
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-can-you-pair-on" class="md-nav__link">
-    What can you pair on?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensemble-programming" class="md-nav__link">
-    Ensemble Programming
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pair-tdd-branch-workflow" class="md-nav__link">
-    Pair / TDD / Branch Workflow
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -430,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tdd/" class="md-nav__link">
+      <a href="../xp/tdd/" class="md-nav__link">
         TDD
       </a>
     </li>
@@ -442,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../roles/" class="md-nav__link">
+      <a href="../xp/roles/" class="md-nav__link">
         Roles
       </a>
     </li>
@@ -454,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rituals/" class="md-nav__link">
+      <a href="../xp/rituals/" class="md-nav__link">
         Rituals
       </a>
     </li>
@@ -466,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-stories/" class="md-nav__link">
+      <a href="../xp/user-stories/" class="md-nav__link">
         User Stories
       </a>
     </li>
@@ -510,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../react/" class="md-nav__link">
+      <a href="../react/" class="md-nav__link">
         React Intro Setup
       </a>
     </li>
@@ -522,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tdd/" class="md-nav__link">
+      <a href="../tdd/" class="md-nav__link">
         JS Testing
       </a>
     </li>
@@ -534,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../react/testing/" class="md-nav__link">
+      <a href="../react/testing/" class="md-nav__link">
         React Testing
       </a>
     </li>
@@ -553,14 +427,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Devops
@@ -576,11 +452,127 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Docker
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    Objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-concepts" class="md-nav__link">
+    Docker Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quayio" class="md-nav__link">
+    Quay.io
+  </a>
+  
+    <nav class="md-nav" aria-label="Quay.io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-your-account" class="md-nav__link">
+    Create Your Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-from-your-machine" class="md-nav__link">
+    Login From Your Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-repository" class="md-nav__link">
+    Create a Repository
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-local-project" class="md-nav__link">
+    Create a local project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    Build the image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-image" class="md-nav__link">
+    Run the image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-the-image-to-quayio" class="md-nav__link">
+    Push the image to quay.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -590,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tekton/" class="md-nav__link">
+      <a href="../tekton/" class="md-nav__link">
         Tekton
       </a>
     </li>
@@ -602,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../argo/qa/" class="md-nav__link">
+      <a href="../argo/qa/" class="md-nav__link">
         Argo QA
       </a>
     </li>
@@ -614,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../argo/production/" class="md-nav__link">
+      <a href="../argo/production/" class="md-nav__link">
         Argo Prod
       </a>
     </li>
@@ -626,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../argo/diagram/" class="md-nav__link">
+      <a href="../argo/diagram/" class="md-nav__link">
         Sequence Diagram
       </a>
     </li>
@@ -638,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tekton/notes/" class="md-nav__link">
+      <a href="../tekton/notes/" class="md-nav__link">
         Notes
       </a>
     </li>
@@ -650,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tekton/branch-based-pipelines/" class="md-nav__link">
+      <a href="../tekton/branch-based-pipelines/" class="md-nav__link">
         Branch-Based Pipelines
       </a>
     </li>
@@ -694,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/" class="md-nav__link">
+      <a href="../projects/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -706,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/cheat-sheet/" class="md-nav__link">
+      <a href="../projects/cheat-sheet/" class="md-nav__link">
         React Cheat Sheet
       </a>
     </li>
@@ -718,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/permissions/" class="md-nav__link">
+      <a href="../projects/permissions/" class="md-nav__link">
         Assigning Permissions
       </a>
     </li>
@@ -730,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/playbacks/" class="md-nav__link">
+      <a href="../projects/playbacks/" class="md-nav__link">
         Playbacks
       </a>
     </li>
@@ -742,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/presentation/" class="md-nav__link">
+      <a href="../projects/presentation/" class="md-nav__link">
         Presentations
       </a>
     </li>
@@ -786,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reading-list/" class="md-nav__link">
+      <a href="../reading-list/" class="md-nav__link">
         Reading List
       </a>
     </li>
@@ -798,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reading-list/self-study/" class="md-nav__link">
+      <a href="../reading-list/self-study/" class="md-nav__link">
         Self Study
       </a>
     </li>
@@ -837,92 +829,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-pair-programming" class="md-nav__link">
-    What is pair programming?
+  <a href="#objectives" class="md-nav__link">
+    Objectives
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    Roles
+  <a href="#docker-concepts" class="md-nav__link">
+    Docker Concepts
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    Benefits
+  <a href="#quayio" class="md-nav__link">
+    Quay.io
+  </a>
+  
+    <nav class="md-nav" aria-label="Quay.io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-your-account" class="md-nav__link">
+    Create Your Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-from-your-machine" class="md-nav__link">
+    Login From Your Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-repository" class="md-nav__link">
+    Create a Repository
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-local-project" class="md-nav__link">
+    Create a local project
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-the-most-out-pair-programming" class="md-nav__link">
-    Getting the most out pair programming
+  <a href="#build-the-image" class="md-nav__link">
+    Build the image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#determine-pairs" class="md-nav__link">
-    Determine Pairs
+  <a href="#run-the-image" class="md-nav__link">
+    Run the image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
-    Techniques
+  <a href="#push-the-image-to-quayio" class="md-nav__link">
+    Push the image to quay.io
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#who-pairs" class="md-nav__link">
-    Who pairs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-much-should-you-pair" class="md-nav__link">
-    How much should you pair?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-do-you-track-ownership-in-git" class="md-nav__link">
-    How do you track ownership in git?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-reviews" class="md-nav__link">
-    Code Reviews
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-can-you-pair-on" class="md-nav__link">
-    What can you pair on?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensemble-programming" class="md-nav__link">
-    Ensemble Programming
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pair-tdd-branch-workflow" class="md-nav__link">
-    Pair / TDD / Branch Workflow
+  <a href="#resources" class="md-nav__link">
+    Resources
   </a>
   
 </li>
@@ -940,125 +924,76 @@
               
                 
                 
-                <h1 id="pair-programming">Pair Programming</h1>
-<h2 id="what-is-pair-programming">What is pair programming?</h2>
-<p>Two developers, one machine, two keyboards, two mice - co-developing the code.</p>
-<h2 id="roles">Roles</h2>
+                <h1 id="docker">Docker</h1>
+<h2 id="objectives">Objectives</h2>
+<p>By the end of this lesson you should be able to:</p>
 <ul>
-<li><strong>driver</strong> types</li>
-<li><strong>navigator</strong> talks</li>
+<li>build a docker image from a Dockerfile</li>
+<li>run an image with</li>
 </ul>
-<h2 id="benefits">Benefits</h2>
+<h2 id="docker-concepts">Docker Concepts</h2>
+<p><strong>Image</strong></p>
+<p><strong>Container</strong></p>
+<p><strong>Image Registry/Image Repository</strong></p>
+<h2 id="quayio">Quay.io</h2>
+<h3 id="create-your-account">Create Your Account</h3>
+<ol>
+<li>Visit <a href="https://quay.io/signin/">https://quay.io/signin/</a></li>
+<li>Click "Create Account"</li>
+</ol>
+<h3 id="login-from-your-machine">Login From Your Machine</h3>
+<p>Go to your account settings:</p>
+<p><img alt="" src="img/quay-password-01.png" /></p>
+<p>Click "Create Encrypted Password":</p>
+<p><img alt="" src="img/quay-password-02.png" /></p>
+<p>Copy the docker login command:</p>
+<p><img alt="" src="img/quay-password-03.png" /></p>
+<p>Run that command from your Terminal.</p>
+<blockquote>
+<p>NOTE: Windows users, do this from the Ubuntu Terminal</p>
+</blockquote>
+<h3 id="create-a-repository">Create a Repository</h3>
+<p>From the Quay.io dashboard, click "Create New Repository"</p>
+<p><img alt="" src="img/quay-repo-01.png" /></p>
+<p>Name it <code>static-site</code> and make it public:</p>
+<p><img alt="" src="img/quay-repo-02.png" /></p>
+<h2 id="create-a-local-project">Create a local project</h2>
+<div class="highlight"><pre><span></span><code>cd ~
+take static-site
+code .
+</code></pre></div>
+<p>Add a file named <code>index.html</code> with the following contents:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Static Site<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My Static Site<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Add a file named <code>Dockerfile</code> and add the following contents:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">quay.io/upslopeio/nginx-unprivileged</span>
+<span class="k">COPY</span> index.html /usr/share/nginx/html/index.html
+</code></pre></div>
+<h2 id="build-the-image">Build the image</h2>
+<div class="highlight"><pre><span></span><code>docker build -t static-site .
+</code></pre></div>
+<h2 id="run-the-image">Run the image</h2>
+<div class="highlight"><pre><span></span><code>docker run -p 8080:8080 -it static-site
+</code></pre></div>
+<p>Use <code>CTRL+C</code> to quit the process.</p>
+<h2 id="push-the-image-to-quayio">Push the image to quay.io</h2>
+<p>First, add a tag to the image (replace USERNAME with your quay.io username):</p>
+<div class="highlight"><pre><span></span><code>docker tag static-site quay.io/USERNAME/static-site:v1
+</code></pre></div>
+<p>Then push the image to quay.io (replace USERNAME with your quay.io username):</p>
+<div class="highlight"><pre><span></span><code>docker push quay.io/USERNAME/static-site:v1
+</code></pre></div>
+<h2 id="resources">Resources</h2>
 <ul>
-<li>Knowledge sharing - "The lottery count" to be very high</li>
-<li>Quality - catching typos / bugs, helping design more understandable code</li>
+<li><a href="https://www.katacoda.com/courses/docker">https://www.katacoda.com/courses/docker</a></li>
 </ul>
-<p>Side effects:</p>
-<ul>
-<li>Shared responsibility (collective owernship)<ul>
-<li>You can have higher standards for code/processes, without having to worry about feelings</li>
-<li>When things need to change you'll be more receptive</li>
-</ul>
-</li>
-</ul>
-<h2 id="getting-the-most-out-pair-programming">Getting the most out pair programming</h2>
-<p>Rotate pairs at least daily.</p>
-<p>Some stories will have more than 2 people work on them.</p>
-<p>When you rotate:</p>
-<ul>
-<li>1 person stays on the story</li>
-<li>the other person swaps out</li>
-</ul>
-<h2 id="determine-pairs">Determine Pairs</h2>
-<p>At daily standup.</p>
-<p>Sometimes come up with a rotation schedule (if needed).</p>
-<h2 id="techniques">Techniques</h2>
-<p>2 people of roughly equal skill:</p>
-<p><strong>Ping Pong</strong> &lt;-- really good default</p>
-<ol>
-<li>Person A writes a failing test</li>
-<li>Person B makes it pass, then writes the next failing test</li>
-<li>Person A makes it pass, then writes the next failing test</li>
-<li>....</li>
-</ol>
-<hr />
-<p>One person who knows the code/system better than the other:</p>
-<p><strong>Driving School</strong> (backseat driver)</p>
-<ol>
-<li>Person who knows more is the navigator (talk)</li>
-<li>Person who knows less is the driver (type)</li>
-</ol>
-<hr />
-<p>When both people are comfortable with both the code/system and with pair programming:</p>
-<p><strong>Natural</strong></p>
-<ol>
-<li>You both just talk and code switch back and forth effortlessly</li>
-<li>No "keyboard hogs"</li>
-</ol>
-<hr />
-<p>You have some keyboard hogs.</p>
-<p><strong>Chess Timers</strong></p>
-<ol>
-<li>You have a timer that goes off every N minutes</li>
-<li>Switch driver/navigator roles when the timer goes off</li>
-<li>Navigator "sits on their hands"</li>
-</ol>
-<hr />
-<p>ANTI-PATTERN:</p>
-<p><strong>Tour Guide</strong></p>
-<ol>
-<li>One person thinks and types, and the other person watches. 🙁</li>
-</ol>
-<h2 id="who-pairs">Who pairs</h2>
-<ul>
-<li>Developers (from IBM or from the customer)</li>
-<li>UX designers (sometimes) - Driving School</li>
-</ul>
-<h2 id="how-much-should-you-pair">How much should you pair?</h2>
-<p>Goal: 100%</p>
-<p>Sometimes teams are odd - 7 people, for example.</p>
-<ul>
-<li>Ensemble programming (aka mob programming) with 3 people</li>
-<li>1 person solo, but then have their code reviewed before merging (solo writes code in a branch)</li>
-</ul>
-<h2 id="how-do-you-track-ownership-in-git">How do you track ownership in git?</h2>
-<p>Use a tool like <a href="https://github.com/chrisk/git-pair">https://github.com/chrisk/git-pair</a> which allows you to change the email / name per-project to show both people.</p>
-<p>One person commit / push, and the other person merges.</p>
-<h2 id="code-reviews">Code Reviews</h2>
-<p>Do you need code reviews? No.</p>
-<p>You don't <em>need</em> Pull Requests, Code Reviews, approvals.</p>
-<p>It's builtin to the process.</p>
-<h2 id="what-can-you-pair-on">What can you pair on?</h2>
-<p>Infrastructure-as-code &amp; Devops / pipeline setup:</p>
-<ul>
-<li>driving school</li>
-<li>chess timers</li>
-<li>ensemble programming</li>
-</ul>
-<h2 id="ensemble-programming">Ensemble Programming</h2>
-<p>(used to be called mob programming)</p>
-<p><a href="https://ensembleprogramming.xyz/">https://ensembleprogramming.xyz/</a></p>
-<p>Really good for situations where nobody knows what they're doing: example, you're working on Android, but nobody has every built an Android app.</p>
-<h2 id="pair-tdd-branch-workflow">Pair / TDD / Branch Workflow</h2>
-<p>"Real life"</p>
-<ol>
-<li>Grab story (as a pair)</li>
-<li>Create a feature branch</li>
-<li>TDD (code &amp; tests)</li>
-<li>Merge/rebase your feature branch regularly (every hour)</li>
-<li>Pushing to your feature branch<ul>
-<li>which triggers CI pipeline (runs tests)</li>
-<li>deploy to a lower environment per-branch</li>
-</ul>
-</li>
-<li>Product Owner does user story acceptance on that branch's QA env</li>
-<li>Merge the code to main</li>
-</ol>
-<p>In class - where we're using IGC (and also at customer engagements with IGC):</p>
-<ol>
-<li>Do everything on master</li>
-<li>OR setup a pipeline per-branch (know Tekton a little better)</li>
-</ol>
                 
               
               
@@ -1078,7 +1013,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+        <a href="../react/testing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: React Testing" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1087,20 +1022,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Overview
+              React Testing
             </div>
           </div>
         </a>
       
       
         
-        <a href="../tdd/" class="md-footer__link md-footer__link--next" aria-label="Next: TDD" rel="next">
+        <a href="../tekton/" class="md-footer__link md-footer__link--next" aria-label="Next: Tekton" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              TDD
+              Tekton
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1129,10 +1064,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
       
     
   </body>
