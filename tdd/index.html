@@ -844,7 +844,7 @@
                 
                 <h1 id="tdd-in-javascript-jest">TDD in JavaScript / Jest</h1>
 <blockquote>
-<p><em>NOTE</em> this tutorial assumes you've already created a react-intro app</p>
+<p><em>NOTE</em> this tutorial assumes you've already created a <code>react-intro</code> app</p>
 </blockquote>
 <h2 id="concepts">Concepts</h2>
 <p>When you write automated tests, there are two files:</p>
@@ -870,13 +870,20 @@
 <p>If you follow these rules, it will ensure that you have thorough tests with high test coverage.</p>
 <h2 id="javascript-jest-test-syntax">JavaScript / Jest Test Syntax</h2>
 <ul>
-<li>Create the test file</li>
+<li>Create the test file in the <code>src</code> folder</li>
 <li>Put it right next to the code file</li>
 <li>name it <code>&lt;name&gt;.test.js</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;convert returns 0 when passed 32&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{});</span>
 </code></pre></div>
-<p>Write the first test:</p>
+<p>Tests have the following parts:</p>
+<ul>
+<li><strong>S</strong>etup</li>
+<li><strong>E</strong>xecution</li>
+<li><strong>A</strong>ssertion</li>
+<li>(optional) <strong>T</strong>eardown</li>
+</ul>
+<p>You can remember this with the acronym SEA (or SEAT).</p>
 <div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;convert returns 0 when passed 32&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// SEA</span>
   <span class="c1">// setup</span>
