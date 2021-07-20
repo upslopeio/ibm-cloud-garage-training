@@ -84,10 +84,26 @@ COPY index.html /usr/share/nginx/html/index.html
 docker build -t static-site .
 ```
 
+You can see that image now exists on your machine with the following command:
+
+```
+docker image ls
+```
+
 ## Run the image
 
 ```
 docker run -p 8080:8080 -it static-site
+```
+
+Then open the site locally:
+
+http://localhost:8080/
+
+From a different Terminal window you can see that the process is running with the following command:
+
+```
+docker ps
 ```
 
 Use `CTRL+C` to quit the process.
@@ -98,6 +114,12 @@ First, add a tag to the image (replace USERNAME with your quay.io username):
 
 ```
 docker tag static-site quay.io/USERNAME/static-site:v1
+```
+
+You can see that image now has two tags on your machine:
+
+```
+docker image ls
 ```
 
 Then push the image to quay.io (replace USERNAME with your quay.io username):
