@@ -979,13 +979,24 @@ code .
 <h2 id="build-the-image">Build the image</h2>
 <div class="highlight"><pre><span></span><code>docker build -t static-site .
 </code></pre></div>
+<p>You can see that image now exists on your machine with the following command:</p>
+<div class="highlight"><pre><span></span><code>docker image ls
+</code></pre></div>
 <h2 id="run-the-image">Run the image</h2>
 <div class="highlight"><pre><span></span><code>docker run -p 8080:8080 -it static-site
+</code></pre></div>
+<p>Then open the site locally:</p>
+<p><a href="http://localhost:8080/">http://localhost:8080/</a></p>
+<p>From a different Terminal window you can see that the process is running with the following command:</p>
+<div class="highlight"><pre><span></span><code>docker ps
 </code></pre></div>
 <p>Use <code>CTRL+C</code> to quit the process.</p>
 <h2 id="push-the-image-to-quayio">Push the image to quay.io</h2>
 <p>First, add a tag to the image (replace USERNAME with your quay.io username):</p>
 <div class="highlight"><pre><span></span><code>docker tag static-site quay.io/USERNAME/static-site:v1
+</code></pre></div>
+<p>You can see that image now has two tags on your machine:</p>
+<div class="highlight"><pre><span></span><code>docker image ls
 </code></pre></div>
 <p>Then push the image to quay.io (replace USERNAME with your quay.io username):</p>
 <div class="highlight"><pre><span></span><code>docker push quay.io/USERNAME/static-site:v1
