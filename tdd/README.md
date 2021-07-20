@@ -14,12 +14,12 @@ When you write automated tests, there are two files:
 1. (Red) Write a failing test
 1. (Green) Make the test pass
 1. (Refactor) Make improvements to the code that don't change the behavior
-   - Once you've written 3 tests
 
 ## 2 Rules of TDD
 
 1. Only write production code in response to a failing test
 1. Write the simplest thing to make the test pass
+   - Write the real implementation once you've written 3 tests
 
 Ensures that you have you complete and thorough.
 
@@ -86,3 +86,17 @@ describe("convert", () => {
 ```
 
 Rinse and repeat
+
+## How do you know what to test?
+
+Test the [ZOMBIES](https://www.agilealliance.org/resources/sessions/test-driven-development-guided-by-zombies/)
+
+## Lab
+
+Use the descriptions on the following pages:
+
+- https://www.codewars.com/kata/515e271a311df0350d00000f
+- https://www.codewars.com/kata/56efc695740d30f963000557
+- https://www.codewars.com/kata/571d42206414b103dc0006a1
+- https://www.codewars.com/kata/57d814e4950d8489720008db
+- https://www.codewars.com/kata/57a0e5c372292dd76d000d7e

@@ -136,6 +136,14 @@ Then push the image to quay.io (replace USERNAME with your quay.io username):
 docker push quay.io/USERNAME/static-site:v1
 ```
 
+## Update the image
+
+- Make a change to `index.html`
+- Rebuild the image
+- Rerun the image to make sure it's working correctly
+- Tag the new image with `v2`
+- Push the `v2` image to quay.io
+
 ## Resources
 
 - https://www.katacoda.com/courses/docker
