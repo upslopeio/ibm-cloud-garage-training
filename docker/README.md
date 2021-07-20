@@ -1,0 +1,111 @@
+# Docker
+
+## Objectives
+
+By the end of this lesson you should be able to:
+
+- build a docker image from a Dockerfile
+- run an image with
+
+## Docker Concepts
+
+**Image**
+
+**Container**
+
+**Image Registry/Image Repository**
+
+## Quay.io
+
+### Create Your Account
+
+1. Visit https://quay.io/signin/
+1. Click "Create Account"
+
+### Login From Your Machine
+
+Go to your account settings:
+
+![](./img/quay-password-01.png)
+
+Click "Create Encrypted Password":
+
+![](./img/quay-password-02.png)
+
+Copy the docker login command:
+
+![](./img/quay-password-03.png)
+
+Run that command from your Terminal.
+
+> NOTE: Windows users, do this from the Ubuntu Terminal
+
+### Create a Repository
+
+From the Quay.io dashboard, click "Create New Repository"
+
+![](./img/quay-repo-01.png)
+
+Name it `static-site` and make it public:
+
+![](./img/quay-repo-02.png)
+
+## Create a local project
+
+```
+cd ~
+take static-site
+code .
+```
+
+Add a file named `index.html` with the following contents:
+
+```html
+<html>
+    <head>
+        <title>Static Site</title>
+    </head>
+    <body>
+        <h1>My Static Site</h1>
+    </body>
+</html>
+```
+
+Add a file named `Dockerfile` and add the following contents:
+
+```dockerfile
+FROM quay.io/upslopeio/nginx-unprivileged
+COPY index.html /usr/share/nginx/html/index.html
+```
+
+## Build the image
+
+```
+docker build -t static-site .
+```
+
+## Run the image
+
+```
+docker run -p 8080:8080 -it static-site
+```
+
+Use `CTRL+C` to quit the process.
+
+## Push the image to quay.io
+
+First, add a tag to the image (replace USERNAME with your quay.io username):
+
+```
+docker tag static-site quay.io/USERNAME/static-site:v1
+```
+
+Then push the image to quay.io (replace USERNAME with your quay.io username):
+
+```
+docker push quay.io/USERNAME/static-site:v1
+```
+
+## Resources
+
+- https://www.katacoda.com/courses/docker

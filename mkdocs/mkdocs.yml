@@ -38,6 +38,7 @@ nav:
       - JS Testing: tdd/README.md
       - React Testing: react/testing.md
   - Devops:
+      - Docker: docker/README.md
       - Tekton: tekton/README.md
       - Argo QA: argo/qa.md
       - Argo Prod: argo/production.md
