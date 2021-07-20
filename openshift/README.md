@@ -187,6 +187,21 @@ static-site   static-site-...appdomain.cloud        static-site   <all>   edge  
 
 Copy the `HOST/PORT` and open it in a browser. You should be able to see your site! 🎉
 
+## Additional Challenges
+
+Deploy a new version:
+
+- Make a change to `index.html`
+- Rebuild and push a new version of your docker image to quay.io (for example `v3`)
+- Change `k8s/deployment.yaml` to point to this new version and apply it
+
+Scale the app:
+
+- Make a change to `k8s/deployment.yaml` to increase the number of replicas
+- Apply the file
+- Use `oc` to list the pods to make sure they are all there
+- Repeat the process, but reduce the replicas
+
 ## UI
 
 Inspect the app in the UI
