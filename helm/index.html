@@ -503,9 +503,39 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Helm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Helm
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -756,6 +786,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -773,6 +818,31 @@
 <li>Generating YAML files from templates</li>
 <li>Having charts that require other charts for Gitops</li>
 </ul>
+<h2 id="templates">Templates</h2>
+<p>Instead of having YAML files, Helm uses YAML <em>templates</em>.  A YAML template file looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.fullname&quot; .</span> <span class="p p-Indicator">}}</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">helm.sh/chart</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.chart&quot; .</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.service.type</span> <span class="p p-Indicator">}}</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.service.port</span> <span class="p p-Indicator">}}</span>
+      <span class="nt">targetPort</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.image.port</span> <span class="p p-Indicator">}}</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
+</code></pre></div>
+<p>Then there's a file named <code>values.yaml</code></p>
+<div class="highlight"><pre><span></span><code>helm template &lt;release-name&gt; ./chart/base
+</code></pre></div>
                 
               
               
