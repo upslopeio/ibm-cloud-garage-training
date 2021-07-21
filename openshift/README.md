@@ -240,5 +240,5 @@ oc delete project <NAME>
 
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 - [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
-- [Routes](https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html)
+- [Routes](https://docs.openshift.com/container-platform/4.7/rest_api/network_apis/route-route-openshift-io-v1.html)
 - [Kubernetes Overview](https://cloudnative101.dev/lectures/kube-overview/)
