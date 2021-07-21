@@ -206,7 +206,7 @@ NAME          HOST/PORT                       PATH  SERVICES      PORT    TERMIN
 static-site   static-site-...appdomain.cloud        static-site   <all>   edge          None
 ```
 
-Copy the `HOST/PORT` and open it in a browser. You should be able to see your site! 🎉
+Copy the `HOST/PORT` and open it in a browser using `https://<URL>`. You should be able to see your site! 🎉
 
 ## Additional Challenges
 
