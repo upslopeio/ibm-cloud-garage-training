@@ -1163,6 +1163,15 @@ code .
 </code></pre></div>
 <p>For example <code>oc new-project john-smith</code></p>
 <h2 id="kubernetes-objects">Kubernetes Objects</h2>
+<p>Kubernetes organizes objects by namespace. In OpenShift, namespaces are called Projects.</p>
+<p>There are 4 Kubernetes objects you need to know about to make an application available to the internet:</p>
+<ol>
+<li>Deployments - specify which image you want to run, and how many pods to create</li>
+<li>Pods - run containers</li>
+<li>Services - expose your containers to traffic inside the cluster</li>
+<li>Routes - expose your services to traffic from outside the cluster</li>
+</ol>
+<p><img alt="" src="img/kube-logical.png" /></p>
 <h3 id="deployments">Deployments</h3>
 <p>The most basic Kubernetes object you'll work with is a Deployment, which tells Kubernetes:</p>
 <ul>
