@@ -45,7 +45,7 @@ nav:
       - Tekton: tekton/README.md
       - Argo QA: argo/qa.md
       - Argo Prod: argo/production.md
-      - Sequence Diagram: argo/diagram.md
+      - Sequence Diagram: tekton/diagram.md
       - Notes: tekton/notes.md
       - Branch-Based Pipelines: tekton/branch-based-pipelines.md
   - Project Work:
