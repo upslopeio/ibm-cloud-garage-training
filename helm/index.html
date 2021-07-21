@@ -527,8 +527,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    Charts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#templates" class="md-nav__link">
     Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-files" class="md-nav__link">
+    Requirements Files
   </a>
   
 </li>
@@ -793,8 +807,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    Charts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#templates" class="md-nav__link">
     Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-files" class="md-nav__link">
+    Requirements Files
   </a>
   
 </li>
@@ -818,8 +846,16 @@
 <li>Generating YAML files from templates</li>
 <li>Having charts that require other charts for Gitops</li>
 </ul>
+<h2 id="charts">Charts</h2>
+<p>Helm organizes configuration files into folders named Charts.  Charts have a few key files:</p>
+<ul>
+<li><strong>Chart.yaml</strong> which contains metadata about the chart (name etc...)</li>
+<li><strong>./templates folder</strong> where the templates live</li>
+<li><strong>values.yaml</strong> a data file containing variables for a particular environment</li>
+<li><strong>requirements.yaml</strong> - charts can depend on other charts. This file lists those dependencies</li>
+</ul>
 <h2 id="templates">Templates</h2>
-<p>Instead of having YAML files, Helm uses YAML <em>templates</em>.  A YAML template file looks like this:</p>
+<p>Instead of having YAML files, Helm uses YAML <em>templates</em>.  A Helm template file looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -840,9 +876,34 @@
     <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}}</span>
     <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
 </code></pre></div>
-<p>Then there's a file named <code>values.yaml</code></p>
-<div class="highlight"><pre><span></span><code>helm template &lt;release-name&gt; ./chart/base
+<p>Notice how it's like YAML, but with <code>{{ }}</code> placeholders.</p>
+<p>Then there's a file named <code>values.yaml</code>, which might look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">global</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+
+<span class="nt">replicaCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">logLevel</span><span class="p">:</span> <span class="s">&quot;debug&quot;</span>
+
+<span class="nt">image</span><span class="p">:</span>
+  <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replace</span>
+  <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replace</span>
+  <span class="nt">pullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
+  <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+
+<span class="c1"># etc...</span>
 </code></pre></div>
+<p>Helm can generate Kubernetes YAML files by rendering the template using the values from <code>values.yaml</code> like so:</p>
+<div class="highlight"><pre><span></span><code>helm template &lt;release-name&gt; ./path/to/chart
+</code></pre></div>
+<p>This will print YAML to the command line.</p>
+<h2 id="requirements-files">Requirements Files</h2>
+<p>If a Helm chart has a <code>requirements.yaml</code> file, it will look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dependencies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">react-intro</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.1</span>
+    <span class="nt">repository</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+      <span class="no">http://artifactory-artifactory.tools:8082/artifactory/generic-local/react-intro-01-dev</span>
+</code></pre></div>
+<p>When a Helm chart is applied, it combines all of the configs from the dependencies, plus any files it has.</p>
                 
               
               
