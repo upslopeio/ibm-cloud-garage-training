@@ -85,3 +85,17 @@ dependencies:
 When a Helm chart is applied, it combines all of the configs from the dependencies, plus any files it has.
 
 ![](./img/dependencies.drawio.svg)
+
+## Pre-Built Helm Charts
+
+You can find pre-built Helm charts that work with the IBM Toolkit by going here:
+
+https://github.com/IBM?q=template&type=&language=&sort=
+
+A few common ones are:
+
+- https://github.com/IBM/template-node-react
+- https://github.com/IBM/template-node-typescript
+- https://github.com/IBM/template-java-spring
+
+Copy the `chart/base` directory and put it in your own React / Java app.
