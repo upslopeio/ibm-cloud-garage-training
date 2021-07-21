@@ -549,33 +549,6 @@
     Deployments
   </a>
   
-    <nav class="md-nav" aria-label="Deployments">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-the-file" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply-the-file" class="md-nav__link">
-    Apply the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-the-deployment-works" class="md-nav__link">
-    Verify the deployment works
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -590,33 +563,6 @@
     Services
   </a>
   
-    <nav class="md-nav" aria-label="Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-the-file_1" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply-the-file_1" class="md-nav__link">
-    Apply the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify" class="md-nav__link">
-    Verify
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -628,22 +574,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-the-file_2" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#apply" class="md-nav__link">
     Apply
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify_1" class="md-nav__link">
-    Verify
   </a>
   
 </li>
@@ -992,33 +924,6 @@
     Deployments
   </a>
   
-    <nav class="md-nav" aria-label="Deployments">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-the-file" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply-the-file" class="md-nav__link">
-    Apply the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-the-deployment-works" class="md-nav__link">
-    Verify the deployment works
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1033,33 +938,6 @@
     Services
   </a>
   
-    <nav class="md-nav" aria-label="Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-the-file_1" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply-the-file_1" class="md-nav__link">
-    Apply the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify" class="md-nav__link">
-    Verify
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1071,22 +949,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-the-file_2" class="md-nav__link">
-    Create the file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#apply" class="md-nav__link">
     Apply
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify_1" class="md-nav__link">
-    Verify
   </a>
   
 </li>
@@ -1178,7 +1042,7 @@ code .
 <li>which image you would like to run</li>
 <li>how many replicas (instances) you would like to run</li>
 </ul>
-<h4 id="create-the-file">Create the file</h4>
+<p><strong>Create the file</strong></p>
 <ol>
 <li>Create a file named <code>k8s/deployment.yaml</code></li>
 <li>Paste the following YAML into the file</li>
@@ -1206,23 +1070,27 @@ code .
         <span class="nt">ports</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-<h4 id="apply-the-file">Apply the file</h4>
+<p><strong>Apply the file</strong></p>
 <div class="highlight"><pre><span></span><code>oc apply -f k8s/deployment.yaml
 </code></pre></div>
-<h4 id="verify-the-deployment-works">Verify the deployment works</h4>
+<p><strong>Verify the deployment works</strong></p>
 <div class="highlight"><pre><span></span><code>oc get deploy
 </code></pre></div>
 <p>You should see the following:</p>
 <div class="highlight"><pre><span></span><code>NAME          READY   UP-TO-DATE   AVAILABLE   AGE
 static-site   1/1     1            1           24s
 </code></pre></div>
+<p><strong>What just happened?</strong></p>
+<p>When you applied the file, Kubernetes stored your config in <code>etcd</code> (the "YAML database").</p>
+<p>The control plane saw that you wanted 1 replica of <code>static-site:v1</code> running. It looked at the nodes and couldn't find any.</p>
+<p>So the scheduler picked a node, and ran one instance of <code>static-site:v1</code>.</p>
 <h3 id="pods">Pods</h3>
 <p>A Deployment creates Pods. You can see pods by running:</p>
 <div class="highlight"><pre><span></span><code>oc get pods
 </code></pre></div>
 <h3 id="services">Services</h3>
 <p>Services allow pods within a Kubernetes cluster to access the pods from your deployment.</p>
-<h4 id="create-the-file_1">Create the file</h4>
+<p><strong>Create the file</strong></p>
 <p>Create a file named <code>k8s/service.yaml</code></p>
 <p>Paste the following YAML into it:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -1237,10 +1105,10 @@ static-site   1/1     1            1           24s
       <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
       <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-<h4 id="apply-the-file_1">Apply the file</h4>
+<p><strong>Apply the file</strong></p>
 <div class="highlight"><pre><span></span><code>oc apply -f k8s/service.yaml
 </code></pre></div>
-<h4 id="verify">Verify</h4>
+<p><strong>Verify </strong></p>
 <div class="highlight"><pre><span></span><code>oc get svc
 </code></pre></div>
 <p>You should see something like this (the IP will be different):</p>
@@ -1249,7 +1117,7 @@ static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
 </code></pre></div>
 <h3 id="routes">Routes</h3>
 <p>Routes are an OpenShift concept. They serve a similar purpose to Kubernetes Ingresses.</p>
-<h4 id="create-the-file_2">Create the file</h4>
+<p><strong>Create the file</strong></p>
 <p>Create a file named <code>k8s/route.yaml</code> and paste the following contents:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Route</span>
@@ -1267,7 +1135,7 @@ static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
 <h4 id="apply">Apply</h4>
 <div class="highlight"><pre><span></span><code>oc apply -f k8s/route.yaml
 </code></pre></div>
-<h4 id="verify_1">Verify</h4>
+<p><strong>Verify</strong></p>
 <div class="highlight"><pre><span></span><code>oc get routes
 </code></pre></div>
 <p>This will print something like this:</p>
