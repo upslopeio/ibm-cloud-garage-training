@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/openshift/cheatsheet/">
+        <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/openshift/commands/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
     
     
       
-        <title>Cheatsheet - Cloud Native Garage Method Boot Camp</title>
+        <title>OpenShift Commands - Cloud Native Garage Method Boot Camp</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cheatsheet
+              OpenShift Commands
             
           </span>
         </div>
@@ -431,14 +431,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Devops
@@ -471,6 +473,140 @@
       <a href="../" class="md-nav__link">
         OpenShift
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenShift Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OpenShift Commands
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-steps" class="md-nav__link">
+    Debugging Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe" class="md-nav__link">
+    describe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forward" class="md-nav__link">
+    port-forward
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-projects" class="md-nav__link">
+    Changing Projects
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-the-command-line" class="md-nav__link">
+    At the command line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-the-ui" class="md-nav__link">
+    In the UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-questions" class="md-nav__link">
+    Common Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-information" class="md-nav__link">
+    More information
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -727,6 +863,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#debugging-steps" class="md-nav__link">
+    Debugging Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe" class="md-nav__link">
+    describe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forward" class="md-nav__link">
+    port-forward
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#login" class="md-nav__link">
     Login
   </a>
@@ -774,13 +951,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#debugging-steps" class="md-nav__link">
-    Debugging Steps
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -795,6 +965,35 @@
                 
                 
                 <h1 id="cheatsheet">Cheatsheet</h1>
+<h2 id="debugging-steps">Debugging Steps</h2>
+<p>If your app doesn't load, there could be several issues. Here are some useful commands to help you debug:</p>
+<ol>
+<li><code>get</code></li>
+<li><code>describe</code></li>
+<li><code>logs</code></li>
+<li><code>port-forward</code></li>
+</ol>
+<h3 id="get">get</h3>
+<div class="highlight"><pre><span></span><code>oc get &lt;type&gt;
+</code></pre></div>
+<p>See the actual YAML</p>
+<div class="highlight"><pre><span></span><code>oc get &lt;type&gt; &lt;name&gt; -o yaml
+</code></pre></div>
+<h3 id="describe">describe</h3>
+<p>Describe also shows you more details about the current state:</p>
+<div class="highlight"><pre><span></span><code>oc describe &lt;type&gt; &lt;name&gt;
+</code></pre></div>
+<h3 id="logs">logs</h3>
+<div class="highlight"><pre><span></span><code>oc logs &lt;pod name&gt;
+oc logs &lt;pod name&gt; -f
+oc logs &lt;pod name&gt; -c &lt;container&gt;
+</code></pre></div>
+<h3 id="port-forward">port-forward</h3>
+<p>You can port-forward to a pod or service.</p>
+<p>Replace <code>&lt;pod name&gt;</code> and <code>&lt;service name&gt;</code> with actual pod/service names:</p>
+<div class="highlight"><pre><span></span><code>oc port-forward pod/&lt;pod name&gt; <span class="m">8080</span>:8080
+oc port-forward service/&lt;service name&gt; <span class="m">8080</span>:80
+</code></pre></div>
 <h2 id="login">Login</h2>
 <ol>
 <li>Find the cluster in IBM cloud<ol>
@@ -815,17 +1014,6 @@
 </li>
 <li>Copy the entire <code>oc login...</code> command and paste it into your terminal</li>
 </ol>
-<p><strong>✅ ✅ How do I know if I completed this step? ✅ ✅</strong></p>
-<ol>
-<li>Open a new Terminal window or tab</li>
-<li>Run the following command:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>oc project
-</code></pre></div>
-<p>It's successful if the output looks like:</p>
-<div class="highlight"><pre><span></span><code>Using project...
-</code></pre></div>
-<p>Otherwise, your login failed.</p>
 <h2 id="changing-projects">Changing Projects</h2>
 <h3 id="at-the-command-line">At the command line</h3>
 <p>Run the following command, replacing <code>&lt;project-name&gt;</code> with the project you'd like to switch to.</p>
@@ -846,31 +1034,6 @@
 </code></pre></div>
 <h2 id="more-information">More information</h2>
 <p>For detailed information, see <a href="https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html">Getting started with the OpenShift CLI</a></p>
-<h2 id="debugging-steps">Debugging Steps</h2>
-<ol>
-<li><code>get</code></li>
-<li><code>describe</code></li>
-<li><code>logs</code></li>
-<li><code>port-forward</code></li>
-</ol>
-<p>List things:</p>
-<div class="highlight"><pre><span></span><code>oc get &lt;type&gt;
-</code></pre></div>
-<p>See the actual YAML</p>
-<div class="highlight"><pre><span></span><code>oc get &lt;type&gt; &lt;name&gt; -o yaml
-</code></pre></div>
-<p>Describe also shows you more details about the current state:</p>
-<div class="highlight"><pre><span></span><code>oc describe &lt;type&gt; &lt;name&gt;
-</code></pre></div>
-<p>Logs</p>
-<div class="highlight"><pre><span></span><code>oc logs &lt;pod name&gt;
-oc logs &lt;pod name&gt; -f
-oc logs &lt;pod name&gt; -c &lt;container&gt;
-</code></pre></div>
-<p>Port-forward:</p>
-<div class="highlight"><pre><span></span><code>oc port-forward pod/react-intro-6b7787654f-zw25x <span class="m">8080</span>:8080
-oc port-forward service/react-intro <span class="m">8080</span>:80
-</code></pre></div>
                 
               
               
@@ -886,6 +1049,41 @@ oc port-forward service/react-intro <span class="m">8080</span>:80
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: OpenShift" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              OpenShift
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../tekton/" class="md-footer__link md-footer__link--next" aria-label="Next: Tekton" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Tekton
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

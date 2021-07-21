@@ -71,12 +71,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/openshift/cheatsheet/</loc>
-         <lastmod>2021-07-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/openshift/debugging/</loc>
+         <loc>https://upslopeio.github.io/ibm-cloud-garage-training/openshift/commands/</loc>
          <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
