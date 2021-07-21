@@ -1,5 +1,53 @@
 # Cheatsheet
 
+## Debugging Steps
+
+If your app doesn't load, there could be several issues. Here are some useful commands to help you debug:
+
+1. `get`
+1. `describe`
+1. `logs`
+1. `port-forward`
+
+### get
+
+```bash
+oc get <type>
+```
+
+See the actual YAML
+
+```bash
+oc get <type> <name> -o yaml
+```
+
+### describe
+
+Describe also shows you more details about the current state:
+
+```bash
+oc describe <type> <name>
+```
+
+### logs
+
+```bash
+oc logs <pod name>
+oc logs <pod name> -f
+oc logs <pod name> -c <container>
+```
+
+### port-forward
+
+You can port-forward to a pod or service.
+
+Replace `<pod name>` and `<service name>` with actual pod/service names:
+
+```bash
+oc port-forward pod/<pod name> 8080:8080
+oc port-forward service/<service name> 8080:80
+```
+
 ## Login
 
 1. Find the cluster in IBM cloud
@@ -13,23 +61,6 @@
 
 1. Click "Display Token"
 1. Copy the entire `oc login...` command and paste it into your terminal
-
-**✅ ✅ How do I know if I completed this step? ✅ ✅**
-
-1. Open a new Terminal window or tab
-1. Run the following command:
-
-```shell
-oc project
-```
-
-It's successful if the output looks like:
-
-```shell
-Using project...
-```
-
-Otherwise, your login failed.
 
 ## Changing Projects
 
@@ -70,43 +101,3 @@ npm root -g
 ## More information
 
 For detailed information, see [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
-
-## Debugging Steps
-
-1. `get`
-1. `describe`
-1. `logs`
-1. `port-forward`
-
-List things:
-
-```bash
-oc get <type>
-```
-
-See the actual YAML
-
-```bash
-oc get <type> <name> -o yaml
-```
-
-Describe also shows you more details about the current state:
-
-```bash
-oc describe <type> <name>
-```
-
-Logs
-
-```bash
-oc logs <pod name>
-oc logs <pod name> -f
-oc logs <pod name> -c <container>
-```
-
-Port-forward:
-
-```bash
-oc port-forward pod/react-intro-6b7787654f-zw25x 8080:8080
-oc port-forward service/react-intro 8080:80
-```
