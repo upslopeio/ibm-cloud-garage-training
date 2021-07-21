@@ -56,7 +56,8 @@ Name it `static-site` and make it public:
 
 ```
 cd ~
-take static-site
+mkdir static-site
+cd static-site
 code .
 ```
 

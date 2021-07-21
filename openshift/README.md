@@ -38,6 +38,17 @@ For example `oc new-project john-smith`
 
 ## Kubernetes Objects
 
+Kubernetes organizes objects by namespace. In OpenShift, namespaces are called Projects.
+
+There are 4 Kubernetes objects you need to know about to make an application available to the internet:
+
+1. Deployments - specify which image you want to run, and how many pods to create
+1. Pods - run containers
+1. Services - expose your containers to traffic inside the cluster
+1. Routes - expose your services to traffic from outside the cluster
+
+![](./img/kube-logical.png)
+
 ### Deployments
 
 The most basic Kubernetes object you'll work with is a Deployment, which tells Kubernetes:
