@@ -187,7 +187,7 @@ spec:
   wildcardPolicy: None
 ```
 
-#### Apply
+**Apply the file**
 
 ```
 oc apply -f k8s/route.yaml
