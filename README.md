@@ -29,7 +29,6 @@ To learn more about Design Thinking and the Garage Method, read these:
 1. [Garage Method Overview](https://ibm.box.com/s/2cdwroay4a4mpc0ti778c2hknol925q1)
 1. [Pair Programming](./xp/pair-programming.md)
 1. [Test-Driven Development](./tdd/README.md)
-1. [Intro to React](./react/README.md)
 
 **Self-paced work**
 
@@ -37,8 +36,9 @@ To learn more about Design Thinking and the Garage Method, read these:
 
 ## Day 3
 
-1. [Docker](https://www.katacoda.com/courses/docker)
-1. [Kubernetes](https://cloudnative101.dev/lectures/kube-overview/)
+1. [Docker](./docker/README.md)
+1. [Kubernetes](./openshift/README.md)
+1. [Intro to React](./react/README.md)
 
 ## Day 4
 
