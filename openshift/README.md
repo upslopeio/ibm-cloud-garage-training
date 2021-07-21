@@ -233,7 +233,7 @@ Run the following command to delete your project, replacing `<NAME>` with your p
 
 ```
 oc project default
-oc delete <NAME>
+oc delete project <NAME>
 ```
 
 ## References
