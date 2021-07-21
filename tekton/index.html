@@ -1020,11 +1020,8 @@ git push origin master
 <p>🛑 &nbsp;&nbsp; <strong>If ICC doesn't work for you</strong> open the OpenShift Web Console and login via "Copy Login Command"</p>
 </blockquote>
 <h2 id="create-a-new-project">Create a new project</h2>
-<p>Make sure your user number is set in your environment:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$CGB_USER</span>
-</code></pre></div>
-<p>You should see something like <code>03</code></p>
-<div class="highlight"><pre><span></span><code>oc sync react-intro-<span class="nv">$CGB_USER</span>-dev
+<p>You can get the name of the dev namespace from the BoxNote.</p>
+<div class="highlight"><pre><span></span><code>oc sync react-intro-&lt;USER NUMBER&gt;-dev
 </code></pre></div>
 <p>You should see output like this:</p>
 <div class="highlight"><pre><span></span><code>Setting up namespace react-intro...
