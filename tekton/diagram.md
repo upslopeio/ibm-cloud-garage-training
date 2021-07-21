@@ -40,3 +40,7 @@ Tekton->GitOps Repo: update QA folder
 Argo->GitOps Repo: git pull
 Argo->K8s QA: sync
 ```
+
+## Argo Project Overview
+
+![](../argo/img/argo-project.drawio.svg)
