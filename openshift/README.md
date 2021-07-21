@@ -56,7 +56,7 @@ The most basic Kubernetes object you'll work with is a Deployment, which tells K
 - which image you would like to run
 - how many replicas (instances) you would like to run
 
-#### Create the file
+**Create the file**
 
 1. Create a file named `k8s/deployment.yaml`
 1. Paste the following YAML into the file
@@ -86,13 +86,13 @@ spec:
         - containerPort: 8080
 ```
 
-#### Apply the file
+**Apply the file**
 
 ```
 oc apply -f k8s/deployment.yaml
 ```
 
-#### Verify the deployment works
+**Verify the deployment works**
 
 ```
 oc get deploy
@@ -104,6 +104,14 @@ You should see the following:
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
 static-site   1/1     1            1           24s
 ```
+
+**What just happened?**
+
+When you applied the file, Kubernetes stored your config in `etcd` (the "YAML database").
+
+The control plane saw that you wanted 1 replica of `static-site:v1` running. It looked at the nodes and couldn't find any.
+
+So the scheduler picked a node, and ran one instance of `static-site:v1`.
 
 ### Pods
 
@@ -117,7 +125,7 @@ oc get pods
 
 Services allow pods within a Kubernetes cluster to access the pods from your deployment.
 
-#### Create the file
+**Create the file**
 
 Create a file named `k8s/service.yaml`
 
@@ -137,13 +145,13 @@ spec:
       targetPort: 8080
 ```
 
-#### Apply the file
+**Apply the file**
 
 ```
 oc apply -f k8s/service.yaml
 ```
 
-#### Verify 
+**Verify **
 
 ```
 oc get svc
@@ -160,7 +168,7 @@ static-site   ClusterIP   172.21.141.7   <none>        80/TCP    2m6s
 
 Routes are an OpenShift concept. They serve a similar purpose to Kubernetes Ingresses.
 
-#### Create the file
+**Create the file**
 
 Create a file named `k8s/route.yaml` and paste the following contents:
 
@@ -185,7 +193,7 @@ spec:
 oc apply -f k8s/route.yaml
 ```
 
-#### Verify
+**Verify**
 
 ```
 oc get routes

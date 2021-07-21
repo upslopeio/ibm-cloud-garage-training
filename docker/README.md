@@ -100,12 +100,12 @@ You have one image on your machine, and one `repository:tag` combination pointin
 ## Run the image
 
 ```
-docker run -p 8080:8080 -it static-site
+docker run -p 8085:8080 -it static-site
 ```
 
 Then open the site locally:
 
-http://localhost:8080/
+http://localhost:8085/
 
 From a different Terminal window you can see that the process is running with the following command:
 
