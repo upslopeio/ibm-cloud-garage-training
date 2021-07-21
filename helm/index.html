@@ -895,6 +895,7 @@
 <div class="highlight"><pre><span></span><code>helm template &lt;release-name&gt; ./path/to/chart
 </code></pre></div>
 <p>This will print YAML to the command line.</p>
+<p><img alt="" src="img/dependencies.drawio.svg" /></p>
 <h2 id="requirements-files">Requirements Files</h2>
 <p>If a Helm chart has a <code>requirements.yaml</code> file, it will look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">dependencies</span><span class="p">:</span>
@@ -904,6 +905,7 @@
       <span class="no">http://artifactory-artifactory.tools:8082/artifactory/generic-local/react-intro-01-dev</span>
 </code></pre></div>
 <p>When a Helm chart is applied, it combines all of the configs from the dependencies, plus any files it has.</p>
+<p><img alt="" src="img/dependencies.drawio.svg" /></p>
                 
               
               
