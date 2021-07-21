@@ -41,6 +41,7 @@ nav:
       - Docker: docker/README.md
       - OpenShift: openshift/README.md
       - OpenShift Commands: openshift/commands.md
+      - Helm: helm/README.md
       - Tekton: tekton/README.md
       - Argo QA: argo/qa.md
       - Argo Prod: argo/production.md
