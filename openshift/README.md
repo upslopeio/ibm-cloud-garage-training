@@ -10,6 +10,8 @@ Kubernetes stores your data in a database called `etcd` - this stores the desire
 
 The Kubernetes control plane looks at `etcd`, looks at the nodes, then makes the nodes match the desired state.
 
+![](./img/kube-physical.png)
+
 ## Project Setup
 
 ### Create the config directory
