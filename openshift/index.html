@@ -1122,13 +1122,9 @@ static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
 <span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">tls</span><span class="p">:</span>
-    <span class="nt">termination</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">edge</span>
   <span class="nt">to</span><span class="p">:</span>
     <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">static-site</span>
-    <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-  <span class="nt">wildcardPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
 </code></pre></div>
 <p><strong>Apply the file</strong></p>
 <div class="highlight"><pre><span></span><code>oc apply -f k8s/route.yaml
@@ -1140,7 +1136,7 @@ static-site   ClusterIP   172.21.141.7   &lt;none&gt;        80/TCP    2m6s
 <div class="highlight"><pre><span></span><code>NAME          HOST/PORT                       PATH  SERVICES      PORT    TERMINATION   WILDCARD
 static-site   static-site-...appdomain.cloud        static-site   &lt;all&gt;   edge          None
 </code></pre></div>
-<p>Copy the <code>HOST/PORT</code> and open it in a browser using <code>https://&lt;URL&gt;</code>. You should be able to see your site! 🎉</p>
+<p>Copy the <code>HOST/PORT</code> and open it in a browser. You should be able to see your site! 🎉</p>
 <h2 id="additional-challenges">Additional Challenges</h2>
 <p>Deploy a new version:</p>
 <ul>
