@@ -67,6 +67,9 @@ helm template <release-name> ./path/to/chart
 
 This will print YAML to the command line.
 
+![](./img/dependencies.drawio.svg)
+
+
 ## Requirements Files
 
 If a Helm chart has a `requirements.yaml` file, it will look like this:
@@ -80,3 +83,5 @@ dependencies:
 ```
 
 When a Helm chart is applied, it combines all of the configs from the dependencies, plus any files it has.
+
+![](./img/dependencies.drawio.svg)
