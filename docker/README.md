@@ -19,6 +19,8 @@ By the end of this lesson you should be able to:
 
 ### Create Your Account
 
+You can sign up/sign in with Github or Redhat, or create your account:
+
 1. Visit https://quay.io/signin/
 1. Click "Create Account"
 
