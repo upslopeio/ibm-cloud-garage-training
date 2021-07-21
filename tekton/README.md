@@ -44,16 +44,10 @@ For example: `icc cohort7`
 
 ## Create a new project
 
-Make sure your user number is set in your environment:
+You can get the name of the dev namespace from the BoxNote.
 
 ```bash
-echo $CGB_USER
-```
-
-You should see something like `03`
-
-```bash
-oc sync react-intro-$CGB_USER-dev
+oc sync react-intro-<USER NUMBER>-dev
 ```
 
 You should see output like this:
