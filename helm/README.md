@@ -67,7 +67,7 @@ helm template <release-name> ./path/to/chart
 
 This will print YAML to the command line.
 
-![](./img/dependencies.drawio.svg)
+![](./img/template.drawio.svg)
 
 
 ## Requirements Files
