@@ -42,6 +42,7 @@ To learn more about Design Thinking and the Garage Method, read these:
 
 ## Day 4
 
+1. [Helm](./helm/README.md)
 1. [Tekton](./tekton/README.md)
 1. [12Factor](https://cloudnative101.dev/lectures/cloud-native/)
 
