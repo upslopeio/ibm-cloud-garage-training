@@ -1040,6 +1040,8 @@ git push
 <h3 id="add-the-image-pull-policy">Add the image pull policy</h3>
 <p>Now the ArgoCD app is displayed. Shortly you will notice that the pod creation failed, and it has a status of <code>ImagePullBackOff</code>.</p>
 <p>This is because the new namespace is trying to pull images created in another namespace.</p>
+<p><img alt="" src="../img/argo-policy.drawio.svg" /></p>
+<p>To solve this problem:</p>
 <ol>
 <li>
 <p>Give the new environment permission to pull images from qa namespace</p>
@@ -1055,10 +1057,11 @@ clusterrole.rbac.authorization.k8s.io/system:image-puller added: &quot;system:se
 </li>
 <li>
 <p>Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.</p>
+<p><img alt="" src="../img/argo-delete-pod.png" /></p>
 </li>
 <li>
-<p>If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
-   <img alt="" src="../img/argo-success.png" /></p>
+<p>If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):</p>
+<p><img alt="" src="../img/argo-success.png" /></p>
 </li>
 </ol>
 <h2 id="what-just-happened">What just happened?</h2>
