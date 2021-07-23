@@ -82,6 +82,10 @@ Now the ArgoCD app is displayed. Shortly you will notice that the pod creation f
 
 This is because the new namespace is trying to pull images created in another namespace.
 
+![](./img/argo-policy.drawio.svg)
+
+To solve this problem:
+
 1. Give the new environment permission to pull images from qa namespace
 
    ```bash
@@ -103,7 +107,10 @@ This is because the new namespace is trying to pull images created in another na
 
 1. Click the menu on the right side of the pod in ArgoCD then select "delete". OpenShift will immediately create a new pod and this time it will have permission to pull images from the other namespace.
 
+   ![](./img/argo-delete-pod.png)
+
 1. If successful, you will see something like the following when you open the ArgoCD controller (Note: every heart is green):
+
    ![](img/argo-success.png)
 
 ## What just happened?
