@@ -1077,8 +1077,8 @@ clusterrole.rbac.authorization.k8s.io/system:image-puller added: &quot;system:se
    <div class="highlight"><pre><span></span><code>cd ~/gitops
 git pull
 </code></pre></div></li>
-<li>Find the QA version of your app, and the latest app version</li>
-<li>Update the version in the <code>&lt;environment&gt;/project&lt;user-number&gt;/&lt;app-repo-name&gt;/requirements.yaml</code> file to match QA</li>
+<li>In the QA folder (which was automatically updated by Tekton) find the latest app version</li>
+<li>Update the version in the <code>production/&lt;project&gt;/&lt;app-repo-name&gt;/requirements.yaml</code> file to match QA</li>
 <li>Commit and push
    <div class="highlight"><pre><span></span><code>git add -A
 git commit -m &quot;bump production version&quot;
