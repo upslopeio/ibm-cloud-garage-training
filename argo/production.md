@@ -132,8 +132,8 @@ Your CI/CD pipeline now looks like the following sequence diagram:
    cd ~/gitops
    git pull
    ```
-1. Find the QA version of your app, and the latest app version
-1. Update the version in the `<environment>/project<user-number>/<app-repo-name>/requirements.yaml` file to match QA
+1. In the QA folder (which was automatically updated by Tekton) find the latest app version
+1. Update the version in the `production/<project>/<app-repo-name>/requirements.yaml` file to match QA
 1. Commit and push
    ```
    git add -A
