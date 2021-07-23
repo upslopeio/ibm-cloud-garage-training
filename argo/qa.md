@@ -62,12 +62,13 @@ This is because the new namespace is trying to pull images created in another na
    For your react intro app:
 
    ```bash
-   oc policy add-role-to-group system:image-puller system:serviceaccounts:react-intro-35-qa -n react-intro-35-dev
+   oc policy add-role-to-group system:image-puller system:serviceaccounts:react-intro-<user number>-qa -n react-intro-<user number>-dev
    ```
 
-   If successful, you will see something like the following:
+   If successful, you will see something like the following (the warning is normal):
 
    ```
+   Warning: Group 'system:serviceaccounts:react-intro-<user number>-qa' not found
    clusterrole.rbac.authorization.k8s.io/system:image-puller added: "system:serviceaccounts:<new-project-name>"
    ```
 
