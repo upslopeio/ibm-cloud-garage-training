@@ -991,10 +991,11 @@
 <div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:&lt;new-project-name&gt; -n &lt;dev-project-name&gt;
 </code></pre></div>
 <p>For your react intro app:</p>
-<div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:react-intro-35-qa -n react-intro-35-dev
+<div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:react-intro-&lt;user number&gt;-qa -n react-intro-&lt;user number&gt;-dev
 </code></pre></div>
-<p>If successful, you will see something like the following:</p>
-<div class="highlight"><pre><span></span><code>clusterrole.rbac.authorization.k8s.io/system:image-puller added: &quot;system:serviceaccounts:&lt;new-project-name&gt;&quot;
+<p>If successful, you will see something like the following (the warning is normal):</p>
+<div class="highlight"><pre><span></span><code>Warning: Group &#39;system:serviceaccounts:react-intro-&lt;user number&gt;-qa&#39; not found
+clusterrole.rbac.authorization.k8s.io/system:image-puller added: &quot;system:serviceaccounts:&lt;new-project-name&gt;&quot;
 </code></pre></div>
 </li>
 <li>
