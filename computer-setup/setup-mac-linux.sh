@@ -62,10 +62,10 @@ else
 fi
 
 if command -v yq &>/dev/null; then
-  echo Found yq@3
+  echo Found yq
 else
-  echo Installing yq@3
-  sh -c "$(brew install yq@3)"
+  echo Installing yq
+  sh -c "$(brew install yq)"
 fi
 
 if command -v jq &>/dev/null; then
@@ -172,15 +172,6 @@ else
   mkdir -p ~/bin
   curl -sSL -o "${ICC_CLI}" "${ICC_URL}"
   chmod u+x "${ICC_CLI}"
-fi
-
-YQ3_PATH="$(brew --prefix yq@3)/bin"
-
-if grep -qE "^export PATH=.*${YQ3_PATH}" ~/.zshrc; then
-  echo Found yq@3 in PATH
-else
-  echo Adding yq@3 to PATH
-  echo "export PATH=\"${YQ3_PATH}:\$PATH\"" >> ~/.zshrc
 fi
 
 if grep -qE '^export PATH=.*\$HOME/bin' ~/.zshrc; then
