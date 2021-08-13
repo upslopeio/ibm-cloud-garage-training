@@ -146,7 +146,7 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
     echo found nvm
 else
   echo Installing nvm
-  sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh)"
+  sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -162,14 +162,14 @@ else
   npm install -g --silent @ibmgaragecloud/cloud-native-toolkit-cli
 fi
 
-ICC_CLI="${HOME}/bin/icc"
-ICC_URL="https://raw.githubusercontent.com/ibm-garage-cloud/cloud-shell-commands/main/assets/icc"
+ICC_CLI="${HOME}/.local/bin/icc"
+ICC_URL="https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/icc"
 
 if [ -f "${ICC_CLI}" ]; then
   echo Found icc
 else
   echo Installing icc
-  mkdir -p ~/bin
+  mkdir -p ~/.local/bin
   curl -sSL -o "${ICC_CLI}" "${ICC_URL}"
   chmod u+x "${ICC_CLI}"
 fi
@@ -178,7 +178,7 @@ if grep -qE '^export PATH=.*\$HOME/bin' ~/.zshrc; then
   echo Found HOME in PATH
 else
   echo Adding HOME/bin to path
-  echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 fi
 
 if grep -qE '^export NVM_DIR="\$HOME/.nvm"' ~/.zshrc; then
