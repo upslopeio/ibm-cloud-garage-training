@@ -181,3 +181,5 @@ It's helpful to have the [Slack App](https://slack.com/downloads/windows).
 Click the link below and follow the instructions:
 
 [Install the IBM Cloud CLI](./ibmcloud.md)
+
+On WSL2, use the Linux command line install: `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
