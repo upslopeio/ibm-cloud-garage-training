@@ -25,6 +25,7 @@ GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_EMAIL}"
 git config --global core.ignorecase false
+git config --global init.defaultBranch main
 
 if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   echo zsh not found
