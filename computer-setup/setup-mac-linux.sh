@@ -174,7 +174,14 @@ else
   chmod u+x "${ICC_CLI}"
 fi
 
-if grep -qE '^export PATH=.*\$HOME/bin' ~/.zshrc; then
+if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
+  echo Found HOME in PATH
+else
+  echo Adding HOME/bin to path
+  echo 'export ICC_HOME="$HOME/.local"' >> ~/.zshrc
+fi
+
+if grep -qE '^export PATH=.*\$HOME/.local/bin' ~/.zshrc; then
   echo Found HOME in PATH
 else
   echo Adding HOME/bin to path
