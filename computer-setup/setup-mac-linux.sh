@@ -177,8 +177,6 @@ else
   chmod u+x "${ICC_CLI}"
 fi
 
-curl -sSL -o ~/bin/icc https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/icc
-
 if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
   echo Found HOME in PATH
 else
