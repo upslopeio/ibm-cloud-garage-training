@@ -178,9 +178,9 @@ else
 fi
 
 if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
-  echo Found HOME in PATH
+  echo Found ICC_HOME in .zshrc
 else
-  echo Adding ICC_HOME to path
+  echo Adding ICC_HOME to .zshrc
   echo 'export ICC_HOME="$HOME/.local"' >> ~/.zshrc
 fi
 
