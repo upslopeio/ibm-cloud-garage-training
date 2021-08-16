@@ -91,13 +91,15 @@ else
   sh -c "$(brew install tektoncd-cli)"
 fi
 
-CODE_APP="/Applications/Visual Studio Code.app"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  CODE_APP="/Applications/Visual Studio Code.app"
 
-if [[ -e $CODE_APP ]]; then
-  echo Found Visual Studio Code
-else
-  echo Installing Visual Studio Code
-  sh -c "$(brew install --cask visual-studio-code)"
+  if [[ -e $CODE_APP ]]; then
+    echo Found Visual Studio Code
+  else
+    echo Installing Visual Studio Code
+    sh -c "$(brew install --cask visual-studio-code)"
+  fi
 fi
 
 CODE_CLI="/usr/local/bin/code"
@@ -175,6 +177,8 @@ else
   chmod u+x "${ICC_CLI}"
 fi
 
+curl -sSL -o ~/bin/icc https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/icc
+
 if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
   echo Found HOME in PATH
 else
@@ -220,9 +224,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   SLACK_VERSION=$(defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString)
 fi
 
+CODE_VERSION="Unknown"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  CODE_VERSION=$(code --version 2>&1)
+fi
+
 BREW_VERSION=$(brew --version 2>&1)
 BREW_DOCTOR=$(brew doctor 2>&1)
-CODE_VERSION=$(code --version 2>&1)
 DOCKER_VERSION=$(docker version 2>&1)
 GIT_VERSION=$(git --version 2>&1)
 GIT_CONFIG=$(git config --global --list 2>&1)
