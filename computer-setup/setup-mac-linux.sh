@@ -180,14 +180,14 @@ fi
 if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
   echo Found HOME in PATH
 else
-  echo Adding HOME/bin to path
+  echo Adding ICC_HOME to path
   echo 'export ICC_HOME="$HOME/.local"' >> ~/.zshrc
 fi
 
 if grep -qE '^export PATH=.*\$HOME/.local/bin' ~/.zshrc; then
   echo Found HOME in PATH
 else
-  echo Adding HOME/bin to path
+  echo Adding HOME/.local/bin to path
   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 fi
 
