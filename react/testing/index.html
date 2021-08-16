@@ -814,7 +814,7 @@
                 
                 <h1 id="testing-a-react-app">Testing a React App</h1>
 <p>Example Component:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// define state for the list of books</span>
@@ -875,9 +875,9 @@
 <span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
 </code></pre></div>
 <p>Example Test:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">render</span><span class="p">,</span> <span class="nx">screen</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/react&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">userEvent</span> <span class="k">from</span> <span class="s2">&quot;@testing-library/user-event&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">render</span><span class="p">,</span> <span class="nx">screen</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;@testing-library/react&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="kr">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">userEvent</span> <span class="kr">from</span> <span class="s2">&quot;@testing-library/user-event&quot;</span><span class="p">;</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s2">&quot;allows users to add recovery times&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
