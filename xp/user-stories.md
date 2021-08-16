@@ -28,7 +28,7 @@ Chores generally do not include any technical todos related to functionality in 
 
 **POs** work with developers to prioritize chores
 
-**Developers** manage the lifecycle of Chories (e.g. dragging them into "Accepted")
+**Developers** manage the lifecycle of Chores (e.g. dragging them into "Accepted")
 
 ### Bugs
 
