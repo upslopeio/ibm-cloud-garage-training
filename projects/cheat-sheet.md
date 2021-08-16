@@ -198,6 +198,7 @@ function formatDate(date, time) {
   const utcSeconds = new Date(...`${date} ${time}`.split(/[- :]/)).getTime() / 1000;
   const d = new Date(0);
   d.setUTCSeconds(utcSeconds);
+  d.setMonth(d.getMonth() - 1);
   return d.toLocaleDateString("en-US");
 }
 
