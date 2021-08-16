@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 if [[ "$OSTYPE" == "cygwin" ]]; then
   echo 'cygwin is not supported'
   exit 1
@@ -21,6 +19,8 @@ EXISTING_USER_NAME=$(git config --global user.name)
 EXISTING_USER_NAME=${EXISTING_USER_NAME:-${USER}}
 read -rp "Please Enter your user name for git (${EXISTING_USER_NAME}): " GIT_USER_NAME
 GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
+
+set -e
 
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_EMAIL}"
