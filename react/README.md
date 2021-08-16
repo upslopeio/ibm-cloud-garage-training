@@ -10,6 +10,7 @@ First, create a new React app:
 cd ~
 npx create-react-app react-intro
 cd react-intro
+npm install @testing-library/dom
 ```
 
 ## Start the React app
