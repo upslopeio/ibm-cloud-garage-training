@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#argo-continuous-delivery-for-qa" class="md-skip">
+        <a href="#argo-continuous-delivery-for-production" class="md-skip">
           Skip to content
         </a>
       
@@ -948,7 +948,7 @@
               
                 
                 
-                <h1 id="argo-continuous-delivery-for-qa">Argo - Continuous Delivery for QA</h1>
+                <h1 id="argo-continuous-delivery-for-production">Argo - Continuous Delivery for Production</h1>
 <h2 id="prerequisites">Prerequisites</h2>
 <blockquote>
 <p>🛑 <strong>Stop</strong>: make sure your pipeline is green before setting up ArgoCD</p>
@@ -1044,7 +1044,7 @@ git push
 <p>To solve this problem:</p>
 <ol>
 <li>
-<p>Give the new environment permission to pull images from qa namespace</p>
+<p>Give the new environment permission to pull images from dev namespace</p>
 <div class="highlight"><pre><span></span><code>oc policy add-role-to-group system:image-puller system:serviceaccounts:&lt;new-project-name&gt; -n &lt;dev-project-name&gt;
 </code></pre></div>
 <p>For example:</p>
