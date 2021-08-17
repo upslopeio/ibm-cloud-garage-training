@@ -1,4 +1,4 @@
-# Argo - Continuous Delivery for QA
+# Argo - Continuous Delivery for Production
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ This is because the new namespace is trying to pull images created in another na
 
 To solve this problem:
 
-1. Give the new environment permission to pull images from qa namespace
+1. Give the new environment permission to pull images from dev namespace
 
    ```bash
    oc policy add-role-to-group system:image-puller system:serviceaccounts:<new-project-name> -n <dev-project-name>
