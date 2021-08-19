@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 if [[ "$OSTYPE" == "cygwin" ]]; then
   echo 'cygwin is not supported'
   exit 1
@@ -21,6 +19,8 @@ EXISTING_USER_NAME=$(git config --global user.name)
 EXISTING_USER_NAME=${EXISTING_USER_NAME:-${USER}}
 read -rp "Please Enter your user name for git (${EXISTING_USER_NAME}): " GIT_USER_NAME
 GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
+
+set -e
 
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_EMAIL}"
@@ -178,9 +178,9 @@ else
 fi
 
 if grep -qE '^export ICC_HOME=.*\$HOME/.local' ~/.zshrc; then
-  echo Found HOME in PATH
+  echo Found ICC_HOME in .zshrc
 else
-  echo Adding ICC_HOME to path
+  echo Adding ICC_HOME to .zshrc
   echo 'export ICC_HOME="$HOME/.local"' >> ~/.zshrc
 fi
 
