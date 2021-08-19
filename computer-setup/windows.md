@@ -158,7 +158,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 
 [Turn on Autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
 
-![](../img/vscode-autosave.png)
+![](./img/vscode-autosave.png)
 
 Install the YAML extension.
 
