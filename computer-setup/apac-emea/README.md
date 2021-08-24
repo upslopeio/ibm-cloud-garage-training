@@ -12,15 +12,43 @@ Follow the instructions below.
 
 ## Automatic Install Script
 
-This script is self-recovering, so the solution to almost any error will be to run the script again.
+Execute the following script in your terminal:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
 ```
 
-> Note: If the above setup script reports any `command not found` errors, run the script again. It is safe to run this script multiple times. It will eventually fix any `command not found` errors.
+It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a healthy setup should complete within a few seconds, and you will essentially just see the results.
 
-Post the results in the Slack channel thread for the instructor to inspect.
+If you see any error or experience any problems, have a look at the [Common Issues](#common-issues) section below.
+
+When you are done, post the logged results in the Slack channel thread for the instructor to inspect. [Here](results-example.log) you can find a (rather healthy) example of the results to post. Post the result in any case – even if your output has errors.
+
+Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
+
+#### Common Issues
+
+**IMPORTANT:** Run the setup script again after executing any of the below actions.
+
+- **script doesn't produce any output**
+   - configure git email globally: `git config --global user.email <your-github.com-email>`
+   - configure git name globally: `git config --global user.email <your-github.com-email>`
+- **command not found error**
+   - run setup script again (multiple time if necessary)
+- **docker deamon connect error**
+   - start Docker desktop app
+- **docker command not found**
+   - start Docker desktop app
+   - confirm privileged access
+- **brew include errors**
+   - delete problematic files: `rm -rf /usr/local/include`
+- **zsh: exec format error: tkn**
+   - remove tekton binary: `rm ~/bin/tkn`
+- **tkn version error**
+   - remove tekton binary: `rm ~/bin/tkn`
+- **nvm: command not found**
+   - install oh-my-zsh: `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+   - restart the terminal
 
 ## Get an IBM Cloud API Key
 
@@ -87,7 +115,7 @@ In order to login to the cluster from the command line, you must first log in on
 
 ## Configure ICC - fast cluster switcher
 
-1. The automatic setup script download `icc` and saved it in `~/.local/bin`, make sure it is there, if not, run the script again.
+1. The automatic setup script downloads `icc` and saves it in `~/.local/bin`. Make sure it is there, if not, run the script again.
 1. Run `source ~/.zshrc` to update the path of the current terminal.
 1. Run `icc --add-account` - if icc is not found, run the script again and start over at step 1.
 1. name the account `garage`
@@ -97,6 +125,8 @@ In order to login to the cluster from the command line, you must first log in on
 When you run `icc` you should see at least one cluster listed (the cluster for your cohort).
 
 When you run `icc <cluster name>` you should not see an error message.
+
+When you run `oc console` you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).
 
 ## Visual Studio Code auto save
 
