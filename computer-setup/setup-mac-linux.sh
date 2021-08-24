@@ -11,7 +11,27 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
   exit 1
 fi
 
-EXISTING_EMAIL=$(git config --global user.email)
+PROGRAMS=(brew docker git ibmcloud icc igc jq kubectl kustomize node npm oc tkn yq);
+INSTALLED=0;
+MISSING='';
+
+for program in "${PROGRAMS[@]}"; do
+    if hash "$program" &>/dev/null
+    then
+      ((INSTALLED++))
+    else
+      MISSING="${MISSING} ${program}"
+    fi
+done
+
+if [[ -z $MISSING ]]; then
+  echo "All programs found (${PROGRAMS[*]})"
+  exit 0;
+fi
+
+printf "There is %d missing program. (%s )\n" "${#MISSING[@]}" "${MISSING[*]}";
+
+EXISTING_EMAIL=$(git config --global user.email);
 read -rp "Please Enter your email address for git (${EXISTING_EMAIL}): " GIT_EMAIL
 GIT_EMAIL=${GIT_EMAIL:-${EXISTING_EMAIL}}
 
@@ -21,6 +41,14 @@ read -rp "Please Enter your user name for git (${EXISTING_USER_NAME}): " GIT_USE
 GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
 
 set -e
+
+trap 'catch $? $LINENO' EXIT
+
+catch() {
+  if [ "$1" != "0" ]; then
+    echo "Error $1 occurred on $2"
+  fi
+}
 
 git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_EMAIL}"
@@ -34,7 +62,7 @@ if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   exit 1
 fi
 
-if command -v brew &>/dev/null; then
+if command -v brew >/dev/null; then
   echo Found homebrew
 else
   echo Installing homebrew
@@ -229,7 +257,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 BREW_VERSION=$(brew --version 2>&1)
-BREW_DOCTOR=$(brew doctor 2>&1)
 DOCKER_VERSION=$(docker version 2>&1)
 GIT_VERSION=$(git --version 2>&1)
 GIT_CONFIG=$(git config --global --list 2>&1)
@@ -256,7 +283,6 @@ echo
 
 printf '**********\n%-20s: %s \n\n' "OS" "${OSTYPE:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "brew doctor" "${BREW_DOCTOR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "docker" "${DOCKER_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "git" "${GIT_VERSION:-ERROR}"
