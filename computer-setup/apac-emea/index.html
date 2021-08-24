@@ -769,6 +769,19 @@
     Automatic Install Script
   </a>
   
+    <nav class="md-nav" aria-label="Automatic Install Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    Common Issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -833,13 +846,52 @@
 <h2 id="mac-and-linux">Mac and Linux</h2>
 <p>Follow the instructions below.</p>
 <h2 id="automatic-install-script">Automatic Install Script</h2>
-<p>This script is self-recovering, so the solution to almost any error will be to run the script again.</p>
+<p>Execute the following script in your terminal:</p>
 <div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
-<blockquote>
-<p>Note: If the above setup script reports any <code>command not found</code> errors, run the script again. It is safe to run this script multiple times. It will eventually fix any <code>command not found</code> errors.</p>
-</blockquote>
-<p>Post the results in the Slack channel thread for the instructor to inspect.</p>
+<p>It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a healthy setup should complete within a few seconds, and you will essentially just see the results.</p>
+<p>If you see any error or experience any problems, have a look at the <a href="#common-issues">Common Issues</a> section below.</p>
+<p>When you are done, post the logged results in the Slack channel thread for the instructor to inspect. <a href="results-example.log">Here</a> you can find a (rather healthy) example of the results to post. Post the result in any case – even if your output has errors.</p>
+<p>Then, continue with <a href="#get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</a>.</p>
+<h4 id="common-issues">Common Issues</h4>
+<p><strong>IMPORTANT:</strong> Run the setup script again after executing any of the below actions.</p>
+<ul>
+<li><strong>script doesn't produce any output</strong><ul>
+<li>configure git email globally: <code>git config --global user.email &lt;your-github.com-email&gt;</code></li>
+<li>configure git name globally: <code>git config --global user.email &lt;your-github.com-email&gt;</code></li>
+</ul>
+</li>
+<li><strong>command not found error</strong><ul>
+<li>run setup script again (multiple time if necessary)</li>
+</ul>
+</li>
+<li><strong>docker deamon connect error</strong><ul>
+<li>start Docker desktop app</li>
+</ul>
+</li>
+<li><strong>docker command not found</strong><ul>
+<li>start Docker desktop app</li>
+<li>confirm privileged access</li>
+</ul>
+</li>
+<li><strong>brew include errors</strong><ul>
+<li>delete problematic files: <code>rm -rf /usr/local/include</code></li>
+</ul>
+</li>
+<li><strong>zsh: exec format error: tkn</strong><ul>
+<li>remove tekton binary: <code>rm ~/bin/tkn</code></li>
+</ul>
+</li>
+<li><strong>tkn version error</strong><ul>
+<li>remove tekton binary: <code>rm ~/bin/tkn</code></li>
+</ul>
+</li>
+<li><strong>nvm: command not found</strong><ul>
+<li>install oh-my-zsh: <code>sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></li>
+<li>restart the terminal</li>
+</ul>
+</li>
+</ul>
 <h2 id="get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</h2>
 <ol>
 <li>Accept your invitation to the "DTETECH" account (in your email)
@@ -889,7 +941,7 @@
 <p><img alt="" src="../img/openshift-web-console.png" /></p>
 <h2 id="configure-icc-fast-cluster-switcher">Configure ICC - fast cluster switcher</h2>
 <ol>
-<li>The automatic setup script download <code>icc</code> and saved it in <code>~/.local/bin</code>, make sure it is there, if not, run the script again.</li>
+<li>The automatic setup script downloads <code>icc</code> and saves it in <code>~/.local/bin</code>. Make sure it is there, if not, run the script again.</li>
 <li>Run <code>source ~/.zshrc</code> to update the path of the current terminal.</li>
 <li>Run <code>icc --add-account</code> - if icc is not found, run the script again and start over at step 1.</li>
 <li>name the account <code>garage</code></li>
@@ -898,6 +950,7 @@
 </ol>
 <p>When you run <code>icc</code> you should see at least one cluster listed (the cluster for your cohort).</p>
 <p>When you run <code>icc &lt;cluster name&gt;</code> you should not see an error message.</p>
+<p>When you run <code>oc console</code> you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).</p>
 <h2 id="visual-studio-code-auto-save">Visual Studio Code auto save</h2>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on auto save</a></p>
 <p><img alt="" src="../img/vscode-autosave.png" /></p>

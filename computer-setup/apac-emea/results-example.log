@@ -1,0 +1,184 @@
+===== RESULTS: post the following to the slack channel =====
+
+**********
+OS                  : darwin20
+
+**********
+brew                : Homebrew 3.2.9
+Homebrew/homebrew-core (git revision cc86a308a6; last commit 2021-08-24)
+Homebrew/homebrew-cask (git revision ef6cf4e2af; last commit 2021-08-24)
+
+**********
+brew doctor         : Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don't worry or file an issue; just ignore this. Thanks!
+
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config scripts to determine if
+software packages are installed, and which additional flags to use when
+compiling and linking.
+
+Having additional scripts in your path can confuse software installed via
+Homebrew if the config script overrides a system or Homebrew-provided
+script of the same name. We found the following "config" scripts:
+  /Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-tool-config
+
+**********
+code                : 1.59.0
+379476f0e13988d90fab105c5c19e7abc8b1dea8
+x64
+
+**********
+docker              : Client:
+ Cloud integration: 1.0.17
+ Version:           20.10.7
+ API version:       1.41
+ Go version:        go1.16.4
+ Git commit:        f0df350
+ Built:             Wed Jun  2 11:56:23 2021
+ OS/Arch:           darwin/arm64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.7
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.15
+  Git commit:       b0f5bc3
+  Built:            Wed Jun  2 11:55:36 2021
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.4.6
+  GitCommit:        d71fcd7d8303cbf684402823e425e9dd2e99285d
+ runc:
+  Version:          1.0.0-rc95
+  GitCommit:        b9ee9c6314599f1b4a7f497e1f1f856fe433d3b7
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+
+**********
+git                 : git version 2.30.1 (Apple Git-130)
+
+**********
+git config          : user.name=John Doe
+user.email=john.doe@upslope.io
+
+**********
+HOME                : /Users/johndoe
+
+**********
+ibmcloud            : ibmcloud version 2.0.2+d08d92e-2021-08-04T19:37:19+00:00
+
+**********
+ibmcloud plugins    : Listing installed plug-ins...
+
+Plugin Name                             Version   Status   Private endpoints supported
+container-service[kubernetes-service]   1.0.312            false
+
+**********
+icc                 :
+
+**********
+igc                 : 1.19.11
+
+**********
+jq                  : jq-1.6
+
+**********
+kubectl             : Client Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.0", GitCommit:"c2b5237ccd9c0f1d600d3072634ca66cefdf272f", GitTreeState:"clean", BuildDate:"2021-08-04T17:56:19Z", GoVersion:"go1.16.6", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.0+b00ba52", GitCommit:"b00ba528042af9b2bed6feb98e2b0fab574331fe", GitTreeState:"clean", BuildDate:"2021-06-11T00:02:39Z", GoVersion:"go1.15.7", Compiler:"gc", Platform:"linux/amd64"}
+WARNING: version difference between client (1.22) and server (1.19) exceeds the supported minor version skew of +/-1
+
+**********
+kustomize           : {Version:kustomize/v4.2.0 GitCommit:d53a2ad45d04b0264bcee9e19879437d851cb778 BuildDate:2021-07-01T00:44:28+01:00 GoOs:darwin GoArch:amd64}
+
+**********
+node                : v14.17.5
+
+**********
+npm                 : 6.14.14
+
+**********
+npm doctor          : npm notice PING https://registry.npmjs.org/
+Check                               Value                        Recommendation
+npm ping                            ok
+npm -v                              v6.14.14                     Use npm v7.21.0
+node -v                             v14.17.5
+npm config get registry             https://registry.npmjs.org/
+which git                           /usr/bin/git
+Perms check on cached files         ok
+Perms check on global node_modules  ok
+Perms check on local node_modules   ok
+Verify cache contents               verified 12334 tarballs
+
+**********
+nvm                 : 0.37.1
+
+**********
+nvm dir             : /Users/johndoe/.nvm
+
+**********
+nvm bin             : /Users/johndoe/.nvm/versions/node/v14.17.5/bin
+
+**********
+oc                  : Client Version: v4.2.0-alpha.0-657-g51011e4
+Server Version: 4.6.38
+Kubernetes Version: v1.19.0+b00ba52
+
+**********
+oc plugin list      : Unable read directory "/Users/johndoe/bin" from your PATH: open /Users/johndoe/bin: no such file or directory. Skipping...
+The following compatible plugins are available:
+
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-console
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-credentials
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-dashboard
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-enable
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-endpoints
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-git
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-git-secret
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-gitops
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-igc
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-pipeline
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-sync
+/Users/johndoe/.nvm/versions/node/v14.17.5/bin/kubectl-tool-config
+Unable read directory "/Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/bin" from your PATH: open /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/bin: no such file or directory. Skipping...
+
+**********
+path                : /Users/johndoe/bin:/Users/johndoe/.nvm/versions/node/v14.17.5/bin:/Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/bin:/Users/johndoe/Applications/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+**********
+shell               : /bin/zsh
+
+**********
+slack               : 4.19.0
+
+**********
+user                : johndoe
+
+**********
+tkn                 : /usr/local/bin/tkn
+
+**********
+yq                  : yq (https://github.com/mikefarah/yq/) version 4.12.0
+
+===== RESULTS END =====
+
+
+Run the following to apply the changes to the current terminal:
+source ~/.zshrc
+
+
+If the output above contains ANY error (other than 'error: You must be logged in to the server'...), run 'source ~/.zshrc' and run this script again.
+If errors persist, post them to the slack channel
+
+If there are no errors, post the above RESULTS to the slack channel.
+
+
+Next, run the following commands and post the output to the slack channel
+tkn version
+
+> tkn version
+Client version: 0.20.0
