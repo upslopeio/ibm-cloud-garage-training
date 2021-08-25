@@ -2,6 +2,21 @@
 
 Follow the instructions on this page, in order from top to bottom.
 
+## Prepare accounts
+
+You will need an account at each of the following services. 
+
+- [GitHub](https://www.github.com) 
+  - post your GitHub username in the Slack channel once you are done
+- [Quay Container Registry](https://www.quay.io)
+- [Trello](https://www.trello.com)  (Login with your IBM W3ID)
+
+## Accept the team invitation
+
+After you post your GitHub username in slack, the instructors will invite you to the team. The invite is not automatic.
+
+After the invitation is sent, you can accept the team invitation by visiting <https://github.com/cloud-native-garage-method-cohort>
+
 ## Windows
 
 Complete [Windows setup](./windows.md) instructions and then continue at the "Automatic Install Script" section on the Ubuntu side.
@@ -18,7 +33,7 @@ Execute the following script in your terminal:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
 ```
 
-It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a healthy setup should complete within a few seconds, and you will essentially just see the results.
+It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed  will complete very quickly, and you will see: `You can move on to the next setup step!`.
 
 If you see any error or experience any problems, have a look at the [Common Issues](#common-issues) section below.
 
@@ -30,9 +45,6 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 
 **IMPORTANT:** Run the setup script again after executing any of the below actions.
 
-- **script doesn't produce any output**
-   - configure git email globally: `git config --global user.email <your-github.com-email>`
-   - configure git name globally: `git config --global user.name <Your Full Name>`
 - **command not found error**
    - run setup script again (multiple times if necessary)
 - **docker deamon connect error**
@@ -40,18 +52,20 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 - **docker command not found**
    - start Docker desktop app
    - confirm privileged access
-- **brew include errors**
-   - delete problematic files: `rm -rf /usr/local/include`
 - **nvm: command not found**
-   - install oh-my-zsh: `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+   - install nvm manually: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash`
    - restart the terminal
+   
+## Connect to GitHub with SSH
+
+Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 ## Get an IBM Cloud API Key
 
-1. Accept your invitation to the "DTETECH" account (in your email)
+1. Accept your invitation to the `DTEV2`, `DTETECH` or `DTESQUAD` account (in your email)
    ![](../img/invitation.png)
 1. Log into https://cloud.ibm.com with your IBM email address
-1. ‼️ Make sure that "DTETECH" is selected from the account menu (see below)
+1. ‼️ Make sure that `DTEV2`, `DTETECH` or `DTESQUAD` is selected from the account menu (See below)
 1. Click on Manage > Access (IAM)
 1. Under "My IBM Cloud API keys" click "View all"
 1. Click "Create an IBM Cloud API key"
@@ -87,7 +101,7 @@ You should see your cohort's cluster in the list.
 If you don't, it could be because:
 
 1. It's before class started, and we haven't created it yet
-1. You created your API key in the wrong account (your personal account, as opposed to DTETECH)
+1. You created your API key in the wrong account (your personal account, as opposed to `DTEV2`, `DTETECH` or `DTESQUAD`)
 1. You have not been granted access to the cluster - contact your instructor
 
 ## Access the OpenShift Cluster
@@ -95,7 +109,7 @@ If you don't, it could be because:
 In order to login to the cluster from the command line, you must first log in on the website.
 
 1. Log into https://cloud.ibm.com with your IBM email address
-1. Make sure that "DTETECH" is selected from the account menu
+1. Make sure that `DTEV2`, `DTETECH` or `DTESQUAD` is selected from the account menu
 1. Under "Resource Summary" click "Clusters"
 1. Click your cohort's cluster
 1. Click "OpenShift Web Console"

@@ -198,7 +198,7 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
     echo found nvm
 else
   echo Installing nvm
-  sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
