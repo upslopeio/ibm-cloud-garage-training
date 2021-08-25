@@ -32,7 +32,7 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 
 - **script doesn't produce any output**
    - configure git email globally: `git config --global user.email <your-github.com-email>`
-   - configure git name globally: `git config --global user.email <your-github.com-email>`
+   - configure git name globally: `git config --global user.name <Your Full Name>`
 - **command not found error**
    - run setup script again (multiple time if necessary)
 - **docker deamon connect error**
