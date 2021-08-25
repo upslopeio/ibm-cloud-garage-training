@@ -11,25 +11,29 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
   exit 1
 fi
 
-PROGRAMS=(brew docker git ibmcloud icc igc jq kubectl kustomize node npm oc tkn yq);
-INSTALLED=0;
-MISSING='';
+function check_installed_tools {
+  TOOLS=(brew docker git ibmcloud icc igc jq kubectl kustomize node npm oc tkn yq);
+  INSTALLED=0;
+  MISSING='';
 
-for program in "${PROGRAMS[@]}"; do
-    if hash "$program" &>/dev/null
-    then
-      ((INSTALLED++))
-    else
-      MISSING="${MISSING} ${program}"
-    fi
-done
+  for too in "${TOOLS[@]}"; do
+      if hash "$too" &>/dev/null
+      then
+        ((INSTALLED++))
+      else
+        MISSING="${MISSING} ${too}"
+      fi
+  done
 
-if [[ -z $MISSING ]]; then
-  echo "All programs found (${PROGRAMS[*]})"
-  exit 0;
-fi
+  if [[ -z $MISSING ]]; then
+    echo "Found all the following tools: (${TOOLS[*]})"
+    echo "You can move on to the next setup step!"
+    return 0;
+  fi
 
-printf "There is %d missing program. (%s )\n" "${#MISSING[@]}" "${MISSING[*]}";
+  printf "The following tools are missing: (%s )\n" "${MISSING[*]}";
+  return 1;
+}
 
 EXISTING_EMAIL=$(git config --global user.email);
 read -rp "Please Enter your email address for git (${EXISTING_EMAIL}): " GIT_EMAIL
@@ -62,6 +66,10 @@ if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
   exit 1
 fi
 
+if check_installed_tools -eq 0; then
+  exit 0
+fi
+
 if command -v brew >/dev/null; then
   echo Found homebrew
 else
@@ -69,32 +77,55 @@ else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  CODE_APP="/Applications/Visual Studio Code.app"
+  if [[ -e $CODE_APP ]]; then
+    echo Found Visual Studio Code
+  else
+    echo Installing Visual Studio Code
+    brew install --cask visual-studio-code
+  fi
+else
+   EXIT_MESSAGE="${EXIT_MESSAGE}\nPlease install Visual Studio Code and then install the CLI. See https://code.visualstudio.com/docs/setup/setup-overview "
+fi
+
 if command -v docker &>/dev/null; then
     echo Found docker
 else
-  echo Installing docker
-  sh -c "$(brew install --cask docker)"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    DOCKER_APP="/Applications/Docker.app"
+    if [[ -e DOCKER_APP ]]; then
+      echo Found Docker app
+      EXIT_MESSAGE="${EXIT_MESSAGE}\nFound ${DOCKER_APP}. Please start the Docker desktop app and confirm privileged access to install docker CLI"
+      EXIT_MESSAGE=start Docker to install
+    else
+      echo Installing docker
+      brew install --cask docker
+    fi
+  else
+    EXIT_MESSAGE="${EXIT_MESSAGE}\nPlease install and start the Docker desktop app and confirm privileged access to install the docker CLI"
+  fi
 fi
 
 if command -v kustomize &>/dev/null; then
     echo Found kustomize
 else
   echo Installing kustomize
-  sh -c "$(brew install kustomize)"
+  brew install kustomize
 fi
 
 if command -v git &>/dev/null; then
   echo Found git
 else
   echo Installing git
-  sh -c "$(brew install git)"
+  brew install git
 fi
 
 if command -v yq &>/dev/null; then
   echo Found yq
 else
   echo Installing yq
-  sh -c "$(brew install yq)"
+  brew install yq
 fi
 
 if command -v jq &>/dev/null; then
@@ -102,32 +133,21 @@ if command -v jq &>/dev/null; then
   sh -c "$(chmod u+x "$(command -v jq)")"
 else
   echo Installing jq
-  sh -c "$(brew install jq)"
+  brew install jq
 fi
 
 if command -v oc &>/dev/null; then
   echo Found openshift-cli
 else
   echo Installing openshift-cli
-  sh -c "$(brew install openshift-cli)"
+  brew install openshift-cli
 fi
 
 if command -v tkn &>/dev/null; then
   echo Found tektoncd-cli
 else
   echo Installing tektoncd-cli
-  sh -c "$(brew install tektoncd-cli)"
-fi
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  CODE_APP="/Applications/Visual Studio Code.app"
-
-  if [[ -e $CODE_APP ]]; then
-    echo Found Visual Studio Code
-  else
-    echo Installing Visual Studio Code
-    sh -c "$(brew install --cask visual-studio-code)"
-  fi
+  brew install tektoncd-cli
 fi
 
 CODE_CLI="/usr/local/bin/code"
@@ -239,6 +259,8 @@ fi
 
 set +e
 
+source "${HOME}/.zshrc"
+
 echo
 echo Collecting results....
 echo
@@ -267,7 +289,6 @@ JQ_VERSION=$(jq --version 2>&1)
 KUBECTL_VERSION=$(kubectl version 2>&1)
 KUSTOMIZE_VERSION=$(kustomize version 2>&1)
 NODE_VERSION=$(node --version 2>&1)
-NPM_DOCTOR=$(npm doctor 2>&1)
 NPM_VERSION=$(npm --version 2>&1)
 NVM_VERSION=$(nvm --version 2>&1)
 OC_VERSION=$(oc version 2>&1)
@@ -275,7 +296,7 @@ OC_PLUGINS=$(oc plugin list 2>&1)
 YQ_VERSION=$(yq --version 2>&1)
 
 # The following commands return "cannot execute binary file" for some reason
-#"$(tkn verion)"
+#"$(tkn version)"
 TKN_VERSION=$(which tkn 2>&1)
 
 echo ===== RESULTS: post the following to the slack channel =====
@@ -297,7 +318,6 @@ printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "npm doctor" "${NPM_DOCTOR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm dir" "${NVM_DIR:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "nvm bin" "${NVM_BIN:-ERROR}"
@@ -310,25 +330,14 @@ printf '**********\n%-20s: %s \n\n' "user" "${USER:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "tkn" "${TKN_VERSION:-ERROR}"
 printf '**********\n%-20s: %s \n\n' "yq" "${YQ_VERSION:-ERROR}"
 
+check_installed_tools
+
+echo "${EXIT_MESSAGE:-NO ERRORS}"
+echo
 echo ===== RESULTS END =====
-
 echo
-echo
-
-echo Run the following to apply the changes to the current terminal:
-echo 'source ~/.zshrc'
-
-echo
-echo
-
 echo "If the output above contains ANY error (other than 'error: You must be logged in to the server'...), run 'source ~/.zshrc' and run this script again."
 echo If errors persist, post them to the slack channel
-
 echo
-
 echo If there are no errors, post the above RESULTS to the slack channel.
 echo
-echo
-
-echo "Next, run the following commands and post the output to the slack channel"
-echo 'tkn version'
