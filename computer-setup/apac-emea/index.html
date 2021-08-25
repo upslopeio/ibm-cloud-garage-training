@@ -751,6 +751,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prepare-accounts" class="md-nav__link">
+    Prepare accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accept-the-team-invitation" class="md-nav__link">
+    Accept the team invitation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     Windows
   </a>
@@ -781,6 +795,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-to-github-with-ssh" class="md-nav__link">
+    Connect to GitHub with SSH
+  </a>
   
 </li>
       
@@ -841,6 +862,19 @@
                 
                 <h1 id="computer-setup">Computer Setup</h1>
 <p>Follow the instructions on this page, in order from top to bottom.</p>
+<h2 id="prepare-accounts">Prepare accounts</h2>
+<p>You will need an account at each of the following services. </p>
+<ul>
+<li><a href="https://www.github.com">GitHub</a> <ul>
+<li>post your GitHub username in the Slack channel once you are done</li>
+</ul>
+</li>
+<li><a href="https://www.quay.io">Quay Container Registry</a></li>
+<li><a href="https://www.trello.com">Trello</a>  (Login with your IBM W3ID)</li>
+</ul>
+<h2 id="accept-the-team-invitation">Accept the team invitation</h2>
+<p>After you post your GitHub username in slack, the instructors will invite you to the team. The invite is not automatic.</p>
+<p>After the invitation is sent, you can accept the team invitation by visiting <a href="https://github.com/cloud-native-garage-method-cohort">https://github.com/cloud-native-garage-method-cohort</a></p>
 <h2 id="windows">Windows</h2>
 <p>Complete <a href="windows/">Windows setup</a> instructions and then continue at the "Automatic Install Script" section on the Ubuntu side.</p>
 <h2 id="mac-and-linux">Mac and Linux</h2>
@@ -849,18 +883,13 @@
 <p>Execute the following script in your terminal:</p>
 <div class="highlight"><pre><span></span><code>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
-<p>It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a healthy setup should complete within a few seconds, and you will essentially just see the results.</p>
+<p>It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed  will complete very quickly, and you will see: <code>You can move on to the next setup step!</code>.</p>
 <p>If you see any error or experience any problems, have a look at the <a href="#common-issues">Common Issues</a> section below.</p>
 <p>When you are done, post the logged results in the Slack channel thread for the instructor to inspect. <a href="results-example.log">Here</a> you can find a (rather healthy) example of the results to post. Post the result in any case – even if your output has errors.</p>
 <p>Then, continue with <a href="#get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</a>.</p>
 <h4 id="common-issues">Common Issues</h4>
 <p><strong>IMPORTANT:</strong> Run the setup script again after executing any of the below actions.</p>
 <ul>
-<li><strong>script doesn't produce any output</strong><ul>
-<li>configure git email globally: <code>git config --global user.email &lt;your-github.com-email&gt;</code></li>
-<li>configure git name globally: <code>git config --global user.name &lt;Your Full Name&gt;</code></li>
-</ul>
-</li>
 <li><strong>command not found error</strong><ul>
 <li>run setup script again (multiple times if necessary)</li>
 </ul>
@@ -874,22 +903,20 @@
 <li>confirm privileged access</li>
 </ul>
 </li>
-<li><strong>brew include errors</strong><ul>
-<li>delete problematic files: <code>rm -rf /usr/local/include</code></li>
-</ul>
-</li>
 <li><strong>nvm: command not found</strong><ul>
-<li>install oh-my-zsh: <code>sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></li>
+<li>install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash</code></li>
 <li>restart the terminal</li>
 </ul>
 </li>
 </ul>
+<h2 id="connect-to-github-with-ssh">Connect to GitHub with SSH</h2>
+<p>Follow the instructions for <a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting to GitHub with SSH</a></p>
 <h2 id="get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</h2>
 <ol>
-<li>Accept your invitation to the "DTETECH" account (in your email)
+<li>Accept your invitation to the <code>DTEV2</code>, <code>DTETECH</code> or <code>DTESQUAD</code> account (in your email)
    <img alt="" src="../img/invitation.png" /></li>
 <li>Log into <a href="https://cloud.ibm.com">https://cloud.ibm.com</a> with your IBM email address</li>
-<li>‼️ Make sure that "DTETECH" is selected from the account menu (see below)</li>
+<li>‼️ Make sure that <code>DTEV2</code>, <code>DTETECH</code> or <code>DTESQUAD</code> is selected from the account menu (See below)</li>
 <li>Click on Manage &gt; Access (IAM)</li>
 <li>Under "My IBM Cloud API keys" click "View all"</li>
 <li>Click "Create an IBM Cloud API key"</li>
@@ -914,14 +941,14 @@
 <p>If you don't, it could be because:</p>
 <ol>
 <li>It's before class started, and we haven't created it yet</li>
-<li>You created your API key in the wrong account (your personal account, as opposed to DTETECH)</li>
+<li>You created your API key in the wrong account (your personal account, as opposed to <code>DTEV2</code>, <code>DTETECH</code> or <code>DTESQUAD</code>)</li>
 <li>You have not been granted access to the cluster - contact your instructor</li>
 </ol>
 <h2 id="access-the-openshift-cluster">Access the OpenShift Cluster</h2>
 <p>In order to login to the cluster from the command line, you must first log in on the website.</p>
 <ol>
 <li>Log into <a href="https://cloud.ibm.com">https://cloud.ibm.com</a> with your IBM email address</li>
-<li>Make sure that "DTETECH" is selected from the account menu</li>
+<li>Make sure that <code>DTEV2</code>, <code>DTETECH</code> or <code>DTESQUAD</code> is selected from the account menu</li>
 <li>Under "Resource Summary" click "Clusters"</li>
 <li>Click your cohort's cluster</li>
 <li>Click "OpenShift Web Console"</li>
