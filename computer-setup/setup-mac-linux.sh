@@ -96,12 +96,13 @@ else
     DOCKER_APP="/Applications/Docker.app"
     if [[ -e DOCKER_APP ]]; then
       echo Found Docker app
-      EXIT_MESSAGE="${EXIT_MESSAGE}\nFound ${DOCKER_APP}. Please start the Docker desktop app and confirm privileged access to install docker CLI"
-      EXIT_MESSAGE=start Docker to install
     else
       echo Installing docker
       brew install --cask docker
     fi
+    EXIT_MESSAGE="${EXIT_MESSAGE}\nPlease confirm privileged access for Docker to install the docker CLI"
+    echo Starting Docker app
+    open $DOCKER_APP
   else
     EXIT_MESSAGE="${EXIT_MESSAGE}\nPlease install and start the Docker desktop app and confirm privileged access to install the docker CLI"
   fi
