@@ -30,7 +30,7 @@ Follow the instructions below.
 Execute the following script in your terminal:
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/setup-mac-linux.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/apac-emea/setup-mac-linux.sh)"
 ```
 
 It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed  will complete very quickly, and you will see: `You can move on to the next setup step!`.
