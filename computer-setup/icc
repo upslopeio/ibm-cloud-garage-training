@@ -77,7 +77,7 @@ function add_account {
 function generate_config {
   ACCOUNT_NAMES="$2"
   if [[ -z "$2" ]]; then
-    ACCOUNT_NAMES=$(yq e -j '.accounts' "${ICC_HOME}/ibmcloud-account.yaml"| jq -r '. | keys | .[]')
+    ACCOUNT_NAMES=$(yq e -o=json '.accounts' "${ICC_HOME}/ibmcloud-account.yaml"| jq -r '. | keys | .[]')
     echo "Generate config for accounts: $(echo "${ACCOUNT_NAMES}" | paste -sd ',' -)"
   else
     echo "Generate config for account: $2"
@@ -147,7 +147,7 @@ function update_nickname {
   echo -e -n "Provide the new nickname for \033[33m${CLUSTER_ID}\033[0m: "
   read -r NICKNAME
 
-  CLUSTER_KEY=$(yq e -j '.clusters' "${CONFIG_FILE}"  | jq -r --arg CLUSTER_ID "${CLUSTER_ID}" '. | to_entries | .[] | . |= (.key = .key) + .value | del(.value) | select(.cluster == $CLUSTER_ID or .nickname == $CLUSTER_ID) | .key')
+  CLUSTER_KEY=$(yq e -o=json '.clusters' "${CONFIG_FILE}"  | jq -r --arg CLUSTER_ID "${CLUSTER_ID}" '. | to_entries | .[] | . |= (.key = .key) + .value | del(.value) | select(.cluster == $CLUSTER_ID or .nickname == $CLUSTER_ID) | .key')
 
   yq e -i ".clusters.${CLUSTER_KEY}.nickname = \"${NICKNAME}\"" "${ICC_HOME}/ibmcloud.yaml"
   echo "Nickname for ${CLUSTER_ID} updated to ${NICKNAME} in ${ICC_HOME}/ibmcloud.yaml"
@@ -191,7 +191,7 @@ if [[ -z "$1" ]] || [[ "$1" =~ ^- ]]; then
     update_nickname "${NICKNAME}"
   fi
 
-  IBMCLOUD_CONFIG=$(yq e -j ".clusters" "${CONFIG_FILE}" | jq '. | to_entries | sort_by(.value.account) | .[] | . |= (.key = .key) + .value | del(.value)')
+  IBMCLOUD_CONFIG=$(yq e -o=json ".clusters" "${CONFIG_FILE}" | jq '. | to_entries | sort_by(.value.account) | .[] | . |= (.key = .key) + .value | del(.value)')
 
   ACCOUNT_FILTER=".*"
   RG_FILTER=".*"
@@ -219,7 +219,7 @@ if [[ -z "$1" ]] || [[ "$1" =~ ^- ]]; then
   exit 0
 fi
 
-CLUSTER_RECORD=$(yq e -j '.clusters' "${CONFIG_FILE}"  | jq --arg CLUSTER_ID "${CLUSTER_ID}" '. | to_entries | .[] | . |= (.key = .key) + .value | del(.value) | select(.cluster == $CLUSTER_ID or .nickname == $CLUSTER_ID)' | yq e --prettyPrint -)
+CLUSTER_RECORD=$(yq e -o=json '.clusters' "${CONFIG_FILE}"  | jq --arg CLUSTER_ID "${CLUSTER_ID}" '. | to_entries | .[] | . |= (.key = .key) + .value | del(.value) | select(.cluster == $CLUSTER_ID or .nickname == $CLUSTER_ID)' | yq e --prettyPrint -)
 
 if [[ -z "${CLUSTER_RECORD}" ]]; then
   echo "Unable to find configuration for cluster: ${CLUSTER_ID}"
