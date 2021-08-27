@@ -164,14 +164,14 @@ if [[ $(code --list-extensions) == *ms-vsliveshare.vsliveshare* ]]; then
   echo Found Visual Studio Code Liveshare extension
 else
   echo Installing Visual Studio Code Liveshare extension
-  sh -c "$(code --install-extension ms-vsliveshare.vsliveshare)"
+  code --install-extension ms-vsliveshare.vsliveshare
 fi
 
 if [[ $(code --list-extensions) == *redhat.vscode-yaml* ]]; then
   echo Found Visual Studio Code redhat.vscode-yaml extension
 else
   echo Installing Visual Studio Code redhat.vscode-yaml extension
-  sh -c "$(code --install-extension redhat.vscode-yaml)"
+  code --install-extension redhat.vscode-yaml
 fi
 
 if command -v ibmcloud &>/dev/null; then
@@ -180,9 +180,9 @@ if command -v ibmcloud &>/dev/null; then
 else
   echo Installing ibmcloud
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx | sh)"
+    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx)"
   else
-    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/linux | sh)"
+    sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/linux)"
   fi
 fi
 
@@ -193,6 +193,10 @@ else
   echo Installing container-service plugin
   ibmcloud plugin install container-service -f
 fi
+
+touch "$HOME/.zshrc"
+
+export NVM_DIR="$HOME/.nvm"
 
 if [ -f "$NVM_DIR/nvm.sh" ]; then
     echo found nvm
@@ -214,7 +218,7 @@ else
   npm install -g --silent @ibmgaragecloud/cloud-native-toolkit-cli
 fi
 
-ICC_CLI="${HOME}/.local/bin/icc"
+ICC_CLI="$HOME/.local/bin/icc"
 ICC_URL="https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/icc"
 
 if [ -f "${ICC_CLI}" ]; then
@@ -260,7 +264,7 @@ fi
 
 set +e
 
-source "${HOME}/.zshrc"
+source "$HOME/.zshrc"
 
 echo
 echo Collecting results....
