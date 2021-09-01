@@ -1137,12 +1137,18 @@
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;time&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <h3 id="testing-date-pickers">Testing Date Pickers</h3>
-<p>The format of the date pickers is important when testing. Here are two examples:</p>
+<p>The format of the date pickers is important when testing.:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// NOTE the format is YYYY-mm-dd</span>
 <span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">dateField</span><span class="p">,</span> <span class="err">‘</span><span class="mf">2021</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mf">29</span><span class="err">’</span><span class="p">);</span>
-
-<span class="c1">// NOTE the format is HH:MM - with no seconds</span>
-<span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">timeField</span><span class="p">,</span> <span class="err">‘</span><span class="mo">02</span><span class="o">:</span><span class="mf">12</span><span class="err">’</span><span class="p">);</span>
+</code></pre></div>
+<p>The format of the time pickers is also important when testing.</p>
+<ol>
+<li>You must use 24-hour format (so 1:00pm is <code>1300</code>)</li>
+<li>You may not use seconds (JSDom doesn't support seconds in timepickers)</li>
+<li>The colon character <code>:</code> is optional</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">timeField</span><span class="p">,</span> <span class="err">‘</span><span class="mo">02</span><span class="o">:</span><span class="mf">12</span><span class="err">’</span><span class="p">);</span>
+<span class="nx">userEvent</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">timeField</span><span class="p">,</span> <span class="err">‘</span><span class="mo">0212</span><span class="err">’</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="date-time-formatting">Date / Time Formatting</h2>
 <p>Here are two handy functions you might want for formatting dates and times:</p>
