@@ -177,14 +177,22 @@ To add a Time Picker, use this HTML:
 
 ### Testing Date Pickers
 
-The format of the date pickers is important when testing. Here are two examples:
+The format of the date pickers is important when testing.:
 
 ```js
 // NOTE the format is YYYY-mm-dd
 userEvent.type(dateField, ‘2021-06-29’);
+```
 
-// NOTE the format is HH:MM - with no seconds
+The format of the time pickers is also important when testing.
+
+1. You must use 24-hour format (so 1:00pm is `1300`)
+1. You may not use seconds (JSDom doesn't support seconds in timepickers)
+1. The colon character `:` is optional
+
+```js
 userEvent.type(timeField, ‘02:12’);
+userEvent.type(timeField, ‘0212’);
 ```
 
 ## Date / Time Formatting
