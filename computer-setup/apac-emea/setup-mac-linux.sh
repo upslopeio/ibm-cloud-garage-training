@@ -85,6 +85,29 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     echo Installing Visual Studio Code
     brew install --cask visual-studio-code
   fi
+
+  CODE_CLI="/usr/local/bin/code"
+
+  if [ -f "${CODE_CLI}" ]; then
+    echo Found Visual Studio Code CLI
+  else
+    echo Installing Visual Studio Code CLI
+    ln -s "$CODE_APP/Contents/Resources/app/bin/code" $CODE_CLI
+  fi
+
+  if [[ $(code --list-extensions) == *ms-vsliveshare.vsliveshare* ]]; then
+    echo Found Visual Studio Code Liveshare extension
+  else
+    echo Installing Visual Studio Code Liveshare extension
+    code --install-extension ms-vsliveshare.vsliveshare
+  fi
+
+  if [[ $(code --list-extensions) == *redhat.vscode-yaml* ]]; then
+    echo Found Visual Studio Code redhat.vscode-yaml extension
+  else
+    echo Installing Visual Studio Code redhat.vscode-yaml extension
+    code --install-extension redhat.vscode-yaml
+  fi
 else
    EXIT_MESSAGE="${EXIT_MESSAGE}\nPlease install Visual Studio Code and then install the CLI. See https://code.visualstudio.com/docs/setup/setup-overview "
 fi
@@ -149,29 +172,6 @@ if command -v tkn &>/dev/null; then
 else
   echo Installing tektoncd-cli
   brew install tektoncd-cli
-fi
-
-CODE_CLI="/usr/local/bin/code"
-
-if [ -f "${CODE_CLI}" ]; then
-  echo Found Visual Studio Code CLI
-else
-  echo Installing Visual Studio Code CLI
-  ln -s "$CODE_APP/Contents/Resources/app/bin/code" $CODE_CLI
-fi
-
-if [[ $(code --list-extensions) == *ms-vsliveshare.vsliveshare* ]]; then
-  echo Found Visual Studio Code Liveshare extension
-else
-  echo Installing Visual Studio Code Liveshare extension
-  code --install-extension ms-vsliveshare.vsliveshare
-fi
-
-if [[ $(code --list-extensions) == *redhat.vscode-yaml* ]]; then
-  echo Found Visual Studio Code redhat.vscode-yaml extension
-else
-  echo Installing Visual Studio Code redhat.vscode-yaml extension
-  code --install-extension redhat.vscode-yaml
 fi
 
 if command -v ibmcloud &>/dev/null; then
