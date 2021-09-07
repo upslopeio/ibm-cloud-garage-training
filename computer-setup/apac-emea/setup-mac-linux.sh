@@ -273,76 +273,72 @@ fi
 
 set +e
 
-source "$HOME/.zshrc"
+function print_debug_info {
+  echo
+  echo Collecting debug info....
+  echo
 
-echo
-echo Collecting results....
-echo
+  SLACK_VERSION="Unknown"
+  CODE_VERSION="Unknown"
 
-SLACK_VERSION="Unknown"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    SLACK_VERSION=$(defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString)
+    CODE_VERSION=$(code --version 2>&1)
+  fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  git config --global credential.helper osxkeychain
-  SLACK_VERSION=$(defaults read /Applications/Slack.app/Contents/Info.plist CFBundleShortVersionString)
-fi
+  BREW_VERSION=$(brew --version 2>&1)
+  DOCKER_VERSION=$(docker version 2>&1)
+  GIT_VERSION=$(git --version 2>&1)
+  GIT_CONFIG=$(git config --global --list 2>&1)
+  IBM_CLOUD_VERSION=$(ibmcloud --version 2>&1)
+  IBM_CLOUD_PLUGINS=$(ibmcloud plugin list 2>&1)
+  IGC_VERSION=$(igc --version 2>&1)
+  JQ_VERSION=$(jq --version 2>&1)
+  KUBECTL_VERSION=$(kubectl version 2>&1)
+  KUSTOMIZE_VERSION=$(kustomize version 2>&1)
+  NODE_VERSION=$(node --version 2>&1)
+  NPM_VERSION=$(npm --version 2>&1)
+  NVM_VERSION=$(nvm --version 2>&1)
+  OC_VERSION=$(oc version 2>&1)
+  OC_PLUGINS=$(oc plugin list 2>&1)
+  YQ_VERSION=$(yq --version 2>&1)
+  TKN_VERSION=$(tkn version)
 
-CODE_VERSION="Unknown"
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  CODE_VERSION=$(code --version 2>&1)
-fi
-
-BREW_VERSION=$(brew --version 2>&1)
-DOCKER_VERSION=$(docker version 2>&1)
-GIT_VERSION=$(git --version 2>&1)
-GIT_CONFIG=$(git config --global --list 2>&1)
-IBM_CLOUD_VERSION=$(ibmcloud --version 2>&1)
-IBM_CLOUD_PLUGINS=$(ibmcloud plugin list 2>&1)
-IGC_VERSION=$(igc --version 2>&1)
-JQ_VERSION=$(jq --version 2>&1)
-KUBECTL_VERSION=$(kubectl version 2>&1)
-KUSTOMIZE_VERSION=$(kustomize version 2>&1)
-NODE_VERSION=$(node --version 2>&1)
-NPM_VERSION=$(npm --version 2>&1)
-NVM_VERSION=$(nvm --version 2>&1)
-OC_VERSION=$(oc version 2>&1)
-OC_PLUGINS=$(oc plugin list 2>&1)
-YQ_VERSION=$(yq --version 2>&1)
-
-# The following commands return "cannot execute binary file" for some reason
-#"$(tkn version)"
-TKN_VERSION=$(which tkn 2>&1)
+  printf '**********\n%-20s: %s \n\n' "OS" "${OSTYPE:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "docker" "${DOCKER_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "git" "${GIT_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "git config" "${GIT_CONFIG:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "HOME" "${HOME:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "ibmcloud" "${IBM_CLOUD_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "ibmcloud plugins" "${IBM_CLOUD_PLUGINS:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "icc" "$(which icc)"
+  printf '**********\n%-20s: %s \n\n' "igc" "${IGC_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "jq" "${JQ_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "nvm dir" "${NVM_DIR:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "nvm bin" "${NVM_BIN:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "oc" "${OC_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "oc plugin list" "${OC_PLUGINS:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "path" "${PATH:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "shell" "${SHELL:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "slack" "${SLACK_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "user" "${USER:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "tkn" "${TKN_VERSION:-ERROR}"
+  printf '**********\n%-20s: %s \n\n' "yq" "${YQ_VERSION:-ERROR}"
+}
 
 echo ===== RESULTS: post the following to the slack channel =====
 echo
 
-printf '**********\n%-20s: %s \n\n' "OS" "${OSTYPE:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "brew" "${BREW_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "code" "${CODE_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "docker" "${DOCKER_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "git" "${GIT_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "git config" "${GIT_CONFIG:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "HOME" "${HOME:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "ibmcloud" "${IBM_CLOUD_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "ibmcloud plugins" "${IBM_CLOUD_PLUGINS:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "icc" "$(which icc)"
-printf '**********\n%-20s: %s \n\n' "igc" "${IGC_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "jq" "${JQ_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "kubectl" "${KUBECTL_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "kustomize" "${KUSTOMIZE_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "node" "${NODE_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "npm" "${NPM_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "nvm" "${NVM_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "nvm dir" "${NVM_DIR:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "nvm bin" "${NVM_BIN:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "oc" "${OC_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "oc plugin list" "${OC_PLUGINS:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "path" "${PATH:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "shell" "${SHELL:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "slack" "${SLACK_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "user" "${USER:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "tkn" "${TKN_VERSION:-ERROR}"
-printf '**********\n%-20s: %s \n\n' "yq" "${YQ_VERSION:-ERROR}"
+if [[ "$1" =~ --debug ]]; then
+  print_debug_info
+fi
 
 check_installed_tools
 
@@ -350,8 +346,9 @@ echo "${EXIT_MESSAGE:-NO ERRORS}"
 echo
 echo ===== RESULTS END =====
 echo
-echo "If the output above contains ANY error (other than 'error: You must be logged in to the server'...), run 'source ~/.zshrc' and run this script again."
+echo "If the output above contains ANY error (other than 'error: You must be logged in to the server'...), run 'source $HOME/.zshrc' and run this script again."
 echo If errors persist, post them to the slack channel
 echo
 echo If there are no errors, post the above RESULTS to the slack channel.
 echo
+echo Finally, close this terminal and open a new one before continuing.
