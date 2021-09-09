@@ -51,7 +51,7 @@ oc port-forward service/<service name> 8080:80
 ## Login
 
 1. Find the cluster in IBM cloud
-   1. Need to make sure you are in DTEV2
+   1. Need to make sure you are in ITZ-V2
 1. Click "OpenShift Web Console"
    1. If there's an error - refresh the page, try again
 1. Click on your name
