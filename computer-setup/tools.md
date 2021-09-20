@@ -12,7 +12,7 @@
 | `oc`                 | OpenShift CLI - everything kubectl has plus OpenShift-specific commands                                 |
 | `igc`                | IBM Garage CLI - https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli                           |
 | `icc`                | Allows you to quickly login to clusters (and switch between them)                                       |
-| `yq` / `jq`        | Command-line utitilies for managing JSON and YAML files (required by `icc`)                             |
+| `yq` / `jq`          | Command-line utitilies for managing JSON and YAML files (required by `icc`)                             |
 | `code`               | Visual Studio Code CLI - allows you to launch VSCode from the command line                              |
 | `docker`             | A container runtime - allows you to build docker images and run containers                              |
 | `ibmcloud`           | The IBM Cloud CLI - allows you to login to IBM cloud to access your clusters (required by `icc`)        |
