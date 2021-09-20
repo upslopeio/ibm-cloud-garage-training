@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/computer-setup/apac-emea/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.7">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.8">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3c7cdd75.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.92558b1b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -889,15 +889,44 @@
 <p>Then, continue with <a href="#get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</a>.</p>
 <h4 id="common-issues">Common Issues</h4>
 <p><strong>IMPORTANT:</strong> Run the setup script again after executing any of the below actions.</p>
-<p>| Error Message                                                                                                        | Solution                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| You did not receive the invite for the cloud                                                                         | Login to cloud.ibm.com and see if you have the course cluster listed in the resource summary section of the dashboard (the course cluster will be posted in Slack). If you do not have an invite and cannot access the cluster, post a message in the slack channel. |
-| sh: ##: [[: not found                                                                                                | There is a bug in the setup script. Report the error in the slack channel and run the script again (multiple times if necessary), it will repair itself.                                                                                                             |
-| command not found: icc                                                                                               | <code>~/.local/bin</code> is not in the path. Make sure <code>export PATH="${HOME}/.local/bin:${PATH}"</code> is in <code>~/.zshrrc</code> and <code>~/.local/bin</code> contains <code>icc</code>, if not run the setup script again.                                                                                      |
-| WARNING: version difference between client (1.XX) and server (1.XX) exceeds the supported minor version skew of +/-1 | This warning does not need to be resolved for this course. Upgrading the cluster to a newer version of kubernetes will resolve the warning.                                                                                                                          |
-| docker deamon connect error                                                                                          | Start the Docker desktop app                                                                                                                                                                                                                                         |
-| docker command not found                                                                                             | Start Docker desktop app and then confirm privileged access                                                                                                                                                                                                          |
-| nvm: command not found                                                                                               | Install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash</code> then restart the terminal |</p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You did not receive the invite for the cloud</td>
+<td>Login to cloud.ibm.com and see if you have the course cluster listed in the resource summary section of the dashboard (the course cluster will be posted in Slack). If you do not have an invite and cannot access the cluster, post a message in the slack channel.</td>
+</tr>
+<tr>
+<td>sh: ##: [[: not found</td>
+<td>There is a bug in the setup script. Report the error in the slack channel and run the script again (multiple times if necessary), it will repair itself.</td>
+</tr>
+<tr>
+<td>command not found: icc</td>
+<td><code>~/.local/bin</code> is not in the path. Make sure <code>export PATH="${HOME}/.local/bin:${PATH}"</code> is in <code>~/.zshrrc</code> and <code>~/.local/bin</code> contains <code>icc</code>, if not run the setup script again.</td>
+</tr>
+<tr>
+<td>WARNING: version difference between client (1.XX) and server (1.XX) exceeds the supported minor version skew of +/-1</td>
+<td>This warning does not need to be resolved for this course. Upgrading the cluster to a newer version of kubernetes will resolve the warning.</td>
+</tr>
+<tr>
+<td>docker deamon connect error</td>
+<td>Start the Docker desktop app</td>
+</tr>
+<tr>
+<td>docker command not found</td>
+<td>Start Docker desktop app and then confirm privileged access</td>
+</tr>
+<tr>
+<td>nvm: command not found</td>
+<td>Install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash</code> then restart the terminal</td>
+</tr>
+</tbody>
+</table>
 <h2 id="connect-to-github-with-ssh">Connect to GitHub with SSH</h2>
 <p>Follow the instructions for <a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting to GitHub with SSH</a></p>
 <h2 id="get-an-ibm-cloud-api-key">Get an IBM Cloud API Key</h2>
