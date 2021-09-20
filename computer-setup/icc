@@ -50,11 +50,6 @@ function print_help {
   exit 0
 }
 
-if ! command -v yq 1> /dev/null 2> /dev/null || [[ ! "$(yq --version)" =~ yq.version.4.* ]]; then
-  echo "yq v4 not found. Follow these instructions to install it - https://mikefarah.gitbook.io/yq/#install"
-  exit 1
-fi
-
 function add_account {
   ACCOUNT_NAME="$1"
   if [[ -z "${ACCOUNT_NAME}" ]]; then
