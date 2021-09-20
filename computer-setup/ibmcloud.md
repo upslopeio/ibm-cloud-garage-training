@@ -47,9 +47,7 @@ ibmcloud plugin install container-service
 ## Install required dependencies
 
 ```bash
-brew install yq@3
-echo "export PATH=\"$(brew --prefix yq@3)/bin:\$PATH\"" >> ~/.zshrc
-source ~/.zshrc
+brew install yq
 brew install jq
 ```
 

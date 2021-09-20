@@ -65,12 +65,12 @@ Add a file named `index.html` with the following contents:
 
 ```html
 <html>
-    <head>
-        <title>Static Site</title>
-    </head>
-    <body>
-        <h1>My Static Site</h1>
-    </body>
+  <head>
+    <title>Static Site</title>
+  </head>
+  <body>
+    <h1>My Static Site</h1>
+  </body>
 </html>
 ```
 

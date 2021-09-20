@@ -203,7 +203,8 @@ Here are two handy functions you might want for formatting dates and times:
 
 ```js
 function formatDate(date, time) {
-  const utcSeconds = new Date(...`${date} ${time}`.split(/[- :]/)).getTime() / 1000;
+  const utcSeconds =
+    new Date(...`${date} ${time}`.split(/[- :]/)).getTime() / 1000;
   const d = new Date(0);
   d.setUTCSeconds(utcSeconds);
   d.setMonth(d.getMonth() - 1);
@@ -211,7 +212,8 @@ function formatDate(date, time) {
 }
 
 function formatTime(date, time) {
-  const utcSeconds = new Date(...`${date} ${time}`.split(/[- :]/)).getTime() / 1000;
+  const utcSeconds =
+    new Date(...`${date} ${time}`.split(/[- :]/)).getTime() / 1000;
   const d = new Date(0);
   d.setUTCSeconds(utcSeconds);
   return d.toLocaleTimeString("en-US");

@@ -24,6 +24,7 @@
 - [Refactoring: Improving the Design of Existing Code (2nd Edition)](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599/ref=dp_ob_title_bk)
 
 ## Websites
+
 - [The App Continuum](https://www.appcontinuum.io/) (and the [deck](https://deck.appcontinuum.io/))
 
 ## Non-Technical

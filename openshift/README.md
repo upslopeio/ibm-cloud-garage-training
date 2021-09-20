@@ -26,7 +26,7 @@ code .
 
 ### Create the OpenShift Project
 
-Make sure you are logged into the cluster, either with `icc` or via `Copy Login Command`. 
+Make sure you are logged into the cluster, either with `icc` or via `Copy Login Command`.
 
 Then run the following command, replacing `<NAME>` with your name, all lowercase, no spaces:
 
@@ -80,10 +80,10 @@ spec:
         app: static-site
     spec:
       containers:
-      - name: static-site
-        image: quay.io/<USERNAME>/static-site:v1
-        ports:
-        - containerPort: 8080
+        - name: static-site
+          image: quay.io/<USERNAME>/static-site:v1
+          ports:
+            - containerPort: 8080
 ```
 
 **Apply the file**

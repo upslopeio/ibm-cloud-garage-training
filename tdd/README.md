@@ -4,7 +4,7 @@ From Extreme Programming:
 
 We know that testing code helps produce higher quality code (code with fewer bugs). So let's take it to the _extreme_ and write the tests **first**.
 
-Writing tests is a technical skill. 
+Writing tests is a technical skill.
 
 Test-Driven Development is a set of **behaviors** that, when followed, increase the value of tests even more.
 
@@ -47,10 +47,10 @@ test("convert returns 0 when passed 32", () => {});
 
 Tests have the following parts:
 
-* **S**etup
-* **E**xecution
-* **A**ssertion
-* (optional) **T**eardown
+- **S**etup
+- **E**xecution
+- **A**ssertion
+- (optional) **T**eardown
 
 You can remember this with the acronym SEA (or SEAT).
 
@@ -87,7 +87,6 @@ Import the function in the test file and make it green (add this as the first li
 
 ```js
 import convert from "./convert";
-
 ```
 
 Rinse and repeat until you've written enough tests, and you've written a real implementation.

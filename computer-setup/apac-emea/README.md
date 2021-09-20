@@ -4,12 +4,12 @@ Follow the instructions on this page, in order from top to bottom.
 
 ## Prepare accounts
 
-You will need an account at each of the following services. 
+You will need an account at each of the following services.
 
-- [GitHub](https://www.github.com) 
+- [GitHub](https://www.github.com)
   - post your GitHub username in the Slack channel once you are done
 - [Quay Container Registry](https://www.quay.io)
-- [Trello](https://www.trello.com)  (Login with your IBM W3ID)
+- [Trello](https://www.trello.com) (Login with your IBM W3ID)
 
 ## Accept the team invitation
 
@@ -33,7 +33,7 @@ Execute the following script in your terminal:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/apac-emea/setup-mac-linux.sh)"
 ```
 
-It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed  will complete very quickly, and you will see: `You can move on to the next setup step!`.
+It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed will complete very quickly, and you will see: `You can move on to the next setup step!`.
 
 If you see any error or experience any problems, have a look at the [Common Issues](#common-issues) section below.
 
@@ -46,26 +46,26 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 **IMPORTANT:** Run the setup script again after executing any of the below actions.
 
 - **command not found error**
-   - run setup script again (multiple times if necessary)
+  - run setup script again (multiple times if necessary)
 - **docker deamon connect error**
-   - start Docker desktop app
+  - start Docker desktop app
 - **docker command not found**
-   - start Docker desktop app
-   - confirm privileged access
+  - start Docker desktop app
+  - confirm privileged access
 - **nvm: command not found**
-   - install nvm manually: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash`
-   - restart the terminal
-   
+  - install nvm manually: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash`
+  - restart the terminal
+
 ## Connect to GitHub with SSH
 
 Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 ## Get an IBM Cloud API Key
 
-1. Accept your invitation to the `ITZ-V2`, `DTETECH` or `DTESQUAD` account (in your email)
+1. Accept your invitation to the `ITZ - V2`, `ITZ - TECH` or `ITZ - SQUAD` account, this will arrive via email. (If you have not yet received an invitation via email, you may already have access to these accounts.)
    ![](../img/invitation.png)
 1. Log into https://cloud.ibm.com with your IBM email address
-1. ‼️ Make sure that `ITZ-V2`, `DTETECH` or `DTESQUAD` is selected from the account menu (See below)
+1. ‼️ Make sure that `ITZ - V2`, `ITZ - TECH` or `ITZ - SQUAD` is selected from the account menu (See below - if you are not sure which to use, ask on Slack.)
 1. Click on Manage > Access (IAM)
 1. Under "My IBM Cloud API keys" click "View all"
 1. Click "Create an IBM Cloud API key"
@@ -101,7 +101,7 @@ You should see your cohort's cluster in the list.
 If you don't, it could be because:
 
 1. It's before class started, and we haven't created it yet
-1. You created your API key in the wrong account (your personal account, as opposed to `ITZ-V2`, `DTETECH` or `DTESQUAD`)
+1. You created your API key in the wrong account (your personal account, as opposed to `ITZ - V2`, `ITZ - TECH` or `ITZ - SQUAD`)
 1. You have not been granted access to the cluster - contact your instructor
 
 ## Access the OpenShift Cluster
@@ -109,7 +109,7 @@ If you don't, it could be because:
 In order to login to the cluster from the command line, you must first log in on the website.
 
 1. Log into https://cloud.ibm.com with your IBM email address
-1. Make sure that `ITZ-V2`, `DTETECH` or `DTESQUAD` is selected from the account menu
+1. Make sure that `ITZ - V2`, `ITZ - TECH` or `ITZ - SQUAD` is selected from the account menu
 1. Under "Resource Summary" click "Clusters"
 1. Click your cohort's cluster
 1. Click "OpenShift Web Console"

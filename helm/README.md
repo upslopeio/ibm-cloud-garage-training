@@ -7,7 +7,7 @@ Helm is a package manager for Kubernetes. We use two of it's features:
 
 ## Charts
 
-Helm organizes configuration files into folders named Charts.  Charts have a few key files:
+Helm organizes configuration files into folders named Charts. Charts have a few key files:
 
 - **Chart.yaml** which contains metadata about the chart (name etc...)
 - **./templates folder** where the templates live
@@ -16,28 +16,28 @@ Helm organizes configuration files into folders named Charts.  Charts have a few
 
 ## Templates
 
-Instead of having YAML files, Helm uses YAML _templates_.  A Helm template file looks like this:
+Instead of having YAML files, Helm uses YAML _templates_. A Helm template file looks like this:
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "starter-kit.fullname" . }}
+  name: { { include "starter-kit.fullname" . } }
   labels:
-    app.kubernetes.io/name: {{ include "starter-kit.name" . }}
-    helm.sh/chart: {{ include "starter-kit.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app: {{ .Release.Name }}
+    app.kubernetes.io/name: { { include "starter-kit.name" . } }
+    helm.sh/chart: { { include "starter-kit.chart" . } }
+    app.kubernetes.io/instance: { { .Release.Name } }
+    app: { { .Release.Name } }
 spec:
-  type: {{ .Values.service.type }}
+  type: { { .Values.service.type } }
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.image.port }}
+    - port: { { .Values.service.port } }
+      targetPort: { { .Values.image.port } }
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "starter-kit.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/name: { { include "starter-kit.name" . } }
+    app.kubernetes.io/instance: { { .Release.Name } }
 ```
 
 Notice how it's like YAML, but with `{{ }}` placeholders.
@@ -55,7 +55,6 @@ image:
   tag: replace
   pullPolicy: IfNotPresent
   port: 8080
-
 # etc...
 ```
 
@@ -68,7 +67,6 @@ helm template <release-name> ./path/to/chart
 This will print YAML to the command line.
 
 ![](./img/template.drawio.svg)
-
 
 ## Requirements Files
 

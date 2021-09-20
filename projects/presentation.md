@@ -13,7 +13,7 @@ The four metrics are:
 
 ## Scenario
 
-You are building a new product that IBM can, one day, sell to its customers. You have just built a prototype and are about to test it. 
+You are building a new product that IBM can, one day, sell to its customers. You have just built a prototype and are about to test it.
 
 This is the playback where you (pretend to) explain the product and prototype to a broader audience in IBM.
 
@@ -23,9 +23,9 @@ Your presentation should:
 - include a demo of your software
 - not be just text (name your product and find a logo for it)
 - have an arc:
-    - what we did (built and shipped an app with these features...)
-    - what our (fake) users thought about it / how they use it in real life
-    - what we're planning next and why
+  - what we did (built and shipped an app with these features...)
+  - what our (fake) users thought about it / how they use it in real life
+  - what we're planning next and why
 - Use your **production** environment for the demo
 - It's OK to pretend you have users. Not OK to pretend your site does more than it does.
 

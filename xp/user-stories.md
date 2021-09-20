@@ -9,7 +9,7 @@ See here for a good guide on how to write user stories - INVEST: https://www.agi
 New functionality that the team will add to the site.
 
 - Is user-verifiable
-    - not "setup database" for example
+  - not "setup database" for example
 - Can include security, for example "Hank the hacker cannot view another user's profile."
 - Can include performance, for example "Mary can see the page load in under 200ms even when there are 200k people on the site."
 - Can include accessibility, for example "Barry can checkout efficiently using a text-only browser."
@@ -45,8 +45,8 @@ Stories generally go through the following states:
 - **Icebox** - an unprioritized list of ideas that may or may not happen
 - **Backlog** - a prioritized list of stories, chores and bugs
 - **In Progress** - stories currently being worked on
-    - There should be only one story per pair in progress at any given point
-    - Stories should be completed before moving onto another story (except in the case of things being temporarily blocked)
+  - There should be only one story per pair in progress at any given point
+  - Stories should be completed before moving onto another story (except in the case of things being temporarily blocked)
 - **Ready for Acceptance** - code is complete, and deployed to QA environment and ready for PO to review
 - **Accepted** - PO reviewed, ready to go to production
 - **Deployed to Production** - the story is live in the production environment

@@ -8,7 +8,7 @@ What do you need in order to be an effective programmer on a customer site?
 
 ## Algorithms and Data Structures
 
-You'll know you are at a decent level when you can **complete 6kyu [CodeWars](https://codewars.com) problems in under an hour without looking up reference documentation**. 
+You'll know you are at a decent level when you can **complete 6kyu [CodeWars](https://codewars.com) problems in under an hour without looking up reference documentation**.
 
 Complete 5 in a row to confirm this.
 

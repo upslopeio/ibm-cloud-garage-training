@@ -18,7 +18,7 @@ If possible:
 - Start with real customer / production data
 - Demo with live URLs
 - Encourage participants to try the site for themselves
-  - Show a QR code on a slide 
+  - Show a QR code on a slide
 - Show live analytics dashboards as opposed to screenshots
 
 When it's fake - people will engage in ["bike shedding"](https://en.wikipedia.org/wiki/Law_of_triviality). This leads to wasteful activities such as:

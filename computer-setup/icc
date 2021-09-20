@@ -33,20 +33,27 @@ function print_help {
   echo "  Logs into an IBM Cloud cluster"
   echo ""
   echo "Modes:"
-  echo "  cluster login   - $(basename "$0") {nickname}"
-  echo "  print config    - $(basename "$0") [--account {account name}] [--resourceGroup {resourceGroupName}]"
-  echo "  generate config - $(basename "$0") --generate [{account name}]"
-  echo "  update nickname - $(basename "$0") --nickname [{cluster name}]"
+  echo "  cluster login   - $(basename $0) {nickname}"
+  echo "  print config    - $(basename $0) [--account {account name}] [--resourceGroup {resourceGroupName}]"
+  echo "  add account     - $(basename $0) --add-account [{account name}]"
+  echo "  generate config - $(basename $0) --generate [{account name}]"
+  echo "  update nickname - $(basename $0) --nickname [{cluster name}]"
   echo ""
   echo "Args:"
   echo "  nickname - the cluster nickname"
   echo "  --account, -a - filter to print the config for the provided account"
   echo "  --resourceGroup, -g - filter to print the config for the provided resource group"
+  echo "  --add-account - flag to add a new account using a nickname and api key"
   echo "  --generate - flag to generate the config from the account, optionally restricted to {account name}. The --generate process appends to the existing configuration"
   echo "  --nickname - update the nickname for a cluster, optionally passing the cluster name after the flag"
   echo "  --help, -h - display help"
   exit 0
 }
+
+if ! command -v yq 1> /dev/null 2> /dev/null || [[ ! "$(yq --version)" =~ yq.version.4.* ]]; then
+  echo "yq v4 not found. Follow these instructions to install it - https://mikefarah.gitbook.io/yq/#install"
+  exit 1
+fi
 
 function add_account {
   ACCOUNT_NAME="$1"
@@ -77,8 +84,8 @@ function add_account {
 function generate_config {
   ACCOUNT_NAMES="$2"
   if [[ -z "$2" ]]; then
-    ACCOUNT_NAMES=$(yq e -o=json '.accounts' "${ICC_HOME}/ibmcloud-account.yaml"| jq -r '. | keys | .[]')
-    echo "Generate config for accounts: $(echo "${ACCOUNT_NAMES}" | paste -sd ',' -)"
+    ACCOUNT_NAMES=$(yq eval '.accounts | keys | .[]' ${ICC_HOME}/ibmcloud-account.yaml)
+    echo "Generate config for accounts: $(echo $ACCOUNT_NAMES | paste -sd ',' -)"
   else
     echo "Generate config for account: $2"
   fi
@@ -86,12 +93,13 @@ function generate_config {
   PROVIDERS="classic vpc-gen2 satellite"
 
   echo "${ACCOUNT_NAMES}" | while read -r ACCOUNT_NAME; do
-    QUERY=".accounts.${ACCOUNT_NAME}"
     if [[ -f ${ACCOUNT_FILE} ]]; then
-      APIKEY="$(yq e "${QUERY}" "${ACCOUNT_FILE}" )"
+      file="${ACCOUNT_FILE}"
     else
-      APIKEY="$(yq e "${QUERY}"  "${CONFIG_FILE}" )"
+      file="${CONFIG_FILE}"
     fi
+
+    APIKEY="$(ACCOUNT_NAME=$ACCOUNT_NAME yq e '.accounts[env(ACCOUNT_NAME)]' ${file})"
 
     if [[ -z "${APIKEY}" ]]; then
       echo "APIKEY not found in config: $ACCOUNT_NAME"
@@ -99,10 +107,9 @@ function generate_config {
     fi
 
     echo "  Logging in to account: ${ACCOUNT_NAME}"
-    ibmcloud login --no-region  --apikey "${APIKEY}" 1> /dev/null
-
-    if [[ ! -f "${1}" ]]; then
-      echo "clusters:" > "${1}"
+    ibmcloud login --no-region --apikey "${APIKEY}" 1> /dev/null
+    if [[ ! -f "$1" ]]; then
+      echo "clusters: {}" > "$1"
     fi
 
     for PROVIDER in ${PROVIDERS}; do
@@ -227,13 +234,13 @@ if [[ -z "${CLUSTER_RECORD}" ]]; then
   exit 1
 fi
 
-RESOURCE_GROUP="$(echo "${CLUSTER_RECORD}" | yq e '.resourceGroup' - )"
+RESOURCE_GROUP="$(echo "${CLUSTER_RECORD}" | yq e '.resourceGroup' -)"
 if [[ -z "${RESOURCE_GROUP}" ]]; then
   echo "Resource group not found in config"
   exit 1
 fi
 
-CLUSTER_NAME="$(echo "${CLUSTER_RECORD}" | yq e '.cluster' - )"
+CLUSTER_NAME="$(echo "${CLUSTER_RECORD}" | yq e '.cluster' -)"
 if [[ "${CLUSTER_NAME}" == "null" ]]; then
   CLUSTER_NAME="${RESOURCE_GROUP}-cluster"
 fi
@@ -250,16 +257,20 @@ fi
 
 ACCOUNT_NAME="$(echo "${CLUSTER_RECORD}" | yq e '.account' -)"
 
-SERVER_URL="$(echo "${CLUSTER_RECORD}" | yq e '.serverUrl' - )"
+SERVER_URL="$(echo "${CLUSTER_RECORD}" | yq e '.serverUrl' -)"
 
-CLUSTER_TYPE="$(echo "${CLUSTER_RECORD}" | yq e  '.clusterType' -)"
+CLUSTER_TYPE="$(echo "${CLUSTER_RECORD}" | yq e '.clusterType' -)"
+
+
+if [[ -f ${ACCOUNT_FILE} ]]; then
+  INPUT_FILE=$ACCOUNT_FILE
+else
+  INPUT_FILE=$CONFIG_FILE
+fi
 
 QUERY=".accounts.${ACCOUNT_NAME}"
-if [[ -f ${ACCOUNT_FILE} ]]; then
-  APIKEY="$(yq e "${QUERY}" "${ACCOUNT_FILE}" )"
-else
-  APIKEY="$(yq e "${QUERY}"  "${CONFIG_FILE}" )"
-fi
+
+APIKEY="$(yq e "${QUERY}" "${INPUT_FILE}")"
 
 if [[ -z "${APIKEY}" ]]; then
   echo "APIKEY not found in config"
