@@ -16,24 +16,44 @@ function check_installed_tools {
   INSTALLED=0;
   MISSING='';
 
-  for too in "${TOOLS[@]}"; do
-      if hash "$too" &>/dev/null
+  for tool in "${TOOLS[@]}"; do
+      if hash "$tool" &>/dev/null
       then
         ((INSTALLED++))
       else
-        MISSING="${MISSING} ${too}"
+        MISSING="${MISSING} ${tool}"
       fi
   done
 
   if [[ -z $MISSING ]]; then
-    echo "Found all the following tools: (${TOOLS[*]})"
-    echo "You can move on to the next setup step!"
+    EXIT_MESSAGE="${EXIT_MESSAGE}\nFound all the following tools: (${TOOLS[*]})"
+    EXIT_MESSAGE="${EXIT_MESSAGE}\nYou can move on to the next setup step!"
     return 0;
   fi
 
   printf "The following tools are missing: (%s )\n" "${MISSING[*]}";
   return 1;
 }
+
+function check_git_clone {
+  rm -rf ~/ibm-cloud-verify-git-clone
+
+  if git clone git@github.com:cloud-native-garage-method-cohort/verify-git-clone.git ~/ibm-cloud-verify-git-clone; then
+      echo git clone was successful
+      return 0
+  fi
+
+  if git clone https://github.com/cloud-native-garage-method-cohort/verify-git-clone.git ~/ibm-cloud-verify-git-clone; then
+      echo git clone was successful
+      return 0
+  fi
+
+  EXIT_MESSAGE="$EXIT_MESSAGE\nFailed to clone https://github.com/cloud-native-garage-method-cohort/verify-git-clone"
+  EXIT_MESSAGE="$EXIT_MESSAGE\nFirst, visit the following link to accepts your team invitation: https://github.com/cloud-native-garage-method-cohort"
+  EXIT_MESSAGE="$EXIT_MESSAGE\nthen make sure you can connect to GitHub via ssh by visiting the following link: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh"
+  return 1
+}
+
 
 EXISTING_EMAIL=$(git config --global user.email);
 read -rp "Please Enter your email address for git (${EXISTING_EMAIL}): " GIT_EMAIL
@@ -46,7 +66,7 @@ GIT_USER_NAME=${GIT_USER_NAME:-${EXISTING_USER_NAME}}
 
 set -e
 
-trap 'catch $? $LINENO' EXIT
+trap 'catch $? $LINENO' EXIT ERR
 
 catch() {
   if [ "$1" != "0" ]; then
@@ -67,7 +87,9 @@ if [ -z "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
 fi
 
 if check_installed_tools -eq 0; then
-  exit 0
+  check_git_clone;
+  echo -e "${EXIT_MESSAGE:-NO ERRORS}"
+  exit 0;
 fi
 
 if command -v brew >/dev/null; then
@@ -341,6 +363,8 @@ if [[ "$1" =~ --debug ]]; then
 fi
 
 check_installed_tools
+
+check_git_clone
 
 echo "${EXIT_MESSAGE:-NO ERRORS}"
 echo

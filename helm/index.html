@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://upslopeio.github.io/ibm-cloud-garage-training/helm/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.7">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3c7cdd75.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -861,7 +861,7 @@
 <li>Having charts that require other charts for Gitops</li>
 </ul>
 <h2 id="charts">Charts</h2>
-<p>Helm organizes configuration files into folders named Charts.  Charts have a few key files:</p>
+<p>Helm organizes configuration files into folders named Charts. Charts have a few key files:</p>
 <ul>
 <li><strong>Chart.yaml</strong> which contains metadata about the chart (name etc...)</li>
 <li><strong>./templates folder</strong> where the templates live</li>
@@ -869,26 +869,26 @@
 <li><strong>requirements.yaml</strong> - charts can depend on other charts. This file lists those dependencies</li>
 </ul>
 <h2 id="templates">Templates</h2>
-<p>Instead of having YAML files, Helm uses YAML <em>templates</em>.  A Helm template file looks like this:</p>
+<p>Instead of having YAML files, Helm uses YAML <em>templates</em>. A Helm template file looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.fullname&quot; .</span> <span class="p p-Indicator">}}</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">include &quot;starter-kit.fullname&quot; .</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
   <span class="nt">labels</span><span class="p">:</span>
-    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">helm.sh/chart</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.chart&quot; .</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">app</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
+    <span class="nt">helm.sh/chart</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">include &quot;starter-kit.chart&quot; .</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
+    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
 <span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.service.type</span> <span class="p p-Indicator">}}</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Values.service.type</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
   <span class="nt">ports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.service.port</span> <span class="p p-Indicator">}}</span>
-      <span class="nt">targetPort</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Values.image.port</span> <span class="p p-Indicator">}}</span>
+    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Values.service.port</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
+      <span class="nt">targetPort</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Values.image.port</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
       <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
   <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}}</span>
+    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">include &quot;starter-kit.name&quot; .</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
+    <span class="nt">app.kubernetes.io/instance</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="p p-Indicator">{</span> <span class="nv">.Release.Name</span> <span class="p p-Indicator">}</span> <span class="p p-Indicator">}</span>
 </code></pre></div>
 <p>Notice how it's like YAML, but with <code>{{ }}</code> placeholders.</p>
 <p>Then there's a file named <code>values.yaml</code>, which might look like this:</p>
@@ -902,7 +902,6 @@
   <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replace</span>
   <span class="nt">pullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
   <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-
 <span class="c1"># etc...</span>
 </code></pre></div>
 <p>Helm can generate Kubernetes YAML files by rendering the template using the values from <code>values.yaml</code> like so:</p>
@@ -1000,10 +999,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.94ec81fe.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../assets/javascripts/bundle.48dfec6c.min.js"></script>
       
     
   </body>
