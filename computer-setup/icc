@@ -28,25 +28,25 @@ if [[ ! -f ${CONFIG_FILE} ]] && [[ ! "$1" =~ --generate ]] && [[ ! "$1" =~ --add
 fi
 
 function print_help {
-  echo "Usage: $(basename "$0") [nickname] [--account {ACCOUNT_FILTER}] [--resourceGroup {RG_FILTER}] [--generate [{ACCOUNT_FILTER}]] [--nickname [{cluster name}]]"
+  echo "Usage: $(basename "$0") [nickname] [--add-account] [--account {ACCOUNT_FILTER}] [--resourceGroup {RG_FILTER}] [--generate [{ACCOUNT_FILTER}]] [--nickname [{cluster name}]]"
   echo ""
   echo "  Logs into an IBM Cloud cluster"
   echo ""
   echo "Modes:"
-  echo "  cluster login   - $(basename $0) {nickname}"
-  echo "  print config    - $(basename $0) [--account {account name}] [--resourceGroup {resourceGroupName}]"
-  echo "  add account     - $(basename $0) --add-account [{account name}]"
-  echo "  generate config - $(basename $0) --generate [{account name}]"
-  echo "  update nickname - $(basename $0) --nickname [{cluster name}]"
+  echo "  add IBM Cloud API Key   - $(basename "$0") --add-account"
+  echo "  generate cluster config - $(basename "$0") --generate [{account name}]"
+  echo "  print cluster config    - $(basename "$0") [--account {account name}] [--resourceGroup {resourceGroupName}]"
+  echo "  login to cluster        - $(basename "$0") {nickname}"
+  echo "  update cluster nickname - $(basename "$0") --nickname [{cluster name}]"
   echo ""
   echo "Args:"
-  echo "  nickname - the cluster nickname"
-  echo "  --account, -a - filter to print the config for the provided account"
+  echo "  nickname            - the cluster nickname"
+  echo "  --account, -a       - filter to print the config for the provided account"
+  echo "  --add-account       - add a new named IBM Cloud API Key (the --add-account process appends to the existing account configuration)"
   echo "  --resourceGroup, -g - filter to print the config for the provided resource group"
-  echo "  --add-account - flag to add a new account using a nickname and api key"
-  echo "  --generate - flag to generate the config from the account, optionally restricted to {account name}. The --generate process appends to the existing configuration"
-  echo "  --nickname - update the nickname for a cluster, optionally passing the cluster name after the flag"
-  echo "  --help, -h - display help"
+  echo "  --generate          - flag to generate the config from the account, optionally restricted to {account name} (the --generate process appends to the existing configuration)"
+  echo "  --nickname          - update the nickname for a cluster, optionally passing the cluster name after the flag"
+  echo "  --help, -h          - display help"
   exit 0
 }
 
@@ -80,7 +80,7 @@ function generate_config {
   ACCOUNT_NAMES="$2"
   if [[ -z "$2" ]]; then
     ACCOUNT_NAMES=$(yq eval '.accounts | keys | .[]' ${ICC_HOME}/ibmcloud-account.yaml)
-    echo "Generate config for accounts: $(echo $ACCOUNT_NAMES | paste -sd ',' -)"
+    echo "Generate config for accounts: $(echo "${ACCOUNT_NAMES}" | paste -sd ',' -)"
   else
     echo "Generate config for account: $2"
   fi
