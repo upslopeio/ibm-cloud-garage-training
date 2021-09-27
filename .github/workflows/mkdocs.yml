@@ -18,7 +18,7 @@ jobs:
         run: pip install mkdocs
 
       - name: Install material theme
-        run: pip install mkdocs-material
+        run: pip install mkdocs-material==7.2.8
 
       - name: Install truly sane lists plugin
         run: pip install mdx_truly_sane_lists
