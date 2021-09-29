@@ -276,3 +276,69 @@ localStorage.setItem("participants", JSON.stringify(data));
 // retrieve an array of objects from localStorage
 const data = JSON.parse(localStorage.getItem("participants"));
 ```
+
+## Sharing Data Between Components (Props)
+
+Imagine you have a UI that looks like this:
+
+![](./img/props-ui.png)
+
+When you click a button in one component, it has to update a value in a different component.
+
+You can achieve this by:
+
+1. Maintaining state in the parent component
+1. Using props to pass the getter/setter of the state
+
+First add a prop to the function definition of the child component:
+
+```js
+// the prop here is named onUpdate
+CounterButton({onUpdate})
+```
+
+In this case `onUpdate` is a function. So in the component you can call the function:
+
+```jsx
+function CounterButton({onUpdate}) {
+  return (
+    <div className="inner">
+      CounterButton.js
+      <div>
+        <button onClick={() => onUpdate(counter => counter + 1)}>
+          Increase
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+Next, define the prop in the other child component that will read the value:
+
+```js
+function CounterDisplay({value}) {
+  return (
+    <div className="inner inner-2">
+      CounterDisplay.js
+      <div>{value}</div>
+    </div>
+  )
+}
+```
+
+Then, define the state in the parent component, and populate the props:
+
+```jsx
+function App() {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div className="outer">
+      App.js
+      <CounterButton onUpdate={setCounter} />
+      <CounterDisplay value={counter} />
+    </div>
+  );
+}
+```
