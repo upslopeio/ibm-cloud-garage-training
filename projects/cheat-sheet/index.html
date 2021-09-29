@@ -750,6 +750,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sharing-data-between-components-props" class="md-nav__link">
+    Sharing Data Between Components (Props)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -973,6 +980,13 @@
         <li class="md-nav__item">
   <a href="#working-with-localstorage" class="md-nav__link">
     Working with localStorage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharing-data-between-components-props" class="md-nav__link">
+    Sharing Data Between Components (Props)
   </a>
   
 </li>
@@ -1210,6 +1224,56 @@
 
 <span class="c1">// retrieve an array of objects from localStorage</span>
 <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;participants&quot;</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="sharing-data-between-components-props">Sharing Data Between Components (Props)</h2>
+<p>Imagine you have a UI that looks like this:</p>
+<p><img alt="" src="../img/props-ui.png" /></p>
+<p>When you click a button in one component, it has to update a value in a different component.</p>
+<p>You can achieve this by:</p>
+<ol>
+<li>Maintaining state in the parent component</li>
+<li>Using props to pass the getter/setter of the state</li>
+</ol>
+<p>First add a prop to the function definition of the child component:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// the prop here is named onUpdate</span>
+<span class="nx">CounterButton</span><span class="p">({</span><span class="nx">onUpdate</span><span class="p">})</span>
+</code></pre></div>
+<p>In this case <code>onUpdate</code> is a function. So in the component you can call the function:</p>
+<div class="highlight"><pre><span></span><code>function CounterButton({onUpdate}) {
+  return (
+    &lt;div className=&quot;inner&quot;&gt;
+      CounterButton.js
+      &lt;div&gt;
+        &lt;button onClick={() =&gt; onUpdate(counter =&gt; counter + 1)}&gt;
+          Increase
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre></div>
+<p>Next, define the prop in the other child component that will read the value:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">CounterDisplay</span><span class="p">({</span><span class="nx">value</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;inner inner-2&quot;</span><span class="o">&gt;</span>
+      <span class="nx">CounterDisplay</span><span class="p">.</span><span class="nx">js</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Then, define the state in the parent component, and populate the props:</p>
+<div class="highlight"><pre><span></span><code>function App() {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    &lt;div className=&quot;outer&quot;&gt;
+      App.js
+      &lt;CounterButton onUpdate={setCounter} /&gt;
+      &lt;CounterDisplay value={counter} /&gt;
+    &lt;/div&gt;
+  );
+}
 </code></pre></div>
                 
               
