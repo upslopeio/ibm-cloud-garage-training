@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-SSH_FILE_NAME=~/.ssh/id_upslope_garage
-
 if [[ "$OSTYPE" == "cygwin" ]]; then
   echo 'cygwin is not supported'
   exit 1
