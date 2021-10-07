@@ -219,8 +219,6 @@ function install_tools {
     echo Found icc
   else
     echo Installing icc
-    ICC_CLI="$HOME/.local/bin/icc"
-    ICC_URL="https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/icc"
     mkdir -p ~/.local/bin
     curl -sSL -o "${ICC_CLI}" "${ICC_URL}"
     chmod u+x "${ICC_CLI}"

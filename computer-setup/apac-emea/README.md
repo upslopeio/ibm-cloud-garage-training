@@ -19,7 +19,7 @@ After the invitation is sent, you can accept the team invitation by visiting <ht
 
 ## Windows
 
-Complete [Windows setup](./windows.md) instructions and then continue at the "Automatic Install Script" section on the Ubuntu side.
+Complete [Windows setup](./windows.md) instructions and then continue at the "Get an IBM Cloud API Key" section on the Ubuntu side.
 
 ## Mac and Linux
 
