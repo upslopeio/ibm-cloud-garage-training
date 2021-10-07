@@ -25,39 +25,6 @@ Complete [Windows setup](./windows.md) instructions and then continue at the "Au
 
 Follow the instructions below.
 
-## Automatic Install Script
-
-Execute the following script in your terminal:
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/apac-emea/setup-mac-linux.sh)"
-```
-
-It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed will complete very quickly, and you will see: `You can move on to the next setup step!`.
-
-If you see any error or experience any problems, have a look at the [Common Issues](#common-issues) section below.
-
-When you are done, post the logged results in the Slack channel thread for the instructor to inspect. [Here](results-example.log) you can find a (rather healthy) example of the results to post. Post the result in any case – even if your output has errors.
-
-Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
-
-#### Common Issues
-
-**IMPORTANT:** Run the setup script again after executing any of the below actions.
-
-| Error Message                                                                                                        | Solution                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| You did not receive the invite for the cloud                                                                         | Login to cloud.ibm.com and see if you have the course cluster listed in the resource summary section of the dashboard (the course cluster will be posted in Slack). If you do not have an invite and cannot access the cluster, post a message in the slack channel. |
-| sh: ##: [[: not found                                                                                                | There is a bug in the setup script. Report the error in the slack channel and run the script again (multiple times if necessary), it will repair itself.                                                                                                             |
-| command not found: icc                                                                                               | `~/.local/bin` is not in the path. Make sure `export PATH="${HOME}/.local/bin:${PATH}"` is in `~/.zshrrc` and `~/.local/bin` contains `icc`, if not run the setup script again.                                                                                      |
-| WARNING: version difference between client (1.XX) and server (1.XX) exceeds the supported minor version skew of +/-1 | This warning does not need to be resolved for this course. Upgrading the cluster to a newer version of kubernetes will resolve the warning.                                                                                                                          |
-| docker deamon connect error                                                                                          | Start the Docker desktop app                                                                                                                                                                                                                                         |
-| docker command not found                                                                                             | Start Docker desktop app and then confirm privileged access                                                                                                                                                                                                          |
-| nvm: command not found                                                                                               | Install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh &#124; bash</code> then restart the terminal                                                                                                                    |
-
-## Connect to GitHub with SSH
-
-Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 ## Get an IBM Cloud API Key
 
@@ -122,12 +89,45 @@ In order to login to the cluster from the command line, you must first log in on
 
 ![](../img/openshift-web-console.png)
 
-## Configure ICC - fast cluster switcher
+
+## Automatic Install Script
+
+Execute the following script in your terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/upslopeio/ibm-cloud-garage-training/main/computer-setup/apac-emea/setup-mac-linux.sh)"
+```
+
+It is safe to run this script multiple times. It will not re-install the tools if they are installed already. Running the script on a computer with all the tools already installed will complete very quickly, and you will see: `You can move on to the next setup step!`.
+
+If you see any error or experience any problems, have a look at the [Common Issues](#common-issues) section below.
+
+When you are done, post the logged results in the Slack channel thread for the instructor to inspect. [Here](results-example.log) you can find a (rather healthy) example of the results to post. Post the result in any case – even if your output has errors.
+
+Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
+
+#### Common Issues
+
+**IMPORTANT:** Run the setup script again after executing any of the below actions.
+
+| Error Message                                                                                                        | Solution                                                                                                                                                                                                                                                             |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| You did not receive the invite for the cloud                                                                         | Login to cloud.ibm.com and see if you have the course cluster listed in the resource summary section of the dashboard (the course cluster will be posted in Slack). If you do not have an invite and cannot access the cluster, post a message in the slack channel. |
+| sh: ##: [[: not found                                                                                                | There is a bug in the setup script. Report the error in the slack channel and run the script again (multiple times if necessary), it will repair itself.                                                                                                             |
+| command not found: icc                                                                                               | `~/.local/bin` is not in the path. Make sure `export PATH="${HOME}/.local/bin:${PATH}"` is in `~/.zshrrc` and `~/.local/bin` contains `icc`, if not run the setup script again.                                                                                      |
+| WARNING: version difference between client (1.XX) and server (1.XX) exceeds the supported minor version skew of +/-1 | This warning does not need to be resolved for this course. Upgrading the cluster to a newer version of kubernetes will resolve the warning.                                                                                                                          |
+| docker deamon connect error                                                                                          | Start the Docker desktop app, then run the script again                                                                                                                                                                                                                                         |
+| docker command not found                                                                                             | Start Docker desktop app, confirm privileged access, then run the script again                                                                                                                                                                                                        |
+| nvm: command not found                                                                                               | Install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh &#124; bash</code> then restart the terminal                                                                                                                    |
+| Failed to clone https://github.com/cloud-native-garage-method-cohort/verify-git-clone | Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) and run the script again. |
+| No clusters found |  Follow the instructions to [configure ICC](#configure-icc) and run the script again|
+
+### Configure ICC
 
 1. The automatic setup script downloads `icc` and saves it in `~/.local/bin`. Make sure it is there, if not, run the script again.
 1. Run `source ~/.zshrc` to update the path of the current terminal.
 1. Run `icc --add-account` - if icc is not found, run the script again and start over at step 1.
-1. name the account `garage`
+1. name the account `upslope-garage`
 1. Paste in the API key you generated above
 1. Run `icc --generate`
 
