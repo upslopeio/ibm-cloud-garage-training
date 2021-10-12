@@ -130,7 +130,8 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
    1. If no clusters are listed, run `rm ~/.local/ibmcloud-account.yaml`, then run the automatic setup script again. 
 4. Run `icc <cluster-name>`. You should not see an error message.
    1. Clusters are listed in `<cluster-name> - <account-nick-name>/<organization>/<custer-name>` format. e.g. if you see `itzroks-100000kr1k-4etfy6od - upslope-garage/dteroks/itzroks-100000kr1k-4etfy6od` then the cluster name is `itzroks-100000kr1k-4etfy6od`.
-5. Run `oc console` and you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).
+5. Make sure you are logged into `cloud.ibm.com` in your browser.
+6. Run `oc console` and you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).
 
 ## Visual Studio Code auto save
 
