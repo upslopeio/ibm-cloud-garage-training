@@ -815,8 +815,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-icc" class="md-nav__link">
-    Configure ICC
+  <a href="#verify-icc-configuration" class="md-nav__link">
+    Verify ICC configuration
   </a>
   
 </li>
@@ -975,18 +975,20 @@
 </tr>
 </tbody>
 </table>
-<h3 id="configure-icc">Configure ICC</h3>
+<h3 id="verify-icc-configuration">Verify ICC configuration</h3>
 <ol>
-<li>The automatic setup script downloads <code>icc</code> and saves it in <code>~/.local/bin</code>. Make sure it is there, if not, run the script again.</li>
 <li>Run <code>source ~/.zshrc</code> to update the path of the current terminal.</li>
-<li>Run <code>icc --add-account</code> - if icc is not found, run the script again and start over at step 1.</li>
-<li>name the account <code>upslope-garage</code></li>
-<li>Paste in the API key you generated above</li>
-<li>Run <code>icc --generate</code></li>
+<li>Run <code>icc --generate</code> in the terminal. </li>
+<li>Run <code>icc</code>. You should see at least one cluster listed (the cluster for your cohort). <ol>
+<li>If no clusters are listed, run <code>rm ~/.local/ibmcloud-account.yaml</code>, then run the automatic setup script again. </li>
 </ol>
-<p>When you run <code>icc</code> you should see at least one cluster listed (the cluster for your cohort).</p>
-<p>When you run <code>icc &lt;cluster name&gt;</code> you should not see an error message.</p>
-<p>When you run <code>oc console</code> you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).</p>
+</li>
+<li>Run <code>icc &lt;cluster-name&gt;</code>. You should not see an error message.<ol>
+<li>Clusters are listed in <code>&lt;cluster-name&gt; - &lt;account-nick-name&gt;/&lt;organization&gt;/&lt;custer-name&gt;</code> format. e.g. if you see <code>itzroks-100000kr1k-4etfy6od - upslope-garage/dteroks/itzroks-100000kr1k-4etfy6od</code> then the cluster name is <code>itzroks-100000kr1k-4etfy6od</code>.</li>
+</ol>
+</li>
+<li>Run <code>oc console</code> and you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).</li>
+</ol>
 <h2 id="visual-studio-code-auto-save">Visual Studio Code auto save</h2>
 <p><a href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save">Turn on auto save</a></p>
 <p><img alt="" src="../img/vscode-autosave.png" /></p>
