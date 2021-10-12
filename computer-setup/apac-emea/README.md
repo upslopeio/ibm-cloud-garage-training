@@ -120,7 +120,7 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 | docker command not found                                                                                             | Start Docker desktop app, confirm privileged access, then run the script again                                                                                                                                                                                                        |
 | nvm: command not found                                                                                               | Install nvm manually: <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh &#124; bash</code> then restart the terminal                                                                                                                    |
 | Failed to clone https://github.com/cloud-native-garage-method-cohort/verify-git-clone | Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) and run the script again. |
-| No clusters found |  Follow the instructions to [configure ICC](#configure-icc) and run the script again|
+| No clusters found |  Follow the instructions to [Verify ICC configuration](#verify-icc-configuration) and run the script again|
 
 ### Verify ICC configuration
 
