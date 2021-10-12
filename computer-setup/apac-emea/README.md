@@ -122,20 +122,15 @@ Then, continue with [Get an IBM Cloud API Key](#get-an-ibm-cloud-api-key).
 | Failed to clone https://github.com/cloud-native-garage-method-cohort/verify-git-clone | Follow the instructions for [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) and run the script again. |
 | No clusters found |  Follow the instructions to [configure ICC](#configure-icc) and run the script again|
 
-### Configure ICC
+### Verify ICC configuration
 
-1. The automatic setup script downloads `icc` and saves it in `~/.local/bin`. Make sure it is there, if not, run the script again.
 1. Run `source ~/.zshrc` to update the path of the current terminal.
-1. Run `icc --add-account` - if icc is not found, run the script again and start over at step 1.
-1. name the account `upslope-garage`
-1. Paste in the API key you generated above
-1. Run `icc --generate`
-
-When you run `icc` you should see at least one cluster listed (the cluster for your cohort).
-
-When you run `icc <cluster name>` you should not see an error message.
-
-When you run `oc console` you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).
+2. Run `icc --generate` in the terminal. 
+3. Run `icc`. You should see at least one cluster listed (the cluster for your cohort). 
+   1. If no clusters are listed, run `rm ~/.local/ibmcloud-account.yaml`, then run the automatic setup script again. 
+4. Run `icc <cluster-name>`. You should not see an error message.
+   1. Clusters are listed in `<cluster-name> - <account-nick-name>/<organization>/<custer-name>` format. e.g. if you see `itzroks-100000kr1k-4etfy6od - upslope-garage/dteroks/itzroks-100000kr1k-4etfy6od` then the cluster name is `itzroks-100000kr1k-4etfy6od`.
+5. Run `oc console` and you should see the OpenShift Web Console popping up in a new browser tab (this can take up to 10 seconds).
 
 ## Visual Studio Code auto save
 
