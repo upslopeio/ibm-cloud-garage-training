@@ -25,6 +25,8 @@ If you see output like `not found` then you need to install it:
 1. Visit https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli
 1. Follow the instructions for your operating system.
    > Tip: You can use the shell script in the second section instead of the installer option.
+   
+NOTE: On WSL2 for Windows use the command line installation `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
 ## Install the `ibmcloud` container plugin
 
